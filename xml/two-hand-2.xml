@@ -105,6 +105,7 @@
         <voice>1</voice>
         <type>half</type>
         <dot/>
+        <accidental>flat</accidental>
         <stem>up</stem>
         <staff>1</staff>
         </note>
@@ -120,6 +121,7 @@
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
+        <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
         </note>
@@ -150,6 +152,7 @@
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
+        <accidental>natural</accidental>
         <stem>down</stem>
         <staff>2</staff>
         </note>
@@ -176,6 +179,7 @@
         <duration>1</duration>
         <voice>1</voice>
         <type>eighth</type>
+        <accidental>flat-flat</accidental>
         <stem>up</stem>
         <staff>1</staff>
         </note>
@@ -194,6 +198,7 @@
         <duration>1</duration>
         <voice>1</voice>
         <type>eighth</type>
+        <accidental>natural</accidental>
         <stem>up</stem>
         <staff>1</staff>
         </note>

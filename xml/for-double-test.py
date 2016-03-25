@@ -3,7 +3,7 @@ import xml.dom.minidom
 import math
 
 # Open XML document using minidom parser
-DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
+DOMTree = xml.dom.minidom.parse('one-hand-1.xml')
 
 ### root
 collection = DOMTree.documentElement
@@ -78,7 +78,7 @@ for sound in sounds:
 		print('tempo: ',sound)
 
 
-print('ID		pitch		type 		staff 		rhythm')
+print('ID		pitch		type 		staff 	rhythm')
 ### notes is a list
 notes = collection.getElementsByTagName('note')
 print('1=======================================================================')
@@ -101,6 +101,10 @@ for note in notes:
 		# single_measure += 1
 		timing = 0
 
+	if (note.getElementsByTagName('accidental')):
+		accidental = note.getElementsByTagName('accidental')[0]
+		# alter_data = accidental.childNodes[0].data
+		alter_data = '0'
 
 	### about the type: type = note.getElementsByTagName('type')[0]
 	if (note.getElementsByTagName('type')):	
@@ -238,7 +242,7 @@ for note in notes:
 			single_time += float(rhythm)
 			timing = 0
 			single_pre_x = ''
-		
+
 		timing = single_time
 
 
@@ -255,9 +259,15 @@ for note in notes:
 	# about the ID : note num(4) // measure(2) // staff(1) // timing(1)
 	# ID: note_num 
 	note_num = str(note_num).zfill(4)
+	
 	# ID: measure_id
-	measure_id = str(measure)
+	measure_id = str(measure) 
 	measure_id = measure_id.zfill(2)
+	# ID: measure_id of one-hand
+	if staff_data == '0':
+		measure_id = str(single_measure)
+		measure_id = measure_id.zfill(2)
+
 	# ID: staff_id
 	staff_id = staff_data
 
@@ -285,6 +295,5 @@ for note in notes:
 
 	if(float(rhythm) < float(mini_rhythm)):
 		mini_rhythm = rhythm
-
 
 print('mini rhythm is : ',mini_rhythm)
