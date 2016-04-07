@@ -85,17 +85,6 @@
           <line>4</line>
           </clef>
         </attributes>
-      <direction placement="above">
-        <direction-type>
-          <metronome parentheses="no">
-            <beat-unit>quarter</beat-unit>
-            <beat-unit-dot/>
-            <per-minute>80</per-minute>
-            </metronome>
-          </direction-type>
-        <staff>1</staff>
-        <sound tempo="120"/>
-        </direction>
       <note default-x="96.29" default-y="-35.00">
         <pitch>
           <step>F</step>
@@ -176,6 +165,17 @@
         <type>quarter</type>
         <staff>1</staff>
         </note>
+      <direction placement="above">
+        <direction-type>
+          <metronome parentheses="no">
+            <beat-unit>quarter</beat-unit>
+            <beat-unit-dot/>
+            <per-minute>200</per-minute>
+            </metronome>
+          </direction-type>
+        <staff>1</staff>
+        <sound tempo="300"/>
+        </direction>
       <note default-x="233.03" default-y="-20.00">
         <pitch>
           <step>B</step>

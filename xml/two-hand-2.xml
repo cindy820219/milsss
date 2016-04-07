@@ -66,6 +66,8 @@
           <staff-distance>65.00</staff-distance>
           </staff-layout>
         </print>
+      
+
       <attributes>
         <divisions>2</divisions>
         <key>
@@ -84,7 +86,8 @@
           <sign>F</sign>
           <line>4</line>
           </clef>
-        </attributes>
+      </attributes>
+
       <direction placement="above">
         <direction-type>
           <metronome parentheses="no">
@@ -93,8 +96,10 @@
             </metronome>
           </direction-type>
         <staff>1</staff>
-        <sound tempo="200"/>
-        </direction>
+        <sound tempo="120"/>
+      </direction>
+      
+
       <note default-x="94.64" default-y="-50.00">
         <pitch>
           <step>C</step>

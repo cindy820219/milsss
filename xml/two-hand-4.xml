@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" ?>
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise>
+  <work>
+    <work-title>two-hand-4</work-title>
+    </work>
   <identification>
     <encoding>
       <software>MuseScore 2.0.2</software>
-      <encoding-date>2016-03-17</encoding-date>
+      <encoding-date>2016-03-26</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -36,6 +39,9 @@
     <word-font font-family="FreeSerif" font-size="10"/>
     <lyric-font font-family="FreeSerif" font-size="11"/>
     </defaults>
+  <credit page="1">
+    <credit-words default-x="595.44" default-y="1626.67" justify="center" valign="top" font-size="24">two-hand-4</credit-words>
+    </credit>
   <part-list>
     <score-part id="P1">
       <part-name>Piano</part-name>
@@ -53,12 +59,12 @@
       </score-part>
     </part-list>
   <part id="P1">
-    <measure number="1" width="1056.49">
+    <measure number="1" width="266.01">
       <print>
         <system-layout>
           <system-margins>
             <left-margin>21.00</left-margin>
-            <right-margin>0.00</right-margin>
+            <right-margin>620.14</right-margin>
             </system-margins>
           <top-system-distance>170.00</top-system-distance>
           </system-layout>
@@ -67,9 +73,9 @@
           </staff-layout>
         </print>
       <attributes>
-        <divisions>6</divisions>
+        <divisions>1</divisions>
         <key>
-          <fifths>-7</fifths>
+          <fifths>-2</fifths>
           </key>
         <time>
           <beats>4</beats>
@@ -85,22 +91,28 @@
           <line>4</line>
           </clef>
         </attributes>
-      <note default-x="146.46" default-y="-50.00">
+      <direction placement="above">
+        <direction-type>
+          <metronome parentheses="no">
+            <beat-unit>quarter</beat-unit>
+            <per-minute>120</per-minute>
+            </metronome>
+          </direction-type>
+        <staff>1</staff>
+        <sound tempo="120"/>
+        </direction>
+      <note default-x="96.82" default-y="-50.00">
         <pitch>
           <step>C</step>
-          <alter>-1</alter>
           <octave>4</octave>
           </pitch>
-        <duration>6</duration>
+        <duration>1</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <slur type="start" number="1"/>
-          </notations>
         </note>
-      <note default-x="294.94" default-y="-40.00">
+      <note default-x="138.36" default-y="-40.00">
         <pitch>
           <step>E</step>
           <alter>-1</alter>
@@ -108,128 +120,60 @@
           </pitch>
         <duration>3</duration>
         <voice>1</voice>
-        <type>eighth</type>
+        <type>half</type>
+        <dot/>
         <stem>up</stem>
-        <staff>1</staff>
-        </note>
-      <note>
-        <rest/>
-        <duration>3</duration>
-        <voice>1</voice>
-        <type>eighth</type>
-        <staff>1</staff>
-        </note>
-      <note default-x="559.83" default-y="-30.00">
-        <pitch>
-          <step>G</step>
-          <alter>-1</alter>
-          <octave>4</octave>
-          </pitch>
-        <duration>6</duration>
-        <voice>1</voice>
-        <type>quarter</type>
-        <stem>up</stem>
-        <staff>1</staff>
-        <notations>
-          <slur type="stop" number="1"/>
-          </notations>
-        </note>
-      <note>
-        <rest/>
-        <duration>6</duration>
-        <voice>1</voice>
-        <type>quarter</type>
         <staff>1</staff>
         </note>
       <backup>
-        <duration>24</duration>
+        <duration>4</duration>
         </backup>
-      <note default-x="146.46" default-y="-130.00">
+      <note default-x="96.46" default-y="-110.00">
         <pitch>
-          <step>C</step>
-          <alter>-1</alter>
+          <step>G</step>
           <octave>3</octave>
           </pitch>
-        <duration>7</duration>
+        <duration>2</duration>
         <voice>5</voice>
-        <type>quarter</type>
-        <dot/>
-        <dot/>
-        <time-modification>
-          <actual-notes>3</actual-notes>
-          <normal-notes>2</normal-notes>
-          <normal-type>half</normal-type>
-          </time-modification>
-        <stem>up</stem>
-        <staff>2</staff>
-        <notations>
-          <tuplet type="start" bracket="yes"/>
-          </notations>
-        </note>
-      <note default-x="353.14" default-y="-130.00">
-        <pitch>
-          <step>C</step>
-          <alter>-1</alter>
-          <octave>3</octave>
-          </pitch>
-        <duration>7</duration>
-        <voice>5</voice>
-        <type>quarter</type>
-        <dot/>
-        <dot/>
-        <time-modification>
-          <actual-notes>3</actual-notes>
-          <normal-notes>2</normal-notes>
-          <normal-type>half</normal-type>
-          </time-modification>
-        <stem>up</stem>
+        <type>half</type>
+        <stem>down</stem>
         <staff>2</staff>
         </note>
-      <note default-x="652.95" default-y="-130.00">
+      <note default-x="180.61" default-y="-100.00">
         <pitch>
-          <step>C</step>
+          <step>B</step>
           <alter>-1</alter>
           <octave>3</octave>
           </pitch>
-        <duration>7</duration>
+        <duration>1</duration>
         <voice>5</voice>
         <type>quarter</type>
-        <dot/>
-        <dot/>
-        <time-modification>
-          <actual-notes>3</actual-notes>
-          <normal-notes>2</normal-notes>
-          <normal-type>half</normal-type>
-          </time-modification>
-        <stem>up</stem>
+        <stem>down</stem>
         <staff>2</staff>
         </note>
       <note>
         <rest/>
         <duration>1</duration>
         <voice>5</voice>
-        <type>16th</type>
-        <time-modification>
-          <actual-notes>3</actual-notes>
-          <normal-notes>2</normal-notes>
-          <normal-type>half</normal-type>
-          </time-modification>
+        <type>quarter</type>
         <staff>2</staff>
         </note>
+      </measure>
+    <measure number="2" width="170.34">
       <note>
         <rest/>
-        <duration>2</duration>
+        <duration>4</duration>
+        <voice>1</voice>
+        <staff>1</staff>
+        </note>
+      <backup>
+        <duration>4</duration>
+        </backup>
+      <note>
+        <rest/>
+        <duration>4</duration>
         <voice>5</voice>
-        <type>eighth</type>
-        <time-modification>
-          <actual-notes>3</actual-notes>
-          <normal-notes>2</normal-notes>
-          <normal-type>half</normal-type>
-          </time-modification>
         <staff>2</staff>
-        <notations>
-          <tuplet type="stop"/>
-          </notations>
         </note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
