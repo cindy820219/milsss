@@ -1,28 +1,92 @@
 from xml.dom.minidom import parse
 import xml.dom.minidom
 import math
+import for_sheet
+
+import tkinter as tk
+from tkinter import *
+from tkinter import ttk, Tk, StringVar
+
+import tkinter.filedialog as filedialog
+
+import for_parsing
+from xml.dom.minidom import parse
+import xml.dom.minidom
+
+import for_sheet
+
 
 beats = 0
+max_measure =0
 
-def some_fun():
-    print('connet to the parsing code !!!!!!')
+def create_sheet(beats ='4'):
+    if (beats == '4'):
+        photo = PhotoImage(file = '4.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=20)
+        label_sheet.image = photo # keep a reference!
 
-'''
-def direction(directions):
-    for direction in directions:
-        per_minute = collection.getElementsByTagName('per-minute')[0]
-        per_minute = per_minute.childNodes[0].data
-        # print('view_tempo: ',per_minute)
+        photo = PhotoImage(file = '4.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=180)
+        label_sheet.image = photo # keep a reference!
 
-def sound(sounds):
-    for sound in sounds:
-        if (sound.hasAttribute('tempo')):
-            sound = sound.getAttribute('tempo')
-            print('tempo: ',sound)
-'''
+        photo = PhotoImage(file = '4.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=340)
+        label_sheet.image = photo # keep a reference!
+        
+        # create_notes()
+
+    if(beats == '3'):
+        photo = PhotoImage(file = '3.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=20)
+        label_sheet.image = photo # keep a reference!
+
+        photo = PhotoImage(file = '3.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=180)
+        label_sheet.image = photo # keep a reference!
+
+        photo = PhotoImage(file = '3.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=340)
+        label_sheet.image = photo # keep a reference!
+
+        # create_notes()
+
+    if(beats == '6'):
+        photo = PhotoImage(file = '6.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=20)
+        label_sheet.image = photo # keep a reference!
+
+        photo = PhotoImage(file = '6.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=180)
+        label_sheet.image = photo # keep a reference!
+
+        photo = PhotoImage(file = '6.gif')
+        label_sheet = Label(image = photo)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_sheet.place(x=200,y=340)
+        label_sheet.image = photo # keep a reference!
+
+        # create_notes()
 
 ### funtion pasing xml file
 def parsing(collection):
+    max_measure =0
+
     pre_staff = 0
     measure = 1
 
@@ -74,7 +138,11 @@ def parsing(collection):
             beattype = beattype.childNodes[0].data
 
             print('times: ',beats+'/'+beattype+' ')
-            #print(beats)
+            
+            ### create_sheet
+            create_sheet(beats)
+
+        #print(beats)
         if ((int(beats) == 6) and (int(beattype) ==8)):
             beats = 3
             return(beats)
@@ -301,7 +369,7 @@ def parsing(collection):
         staff_id = staff_data
 
         # ID = note_num + measure_id + staff_id + str(PI)
-
+        
         print(str(PI)+'  '+
             step_data
             +octave_data
@@ -309,55 +377,24 @@ def parsing(collection):
             +'\t\t'+type_data
             +'\t\t'+staff_data
             +'\t\t'+rhythm)
+        
+
+        # for_sheet.create_sheet()
+
+        ### for draw the notes!!!!!
+        # print(str(measure) + staff_data + str(PI) + type_data)
+        for_sheet.create_notes(type_data)
 
         if (daul != ''):
             print(daul)
 
+        ### mini_rhythm
         if(float(rhythm) < float(mini_rhythm)):
             mini_rhythm = rhythm
 
+        ### max_measure
+        if(int(measure) > int(max_measure)):
+            max_measure = measure
+
     print('mini rhythm is : ',mini_rhythm)
-
-
-### funtion read xml file
-def read_xml(in_path):
-    tree = ElementTree()
-    tree.parse(in_path)
-    return tree
-
-### find the node path
-def change_tempo(beats):
-    # 屬性修改 - tempo:
-    new_tempo = input('What tempo you want? ')
-    
-    for per_minute in tree.iter('per-minute'):
-        # print(per_minute.text)
-        per_minute.text = ''
-        per_minute.text += new_tempo
-        
-
-    for sound in tree.iter('sound'):
-        if(beats == 3):
-            new_tempo = float(new_tempo)
-            new_tempo = new_tempo + new_tempo / 2
-            # print(new_tempo)
-            new_tempo = str(new_tempo)
-        #print(sound.attrib)
-        sound.set("tempo", new_tempo)
-        #print(sound.attrib)
-
-
-if __name__ == "__main__":
-    
-    some_fun()
-
-    ### read xml file 
-    x = '/Users/BlueT/Desktop/UI/two-hand-2.xml'
-    DOMTree = xml.dom.minidom.parse(x)
-    
-    ### collection is the tree
-    collection = DOMTree.documentElement
-
-    ### minidom = pasring the xml file , collection is the tree
-    beats = parsing(collection)
-
+    # print(max_measure)

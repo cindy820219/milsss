@@ -342,14 +342,14 @@ def write_xml(tree, out_path):
 if __name__ == "__main__":
     
     ### read xml file 
-    DOMTree = xml.dom.minidom.parse('two-hand-3.xml')
+    DOMTree = xml.dom.minidom.parse('two-hand-5.xml')
     ### collection is the tree
     collection = DOMTree.documentElement
     ### minidom = pasring the xml file , collection is the tree
     beats = parsing(collection)
 
     ### about ElementTree and simplize
-    tree = read_xml("two-hand-3.xml")
+    tree = read_xml("two-hand-5.xml")
     
     # change tempo
     change_tempo(beats)

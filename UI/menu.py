@@ -8,6 +8,7 @@ import for_parsing
 from xml.dom.minidom import parse
 import xml.dom.minidom
 
+import for_sheet
 '''
 ### for mido 
 import mido
@@ -85,55 +86,80 @@ comboboxTem.place(x=70, y=130)
 # comboboxTem['state'] = ['readonly']
 comboboxTem['values'] = ['60','80','100','120']
 
-def service_fun():
-    print('this is service_fun ~~~~~~')
+### draw the keyboard ### 
+keyboard = PhotoImage(file = 'keyboard.gif')
+label_keyboard = Label(image = keyboard)
+#label.grid(row = 3, column = 1, padx = 5, pady = 5)
+label_keyboard.place(x=230,y=620)
+label_keyboard.image = keyboard # keep a reference!
 
+keyboard = PhotoImage(file = 'keyboard.gif')
+label_keyboard = Label(image = keyboard)
+#label.grid(row = 3, column = 1, padx = 5, pady = 5)
+label_keyboard.place(x=600,y=620)
+label_keyboard.image = keyboard # keep a reference!
+
+'''
 def create_sheet():
     photo = PhotoImage(file = '4.gif')
     label_sheet = Label(image = photo)
     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_sheet.place(x=200,y=80)
+    label_sheet.place(x=200,y=20)
     label_sheet.image = photo # keep a reference!
 
     photo = PhotoImage(file = '4.gif')
     label_sheet = Label(image = photo)
     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_sheet.place(x=200,y=280)
+    label_sheet.place(x=200,y=180)
     label_sheet.image = photo # keep a reference!
 
     photo = PhotoImage(file = '4.gif')
     label_sheet = Label(image = photo)
     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_sheet.place(x=200,y=480)
+    label_sheet.place(x=200,y=340)
     label_sheet.image = photo # keep a reference!
 
     # quarter
     quarter = PhotoImage(file = 'quarter.gif')
     label_notes = Label(image = quarter)
     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=300,y=100)
+    label_notes.place(x=300,y=40)
     label_notes.image = quarter # keep a reference!
 
     # whole
     whole = PhotoImage(file = 'whole.gif')
     label_notes = Label(image = whole)
     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=340,y=100)
+    label_notes.place(x=340,y=40)
     label_notes.image = whole # keep a reference!
 
     # eight
     eight = PhotoImage(file = 'eight.gif')
     label_notes = Label(image = eight)
     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=380,y=100)
+    label_notes.place(x=380,y=40)
     label_notes.image = eight # keep a reference!
 
     # six
     six = PhotoImage(file = '16th.gif')
     label_notes = Label(image = six)
     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=420,y=100)
+    label_notes.place(x=420,y=40)
     label_notes.image = six # keep a reference!v
+
+    ### keyboard ### 
+    keyboard = PhotoImage(file = 'keyboard.gif')
+    label_keyboard = Label(image = keyboard)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_keyboard.place(x=230,y=620)
+    label_keyboard.image = keyboard # keep a reference!
+
+    keyboard = PhotoImage(file = 'keyboard.gif')
+    label_keyboard = Label(image = keyboard)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_keyboard.place(x=600,y=620)
+    label_keyboard.image = keyboard # keep a reference!
+'''
 
 ## def click buttom OK
 def buttomOKClicked():
@@ -141,7 +167,7 @@ def buttomOKClicked():
     #parsing the music sheet
 
     # creat the music sheet
-    create_sheet()
+    # for_sheet.create_sheet()
     
 # ttk buttom OK
 buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttomOKClicked)
@@ -191,21 +217,6 @@ def openfile():
     DOMTree = xml.dom.minidom.parse(x)
     collection = DOMTree.documentElement
     for_parsing.parsing(collection)
-
-    # service_fun()
-    # for_parsing.some_fun()
-
-
-    # doparsing()
-    '''
-    i = 0
-    mid = MidiFile('two-hand-2.xml')
-    for i, track in enumerate(mid.tracks):
-        print('Track {}: {}'.format(i, track.name))
-        for message in track:
-            i=i+1
-            print(i,' ',message)
-    '''
 
 def savefile():
     labelHello.config(text = 'save the file: new.xml')
