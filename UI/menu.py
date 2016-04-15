@@ -9,6 +9,7 @@ from xml.dom.minidom import parse
 import xml.dom.minidom
 
 import for_sheet
+
 '''
 ### for mido 
 import mido
@@ -99,68 +100,6 @@ label_keyboard = Label(image = keyboard)
 label_keyboard.place(x=600,y=620)
 label_keyboard.image = keyboard # keep a reference!
 
-'''
-def create_sheet():
-    photo = PhotoImage(file = '4.gif')
-    label_sheet = Label(image = photo)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_sheet.place(x=200,y=20)
-    label_sheet.image = photo # keep a reference!
-
-    photo = PhotoImage(file = '4.gif')
-    label_sheet = Label(image = photo)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_sheet.place(x=200,y=180)
-    label_sheet.image = photo # keep a reference!
-
-    photo = PhotoImage(file = '4.gif')
-    label_sheet = Label(image = photo)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_sheet.place(x=200,y=340)
-    label_sheet.image = photo # keep a reference!
-
-    # quarter
-    quarter = PhotoImage(file = 'quarter.gif')
-    label_notes = Label(image = quarter)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=300,y=40)
-    label_notes.image = quarter # keep a reference!
-
-    # whole
-    whole = PhotoImage(file = 'whole.gif')
-    label_notes = Label(image = whole)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=340,y=40)
-    label_notes.image = whole # keep a reference!
-
-    # eight
-    eight = PhotoImage(file = 'eight.gif')
-    label_notes = Label(image = eight)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=380,y=40)
-    label_notes.image = eight # keep a reference!
-
-    # six
-    six = PhotoImage(file = '16th.gif')
-    label_notes = Label(image = six)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=420,y=40)
-    label_notes.image = six # keep a reference!v
-
-    ### keyboard ### 
-    keyboard = PhotoImage(file = 'keyboard.gif')
-    label_keyboard = Label(image = keyboard)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_keyboard.place(x=230,y=620)
-    label_keyboard.image = keyboard # keep a reference!
-
-    keyboard = PhotoImage(file = 'keyboard.gif')
-    label_keyboard = Label(image = keyboard)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_keyboard.place(x=600,y=620)
-    label_keyboard.image = keyboard # keep a reference!
-'''
-
 ## def click buttom OK
 def buttomOKClicked():
     labelHello.config(text = "Upload..")
@@ -175,35 +114,7 @@ buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttom
 buttomOK.place(x=20, y=170)
 
 
-## radio check 單選選項
-# def colorChecked():
-#     labelHello.config(fg = color.get())
-
-# color = tk.StringVar()
-# tk.Radiobutton(root, text = "Listen", value = "red").pack(side = tk.LEFT)
-# tk.Radiobutton(root, text = "Practice", value = "blue").pack(side = tk.LEFT)
-# tk.Radiobutton(root, text = "Play", value = "green").pack(side = tk.LEFT)
-
-## type check 複選選項
-# def typeChecked():
-#         textType = typeBlod.get() + typeItalic.get()
-#         if textType == 1:
-#                 labelHello.config(font = ("Arial", 12, "bold"))
-#         elif textType == 2:
-#                 labelHello.config(font = ("Arial", 12, "italic"))
-#         elif textType == 3:
-#                 labelHello.config(font = ("Arial", 12, "bold italic"))
-#         else :
-#                 labelHello.config(font = ("Arial", 12))
-
-# typeBlod = tk.IntVar()
-# typeItalic = tk.IntVar()
-# tk.Checkbutton(root, text = "one", variable = typeBlod, onvalue = 1, offvalue = 0, command = typeChecked).pack(side = tk.LEFT)
-# tk.Checkbutton(root, text = "two", variable = typeItalic, onvalue = 2, offvalue = 0, command = typeChecked).pack(side = tk.LEFT)
-
-
 #### About the Menu #### 
-
 def hello():
     print('hello')
 
@@ -241,10 +152,6 @@ editmenu.add_command(label="Sample 2", command=hello)
 editmenu.add_command(label="Sample 3", command=hello)
 menubar.add_cascade(label="Sample",menu=editmenu)
  
-# # the row down : Help
-# helpmenu = Menu(menubar, tearoff=0)
-# helpmenu.add_command(label="About", command=about)
-# menubar.add_cascade(label="Help", menu=helpmenu)
 
 # view the menu
 root.config(menu=menubar)

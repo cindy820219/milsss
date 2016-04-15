@@ -172,7 +172,7 @@ def parsing(collection):
     
     
     ### print about the pitch type staff rhyth
-    print('pitch\t\ttype\t\tstaff\t\trhythm')
+    print('pitch\ttype\t\tstaff\t\trhythm')
 
     ### notes is a list
     notes = collection.getElementsByTagName('note')
@@ -370,20 +370,20 @@ def parsing(collection):
 
         # ID = note_num + measure_id + staff_id + str(PI)
         
-        print(str(PI)+'  '+
-            step_data
+        print(step_data
             +octave_data
-            +'  '+alter_data
+            +' '+alter_data
             +'\t\t'+type_data
             +'\t\t'+staff_data
-            +'\t\t'+rhythm)
+            +'\t\t'+rhythm
+            +'       '+str(PI))
         
 
         # for_sheet.create_sheet()
 
         ### for draw the notes!!!!!
         # print(str(measure) + staff_data + str(PI) + type_data)
-        for_sheet.create_notes(type_data)
+        for_sheet.create_notes(int(measure), int(PI), int(staff_data), type_data)
 
         if (daul != ''):
             print(daul)
