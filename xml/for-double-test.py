@@ -6,6 +6,7 @@ from xml.etree.ElementTree import ElementTree,Element
 
 beats = 0
 
+
 def direction(directions):
      for direction in directions:
         per_minute = collection.getElementsByTagName('per-minute')[0]
@@ -89,11 +90,12 @@ def parsing(collection):
     #if (sounds == []):
      #   add_tempo_node()
 #
-    
-    
+
+    pre_staff_data = 1
+
     ### print about the pitch type staff rhyth
     print('pitch\t\ttype\t\tstaff\t\trhythm')
-
+    total_PI = 1
     ### notes is a list
     notes = collection.getElementsByTagName('note')
     print('1=======================================================================')
@@ -102,7 +104,9 @@ def parsing(collection):
         # if note.hasAttribute('default-x'):
         #   print('default-x: %s' % note.getAttribute('default-x'))
         note_num = int(note_num) + 1
-
+        
+        is_daul = 0
+        
         daul = ''
         close_daul = 0
 
@@ -112,8 +116,6 @@ def parsing(collection):
         rhythm = str(float(duration.childNodes[0].data)/float(divisions))
         
         if(timing >= int(beats) and (hand != 1)):
-            # print('=======================================================================')
-            # single_measure += 1
             timing = 0
 
         if (note.getElementsByTagName('accidental')):
@@ -159,6 +161,11 @@ def parsing(collection):
             # flag_of_daul to 0
             flag_of_daul = 0
 
+            if (staff_data != pre_staff_data):
+                total_PI = 1
+
+            pre_staff_data  = staff_data
+
             ### dual(int(staff_data),pre_staff)
             if(note.hasAttribute('default-x')):
                 #if(int(staff_data) == pre_staff):
@@ -178,7 +185,8 @@ def parsing(collection):
                             daul = 'there is a right daul: '+pre_step_data+pre_octave_data+' and '+step_data+octave_data
                             flag_of_daul = 1
                             # simple_daul(pre_step_data, pre_octave_data, step_data, octave_data)
-                
+                            #is_daul = 1
+
                 if(int(staff_data)==2):
                     if(pre_x_2 != ''):
                         pre_x_2_flaot = float(pre_x_2)
@@ -194,6 +202,7 @@ def parsing(collection):
                             daul = 'there is a left daul: '+pre_step_data+pre_octave_data+' and '+step_data+octave_data
                             flag_of_daul = 1
                             # simple_daul(pre_step_data, pre_octave_data, step_data, octave_data)
+                            #is_daul = 1
 
             # next measure
             if (int(staff_data)== 1):
@@ -205,6 +214,7 @@ def parsing(collection):
                     print(measure,'=======================================================================')
                     pre_staff = 1
                     pre_step_data = pre_x_1 = pre_x_2 = ''
+                    total_PI = 1
                     
 
             if(int(staff_data)== 1):    
@@ -264,7 +274,7 @@ def parsing(collection):
 
 
         if (staff_data == ''):
-            staff_data = '0'
+            staff_data = '1'
 
         # about the timing
         if(flag_of_daul == 0 and (hand != 1)):
@@ -296,12 +306,31 @@ def parsing(collection):
             +'\t\t'+type_data
             +'\t\t'+staff_data
             +'\t\t'+rhythm)
-
+        
         if (daul != ''):
             print(daul)
+            is_daul = 1
+
+        if(is_daul == 0):
+            print ('total_PI: ', float(total_PI))
+
+        if (is_daul == 1):
+            total_PI = total_PI - float(rhythm)
+            print ('total_PI: ', total_PI)
+            is_daul_2 = 1
+
+        if (total_PI < int(beats)+1):
+            total_PI = total_PI + float(rhythm)
+            # print ('1111111: ', total_PI)
+        
+        # is_daul_2 == 0
+
+        if(total_PI > int(beats)+1): 
+            total_PI = 1
 
         if(float(rhythm) < float(mini_rhythm)):
             mini_rhythm = rhythm
+
 
     print('mini rhythm is : ',mini_rhythm)
 
@@ -342,7 +371,7 @@ def write_xml(tree, out_path):
 if __name__ == "__main__":
     
     ### read xml file 
-    DOMTree = xml.dom.minidom.parse('two-hand-5.xml')
+    DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     ### collection is the tree
     collection = DOMTree.documentElement
     ### minidom = pasring the xml file , collection is the tree
