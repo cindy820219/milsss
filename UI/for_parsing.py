@@ -169,10 +169,11 @@ def parsing(collection):
     #if (sounds == []):
      #   add_tempo_node()
 #
-    
+    pre_staff_data = 1
     
     ### print about the pitch type staff rhyth
     print('pitch\ttype\t\tstaff\t\trhythm')
+    total_PI = 1
 
     ### notes is a list
     notes = collection.getElementsByTagName('note')
@@ -182,6 +183,8 @@ def parsing(collection):
         # if note.hasAttribute('default-x'):
         #   print('default-x: %s' % note.getAttribute('default-x'))
         note_num = int(note_num) + 1
+
+        is_daul = 0
 
         daul = ''
         close_daul = 0
@@ -239,6 +242,11 @@ def parsing(collection):
             # flag_of_daul to 0
             flag_of_daul = 0
 
+            if (staff_data != pre_staff_data):
+                total_PI = 1
+
+            pre_staff_data  = staff_data
+
             ### dual(int(staff_data),pre_staff)
             if(note.hasAttribute('default-x')):
                 #if(int(staff_data) == pre_staff):
@@ -285,6 +293,7 @@ def parsing(collection):
                     print(measure,'=======================================================================')
                     pre_staff = 1
                     pre_step_data = pre_x_1 = pre_x_2 = ''
+                    total_PI = 1
                     
 
             if(int(staff_data)== 1):    
@@ -378,15 +387,34 @@ def parsing(collection):
             +'\t\t'+rhythm
             +'       '+str(PI))
         
-
+        
         # for_sheet.create_sheet()
 
         ### for draw the notes!!!!!
         # print(str(measure) + staff_data + str(PI) + type_data)
-        for_sheet.create_notes(int(measure), int(PI), int(staff_data), type_data)
+        # for_sheet.create_notes(int(measure), int(PI), int(staff_data), type_data)
 
         if (daul != ''):
             print(daul)
+            is_daul = 1
+
+        if(is_daul == 0):
+            # print ('total_PI: ', float(total_PI))
+            total_PI = total_PI
+
+        if (is_daul == 1):
+            total_PI = total_PI - float(rhythm)
+            # print ('total_PI: ', total_PI)
+            is_daul_2 = 1
+
+        # print('total_PI: ',total_PI)
+        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data)
+
+        if (total_PI < int(beats)+1):
+            total_PI = total_PI + float(rhythm)
+
+        if(total_PI > int(beats)+1): 
+            total_PI = 1
 
         ### mini_rhythm
         if(float(rhythm) < float(mini_rhythm)):

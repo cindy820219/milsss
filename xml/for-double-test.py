@@ -321,9 +321,6 @@ def parsing(collection):
 
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)
-            # print ('1111111: ', total_PI)
-        
-        # is_daul_2 == 0
 
         if(total_PI > int(beats)+1): 
             total_PI = 1
