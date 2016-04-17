@@ -5,8 +5,37 @@ from tkinter import ttk, Tk, StringVar
 import tkinter.filedialog as filedialog
 import for_parsing
 
+### Accidentals
+def Accidentals(alter_data, notes_measure_x, notes_staff_y):
+    ### ###
+    if(alter_data == 1):
+        notes_measure_x = notes_measure_x - 12
+        notes_staff_y = notes_staff_y + 1
+        up = PhotoImage(file = 'accidentals_#.gif')
+        label_notes = Label(image = up)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_notes.place(x=notes_measure_x,y=notes_staff_y)
+        label_notes.image = up # keep a reference!
+    
+    ### bbb
+    if(alter_data == -1):
+        notes_measure_x = notes_measure_x -12
+        down = PhotoImage(file = 'accidentals_b.gif')
+        label_notes = Label(image = down)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_notes.place(x=notes_measure_x,y=notes_staff_y)
+        label_notes.image = down # keep a reference!
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data):
+    if(alter_data == 0):
+        notes_measure_x = notes_measure_x - 12
+        notes_staff_y = notes_staff_y + 2
+        re = PhotoImage(file = 'accidentals_r.gif')
+        label_notes = Label(image = re)
+        #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        label_notes.place(x=notes_measure_x,y=notes_staff_y)
+        label_notes.image = re # keep a reference!
+
+def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data):
     
     notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
     ### 3/4 PI and 4/4 PI
@@ -111,6 +140,8 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = quarter # keep a reference!
 
+            Accidentals(alter_data, notes_measure_x, notes_staff_y)
+
         if(type_data == 'whole'):
             # whole
             whole = PhotoImage(file = 'whole.gif')
@@ -119,12 +150,16 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = whole # keep a reference!
 
+            Accidentals(alter_data, notes_measure_x, notes_staff_y)
+
         if(type_data == 'eighth'):
             # eighth
             eight = PhotoImage(file = 'eighth.gif')
             label_notes = Label(image = eight)
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = eight # keep a reference!
+
+            Accidentals(alter_data, notes_measure_x, notes_staff_y)
         
         if(type_data == '16th'):
             # six
@@ -133,19 +168,24 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = six # keep a reference!v
 
+            Accidentals(alter_data, notes_measure_x, notes_staff_y)
+
         if(type_data == 'half'):
-            print(rhythm)
             ### third 
             if (rhythm == 3.0):
                 half = PhotoImage(file = 'third.gif')
                 label_notes = Label(image = half)
                 label_notes.place(x=notes_measure_x,y=notes_staff_y)
                 label_notes.image = half
+
+                Accidentals(alter_data, notes_measure_x, notes_staff_y)
             
             else:
                 # half
                 half = PhotoImage(file = 'half.gif')
                 label_notes = Label(image = half)
                 label_notes.place(x=notes_measure_x,y=notes_staff_y)
-                label_notes.image = half # keep a reference!
+                label_notes.image = half
+
+                Accidentals(alter_data, notes_measure_x, notes_staff_y)
             
