@@ -43,8 +43,8 @@ labelHello.pack()
 ## difficulty
 '''label = tk.Label(root,text='difficulty')
 label.pack(side = LEFT) 
-'''
 
+### 
 label_1 = tk.Label(root,text='Difficulty')
 label_1.place(x=10, y=10) 
 
@@ -53,41 +53,53 @@ comboboxDiff = ttk.Combobox(root, width =10)
 comboboxDiff.place(x=70, y=10)
 comboboxDiff['state'] = ['readonly']
 comboboxDiff['values'] = ['Original','Easy','Middle','High']
+'''
+### Checkbuttom difficulty
+daul_IntVar = IntVar()
+tempo_IntVar = IntVar()
+retake_IntVar = IntVar()
 
-# def dropdown():
-#    c.event_generate('<Button-1>')
-# b = Button(root, text='test', command=dropdown)
-# b.pack()
+daul = Checkbutton(root, text="Simplize Daul", variable=daul_IntVar)
+tempo = Checkbutton(root, text="Simplize Rhythm", variable=tempo_IntVar)
+retake = Checkbutton(root, text="Simplize ...", variable=retake_IntVar)
 
+daul.var = daul_IntVar
+tempo.var = tempo_IntVar
+retake.var = retake_IntVar
+
+daul.place(x=10, y=30)
+tempo.place(x=10, y=50)
+retake.place(x=10, y=70)
+ 
 
 ## Mode
 label_2 = tk.Label(root,text='Mode')
-label_2.place(x=10, y=50) 
+label_2.place(x=10, y=110) 
 
 # ttk combobox Mode
 comboboxMode = ttk.Combobox(root, width =10)
-comboboxMode.place(x=70, y=50)
+comboboxMode.place(x=70, y=110)
 comboboxMode['state'] = ['readonly']
 comboboxMode['values'] = ['Listen','Practice','Play']
 
 
 ## Tonality
 label_3 = tk.Label(root,text='Tonality')
-label_3.place(x=10, y=90) 
+label_3.place(x=10, y=150) 
 
 # ttk combobox Tonality
 comboboxTona = ttk.Combobox(root, width =10)
-comboboxTona.place(x=70, y=90)
+comboboxTona.place(x=70, y=150)
 comboboxTona['state'] = ['readonly']
 comboboxTona['values'] = ['C','D','E','F','A','B']
 
 ## speed
 label_4 = tk.Label(root,text='Speed')
-label_4.place(x=10, y=130)
+label_4.place(x=10, y=190)
 
 # ttk combobox tempo
 comboboxTem = ttk.Combobox(root, width =10)
-comboboxTem.place(x=70, y=130)
+comboboxTem.place(x=70, y=190)
 # comboboxTem['state'] = ['readonly']
 comboboxTem['values'] = ['60','80','100','120']
 
@@ -111,18 +123,19 @@ def buttomOKClicked():
     labelHello.config(text = "Upload..")
     #parsing the music sheet
     
-    Diff = comboboxDiff.get()
-    print('Diff: ',Diff)
+    #Diff = comboboxDiff.get()
+    #print('Diff: ',Diff)
     
     Mode = comboboxMode.get()
-    print('Mode: ',Mode)
+    print('get Mode: ',Mode)
     
     Tona = comboboxTona.get()
-    print('Tona: ',Tona)
-    
+    print('get Tona: ',Tona)
+    for_modify.change_Tona(filename,Tona)
+
     ### change tem
     Tem = comboboxTem.get()
-    print('Tem: ',Tem)
+    print('get Tem: ',Tem)
     for_modify.change_tempo(filename,Tem)
 
     # creat the music sheet
@@ -131,7 +144,7 @@ def buttomOKClicked():
 # ttk buttom OK
 buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttomOKClicked)
 
-buttomOK.place(x=20, y=170)
+buttomOK.place(x=20, y=230)
 
 
 #### About the Menu #### 

@@ -20,12 +20,52 @@ def read_xml(in_path):
 def write_xml(tree, out_path):
     tree.write(out_path, encoding="utf-8",xml_declaration=True)
 
+def change_Tona(filename,Tona):
+    
+    DOMTree = xml.dom.minidom.parse(filename)
+    collection = DOMTree.documentElement
+    tree = read_xml(filename)
+    
+    Tona_num = ''
+
+    if(Tona == 'C'):
+        Tona_num = '0'
+
+    if(Tona == 'D'):
+        Tona_num = '2'
+
+    if(Tona == 'E'):
+        Tona_num = '4'
+    
+    if(Tona == 'F'):
+        Tona_num = '6'
+    
+    if(Tona == 'G'):
+        Tona_num = '1'
+    
+    if(Tona == 'A'):
+        Tona_num = '3'
+
+    if(Tona == 'B'):
+        Tona_num = '5'
+    
+    # 屬性修改 - Tonality:
+    for fifths in tree.iter('fifths'):
+        fifths.text = ''
+        fifths.text += Tona_num
+        # print("key change : ", fifths.text)
+        write_xml(tree, "key-change.xml")
+        print('  the file "key-change.xml" is saved.')
+
+
 def change_tempo(filename ,Tem):
 
+    global DOMTree, collection, tree
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     tree = read_xml(filename)
 
+    '''
     ### about the tempo
     directions = collection.getElementsByTagName('direction')
     # direction(directions)
@@ -37,20 +77,20 @@ def change_tempo(filename ,Tem):
     for sound in sounds:
         if (sound.hasAttribute('tempo')):
             sound = sound.getAttribute('tempo')
-            print('tempo original: ',sound)
-
+            # print('tempo original: ',sound)
+    '''
 
     # 屬性修改 - tempo:
     for per_minute in tree.iter('per-minute'):
         per_minute.text = ''
         per_minute.text += Tem
-        print("tempo change 1: ", per_minute.text)
+        # print("tempo change 1: ", per_minute.text)
 
     for sound in tree.iter('sound'):
         #print(sound.attrib)
         sound.set("tempo", Tem)
-        print("tempo change 2: ", sound.attrib)
+        # print("tempo change: ", sound.attrib)
         #print(sound.attrib)
-        write_xml(tree, "simple.xml")
-        print('  the file "simple.xml" is saved.')
+        write_xml(tree, "tem-change.xml")
+        print('  the file "tem-change.xml" is saved.')
 
