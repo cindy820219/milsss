@@ -9,6 +9,10 @@ from xml.dom.minidom import parse
 import xml.dom.minidom
 
 import for_sheet
+import for_modify
+import time
+
+import for_metronome
 
 '''
 ### for mido 
@@ -100,10 +104,26 @@ label_keyboard = Label(image = keyboard)
 label_keyboard.place(x=600,y=620)
 label_keyboard.image = keyboard # keep a reference!
 
+# for_metronome.metronome()
+
 ## def click buttom OK
 def buttomOKClicked():
     labelHello.config(text = "Upload..")
     #parsing the music sheet
+    
+    Diff = comboboxDiff.get()
+    print('Diff: ',Diff)
+    
+    Mode = comboboxMode.get()
+    print('Mode: ',Mode)
+    
+    Tona = comboboxTona.get()
+    print('Tona: ',Tona)
+    
+    ### change tem
+    Tem = comboboxTem.get()
+    print('Tem: ',Tem)
+    for_modify.change_tempo(filename,Tem)
 
     # creat the music sheet
     # for_sheet.create_sheet()
@@ -120,12 +140,13 @@ def hello():
 
 def openfile():
     labelHello.config(text = 'open the file')
-    x = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
+    global filename
+    filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
     # print(x)
     print(root.fileName)
 
     ### for-parsing
-    DOMTree = xml.dom.minidom.parse(x)
+    DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     for_parsing.parsing(collection)
 

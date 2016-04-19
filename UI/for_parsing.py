@@ -13,8 +13,6 @@ import for_parsing
 from xml.dom.minidom import parse
 import xml.dom.minidom
 
-import for_sheet
-
 
 beats = 0
 max_measure =0
@@ -24,7 +22,7 @@ def create_sheet(beats, key):
     ### 4/4 
     if (beats == '4'):
         if(key == 0):
-            photo = PhotoImage(file = '4.gif')
+            photo = PhotoImage(file = '4u0.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
             label_sheet.place(x=200,y=20)
