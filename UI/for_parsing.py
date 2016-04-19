@@ -289,6 +289,7 @@ def parsing(collection):
             fifths = fifths.childNodes[0].data
             print('key:' ,fifths)
 
+        global beats_111
         times = collection.getElementsByTagName('time')
         for time in times:
             beats = time.getElementsByTagName('beats')[0]
@@ -298,7 +299,7 @@ def parsing(collection):
             beattype = beattype.childNodes[0].data
 
             print('times: ',beats+'/'+beattype+' ')
-            
+            beats_111 = int(beats)
             ### create_sheet
             create_sheet(beats, int(fifths))
 
@@ -425,7 +426,7 @@ def parsing(collection):
                             close_daul = math.fabs(pre_x_1_flaot-now_x_float)
 
                     #if(pre_x_1==now_x):
-                    if(close_daul < 30):
+                    if(close_daul < 10):
                         if(pre_x_1 != ''):
                             daul = 'there is a right daul: '+pre_step_data+pre_octave_data+' and '+step_data+octave_data
                             flag_of_daul = 1
@@ -438,7 +439,7 @@ def parsing(collection):
                             now_x_float = float(now_x)
                             close_daul = math.fabs(pre_x_2_flaot-now_x_float)
 
-                    if(close_daul < 30):
+                    if(close_daul < 10):
                         if(pre_x_2 != ''):
                     # if(pre_x_2==now_x):
                     #if(b <= 30):
@@ -491,7 +492,7 @@ def parsing(collection):
                         single_now_x_float = float(single_now_x)
                         close_daul = math.fabs(single_pre_x_flaot-single_now_x_float)
 
-                    if(close_daul < 30):
+                    if(close_daul < 20):
                         if(single_pre_x != ''):
                             daul='there is a daul: '+pre_step_data+pre_octave_data+' and '+step_data+octave_data
                             single_flag_of_daul = 1
@@ -562,16 +563,16 @@ def parsing(collection):
             is_daul = 1
 
         if(is_daul == 0):
-            # print ('total_PI: ', float(total_PI))
+            print ('total_PI: ', float(total_PI))
             total_PI = total_PI
 
         if (is_daul == 1):
             total_PI = total_PI - float(rhythm)
-            # print ('total_PI: ', total_PI)
+            print ('total_PI: ', total_PI)
             is_daul_2 = 1
 
         # print('total_PI: ',total_PI)
-        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data))
+        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
 
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)

@@ -11,6 +11,7 @@ import math
 from xml.etree.ElementTree import ElementTree,Element
 
 import for_sheet
+import for_parsing
 
 def read_xml(in_path):
     tree = ElementTree()
@@ -54,8 +55,14 @@ def change_Tona(filename,Tona):
         fifths.text = ''
         fifths.text += Tona_num
         # print("key change : ", fifths.text)
-        write_xml(tree, "key-change.xml")
+        write_xml(tree, 'key-change.xml')
         print('  the file "key-change.xml" is saved.')
+
+    filename = 'key-change.xml'
+    DOMTree = xml.dom.minidom.parse(filename)
+    collection = DOMTree.documentElement
+    for_parsing.parsing(collection)
+
 
 
 def change_tempo(filename ,Tem):

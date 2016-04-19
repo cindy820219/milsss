@@ -13,7 +13,7 @@ import for_modify
 import time
 
 import for_metronome
-
+import for_line
 '''
 ### for mido 
 import mido
@@ -31,13 +31,14 @@ root.title('Hello!!!')
 ### Scrollbar
 
 # veiw
-veiw = Label(root,width="180", height="40")
+veiw = Label(root,width="180", height="46")
 # some.pack()
+veiw.pack()
 
 ## label
-labelHello = tk.Label(root, text = "Choose the file, difficulty, Mode, Tonality, speed ", height = 5, width = 80, fg = "blue")
+labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
 # labelHello = tk.Label(root, text = "")
-labelHello.pack()
+labelHello.place(x=0, y= 550)
 
 
 ## difficulty
@@ -71,6 +72,13 @@ daul.place(x=10, y=30)
 tempo.place(x=10, y=50)
 retake.place(x=10, y=70)
  
+'''
+chklist= ttk.Checklist(root)
+chklist.hlist.add('choice1', text='This is Choice1') 
+chklist.hlist.add('choice2', text='This is Choice2') 
+checklist.setstatus('choice1', 'off') # or 'off' 
+checklist.getstatus('choice1') # 回傳 'on', 'off
+'''
 
 ## Mode
 label_2 = tk.Label(root,text='Mode')
@@ -93,15 +101,27 @@ comboboxTona.place(x=70, y=150)
 comboboxTona['state'] = ['readonly']
 comboboxTona['values'] = ['C','D','E','F','A','B']
 
+
 ## speed
 label_4 = tk.Label(root,text='Speed')
-label_4.place(x=10, y=190)
-
+label_4.place(x=10, y=200)
+'''
 # ttk combobox tempo
 comboboxTem = ttk.Combobox(root, width =10)
 comboboxTem.place(x=70, y=190)
 # comboboxTem['state'] = ['readonly']
 comboboxTem['values'] = ['60','80','100','120']
+'''
+### speed
+#def sel():
+#   selection = "Value = " + str(var.get())
+#   label.config(text = selection)
+
+var = DoubleVar()
+scale = Scale( root, variable = var, orient=HORIZONTAL,from_=40, to=160,activebackground = 'magenta', foreground = 'blue')
+scale.place(x=65, y=180)
+# label = Label(root)
+
 
 ### draw the keyboard ### 
 keyboard = PhotoImage(file = 'keyboard.gif')
@@ -116,11 +136,12 @@ label_keyboard = Label(image = keyboard)
 label_keyboard.place(x=600,y=620)
 label_keyboard.image = keyboard # keep a reference!
 
+
 # for_metronome.metronome()
 
 ## def click buttom OK
 def buttomOKClicked():
-    labelHello.config(text = "Upload..")
+    labelHello.config(text = "Upload")
     #parsing the music sheet
     
     #Diff = comboboxDiff.get()
@@ -133,26 +154,33 @@ def buttomOKClicked():
     print('get Tona: ',Tona)
     for_modify.change_Tona(filename,Tona)
 
+    '''
     ### change tem
     Tem = comboboxTem.get()
     print('get Tem: ',Tem)
     for_modify.change_tempo(filename,Tem)
+    '''
+
+    Tem = var.get()
+    print('get Tem: ',Tem)
+    for_modify.change_tempo(filename,str(Tem))
+
+    ### for the red line : follow the tempo
+    for_line.red_line()
 
     # creat the music sheet
     # for_sheet.create_sheet()
     
 # ttk buttom OK
 buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttomOKClicked)
-
-buttomOK.place(x=20, y=230)
-
+# buttomOK.place(x=20, y=230)
+buttomOK.place(x=20, y=280)
 
 #### About the Menu #### 
 def hello():
     print('hello')
 
 def openfile():
-    labelHello.config(text = 'open the file')
     global filename
     filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
     # print(x)
@@ -163,8 +191,10 @@ def openfile():
     collection = DOMTree.documentElement
     for_parsing.parsing(collection)
 
+    labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
+
 def savefile():
-    labelHello.config(text = 'save the file: new.xml')
+    labelHello.config(text = 'save the file: -change.xml')
 
 def about():
     print('This is about simplify sheet')
@@ -190,7 +220,7 @@ menubar.add_cascade(label="Sample",menu=editmenu)
 # view the menu
 root.config(menu=menubar)
 
-veiw.pack()
+# veiw.pack()
 
 # mianloop
 mainloop()

@@ -35,11 +35,14 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         label_notes.place(x=notes_measure_x,y=notes_staff_y)
         label_notes.image = re # keep a reference!
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data):
+def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111):
     
-    notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
+    # notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
+    if (beats_111 == 3):
+        notes_measure_x = 293 + (measure-1)*230 + ((PI-1)*70)
     ### 3/4 PI and 4/4 PI
-    #if ():
+    else: 
+        notes_measure_x = 293 + (measure-1)*230 + ((PI-1)*53.125)
 
     #else ():
     #    notes_measure_x += 263 + (measure-1)*230 + (PI*57.5)
@@ -47,6 +50,9 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
     ### about the y: left-hand and right-hand 
     # right-hand 
     if(staff_data == 1):
+        if(octave_data == 3):
+            notes_staff_y = 85
+
         if(octave_data == 4):
             notes_staff_y = 60
 

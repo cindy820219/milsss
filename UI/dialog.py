@@ -1,38 +1,31 @@
 
 import tkinter as tk
 from tkinter import *
+import time
 
 root = Tk()
-s = Scrollbar(root)
-T = Text(root)
+root.title('Hello!!!')
 
-T.focus_set()
-s.pack(side=RIGHT, fill=Y)
-T.pack(side=LEFT, fill=Y)
-s.config(command=T.yview)
-T.config(yscrollcommand=s.set)
+veiw = Label(root,width="180", height="40")
+veiw.pack()
 
-#for i in range(40): 
-#    T.insert(END, "This is line %d\n" % i)
+# create the canvas, size in pixels
+canvas = Canvas(width = 300, height = 200, bg = 'yellow')
+# pack the canvas into a frame/form
+canvas.place(x= 100 ,y=20)
+# load the .gif image file
+# put in your own gif file here, may need to add full path
+# like 'C:/WINDOWS/Help/Tours/WindowsMediaPlayer/Img/mplogo.gif'
+gif1 = PhotoImage(file = 'whole.gif')
+# put gif image on canvas
+# pic's upper left corner (NW) on the canvas is at x=50 y=10
+for x in range(20,50):
+    canvas.create_image(x, 10, image = gif1, tag = "pic")
+    canvas.update()
+     
+    # 暂停0.05妙，然后删除图像
+    time.sleep(0.025)
+    canvas.delete("pic")
+# run it ...
 
 mainloop()
-
-
-
-'''
-from tkinter import *
-
-root = Tk()
-
-def create_button_with_scoped_image():
-    img = PhotoImage(file="4.gif")  # reference PhotoImage in local variable
-    # img.place(x=100,y=100)
-
-    button = Button(root, image=img)
-    button.img = img
-    button.grid()
-
-create_button_with_scoped_image()
-
-root.mainloop()
-'''
