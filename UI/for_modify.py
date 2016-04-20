@@ -68,24 +68,10 @@ def change_Tona(filename,Tona):
 def change_tempo(filename ,Tem):
 
     global DOMTree, collection, tree
-    DOMTree = xml.dom.minidom.parse(filename)
-    collection = DOMTree.documentElement
+
+    #DOMTree = xml.dom.minidom.parse(filename)
+    #collection = DOMTree.documentElement
     tree = read_xml(filename)
-
-    '''
-    ### about the tempo
-    directions = collection.getElementsByTagName('direction')
-    # direction(directions)
-    for direction in directions:
-        per_minute = collection.getElementsByTagName('per-minute')[0]
-        per_minute = per_minute.childNodes[0].data
-
-    sounds = collection.getElementsByTagName('sound')
-    for sound in sounds:
-        if (sound.hasAttribute('tempo')):
-            sound = sound.getAttribute('tempo')
-            # print('tempo original: ',sound)
-    '''
 
     # 屬性修改 - tempo:
     for per_minute in tree.iter('per-minute'):

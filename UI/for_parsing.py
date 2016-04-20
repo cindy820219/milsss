@@ -13,7 +13,6 @@ import for_parsing
 from xml.dom.minidom import parse
 import xml.dom.minidom
 
-
 beats = 0
 max_measure =0
 
@@ -234,7 +233,6 @@ def create_sheet(beats, key):
             label_sheet.place(x=200,y=20)
             label_sheet.image = photo # keep a reference!
 
-
     ### 6/8 has many bugs !!
     if(beats == '6'):
         photo = PhotoImage(file = '6.gif')
@@ -289,7 +287,6 @@ def parsing(collection):
             fifths = fifths.childNodes[0].data
             print('key:' ,fifths)
 
-        global beats_111
         times = collection.getElementsByTagName('time')
         for time in times:
             beats = time.getElementsByTagName('beats')[0]
@@ -299,6 +296,8 @@ def parsing(collection):
             beattype = beattype.childNodes[0].data
 
             print('times: ',beats+'/'+beattype+' ')
+            
+            global beats_111
             beats_111 = int(beats)
             ### create_sheet
             create_sheet(beats, int(fifths))
@@ -590,3 +589,12 @@ def parsing(collection):
 
     print('mini rhythm is : ',mini_rhythm)
     # print(max_measure)
+    print()
+    print()
+    print()
+    print()
+    print('//////////////////////////////////////////////////////////////')
+    print()
+    print()
+    print()
+

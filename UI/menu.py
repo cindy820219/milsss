@@ -40,7 +40,6 @@ labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, f
 # labelHello = tk.Label(root, text = "")
 labelHello.place(x=0, y= 550)
 
-
 ## difficulty
 '''
 label = tk.Label(root,text='difficulty')
@@ -137,16 +136,24 @@ label_keyboard = Label(image = keyboard)
 label_keyboard.place(x=600,y=620)
 label_keyboard.image = keyboard # keep a reference!
 
+'''
+def __call__ (self, *args):
+  return self.func (*args)
+'''
+
+
 
 # for_metronome.metronome()
 
 ## def click buttom OK
 def buttomOKClicked():
-    
-    #parsing the music sheet
-    
+
+    # global beats_111
     #Diff = comboboxDiff.get()
     #print('Diff: ',Diff)
+    #global beats_222
+    #beats_222 = 3
+
     Mode = Tona = Tem = ''
 
     Mode = comboboxMode.get()
@@ -168,19 +175,12 @@ def buttomOKClicked():
     for_modify.change_tempo(filename,str(Tem))
 
     ### for the red line : follow the tempo
-    for_line.red_line(Tem)
-
+    # print(beats_111)
+    # for_line.red_line(Tem)
     # creat the music sheet
     # for_sheet.create_sheet()
 
-    if (filename ==''):
-        labelHello.config(text = "Plz open the file ...")
-    
-    if (Mode or Tona or Tem == ''):
-        labelHello.config(text = "Plz choose the Simplify, Mode, Tonality and speed ...")
-
-    else:
-        labelHello.config(text = "Upload")
+    labelHello.config(text = "Upload")
 
 
 # ttk buttom OK
@@ -188,12 +188,31 @@ buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttom
 # buttomOK.place(x=20, y=230)
 buttomOK.place(x=20, y=280)
 
+##########
+def buttomPlayClicked():
+    Tem = var.get()
+    for_modify.change_tempo(filename,str(Tem))
+
+    for_line.red_line(Tem)
+    labelHello.config(text = "play ")
+
+
+# ttk buttom OK
+buttomPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttomPlayClicked)
+buttomPlay.place(x=20, y=320)
+
+
+
+
 #### About the Menu #### 
 def hello():
     print('hello')
 
 def openfile():
+    
     global filename
+
+    # global filename
     filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
     # print(x)
     print(root.fileName)
@@ -233,6 +252,6 @@ menubar.add_cascade(label="Sample",menu=editmenu)
 root.config(menu=menubar)
 
 # veiw.pack()
-
-# mianloop
-mainloop()
+if __name__ == '__main__':
+    print('hello world') 
+    mainloop()
