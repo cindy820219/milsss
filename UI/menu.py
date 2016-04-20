@@ -42,7 +42,8 @@ labelHello.place(x=0, y= 550)
 
 
 ## difficulty
-'''label = tk.Label(root,text='difficulty')
+'''
+label = tk.Label(root,text='difficulty')
 label.pack(side = LEFT) 
 
 ### 
@@ -141,12 +142,13 @@ label_keyboard.image = keyboard # keep a reference!
 
 ## def click buttom OK
 def buttomOKClicked():
-    labelHello.config(text = "Upload")
+    
     #parsing the music sheet
     
     #Diff = comboboxDiff.get()
     #print('Diff: ',Diff)
-    
+    Mode = Tona = Tem = ''
+
     Mode = comboboxMode.get()
     print('get Mode: ',Mode)
     
@@ -166,11 +168,21 @@ def buttomOKClicked():
     for_modify.change_tempo(filename,str(Tem))
 
     ### for the red line : follow the tempo
-    for_line.red_line()
+    for_line.red_line(Tem)
 
     # creat the music sheet
     # for_sheet.create_sheet()
+
+    if (filename ==''):
+        labelHello.config(text = "Plz open the file ...")
     
+    if (Mode or Tona or Tem == ''):
+        labelHello.config(text = "Plz choose the Simplify, Mode, Tonality and speed ...")
+
+    else:
+        labelHello.config(text = "Upload")
+
+
 # ttk buttom OK
 buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttomOKClicked)
 # buttomOK.place(x=20, y=230)

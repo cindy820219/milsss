@@ -13,38 +13,42 @@ import for_metronome
 
 import time
 
-
-def red_line():
+def red_line(Tem):
 
     # create the canvas, size in pixels
-    canvas = Canvas(width = 920, height = 30, bg = 'yellow')
+    canvas = Canvas(width = 920, height = 30) # bg = 'yellow')
     canvas.place(x= 270 ,y=0)
+
     gif1 = PhotoImage(file = 'up.gif')
     gif2 = PhotoImage(file = 'up1.gif')
-    gif3 = PhotoImage(file = 'up2.gif')
-    for y in range(4):
-        canvas.create_image(20, 20, image = gif2, tag = "pic")
+    gif3 = PhotoImage(file = 'up2111.gif')
+
+    canvas.create_image(23, 20, image = gif2, tag = "pic")
+    canvas.update()
+    time.sleep(0.2)
+
+    for y in range(3):
+        canvas.create_image(23, 20, image = gif2, tag = "pic")
         canvas.update()
-        # 暂停0.05妙，然后删除图像
-        time.sleep(0.5)
+        # delays for 5 seconds
         canvas.delete('pic')
-        time.sleep(0.5)
+        time.sleep(0.6)
         
-        canvas.create_image(20, 20, image = gif3, tag = "pic")
+        canvas.create_image(23, 20, image = gif3, tag = "pic")
         canvas.update()
         # 暂停0.05妙，然后删除图像
-        time.sleep(0.5)
+        # time.sleep(0.5)
         canvas.delete('pic')
-        time.sleep(0.5)
+        time.sleep(0.4)
         
 
-    for x in range(20,890):
+    for x in range(23,885):
+        x = x +1.1805555550000002
         canvas.create_image(x, 20, image = gif1, tag = "pic")
         canvas.update()
         # 暂停0.05妙，然后删除图像
-        time.sleep(0.025)
+        time.sleep(0.0025)
         canvas.delete('pic')
-
 
 
     '''

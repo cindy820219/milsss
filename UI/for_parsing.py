@@ -129,7 +129,7 @@ def create_sheet(beats, key):
 
     if(beats == '3'):
         if(key == 0):
-            photo = PhotoImage(file = '3.gif')
+            photo = PhotoImage(file = '3u0.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
             label_sheet.place(x=200,y=20)
@@ -563,12 +563,12 @@ def parsing(collection):
             is_daul = 1
 
         if(is_daul == 0):
-            print ('total_PI: ', float(total_PI))
+            # print ('total_PI: ', float(total_PI))
             total_PI = total_PI
 
         if (is_daul == 1):
             total_PI = total_PI - float(rhythm)
-            print ('total_PI: ', total_PI)
+            # print ('total_PI: ', total_PI)
             is_daul_2 = 1
 
         # print('total_PI: ',total_PI)
