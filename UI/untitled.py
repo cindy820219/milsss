@@ -15,29 +15,11 @@ import time
 import for_metronome
 import for_line
 
-def buttomOKClicked():
+def savefile():
+    labelHello.config(text = 'save the file: -change.xml')
 
-    Mode = Tona = Tem = ''
-
-    Mode = comboboxMode.get()
-    print('get Mode: ',Mode)
-    
-    Tona = comboboxTona.get()
-    print('get Tona: ',Tona)
-
-    Tem = var.get()
-    print('get Tem: ',Tem)
-    for_modify.change_tempo(filename,str(Tem))
-    labelHello.config(text = "Upload")
-
-    for_modify.change_Tona(filename,Tona)
-
-def buttomPlayClicked():
-    Tem = var.get()
-    # for_modify.change_tempo(filename,str(Tem))
-
-    for_line.red_line(Tem)
-    labelHello.config(text = "play ")
+def about():
+    print('This is about simplify sheet')
 
 def hello():
     print('hello')
@@ -55,14 +37,47 @@ def openfile():
 
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
 
-def savefile():
-    labelHello.config(text = 'save the file: -change.xml')
+def openSample():
+    global filename
 
-def about():
-    print('This is about simplify sheet')
+    DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
+    collection = DOMTree.documentElement
+    for_parsing.parsing(collection)
+    filename = 'two-hand-2.xml'
+
+def buttomOKClicked():
+
+    Mode = Tona = Tem = ''
+
+    print('get Mode (Daul, Rhythm): ',checklist())
+    
+
+    Tona = comboboxTona.get()
+    print('get Tona: ',Tona)
+
+    Tem = var.get()
+    print('get Tem: ',Tem)
+    for_modify.change_tempo(filename,str(Tem))
+    labelHello.config(text = "Upload")
+
+    for_modify.change_Tona(filename,Tona)
+
+def buttomPlayClicked():
+    Tem = var.get()
+    # for_modify.change_tempo(filename,str(Tem))
+
+    for_line.red_line(Tem)
+    labelHello.config(text = "play ")
+
+def checklist():
+   # print("Daul: ",var1.get(), "Rhythm: ",var2.get())
+   Daul = var1.get()
+   Rhythm = var2.get()
+   return (Daul,Rhythm)
 
 # veiw.pack()
 if __name__ == '__main__':
+
     print('hello world') 
 
     root = Tk()
@@ -74,41 +89,31 @@ if __name__ == '__main__':
     labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
     labelHello.place(x=0, y= 550)
 
+    # Label(root, text="Your sex:")
+    label_1 = tk.Label(root,text='Simplize: ').place(x=10, y=10)
+    var1 = IntVar()
+    Checkbutton(root, text="Daul", variable=var1).place(x=70,y=30)
+    var2 = IntVar()
+    Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
+    var3 = IntVar()
+    Checkbutton(root, text="......", variable=var3).place(x=70,y=70)
+    # Button(root, text='Show', command=var_states).place(x=10,y=70)
 
-    daul_IntVar = IntVar()
-    tempo_IntVar = IntVar()
-    retake_IntVar = IntVar()
-
-    daul = Checkbutton(root, text="Simplize Daul", variable=daul_IntVar)
-    tempo = Checkbutton(root, text="Simplize Rhythm", variable=tempo_IntVar)
-    retake = Checkbutton(root, text="Simplize ...", variable=retake_IntVar)
-
-    daul.var = daul_IntVar
-    tempo.var = tempo_IntVar
-    retake.var = retake_IntVar
-
-    daul.place(x=10, y=30)
-    tempo.place(x=10, y=50)
-    retake.place(x=10, y=70)
-
-    label_2 = tk.Label(root,text='Mode')
-    label_2.place(x=10, y=110) 
+    label_2 = tk.Label(root,text='Mode').place(x=10, y=110)
 
     comboboxMode = ttk.Combobox(root, width =10)
     comboboxMode.place(x=70, y=110)
     comboboxMode['state'] = ['readonly']
     comboboxMode['values'] = ['Listen','Practice','Play']
 
-    label_3 = tk.Label(root,text='Tonality')
-    label_3.place(x=10, y=150) 
+    label_3 = tk.Label(root,text='Tonality').place(x=10, y=150) 
 
     comboboxTona = ttk.Combobox(root, width =10)
     comboboxTona.place(x=70, y=150)
     comboboxTona['state'] = ['readonly']
     comboboxTona['values'] = ['C','D','E','F','A','B']
 
-    label_4 = tk.Label(root,text='Speed')
-    label_4.place(x=10, y=200)
+    label_4 = tk.Label(root,text='Speed').place(x=10, y=200)
 
     var = DoubleVar()
     scale = Scale( root, variable = var, orient=HORIZONTAL,from_=40, to=160,activebackground = 'magenta', foreground = 'blue')
@@ -141,7 +146,7 @@ if __name__ == '__main__':
     menubar.add_cascade(label="File", menu=filemenu)
     
     editmenu = Menu(menubar, tearoff=0)
-    editmenu.add_command(label="Sample 1", command=hello)
+    editmenu.add_command(label="Sample 1", command=openSample)
     editmenu.add_command(label="Sample 2", command=hello)
     editmenu.add_command(label="Sample 3", command=hello)
     menubar.add_cascade(label="Sample",menu=editmenu)

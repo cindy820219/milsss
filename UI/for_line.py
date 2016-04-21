@@ -18,8 +18,8 @@ import time
 anchor_pos_x_default    = 23
 anchor_pos_y_default    = 20
 anchor_pos_x_limit      = 885
-anchor_pos_x_stepping   = 8
-anchor_pos_refresh_rate = 100 
+# anchor_pos_x_stepping   = 0
+anchor_pos_refresh_rate = 1
 anchor_pos_x = anchor_pos_x_default
 anchor_pos_y = anchor_pos_y_default
 
@@ -27,8 +27,6 @@ anchor_pos_y = anchor_pos_y_default
 
 def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
     #for x in range(23,885,2):
-    
-
     canvas.delete('pic')
     canvas.create_image(anchor_pos_x, anchor_pos_y, image = gif1, tag = "pic")
     
@@ -44,9 +42,20 @@ def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
 
 def red_line(Tem):
 
+    On = (60.0 / Tem ) * 0.5
+    Off = On * 0.5
+
+    global anchor_pos_x_stepping
+    # if(beats == 3):
+    #   anchor_pos_x_stepping  = Tem * 0.021
+    # else:
+    anchor_pos_x_stepping  = Tem * 0.021 * 0.75
+    
+    # print(anchor_pos_x_stepping)
+
     gif1 = PhotoImage(file = 'up.gif')
     gif2 = PhotoImage(file = 'up1.gif')
-    gif3 = PhotoImage(file = 'up2111.gif')
+    gif3 = PhotoImage(file = 'up0.gif')
 
     # create the canvas, size in pixels
     canvas = Canvas(width = 920, height = 30) # bg = 'yellow')
@@ -56,20 +65,6 @@ def red_line(Tem):
     canvas.create_image(23, 20, image = gif2, tag = "pic")
     canvas.update()
     time.sleep(0.2)
-    
-    
-    add_x = 70.83333333/ Tem
-    
-    '''
-    add_x = 0
-    if (beats_111 ==3):
-        add_x = 70.83333333/Tem
-        print('3333333')
-
-    if (beats_111 ==4):
-        add_x = 53.125/Tem
-        print('4')
-    '''
 
     ### count down
     for y in range(3):
@@ -77,14 +72,14 @@ def red_line(Tem):
         canvas.update()
         # delays for 5 seconds
         canvas.delete('pic')
-        time.sleep(0.5)
+        time.sleep(On)
         
         canvas.create_image(23, 20, image = gif3, tag = "pic")
         canvas.update()
         # 暂停0.05妙，然后删除图像
         # time.sleep(0.5)
         canvas.delete('pic')
-        time.sleep(0.2)
+        time.sleep(Off)
         
     canvas.create_image(anchor_pos_x, anchor_pos_y, image = gif1, tag = "pic")
     anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y)
@@ -100,27 +95,4 @@ def red_line(Tem):
         canvas.delete('pic')
         #canvas.update()
   
-    '''
-    ###
-    '''
-    photo = PhotoImage(file = 'red_line.gif')
-    label_sheet = Label(image = photo)
-            #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_sheet.place(x=20,y=30)
-    label_sheet.image = photo # keep a reference!
-
-
-    label_sheet.place(x=50,y=30)
-    label_sheet.image = photo # keep a reference!
-
-    
-    for x in range(20,500):
-        print('a')
-        label_sheet.place(x=x,y=30)
-        time.sleep(0.025)
-        print('b')
-        label_sheet.image = photo # keep a reference!
-        print('c')
-        time.sleep(0.025)
-        print('----')
     '''
