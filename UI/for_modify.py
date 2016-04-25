@@ -61,13 +61,8 @@ def change_Tona(filename,Tona):
         fifths.text = ''
         fifths.text += Tona_num
         # print("key change : ", fifths.text)
-        write_xml(tree, 'key-change.xml')
-        print('  the file "key-change.xml" is saved.')
-
-    filename = 'key-change.xml'
-    DOMTree = xml.dom.minidom.parse(filename)
-    collection = DOMTree.documentElement
-    for_parsing.parsing(collection)
+        write_xml(tree, 'change-key.xml')
+        print('  the file "change-key.xml" is saved.')
 
 
 def change_tempo(filename ,Tem):
@@ -89,70 +84,32 @@ def change_tempo(filename ,Tem):
         sound.set("tempo", Tem)
         # print("tempo change: ", sound.attrib)
         #print(sound.attrib)
-        write_xml(tree, "tem-change.xml")
-        print('  the file "tem-change.xml" is saved.')
-
-
-##############
+        write_xml(tree, "change-tem.xml")
+        print('  the file "change-tem.xml" is saved.')
 
 def simple_daul(filename):
-    print(filename)
-    filea = open('two-hand-2.xml', 'r')
-    chord_part = open('chord_part.xml','w')
-    chord_up = open('chord_up.xml','w')
-    
-    fileaString = filea.read()
+    chord_sim = open('change-daul.xml','w')
 
-    ### find measure location and count the site
-    idFilter = 'measure'
-    idPosition = fileaString.find(idFilter)
-    count = filea.seek(idPosition,0)
+    tree = parse(filename)
+    root = tree.getroot()
 
-    # print(fileaString[0:count-1])
-    chord_up.write(fileaString[0:count-1])
+    queue = []
 
-    # print(fileaString[count-1:-28])
-    chord_part.write(fileaString[count-1:-28])
-    # filea.write('hahahhahahahahahah') 
-    # chord_part = open('chord-part.xml', 'w')
+    for measure in root.iter('measure'):
+        for note in measure.iter('note'):
+            ### 要刪除的音
+            chord =  note.find('chord')
+            
+            if(chord != None):
+                queue.append(note)
+        # print('queue: ',queue)
+        
+        for i in queue:
+            measure.remove(i)
+            # measure.remove(queue.pop(0))
+            # print('deleted queue[0]: ',queue)
 
-    filea.close()
-    chord_up.close()
-    chord_part.close()
-    
-    print('aaaaaaa')
+        queue = []
 
-    tree_a = read_xml('chord_part.xml')
-    print('bbbbbbb')
-    root = tree_a.getroot()
-
-    
-
-    # root.remove(root.find('note'))
-    for note in root.iter('note'):
-        print('note')
-        #duration = note.find('duration').text
-        #print(duration)
-
-        chord =  note.find('chord')
-        ### 要刪除的音
-        if(chord != None):
-            print(chord)
-            root.remove(note)
-            print('delete')
-            print('cccccccs')
-
-    tree.write('chord_sim.xml')    
-
-    
-
-    create_newxml = open('chord_up.xml', 'a+')
-    chord_sim = open('chord_sim.xml', 'r')
-
-    # print(chord_sim.read())
-    create_newxml.write(chord_sim.read())
-    create_newxml.write('</part> </score-partwise>')
-    create_newxml.close()
-    chord_sim.close()
-
-    
+    tree.write('change-daul.xml')
+    print('  the file "change-daul.xml" is saved.')

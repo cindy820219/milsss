@@ -4,7 +4,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.2</software>
-      <encoding-date>2016-04-25</encoding-date>
+      <encoding-date>2016-04-26</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -168,7 +168,19 @@
       <backup>
         <duration>6</duration>
         </backup>
+      <note default-x="88.37" default-y="-125.00">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>5</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <staff>2</staff>
+        </note>
       <note default-x="88.37" default-y="-115.00">
+        <chord/>
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -270,7 +282,19 @@
         <stem>up</stem>
         <staff>1</staff>
         </note>
+      <note default-x="123.18" default-y="-20.00">
+        <pitch>
+          <step>B</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <staff>1</staff>
+        </note>
       <note default-x="123.18" default-y="-5.00">
+        <chord/>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -288,6 +312,31 @@
         <pitch>
           <step>B</step>
           <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>5</voice>
+        <type>quarter</type>
+        <stem>up</stem>
+        <staff>2</staff>
+        </note>
+      <note default-x="12.00" default-y="-125.00">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>5</voice>
+        <type>quarter</type>
+        <stem>up</stem>
+        <staff>2</staff>
+        </note>
+      <note default-x="12.00" default-y="-115.00">
+        <chord/>
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>3</octave>
           </pitch>
         <duration>2</duration>
         <voice>5</voice>

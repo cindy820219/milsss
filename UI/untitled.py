@@ -63,9 +63,8 @@ def buttomOKClicked():
     ### simple
     print('get Mode (Daul, Rhythm): ',checklist())
     daul = var1.get()
-    # if(daul == 1):
-        # for_modify.simple_daul(filename)
-        # simple_daul(filename)
+    if(daul == 1):
+        for_modify.simple_daul(filename)
 
     ### Tonality
     Tona = comboboxTona.get()
