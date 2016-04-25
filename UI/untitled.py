@@ -15,6 +15,17 @@ import time
 import for_metronome
 import for_line
 
+import xml.etree.ElementTree as ET
+from xml.etree.ElementTree import parse, Element
+
+# import mtTkinter as Tkinter
+# from mtTkinter import *
+# import mtTkinter as Tkinter
+
+
+def __call__(self, *args, **kwargs):
+    return self.decorator(self.func)(*args, **kwargs)
+
 def savefile():
     labelHello.config(text = 'save the file: -change.xml')
 
@@ -49,19 +60,27 @@ def buttomOKClicked():
 
     Mode = Tona = Tem = ''
 
+    ### simple
     print('get Mode (Daul, Rhythm): ',checklist())
-    
+    daul = var1.get()
+    # if(daul == 1):
+        # for_modify.simple_daul(filename)
+        # simple_daul(filename)
 
+    ### Tonality
     Tona = comboboxTona.get()
     print('get Tona: ',Tona)
 
+    ### tempo
     Tem = var.get()
     print('get Tem: ',Tem)
+    
     for_modify.change_tempo(filename,str(Tem))
-    labelHello.config(text = "Upload")
-
     for_modify.change_Tona(filename,Tona)
+    
 
+
+    
 def buttomPlayClicked():
     Tem = var.get()
     # for_modify.change_tempo(filename,str(Tem))
@@ -96,7 +115,7 @@ if __name__ == '__main__':
     var2 = IntVar()
     Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
     var3 = IntVar()
-    Checkbutton(root, text="......", variable=var3).place(x=70,y=70)
+    Checkbutton(root, text="Accent", variable=var3).place(x=70,y=70)
     # Button(root, text='Show', command=var_states).place(x=10,y=70)
 
     label_2 = tk.Label(root,text='Mode').place(x=10, y=110)
