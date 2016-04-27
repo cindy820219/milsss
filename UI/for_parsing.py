@@ -14,9 +14,9 @@ from xml.dom.minidom import parse
 import xml.dom.minidom
 
 beats = 0
-max_measure =0
+max_measure = 0
 
-def create_sheet(beats, key):
+def create_sheet(beats, key,x,y):
 
     ### 4/4 
     if (beats == '4'):
@@ -24,56 +24,56 @@ def create_sheet(beats, key):
             photo = PhotoImage(file = '4u0.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x ,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 1):
             photo = PhotoImage(file = '4u1.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x ,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 2):
             photo = PhotoImage(file = '4u2.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x ,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 3):
             photo = PhotoImage(file = '4u3.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 4):
             photo = PhotoImage(file = '4u4.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 5):
             photo = PhotoImage(file = '4u5.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 6):
             photo = PhotoImage(file = '4u6.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 7):
             photo = PhotoImage(file = '4u7.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         ### d
@@ -81,49 +81,49 @@ def create_sheet(beats, key):
             photo = PhotoImage(file = '4d1.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -2):
             photo = PhotoImage(file = '4d2.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -3):
             photo = PhotoImage(file = '4d3.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -4):
             photo = PhotoImage(file = '4d4.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -5):
             photo = PhotoImage(file = '4d5.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -6):
             photo = PhotoImage(file = '4d6.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -7):
             photo = PhotoImage(file = '4d7.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
     if(beats == '3'):
@@ -131,56 +131,56 @@ def create_sheet(beats, key):
             photo = PhotoImage(file = '3u0.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 1):
             photo = PhotoImage(file = '3u1.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 2):
             photo = PhotoImage(file = '3u2.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 3):
             photo = PhotoImage(file = '3u3.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 4):
             photo = PhotoImage(file = '3u4.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 5):
             photo = PhotoImage(file = '3u5.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 6):
             photo = PhotoImage(file = '3u6.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == 7):
             photo = PhotoImage(file = '3u7.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         ### d
@@ -188,49 +188,49 @@ def create_sheet(beats, key):
             photo = PhotoImage(file = '3d1.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -2):
             photo = PhotoImage(file = '3d2.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -3):
             photo = PhotoImage(file = '3d3.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -4):
             photo = PhotoImage(file = '3d4.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -5):
             photo = PhotoImage(file = '3d5.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -6):
             photo = PhotoImage(file = '3d6.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
         if(key == -7):
             photo = PhotoImage(file = '3d7.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_sheet.place(x=200,y=20)
+            label_sheet.place(x=x,y=y)
             label_sheet.image = photo # keep a reference!
 
     ### 6/8 has many bugs !!
@@ -238,16 +238,17 @@ def create_sheet(beats, key):
         photo = PhotoImage(file = '6.gif')
         label_sheet = Label(image = photo)
         #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-        label_sheet.place(x=200,y=20)
+        label_sheet.place(x=x,y=y)
         label_sheet.image = photo # keep a reference!
 
 ### funtion pasing xml file
 def parsing(collection):
-    max_measure =0
+    
+    tag = 0
 
     pre_staff = 0
     measure = 1
-
+    
     pre_x_1 = pre_x_2 = ''
     pre_step_data = pre_octave_data = ''
 
@@ -300,7 +301,9 @@ def parsing(collection):
             global beats_111
             beats_111 = int(beats)
             ### create_sheet
-            create_sheet(beats, int(fifths))
+            x = 200
+            y = 20
+            create_sheet(beats, int(fifths), x, y)
 
         #print(beats)
         if ((int(beats) == 6) and (int(beattype) ==8)):
@@ -570,6 +573,23 @@ def parsing(collection):
             # print ('total_PI: ', total_PI)
             is_daul_2 = 1
 
+        ### measure == 5-8 OR measure == 9-12
+        ##########
+        if (measure == 5 and tag == 0):
+            x = 200
+            y = 180
+            tag = 1
+            create_sheet(beats, int(fifths), x, y)
+        if(measure == 9):
+            tag == 0
+        if (measure == 9 and tag == 0):
+            x = 200
+            y = 360
+            tag = 1
+            create_sheet(beats, int(fifths), x, y)
+        ##########
+
+
         # print('total_PI: ',total_PI)
         for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
 
@@ -584,11 +604,24 @@ def parsing(collection):
             mini_rhythm = rhythm
 
         ### max_measure
-        if(int(measure) > int(max_measure)):
-            max_measure = measure
+        #if(int(measure) > int(max_measure)):
+        #    max_measure = measure
+            # print('max_measure:' ,max_measure)
 
     print('mini rhythm is : ',mini_rhythm)
-    # print(max_measure)
+    # print('max_measure: ',max_measure)
+    
+    '''
+    if (4 < max_measure  and max_measure < 8):
+        x = 200
+        y = 180
+        create_sheet(beats, int(fifths), x, y)
+    
+    if (9 < max_measure  and max_measure < 12):
+        x = 200
+        y = 360
+        create_sheet(beats, int(fifths), x, y)
+    '''
     print()
     print()
     print()

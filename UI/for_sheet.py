@@ -1,9 +1,11 @@
+
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk, Tk, StringVar
 
 import tkinter.filedialog as filedialog
 import for_parsing
+
 
 ### Accidentals
 def Accidentals(alter_data, notes_measure_x, notes_staff_y):
@@ -36,16 +38,26 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         label_notes.image = re # keep a reference!
 
 def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111):
-    
+    notes_staff_y = 0
     # notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
     if (beats_111 == 3):
         notes_measure_x = 293 + (measure-1)*230 + ((PI-1)*70)
+        
+        ### measure 4-8
+        if (4 < measure  and measure < 9):
+            notes_measure_x = 293 + (measure-5)*230 + ((PI-1)*70)
+        if (8 < measure  and measure < 13):
+            notes_measure_x = 293 + (measure-9)*230 + ((PI-1)*70)
+
     ### 3/4 PI and 4/4 PI
     else: 
         notes_measure_x = 293 + (measure-1)*230 + ((PI-1)*53.125)
+        ### measure 4-8
+        if (4 < measure  and measure < 9):
+            notes_measure_x = 293 + (measure-5)*230 + ((PI-1)*53.125)  
+        if (8 < measure  and measure < 13):
+            notes_measure_x = 293 + (measure-9)*230 + ((PI-1)*70)
 
-    #else ():
-    #    notes_measure_x += 263 + (measure-1)*230 + (PI*57.5)
 
     ### about the y: left-hand and right-hand 
     # right-hand 
@@ -59,14 +71,32 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
         if(octave_data == 5):
             notes_staff_y = 35
 
+        if (4 < measure  and measure < 9):
+            notes_staff_y = notes_staff_y + 160
+        if (8 < measure  and measure < 13):
+            notes_staff_y = notes_staff_y + 160
+
     # left-hand
     else:
+        if(octave_data == 4):
+            notes_staff_y = 97
+
         if(octave_data == 3):
             notes_staff_y = 132
         
         if(octave_data == 2):
             notes_staff_y = 167
-        
+
+        if (4 < measure  and measure < 9):
+            notes_staff_y = notes_staff_y + 160
+        if (8 < measure  and measure < 13):
+            notes_staff_y = notes_staff_y + 160
+
+    '''
+    if (4 < measure  and measure < 8):
+        notes_staff_y = notes_staff_y + 160
+    '''
+
     ### pitch : count the notes notes_staff_y
     # if (step_data == 'C'):
         # notes_staff_y = notes_staff_y
@@ -88,8 +118,17 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
     if (step_data == '[ ]'):
         if(staff_data == 1):
             notes_staff_y = 40
+            if (4 < measure  and measure < 8):
+                notes_staff_y = notes_staff_y + 160
+            if (9 < measure  and measure < 12):
+                notes_staff_y = notes_staff_y + 320
+
         else:
             notes_staff_y = 132
+            if (4 < measure  and measure < 8):
+                notes_staff_y = notes_staff_y + 160
+            if (9 < measure  and measure < 12):
+                notes_staff_y = notes_staff_y + 320
 
         if(type_data == 'quarter'):
         # quarter
