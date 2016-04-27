@@ -66,25 +66,28 @@ def buttomOKClicked():
     if(daul == 1):
         for_modify.simple_daul(filename)
 
+    ### mode
+    Mode = comboboxMode.get()
+    print('get Mode: ',Mode)
+
     ### Tonality
     Tona = comboboxTona.get()
     print('get Tona: ',Tona)
+    for_modify.change_Tona(filename,Tona)
 
     ### tempo
     Tem = var.get()
     print('get Tem: ',Tem)
     
     for_modify.change_tempo(filename,str(Tem))
-    for_modify.change_Tona(filename,Tona)
     
-
-
+    
     
 def buttomPlayClicked():
     Tem = var.get()
     # for_modify.change_tempo(filename,str(Tem))
 
-    for_line.red_line(Tem)
+    for_line.red_line(Tem,filename)
     labelHello.config(text = "play ")
 
 def checklist():
@@ -129,7 +132,7 @@ if __name__ == '__main__':
     comboboxTona = ttk.Combobox(root, width =10)
     comboboxTona.place(x=70, y=150)
     comboboxTona['state'] = ['readonly']
-    comboboxTona['values'] = ['C','D','E','F','A','B']
+    comboboxTona['values'] = ['C','D','E','F','G','A','B']
 
     label_4 = tk.Label(root,text='Speed').place(x=10, y=200)
 

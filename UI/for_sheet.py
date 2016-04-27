@@ -74,7 +74,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
         if (4 < measure  and measure < 9):
             notes_staff_y = notes_staff_y + 160
         if (8 < measure  and measure < 13):
-            notes_staff_y = notes_staff_y + 160
+            notes_staff_y = notes_staff_y + 320
 
     # left-hand
     else:
@@ -90,7 +90,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
         if (4 < measure  and measure < 9):
             notes_staff_y = notes_staff_y + 160
         if (8 < measure  and measure < 13):
-            notes_staff_y = notes_staff_y + 160
+            notes_staff_y = notes_staff_y + 320
 
     '''
     if (4 < measure  and measure < 8):

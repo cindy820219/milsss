@@ -31,25 +31,56 @@ def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
     canvas.create_image(anchor_pos_x, anchor_pos_y, image = gif1, tag = "pic")
     
     canvas.update()
-    # 暂停0.05妙，然后删除图像
+    
+    # 暫停 0.05 秒，然後刪除圖片
     #time.sleep(0.0025)
     #canvas.delete('pic')
     #canvas.update()
 
     anchor_pos_x += anchor_pos_x_stepping
+
     if (anchor_pos_x <= anchor_pos_x_limit):
         canvas.after(anchor_pos_refresh_rate, anchor_move, canvas, gif1, anchor_pos_x, anchor_pos_y)
+    
+    ### has a big bug here
+    else:
+        print('anchor_move_2')
+    
+        anchor_pos_x_2 = 23
+        anchor_pos_y_2 =180
 
-def red_line(Tem):
+        # canvas.delete('pic')
+        canvas.create_image(anchor_pos_x, anchor_pos_y, image = gif1, tag = "pic")
+        canvas.update()
+        anchor_pos_x += anchor_pos_x_stepping
 
+        if (anchor_pos_x <= anchor_pos_x_limit):
+            canvas.after(anchor_pos_refresh_rate, anchor_move, canvas, gif1, anchor_pos_x, anchor_pos_y)
+
+def red_line(Tem,filename):
+    ### for beats
+    DOMTree = xml.dom.minidom.parse(filename)
+    collection = DOMTree.documentElement
+    for_parsing.parsing(collection)
+
+    times = collection.getElementsByTagName('time')
+    for beats in times:
+        beats = beats.getElementsByTagName('beats')[0]
+        beats = beats.childNodes[0].data
+
+    ### count 
     On = (60.0 / Tem ) * 0.5
     Off = On * 0.5
 
     global anchor_pos_x_stepping
-    # if(beats == 3):
-    #   anchor_pos_x_stepping  = Tem * 0.021
-    # else:
-    anchor_pos_x_stepping  = Tem * 0.021 * 0.75
+
+    if(beats == '3'):
+       anchor_pos_x_stepping  = Tem * 0.021
+       # print('beats == 3')
+    
+    else:
+        anchor_pos_x_stepping  = Tem * 0.021 * 0.75
+        # print('beats == 4')
     
     # print(anchor_pos_x_stepping)
 
