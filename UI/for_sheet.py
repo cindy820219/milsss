@@ -6,6 +6,8 @@ from tkinter import ttk, Tk, StringVar
 import tkinter.filedialog as filedialog
 import for_parsing
 
+global s 
+s = []
 
 ### Accidentals
 def Accidentals(alter_data, notes_measure_x, notes_staff_y):
@@ -37,7 +39,7 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         label_notes.place(x=notes_measure_x,y=notes_staff_y)
         label_notes.image = re # keep a reference!
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111):
+def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111):
     notes_staff_y = 0
     # notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
     if (beats_111 == 3):
@@ -59,6 +61,13 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             notes_measure_x = 293 + (measure-9)*230 + ((PI-1)*70)
 
 
+    #################################################################
+    s.append(notes_measure_x)
+    y = s
+    # print('s: ',y)
+    #################################################################
+
+
     ### about the y: left-hand and right-hand 
     # right-hand 
     if(staff_data == 1):
@@ -72,9 +81,9 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             notes_staff_y = 35
 
         if (4 < measure  and measure < 9):
-            notes_staff_y = notes_staff_y + 160
+            notes_staff_y = notes_staff_y + 150
         if (8 < measure  and measure < 13):
-            notes_staff_y = notes_staff_y + 320
+            notes_staff_y = notes_staff_y + 300
 
     # left-hand
     else:
@@ -179,11 +188,16 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
     else:
         if(type_data == 'quarter'):
             # quarter
+            '''
+            sh = PhotoImage(file = '3u6.gif')
+            w.create_image(0,0,image = sh) 
+            '''
             quarter = PhotoImage(file = 'quarter.gif')
-            label_notes = Label(image = quarter)
+            w.create_image(300,100,image = quarter) 
+            ### label_notes = Label(image = quarter)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-            label_notes.place(x=notes_measure_x,y=notes_staff_y)
-            label_notes.image = quarter # keep a reference!
+            ### label_notes.place(x=notes_measure_x,y=notes_staff_y)
+            ### label_notes.image = quarter # keep a reference!
 
             Accidentals(alter_data, notes_measure_x, notes_staff_y)
 
@@ -233,4 +247,3 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
                 label_notes.image = half
 
                 Accidentals(alter_data, notes_measure_x, notes_staff_y)
-            

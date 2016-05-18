@@ -16,8 +16,146 @@ import xml.dom.minidom
 beats = 0
 max_measure = 0
 
-def create_sheet(beats, key,x,y):
+def create_sheet(w, beats, key,x,y):
 
+    #w = Canvas(width = 990, height = 140, bg = 'yellow')
+    #w.place(x= 200 ,y=35)
+    # a = 200
+    # b = 35
+    # w.place(x= x ,y=y)
+ 
+    # sh = PhotoImage(file = '3u6.gif')
+    # w.create_image(0,0,image = sh) 
+
+    #im = PhotoImage(file = 'half.gif')
+    #w.create_image(300,30,image = im) 
+    '''
+    ### 4/4 
+    if (beats == '4'):
+        if(key == 0):
+            sh = PhotoImage(file = '4u0.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 1):
+            sh = PhotoImage(file = '4u1.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 2):
+            sh = PhotoImage(file = '4u2.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 3):
+            sh = PhotoImage(file = '4u3.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 4):
+            sh = PhotoImage(file = '4u4.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 5):
+            sh = PhotoImage(file = '4u5.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 6):
+            sh = PhotoImage(file = '4u6.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 7):
+            sh = PhotoImage(file = '4u7.gif')
+            w.create_image(0,0,image = sh) 
+
+        ### d
+        if(key == -1):
+            sh = PhotoImage(file = '4d1.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -2):
+            sh = PhotoImage(file = '4d2.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -3):
+            sh = PhotoImage(file = '4d3.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -4):
+            sh = PhotoImage(file = '4d4.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -5):
+            sh = PhotoImage(file = '4d5.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -6):
+            sh = PhotoImage(file = '4d6.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -7):
+            sh = PhotoImage(file = '4d7.gif')
+            w.create_image(0,0,image = sh) 
+
+    if(beats == '3'):
+        if(key == 0):
+            sh = PhotoImage(file = '3u0.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 1):
+            sh = PhotoImage(file = '3u1.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 2):
+            sh = PhotoImage(file = '3u2.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 3):
+            sh = PhotoImage(file = '3u3.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 4):
+            sh = PhotoImage(file = '3u4.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 5):
+            sh = PhotoImage(file = '3u5.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 6):
+            sh = PhotoImage(file = '3u6.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == 7):
+            sh = PhotoImage(file = '3u7.gif')
+            w.create_image(0,0,image = sh) 
+
+        ### d
+        if(key == -1):
+            sh = PhotoImage(file = '3d1.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -2):
+            sh = PhotoImage(file = '3d2.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -3):
+            sh = PhotoImage(file = '3d3.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -4):
+            sh = PhotoImage(file = '3d4.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -5):
+            sh = PhotoImage(file = '3d5.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -6):
+            sh = PhotoImage(file = '3d6.gif')
+            w.create_image(0,0,image = sh) 
+
+        if(key == -7):
+            sh = PhotoImage(file = '3d7.gif')
+            w.create_image(0,0,image = sh) 
+
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ### 4/4 
     if (beats == '4'):
         if(key == 0):
@@ -240,10 +378,19 @@ def create_sheet(beats, key,x,y):
         #label.grid(row = 3, column = 1, padx = 5, pady = 5)
         label_sheet.place(x=x,y=y)
         label_sheet.image = photo # keep a reference!
+    '''
+
+
+
+
+
+
+
+
 
 ### funtion pasing xml file
 def parsing(collection):
-    
+
     tag = 0
 
     pre_staff = 0
@@ -300,10 +447,27 @@ def parsing(collection):
             
             global beats_111
             beats_111 = int(beats)
+            
             ### create_sheet
             x = 200
             y = 20
-            create_sheet(beats, int(fifths), x, y)
+            
+            ###########################        
+            w = Canvas(width = 990, height = 540, bg = 'yellow')
+            w.place(x= 200 ,y=35)
+
+            # sh = PhotoImage(file = '3u6.gif')
+            # w.create_image(497,70,image = sh)   
+            
+            sh = PhotoImage(file = '3u6.gif')
+            w.create_image(0,0,image = sh) 
+
+            im = PhotoImage(file = 'half.gif')
+            w.create_image(300,30,image = im)  
+            ###########################
+            
+            #create_sheet(w, beats, int(fifths), x, y)
+            
 
         #print(beats)
         if ((int(beats) == 6) and (int(beattype) ==8)):
@@ -579,19 +743,19 @@ def parsing(collection):
             x = 200
             y = 180
             tag = 1
-            create_sheet(beats, int(fifths), x, y)
+            create_sheet(w, beats, int(fifths), x, y)
         if(measure == 9):
             tag == 0
         if (measure == 9 and tag == 0):
             x = 200
             y = 360
             tag = 1
-            create_sheet(beats, int(fifths), x, y)
+            create_sheet(w, beats, int(fifths), x, y)
         ##########
 
 
         # print('total_PI: ',total_PI)
-        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
+        for_sheet.create_notes(w, int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
 
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)

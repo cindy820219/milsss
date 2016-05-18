@@ -21,7 +21,7 @@ from xml.etree.ElementTree import parse, Element
 # import mtTkinter as Tkinter
 # from mtTkinter import *
 # import mtTkinter as Tkinter
-
+global w
 
 def __call__(self, *args, **kwargs):
     return self.decorator(self.func)(*args, **kwargs)
@@ -55,6 +55,29 @@ def openSample():
     collection = DOMTree.documentElement
     for_parsing.parsing(collection)
     filename = 'two-hand-2.xml'
+ 
+    '''
+    w = Canvas(width = 910, height = 50, bg = 'yellow')
+    w.place(x= 278 ,y=38)
+
+    w.create_line(0, 2.5, 910, 2.5)
+
+    #w = Canvas(width = 910, height = 0.5,bg = 'yellow')
+    #w.place(x= 278 ,y=46)
+    w.create_line(0, 12.5, 910, 12.5)
+
+    #w = Canvas(width = 910, height = 0.5,bg = 'yellow')
+    #w.place(x= 278 ,y=54)
+    w.create_line(0, 22.5, 910, 22.5)
+
+    #w = Canvas(width = 910, height = 0.5,bg = 'yellow')
+    #w.place(x= 278 ,y=62)
+    w.create_line(0, 32.5, 910, 32.5)
+
+    #w = Canvas(width = 910, height = 0.5,bg = 'yellow')
+    #w.place(x= 278 ,y=70)
+    w.create_line(0, 42.5, 910, 42.5)
+    '''
 
 def buttomOKClicked():
 
@@ -73,7 +96,7 @@ def buttomOKClicked():
     ### Tonality
     Tona = comboboxTona.get()
     print('get Tona: ',Tona)
-    for_modify.change_Tona(filename,Tona)
+    for_modify.change_Tona(filename, Tona)
 
     ### tempo
     Tem = var.get()
@@ -142,7 +165,7 @@ if __name__ == '__main__':
 
     keyboard = PhotoImage(file = 'keyboard.gif')
     label_keyboard = Label(image = keyboard)
-    label_keyboard.place(x=230,y=620)
+    label_keyboard.place(x=200,y=620)
     label_keyboard.image = keyboard # keep a reference!
 
     keyboard = PhotoImage(file = 'keyboard.gif')
@@ -173,5 +196,19 @@ if __name__ == '__main__':
     menubar.add_cascade(label="Sample",menu=editmenu)
     
     root.config(menu=menubar)
+
+    # w = Canvas(width = 990, height = 540, bg = 'yellow')
+    # w.place(x= 200 ,y=35)
+
+    # # sh = PhotoImage(file = '3u6.gif')
+    # # w.create_image(497,70,image = sh)   
+    
+    # sh = PhotoImage(file = '3u6.gif')
+    # w.create_image(0,0,image = sh) 
+
+    # im = PhotoImage(file = 'half.gif')
+    # w.create_image(300,30,image = im)  
+
+
 
     mainloop()
