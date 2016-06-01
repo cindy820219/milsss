@@ -41,7 +41,7 @@ def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
 
     if (anchor_pos_x <= anchor_pos_x_limit):
         canvas.after(anchor_pos_refresh_rate, anchor_move, canvas, gif1, anchor_pos_x, anchor_pos_y)
-        
+    
     ### has a big bug here
     else:
         print('anchor_move_2')
@@ -56,7 +56,6 @@ def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
 
         if (anchor_pos_x <= anchor_pos_x_limit):
             canvas.after(anchor_pos_refresh_rate, anchor_move, canvas, gif1, anchor_pos_x, anchor_pos_y)
-
 
 def red_line(Tem,filename):
     ### for beats

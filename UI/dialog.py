@@ -1,74 +1,31 @@
 
-'''
-from xml.etree.ElementTree import ElementTree, Element,  SubElement
+import tkinter as tk
+from tkinter import *
+import time
 
-# import xml.etree.ElementTree as ET
-from xml.etree.ElementTree import parse
+root = Tk()
+root.title('Hello!!!')
 
-from copy import deepcopy
-import xml.etree.cElementTree as etree
+veiw = Label(root,width="180", height="40")
+veiw.pack()
 
-#if __name__ == '__main__':
-aaa = open('aaa.xml','w')
+# create the canvas, size in pixels
+canvas = Canvas(width = 300, height = 200, bg = 'yellow')
+# pack the canvas into a frame/form
+canvas.place(x= 100 ,y=20)
+# load the .gif image file
+# put in your own gif file here, may need to add full path
+# like 'C:/WINDOWS/Help/Tours/WindowsMediaPlayer/Img/mplogo.gif'
+gif1 = PhotoImage(file = 'whole.gif')
+# put gif image on canvas
+# pic's upper left corner (NW) on the canvas is at x=50 y=10
+for x in range(20,50):
+    canvas.create_image(x, 10, image = gif1, tag = "pic")
+    canvas.update()
+     
+    # 暂停0.05妙，然后删除图像
+    time.sleep(0.025)
+    canvas.delete("pic")
+# run it ...
 
-tree = parse('two-hand-1.xml')
-root = tree.getroot()
-
-
-root.append(Element('one'))
-root.append(Element('two'))
-
-# one = 'alter>1</alter'
-
-# SubElement(root, 'alter>1</alter')
-
-# root.append(etree.Comment("some comment"))
-
-#### root.append( etree.Element("child1") )
-# child2 = etree.SubElement(root, "child2")
-# child3 = etree.SubElement(root, "child3")
-
-#### root.insert(0, etree.Element("child0"))
-
-
-html = etree.Element("html")
-body = etree.SubElement(html, "body")
-body.text = "TEXT"
-
-etree.tostring(html)
-### b'<html><body>TEXT</body></html>'
-
-br = etree.SubElement(body, "br")
-etree.tostring(html)
-### b'<html><body>TEXT<br/></body></html>'
-
-br.tail = "TAIL"
-etree.tostring(html)
-### b'<html><body>TEXT<br/>TAIL</body></html>'
-
-
-alter = etree.Element("alter")
-alter.text = "1"
-
-print(etree.tostring(alter))
-
-tree.write('aaa.xml')
-print('  the file "aaa.xml" is saved.') 
-'''   
-a = 11
-b =	3
-c = 23
-
-
-
-y = []
-y.append(a)
-y.append(b)
-y.append(c)
-
-
-print('y: ',y)
-s = y
-print('s: ',s)
-yy = y.sort()
-print('y sort: ',yy)
+mainloop()

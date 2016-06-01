@@ -27,23 +27,19 @@ def read_xml(in_path):
 def write_xml(tree, out_path):
     tree.write(out_path, encoding="utf-8",xml_declaration=True)
 
-### change_Tona_change_notes
-def change_Tona_change_notes(add_key):
+def change_Tona_change_notes(filename,add_key):
 
-    tree = parse('change-key.xml')
+    tree = parse(filename)
     root = tree.getroot()
     ######
     # <step>F</step>
     # <alter>1</alter>
     # <octave>4</octave>
     ######
-
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
-            print('----------------------------')
             for pitch in note.iter('pitch'):
                 alter_nun = 0
-                
                 for step in pitch.iter('step'):
                     # print('step: ',step.text)
                     step_text = step.text
@@ -52,7 +48,6 @@ def change_Tona_change_notes(add_key):
                     octave_text = octave.text
                 
                 if(pitch.iter('alter')):
-                    alter_tag = 1
                     for alter in pitch.iter('alter'):
                         alter = alter.text
                         alter_nun = int(alter)
@@ -83,92 +78,43 @@ def change_Tona_change_notes(add_key):
                     step_num = 11
 
                 midi = step_num + octave_num + alter_nun
-                print('Midi: ', midi )
+                # print('Midi: ', midi )
                 new_midi = midi + add_key
-                print('New Midi: ', new_midi)
+                # print('New Midi: ', new_midi)
 
                 new_octave = (new_midi // 12) -1
                 new_step = new_midi % 12
-                print('new 1: ', new_step,new_octave)
-                
+
                 if(new_step == 0):
                     new_step = 'C'
-                    if(alter_nun != 0):
-                        for alter in pitch.iter('alter'):
-                            pitch.remove(alter)
-
-                    '''
-                    for measure in root.iter('measure'):
-                        for note in measure.iter('note'):
-                            ### 要刪除的音
-                            chord =  note.find('chord')
-                            
-                            if(chord != None):
-                                queue.append(note)
-                        # print('queue: ',queue)
-                        
-                        for i in queue:
-                            measure.remove(i)
-                            # measure.remove(queue.pop(0))
-                            # print('deleted queue[0]: ',queue)
-                    '''
-
                 if(new_step == 1):
                     new_step = 'C'
-                    ###
 
                 if(new_step == 2):
                     new_step = 'D'
-                    if(alter_nun != 0):
-                        for alter in pitch.iter('alter'):
-                            pitch.remove(alter)
-
                 if(new_step == 3):
                     new_step = 'D'
-                    ###
 
                 if(new_step == 4):
                     new_step = 'E'
-                    if(alter_nun != 0):
-                        for alter in pitch.iter('alter'):
-                            pitch.remove(alter)
 
                 if(new_step == 5):
                     new_step = 'F'
-                    if(alter_nun != 0):
-                        for alter in pitch.iter('alter'):
-                            pitch.remove(alter)
-
                 if(new_step == 6):
                     new_step = 'F'
-                    ###
 
                 if(new_step == 7):
                     new_step = 'G'
-                    if(alter_nun != 0):
-                        for alter in pitch.iter('alter'):
-                            pitch.remove(alter)
-
                 if(new_step == 8):
                     new_step = 'G'
-                    ###
-
+                
                 if(new_step == 9):
                     new_step = 'A'
-                    if(alter_nun != 0):
-                        for alter in pitch.iter('alter'):
-                            pitch.remove(alter)
-
                 if(new_step == 10):
                     new_step = 'A'
-                    ###
-
+                
                 if(new_step == 11):
                     new_step = 'B'
-                    if(alter_nun != 0):
-                        for alter in pitch.iter('alter'):
-                            pitch.remove(alter)
-                            
     
                 step.text = ''
                 step.text += new_step
@@ -176,12 +122,12 @@ def change_Tona_change_notes(add_key):
                 octave.text = ''
                 octave.text += str(new_octave)
 
-                print('new 2: ',step.text, octave.text)
-
+                # print('new: ',step.text, octave.text)
+                
                 write_xml(tree, 'change-key-note.xml')
     print('  the file "change-key-note" is saved.')    
 
-### change_Tona
+
 def change_Tona(filename,Tona):
     
     DOMTree = xml.dom.minidom.parse(filename)
@@ -254,9 +200,8 @@ def change_Tona(filename,Tona):
     #    add_key = Tona_num - 61
 
     print('add_key: ',add_key)
-    change_Tona_change_notes(add_key)
+    change_Tona_change_notes(filename,add_key)
 
-### change_tempo
 def change_tempo(filename ,Tem):
 
     global DOMTree, collection, tree
@@ -279,7 +224,6 @@ def change_tempo(filename ,Tem):
         write_xml(tree, "change-tem.xml")
         print('  the file "change-tem.xml" is saved.')
 
-### simple_daul
 def simple_daul(filename):
     chord_sim = open('change-daul.xml','w')
 
