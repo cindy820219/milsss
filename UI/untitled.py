@@ -45,7 +45,7 @@ def openfile():
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     for_parsing.parsing(collection)
-
+    
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
 
 def openSample():
@@ -53,8 +53,39 @@ def openSample():
 
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
-    for_parsing.parsing(collection)
+    a = for_parsing.parsing(collection)
     filename = 'two-hand-2.xml'
+
+    labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
+
+    if (a == '0'):
+        Default_Tona = comboboxTona.set('C')
+
+    if (a == '1'):
+        Default_Tona = comboboxTona.set('G')
+    if (a == '2'):
+        Default_Tona = comboboxTona.set('D')
+    if (a == '3'):
+        Default_Tona = comboboxTona.set('A')
+    if (a == '4'):
+        Default_Tona = comboboxTona.set('E')
+    if (a == '5'):
+        Default_Tona = comboboxTona.set('B')
+    if (a == '6'):
+        Default_Tona = comboboxTona.set('F')
+
+    if (a == '-1'):
+        Default_Tona = comboboxTona.set('F')
+    if (a == '-2'):
+        Default_Tona = comboboxTona.set('B')
+    if (a == '-3'):
+        Default_Tona = comboboxTona.set('E')
+    if (a == '-4'):
+        Default_Tona = comboboxTona.set('A')
+    if (a == '-5'):
+        Default_Tona = comboboxTona.set('D')
+    if (a == '-6'):
+        Default_Tona = comboboxTona.set('G')
 
 def buttomOKClicked():
 
@@ -86,6 +117,7 @@ def buttomOKClicked():
 
     ### Tonality
     Tona = comboboxTona.get()
+
     print('get Tona: ',Tona)
     for_modify.change_Tona(filename,Tona)
 
@@ -144,6 +176,7 @@ if __name__ == '__main__':
     comboboxMode.place(x=70, y=110)
     comboboxMode['state'] = ['readonly']
     comboboxMode['values'] = ['Listen','Practice','Play']
+    Default_Listen = comboboxMode.set('Listen')
 
     label_3 = tk.Label(root,text='Tonality').place(x=10, y=150) 
 

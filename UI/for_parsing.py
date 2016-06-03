@@ -288,6 +288,7 @@ def parsing(collection):
             fifths = fifths.childNodes[0].data
             print('key:' ,fifths)
 
+
         times = collection.getElementsByTagName('time')
         for time in times:
             beats = time.getElementsByTagName('beats')[0]
@@ -631,3 +632,4 @@ def parsing(collection):
     print()
     print()
 
+    return(fifths)
