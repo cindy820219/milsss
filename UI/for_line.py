@@ -13,8 +13,6 @@ import for_metronome
 
 import time
 
-
-
 anchor_pos_x_default    = 23
 anchor_pos_y_default    = 20
 anchor_pos_x_limit      = 885
@@ -44,7 +42,7 @@ def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
     
     ### has a big bug here
     else:
-        print('anchor_move_2')
+        # print('anchor_move_2')
     
         anchor_pos_x_2 = 23
         anchor_pos_y_2 =180
@@ -57,7 +55,21 @@ def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
         if (anchor_pos_x <= anchor_pos_x_limit):
             canvas.after(anchor_pos_refresh_rate, anchor_move, canvas, gif1, anchor_pos_x, anchor_pos_y)
 
-def red_line(Tem,filename):
+def continue_line(Tem,filename):
+
+    # 格式化成2016-03-20 11:45:39形式
+    # print time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+    #tStart = time.strftime("%H:%M:%S", time.localtime()) 
+    # print(tStart)
+
+    # for a in range(10):
+        # print(a)
+
+    # tStop = time.strftime("%H:%M:%S", time.localtime()) 
+    # print(tStop)
+    
+    # print(int(tStop) - int(tStart))
+
     ### for beats
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement

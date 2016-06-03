@@ -632,4 +632,4 @@ def parsing(collection):
     print()
     print()
 
-    return(fifths)
+    return(fifths, per_minute)

@@ -44,8 +44,38 @@ def openfile():
     ### for-parsing
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    for_parsing.parsing(collection)
-    
+    a = for_parsing.parsing(collection)
+
+    if (a[0] == '0'):
+        Default_Tona = comboboxTona.set('C')
+    if (a[0] == '1'):
+        Default_Tona = comboboxTona.set('G')
+    if (a[0] == '2'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '3'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '4'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '5'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '6'):
+        Default_Tona = comboboxTona.set('F')
+
+    if (a[0] == '-1'):
+        Default_Tona = comboboxTona.set('F')
+    if (a[0] == '-2'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '-3'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '-4'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '-5'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '-6'):
+        Default_Tona = comboboxTona.set('G')
+
+    scale.set(a[1])
+
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
 
 def openSample():
@@ -53,39 +83,43 @@ def openSample():
 
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
+    
     a = for_parsing.parsing(collection)
+    # print(a)
+
     filename = 'two-hand-2.xml'
 
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
 
-    if (a == '0'):
+    if (a[0] == '0'):
         Default_Tona = comboboxTona.set('C')
-
-    if (a == '1'):
+    if (a[0] == '1'):
         Default_Tona = comboboxTona.set('G')
-    if (a == '2'):
+    if (a[0] == '2'):
         Default_Tona = comboboxTona.set('D')
-    if (a == '3'):
+    if (a[0] == '3'):
         Default_Tona = comboboxTona.set('A')
-    if (a == '4'):
+    if (a[0] == '4'):
         Default_Tona = comboboxTona.set('E')
-    if (a == '5'):
+    if (a[0] == '5'):
         Default_Tona = comboboxTona.set('B')
-    if (a == '6'):
+    if (a[0] == '6'):
         Default_Tona = comboboxTona.set('F')
 
-    if (a == '-1'):
+    if (a[0] == '-1'):
         Default_Tona = comboboxTona.set('F')
-    if (a == '-2'):
+    if (a[0] == '-2'):
         Default_Tona = comboboxTona.set('B')
-    if (a == '-3'):
+    if (a[0] == '-3'):
         Default_Tona = comboboxTona.set('E')
-    if (a == '-4'):
+    if (a[0] == '-4'):
         Default_Tona = comboboxTona.set('A')
-    if (a == '-5'):
+    if (a[0] == '-5'):
         Default_Tona = comboboxTona.set('D')
-    if (a == '-6'):
+    if (a[0] == '-6'):
         Default_Tona = comboboxTona.set('G')
+
+    scale.set(a[1])
 
 def buttomOKClicked():
 
@@ -114,7 +148,7 @@ def buttomOKClicked():
     ### mode
     Mode = comboboxMode.get()
     print('get Mode: ',Mode)
-
+    
     ### Tonality
     Tona = comboboxTona.get()
 
@@ -132,10 +166,23 @@ def buttomOKClicked():
 def buttomPlayClicked():
     Tem = var.get()
     # for_modify.change_tempo(filename,str(Tem))
+    
+    ### Mode - Listen
+    if (comboboxMode.get() == 'Listen'):
+        labelHello.config(text = "Listen ")
+        for_line.continue_line(Tem,filename)
+    
+    ### Mode - Practice
+    if (comboboxMode.get() == 'Practice'):
+        # for_line.continue_line(Tem,filename)
+        labelHello.config(text = "Practice ")
 
-    for_line.red_line(Tem,filename)
-    labelHello.config(text = "play ")
-
+    ### Mode - Play
+    if (comboboxMode.get() == 'play'):
+        # for_line.continue_line(Tem,filename)
+        labelHello.config(text = "play ")   
+        for_line.continue_line(Tem,filename)
+        
 def checklist():
     print('aaa')
    # print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get() )
@@ -167,7 +214,7 @@ if __name__ == '__main__':
     Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
     
     var3 = IntVar()
-    Checkbutton(root, text="Accent", variable=var3).place(x=70,y=70)
+    Checkbutton(root, text="non-Accent", variable=var3).place(x=70,y=70)
     # Button(root, text='Show', command=var_states).place(x=10,y=70)
 
     label_2 = tk.Label(root,text='Mode').place(x=10, y=110)
@@ -193,13 +240,8 @@ if __name__ == '__main__':
 
     keyboard = PhotoImage(file = 'keyboard.gif')
     label_keyboard = Label(image = keyboard)
-    label_keyboard.place(x=230,y=620)
+    label_keyboard.place(x=130,y=620)
     label_keyboard.image = keyboard # keep a reference!
-
-    keyboard = PhotoImage(file = 'keyboard.gif')
-    label_keyboard = Label(image = keyboard)
-    label_keyboard.place(x=600,y=620)
-    label_keyboard.image = keyboard 
 
     buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttomOKClicked)
     buttomOK.place(x=20, y=280)

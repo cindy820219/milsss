@@ -2,7 +2,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.2</software>
-      <encoding-date>2016-04-27</encoding-date>
+      <encoding-date>2016-06-03</encoding-date>
       <supports element="accidental" type="yes" />
       <supports element="beam" type="yes" />
       <supports attribute="new-page" element="print" type="yes" value="yes" />
@@ -173,9 +173,9 @@
         <stem>up</stem>
         <staff>1</staff>
         </note>
-      <note default-x="81.56" default-y="-40.00">
+      <note default-x="81.56" default-y="-20.00">
         <pitch>
-          <step>E</step>
+          <step>B</step>
           <octave>4</octave>
           </pitch>
         <duration>2</duration>
@@ -184,10 +184,10 @@
         <stem>up</stem>
         <staff>1</staff>
         </note>
-      <note default-x="151.11" default-y="-20.00">
+      <note default-x="151.11" default-y="-5.00">
         <pitch>
-          <step>B</step>
-          <octave>4</octave>
+          <step>E</step>
+          <octave>5</octave>
           </pitch>
         <duration>2</duration>
         <voice>1</voice>
