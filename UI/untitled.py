@@ -61,10 +61,24 @@ def buttomOKClicked():
     Mode = Tona = Tem = ''
 
     ### simple
-    print('get Mode (Daul, Rhythm): ',checklist())
+    # print('get Mode (Daul, Rhythm, Accent): ',checklist())
+    print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get())
+    
     daul = var1.get()
+    # print('daul: ',daul)
     if(daul == 1):
         for_modify.simple_daul(filename)
+    
+    rhythm = var2.get()
+    # print('rhythm: ',rhythm)
+    if(rhythm == 1):
+        for_modify.simple_rhythm(filename)
+    
+    accent = var3.get()
+    # print('accent: ',accent)
+    if(accent == 1):
+        for_modify.simple_accent(filename)
+    
 
     ### mode
     Mode = comboboxMode.get()
@@ -91,10 +105,12 @@ def buttomPlayClicked():
     labelHello.config(text = "play ")
 
 def checklist():
-   # print("Daul: ",var1.get(), "Rhythm: ",var2.get())
-   Daul = var1.get()
-   Rhythm = var2.get()
-   return (Daul,Rhythm)
+    print('aaa')
+   # print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get() )
+   # Daul   = var1.get()
+   # Rhythm = var2.get()
+   # Accent = var3.get()
+   # return (Daul,Rhythm,Accent)
 
 # veiw.pack()
 if __name__ == '__main__':
@@ -114,8 +130,10 @@ if __name__ == '__main__':
     label_1 = tk.Label(root,text='Simplize: ').place(x=10, y=10)
     var1 = IntVar()
     Checkbutton(root, text="Daul", variable=var1).place(x=70,y=30)
+    
     var2 = IntVar()
     Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
+    
     var3 = IntVar()
     Checkbutton(root, text="Accent", variable=var3).place(x=70,y=70)
     # Button(root, text='Show', command=var_states).place(x=10,y=70)

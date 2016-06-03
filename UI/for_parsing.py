@@ -396,7 +396,7 @@ def parsing(collection):
         if (step_data == ''):
             step_data = '[ ]'
             pre_step_data = pre_x_1 = pre_x_2 = ''
-            octave_data = 100
+            octave_data = 10
 
         if (type_data == ''):
             type_data = '---'
@@ -545,7 +545,7 @@ def parsing(collection):
         staff_id = staff_data
 
         # ID = note_num + measure_id + staff_id + str(PI)
-        
+    
         print(step_data
             +str(octave_data)
             +' '+alter_data
@@ -592,7 +592,7 @@ def parsing(collection):
 
         # print('total_PI: ',total_PI)
         for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
-
+        # print('total_PI: ',total_PI)
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)
 

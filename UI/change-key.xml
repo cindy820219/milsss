@@ -3,7 +3,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.2</software>
-      <encoding-date>2016-04-27</encoding-date>
+      <encoding-date>2016-06-03</encoding-date>
       <supports element="accidental" type="yes" />
       <supports element="beam" type="yes" />
       <supports attribute="new-page" element="print" type="yes" value="yes" />
@@ -68,7 +68,7 @@
       <attributes>
         <divisions>2</divisions>
         <key>
-          <fifths>4</fifths>
+          <fifths>2</fifths>
           </key>
         <time>
           <beats>3</beats>
@@ -199,18 +199,6 @@
         <stem>up</stem>
         <staff>1</staff>
         </note>
-      <note default-x="12.00" default-y="-25.00">
-        <chord />
-        <pitch>
-          <step>A</step>
-          <octave>4</octave>
-          </pitch>
-        <duration>2</duration>
-        <voice>1</voice>
-        <type>quarter</type>
-        <stem>up</stem>
-        <staff>1</staff>
-        </note>
       <note default-x="12.00" default-y="-15.00">
         <chord />
         <pitch>
@@ -223,19 +211,7 @@
         <stem>up</stem>
         <staff>1</staff>
         </note>
-      <note default-x="81.56" default-y="-40.00">
-        <pitch>
-          <step>E</step>
-          <octave>4</octave>
-          </pitch>
-        <duration>2</duration>
-        <voice>1</voice>
-        <type>quarter</type>
-        <stem>up</stem>
-        <staff>1</staff>
-        </note>
       <note default-x="81.56" default-y="-20.00">
-        <chord />
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -244,21 +220,9 @@
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
-        <staff>1</staff>
-        </note>
-      <note default-x="151.11" default-y="-20.00">
-        <pitch>
-          <step>B</step>
-          <octave>4</octave>
-          </pitch>
-        <duration>2</duration>
-        <voice>1</voice>
-        <type>quarter</type>
-        <stem>down</stem>
         <staff>1</staff>
         </note>
       <note default-x="151.11" default-y="-5.00">
-        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -295,47 +259,10 @@
         <stem>up</stem>
         <staff>2</staff>
         </note>
-      <note default-x="12.00" default-y="-115.00">
-        <chord />
-        <pitch>
-          <step>F</step>
-          <alter>1</alter>
-          <octave>3</octave>
-          </pitch>
-        <duration>2</duration>
-        <voice>5</voice>
-        <type>quarter</type>
-        <stem>up</stem>
-        <staff>2</staff>
-        </note>
-      <note default-x="12.00" default-y="-105.00">
-        <chord />
-        <pitch>
-          <step>A</step>
-          <octave>3</octave>
-          </pitch>
-        <duration>2</duration>
-        <voice>5</voice>
-        <type>quarter</type>
-        <stem>up</stem>
-        <staff>2</staff>
-        </note>
       <note default-x="81.56" default-y="-145.00">
         <pitch>
           <step>G</step>
           <octave>2</octave>
-          </pitch>
-        <duration>2</duration>
-        <voice>5</voice>
-        <type>quarter</type>
-        <stem>down</stem>
-        <staff>2</staff>
-        </note>
-      <note default-x="81.56" default-y="-120.00">
-        <chord />
-        <pitch>
-          <step>E</step>
-          <octave>3</octave>
           </pitch>
         <duration>2</duration>
         <voice>5</voice>
