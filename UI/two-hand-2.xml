@@ -3,8 +3,8 @@
 <score-partwise>
   <identification>
     <encoding>
-      <software>MuseScore 2.0.2</software>
-      <encoding-date>2016-06-03</encoding-date>
+      <software>MuseScore 2.0.3</software>
+      <encoding-date>2016-06-07</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -380,10 +380,10 @@
         <staff>2</staff>
         <beam number="1">begin</beam>
         </note>
-      <note default-x="140.57" default-y="-155.00">
+      <note default-x="140.57" default-y="-120.00">
         <pitch>
           <step>E</step>
-          <octave>2</octave>
+          <octave>3</octave>
           </pitch>
         <duration>1</duration>
         <voice>5</voice>

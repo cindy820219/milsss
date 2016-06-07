@@ -6,6 +6,8 @@ from tkinter import ttk, Tk, StringVar
 import tkinter.filedialog as filedialog
 import for_parsing
 
+global notes_x
+notes_x = []
 
 ### Accidentals
 def Accidentals(alter_data, notes_measure_x, notes_staff_y):
@@ -233,4 +235,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
                 label_notes.image = half
 
                 Accidentals(alter_data, notes_measure_x, notes_staff_y)
-            
+    
+    notes_x.append(notes_measure_x)
+    # print('notes_measure_x: ', notes_x)
+    return(notes_x)

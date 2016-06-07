@@ -55,9 +55,10 @@ def anchor_move(canvas, gif1, anchor_pos_x, anchor_pos_y):
         if (anchor_pos_x <= anchor_pos_x_limit):
             canvas.after(anchor_pos_refresh_rate, anchor_move, canvas, gif1, anchor_pos_x, anchor_pos_y)
 
-def continue_line(Tem,filename):
+def continue_line(Tem, filename, beats):
 
-    # 格式化成2016-03-20 11:45:39形式
+    # ----------------------------------------------------------
+    # 2016-03-20 11:45:39
     # print time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
     #tStart = time.strftime("%H:%M:%S", time.localtime()) 
     # print(tStart)
@@ -69,16 +70,18 @@ def continue_line(Tem,filename):
     # print(tStop)
     
     # print(int(tStop) - int(tStart))
+    # ----------------------------------------------------------
 
-    ### for beats
-    DOMTree = xml.dom.minidom.parse(filename)
-    collection = DOMTree.documentElement
-    for_parsing.parsing(collection)
 
-    times = collection.getElementsByTagName('time')
-    for beats in times:
-        beats = beats.getElementsByTagName('beats')[0]
-        beats = beats.childNodes[0].data
+    # ### for beats
+    # DOMTree = xml.dom.minidom.parse(filename)
+    # collection = DOMTree.documentElement
+    # for_parsing.parsing(collection)
+
+    # times = collection.getElementsByTagName('time')
+    # for beats in times:
+    #     beats = beats.getElementsByTagName('beats')[0]
+    #     beats = beats.childNodes[0].data
 
     ### count 
     On = (60.0 / Tem ) * 0.5

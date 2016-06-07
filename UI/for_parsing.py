@@ -16,6 +16,9 @@ import xml.dom.minidom
 beats = 0
 max_measure = 0
 
+global notes_x
+notes_x = []
+
 def create_sheet(beats, key,x,y):
 
     ### 4/4 
@@ -592,7 +595,9 @@ def parsing(collection):
 
 
         # print('total_PI: ',total_PI)
-        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
+        notes_x = for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
+        # print('notes_x: ', notes_x )
+
         # print('total_PI: ',total_PI)
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)
@@ -632,4 +637,4 @@ def parsing(collection):
     print()
     print()
 
-    return(fifths, per_minute)
+    return(fifths, per_minute, notes_x)

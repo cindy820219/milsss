@@ -18,9 +18,11 @@ import for_line
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import parse, Element
 
+import buttom_Play
 # import mtTkinter as Tkinter
 # from mtTkinter import *
 # import mtTkinter as Tkinter
+
 
 
 def __call__(self, *args, **kwargs):
@@ -42,6 +44,7 @@ def openfile():
     print(root.fileName)
 
     ### for-parsing
+    ### default tonalite and tempo
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     a = for_parsing.parsing(collection)
@@ -78,6 +81,8 @@ def openfile():
 
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
 
+    notes_x = a[2]
+
 def openSample():
     global filename
 
@@ -90,7 +95,8 @@ def openSample():
     filename = 'two-hand-2.xml'
 
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
-
+    
+    ### default tonalite and tempo
     if (a[0] == '0'):
         Default_Tona = comboboxTona.set('C')
     if (a[0] == '1'):
@@ -120,6 +126,11 @@ def openSample():
         Default_Tona = comboboxTona.set('G')
 
     scale.set(a[1])
+
+    global notes_x
+    notes_x = a[2]
+    
+    # print('notes_x: ', notes_x)
 
 def buttomOKClicked():
 
@@ -162,27 +173,38 @@ def buttomOKClicked():
     for_modify.change_tempo(filename,str(Tem))
     
     
-    
 def buttomPlayClicked():
+    Li = 0
+    Pr = 0
+    Pl = 0
+
+    # print('notes_x: ', notes_x)
+
     Tem = var.get()
     # for_modify.change_tempo(filename,str(Tem))
     
     ### Mode - Listen
     if (comboboxMode.get() == 'Listen'):
+        Li = 1
         labelHello.config(text = "Listen ")
-        for_line.continue_line(Tem,filename)
+        # for_line.continue_line(Tem,filename)
     
     ### Mode - Practice
     if (comboboxMode.get() == 'Practice'):
+        Pr = 1
         # for_line.continue_line(Tem,filename)
         labelHello.config(text = "Practice ")
 
     ### Mode - Play
-    if (comboboxMode.get() == 'play'):
+    if (comboboxMode.get() == 'Play'):
+        Pl = 1
         # for_line.continue_line(Tem,filename)
-        labelHello.config(text = "play ")   
-        for_line.continue_line(Tem,filename)
-        
+        labelHello.config(text = "Play ")   
+        # for_line.continue_line(Tem,filename)
+    
+    buttom_Play.buttomPlay(filename, Li, Pr, Pl, Tem, notes_x)
+
+
 def checklist():
     print('aaa')
    # print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get() )
