@@ -16,8 +16,8 @@ import xml.dom.minidom
 beats = 0
 max_measure = 0
 
-global notes_x
-notes_x = []
+global note_x
+note_x = []
 
 def create_sheet(beats, key,x,y):
 
@@ -245,7 +245,7 @@ def create_sheet(beats, key,x,y):
         label_sheet.image = photo # keep a reference!
 
 ### funtion pasing xml file
-def parsing(collection):
+def parsing(collection, note_x):
     
     tag = 0
 
@@ -580,6 +580,7 @@ def parsing(collection):
         ### measure == 5-8 OR measure == 9-12
         ##########
         if (measure == 5 and tag == 0):
+            # note_x = []
             x = 200
             y = 180
             tag = 1
@@ -587,6 +588,7 @@ def parsing(collection):
         if(measure == 9):
             tag == 0
         if (measure == 9 and tag == 0):
+            # note_x = []
             x = 200
             y = 360
             tag = 1
@@ -595,9 +597,9 @@ def parsing(collection):
 
 
         # print('total_PI: ',total_PI)
-        notes_x = for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data),beats_111)
-        # print('notes_x: ', notes_x )
-
+        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x)
+        # print('note_x :', note_x) 
+        
         # print('total_PI: ',total_PI)
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)
@@ -637,4 +639,4 @@ def parsing(collection):
     print()
     print()
 
-    return(fifths, per_minute, notes_x)
+    return(fifths, per_minute)

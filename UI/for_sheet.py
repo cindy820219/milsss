@@ -6,8 +6,7 @@ from tkinter import ttk, Tk, StringVar
 import tkinter.filedialog as filedialog
 import for_parsing
 
-global notes_x
-notes_x = []
+
 
 ### Accidentals
 def Accidentals(alter_data, notes_measure_x, notes_staff_y):
@@ -39,7 +38,7 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         label_notes.place(x=notes_measure_x,y=notes_staff_y)
         label_notes.image = re # keep a reference!
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111):
+def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x):
     notes_staff_y = 0
     # notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
     if (beats_111 == 3):
@@ -140,13 +139,22 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = quarter # keep a reference!
 
-        if(type_data == 'whole'):
-            # whole
+        if(type_data == '---'):
+        # whole
             whole = PhotoImage(file = 'rest_whole.gif')
             label_notes = Label(image = whole)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = whole # keep a reference!
+
+        # if(type_data == 'whole'):
+        #     # whole
+        #     whole = PhotoImage(file = 'rest_whole.gif')
+        #     label_notes = Label(image = whole)
+        #     #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        #     label_notes.place(x=notes_measure_x,y=notes_staff_y)
+        #     label_notes.image = whole # keep a reference!
+
 
         if(type_data == 'eighth'):
             # eighth
@@ -236,6 +244,5 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
 
                 Accidentals(alter_data, notes_measure_x, notes_staff_y)
     
-    notes_x.append(notes_measure_x)
-    # print('notes_measure_x: ', notes_x)
-    return(notes_x)
+    note_x.append(notes_measure_x)
+    # print('note_x :', note_x)

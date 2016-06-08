@@ -23,7 +23,8 @@ import buttom_Play
 # from mtTkinter import *
 # import mtTkinter as Tkinter
 
-
+global note_x
+note_x = []
 
 def __call__(self, *args, **kwargs):
     return self.decorator(self.func)(*args, **kwargs)
@@ -47,7 +48,12 @@ def openfile():
     ### default tonalite and tempo
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection)
+    a = for_parsing.parsing(collection ,note_x)
+    # print('open file note_x :', note_x) 
+    # print('len note_x: ', len(note_x))
+    ### a = (fifths, per_minute)
+    ### a[0] = fifths
+    ### a[1] = per_minute
 
     if (a[0] == '0'):
         Default_Tona = comboboxTona.set('C')
@@ -81,7 +87,6 @@ def openfile():
 
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
 
-    notes_x = a[2]
 
 def openSample():
     global filename
@@ -89,8 +94,13 @@ def openSample():
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
     
-    a = for_parsing.parsing(collection)
+    a = for_parsing.parsing(collection, note_x)
+    # print('note_x :', note_x) 
     # print(a)
+
+    ### a = (fifths, per_minute)
+    ### a[0] = fifths
+    ### a[1] = per_minute
 
     filename = 'two-hand-2.xml'
 
@@ -126,11 +136,6 @@ def openSample():
         Default_Tona = comboboxTona.set('G')
 
     scale.set(a[1])
-
-    global notes_x
-    notes_x = a[2]
-    
-    # print('notes_x: ', notes_x)
 
 def buttomOKClicked():
 
@@ -172,19 +177,20 @@ def buttomOKClicked():
     
     for_modify.change_tempo(filename,str(Tem))
     
-    
 def buttomPlayClicked():
+
+    # print('note_x :', note_x) 
+    
     Li = 0
     Pr = 0
     Pl = 0
-
-    # print('notes_x: ', notes_x)
 
     Tem = var.get()
     # for_modify.change_tempo(filename,str(Tem))
     
     ### Mode - Listen
     if (comboboxMode.get() == 'Listen'):
+        print('Listen')
         Li = 1
         labelHello.config(text = "Listen ")
         # for_line.continue_line(Tem,filename)
@@ -200,10 +206,9 @@ def buttomPlayClicked():
         Pl = 1
         # for_line.continue_line(Tem,filename)
         labelHello.config(text = "Play ")   
-        # for_line.continue_line(Tem,filename)
-    
-    buttom_Play.buttomPlay(filename, Li, Pr, Pl, Tem, notes_x)
 
+    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x)
+    # print('note_x :', note_x) 
 
 def checklist():
     print('aaa')
