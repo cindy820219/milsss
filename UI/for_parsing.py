@@ -19,6 +19,9 @@ max_measure = 0
 global note_x
 note_x = []
 
+global note_x1
+note_x1 = []
+
 def create_sheet(beats, key,x,y):
 
     ### 4/4 
