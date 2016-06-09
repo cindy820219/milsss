@@ -23,8 +23,6 @@ sort_note_x = []
 
 note_x_1 = []
 
-
-
 def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x):
     # print('buttom note: ',note_x )
     # print('len note: ',len(note_x))
@@ -46,7 +44,6 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x):
     if (Li == 1):
         print('Listen mode')
         for_line.continue_line(Tem, filename, beats)
-
 
     ### Practice mode 
     if (Pr == 1):

@@ -38,7 +38,7 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         label_notes.place(x=notes_measure_x,y=notes_staff_y)
         label_notes.image = re # keep a reference!
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x):
+def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem):
     notes_staff_y = 0
     # notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
     if (beats_111 == 3):
@@ -92,6 +92,11 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             notes_staff_y = notes_staff_y + 160
         if (8 < measure  and measure < 13):
             notes_staff_y = notes_staff_y + 320
+
+        ######################
+        ### for stem == dowm and left-hand modify notes_staff_y 
+        if(stem == 'down'):
+            notes_staff_y += 8
 
     '''
     if (4 < measure  and measure < 8):
@@ -187,9 +192,13 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             
     ### notes !
     else:
+        # quarter
         if(type_data == 'quarter'):
-            # quarter
-            quarter = PhotoImage(file = 'quarter.gif')
+            if (stem == 'down'):
+                quarter = PhotoImage(file = 'quarter_d.gif')
+            else :
+                quarter = PhotoImage(file = 'quarter.gif')
+
             label_notes = Label(image = quarter)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
@@ -197,8 +206,8 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
 
             Accidentals(alter_data, notes_measure_x, notes_staff_y)
 
+        # whole
         if(type_data == 'whole'):
-            # whole
             whole = PhotoImage(file = 'whole.gif')
             label_notes = Label(image = whole)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
@@ -207,9 +216,13 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
 
             Accidentals(alter_data, notes_measure_x, notes_staff_y)
 
+        # eighth
         if(type_data == 'eighth'):
-            # eighth
-            eight = PhotoImage(file = 'eighth.gif')
+            if (stem == 'down'):
+                eight = PhotoImage(file = 'eighth_d.gif')
+            else:
+                eight = PhotoImage(file = 'eighth.gif')
+
             label_notes = Label(image = eight)
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = eight # keep a reference!
@@ -218,7 +231,11 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
         
         if(type_data == '16th'):
             # six
-            six = PhotoImage(file = '16th.gif')
+            if (stem == 'down'):
+                six = PhotoImage(file = '16th_d.gif')
+            else:
+                six = PhotoImage(file = '16th.gif')
+            
             label_notes = Label(image = six)
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = six # keep a reference!v
@@ -228,7 +245,11 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
         if(type_data == 'half'):
             ### third 
             if (rhythm == 3.0):
-                half = PhotoImage(file = 'third.gif')
+                if (stem == 'down'):
+                    half = PhotoImage(file = 'third_d.gif')
+                else:
+                    half = PhotoImage(file = 'third.gif')
+
                 label_notes = Label(image = half)
                 label_notes.place(x=notes_measure_x,y=notes_staff_y)
                 label_notes.image = half
@@ -237,7 +258,11 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             
             else:
                 # half
-                half = PhotoImage(file = 'half.gif')
+                if (stem == 'down'):
+                    half = PhotoImage(file = 'half_d.gif')
+                else: 
+                    half = PhotoImage(file = 'half.gif')
+
                 label_notes = Label(image = half)
                 label_notes.place(x=notes_measure_x,y=notes_staff_y)
                 label_notes.image = half

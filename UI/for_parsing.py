@@ -364,6 +364,12 @@ def parsing(collection, note_x):
         duration = note.getElementsByTagName('duration')[0]
         rhythm = str(float(duration.childNodes[0].data)/float(divisions))
         
+        ### about stem
+        if (note.getElementsByTagName('stem')):
+            stem = note.getElementsByTagName('stem')[0]
+            stem = stem.childNodes[0].data
+            # print('stem: ',stem)
+
         if(timing >= int(beats) and (hand != 1)):
             # print('=======================================================================')
             # single_measure += 1
@@ -600,7 +606,7 @@ def parsing(collection, note_x):
 
 
         # print('total_PI: ',total_PI)
-        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x)
+        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem)
         # print('note_x :', note_x) 
         
         # print('total_PI: ',total_PI)
