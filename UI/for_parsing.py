@@ -22,7 +22,9 @@ note_x = []
 global note_x1
 note_x1 = []
 
-def create_sheet(beats, key,x,y):
+def create_sheet(beats, key, x, y):
+
+    # w.create_line(0, 0, 200, 200)
 
     ### 4/4 
     if (beats == '4'):
@@ -369,6 +371,7 @@ def parsing(collection, note_x):
             stem = note.getElementsByTagName('stem')[0]
             stem = stem.childNodes[0].data
             # print('stem: ',stem)
+            
 
         if(timing >= int(beats) and (hand != 1)):
             # print('=======================================================================')

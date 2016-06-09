@@ -26,6 +26,8 @@ import buttom_Play
 global note_x
 note_x = []
 
+global w
+
 def __call__(self, *args, **kwargs):
     return self.decorator(self.func)(*args, **kwargs)
 
