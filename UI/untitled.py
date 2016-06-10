@@ -23,10 +23,13 @@ import buttom_Play
 # from mtTkinter import *
 # import mtTkinter as Tkinter
 
+import for_change
+
 global note_x
 note_x = []
 
 global w
+
 
 def __call__(self, *args, **kwargs):
     return self.decorator(self.func)(*args, **kwargs)
@@ -45,6 +48,11 @@ def openfile():
     global filename
     filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
     print(root.fileName)
+
+    # global change_temp
+    # change_temp = open('change-temp.xml','w')
+
+    global Default_Tona
 
     ### for-parsing
     ### default tonalite and tempo
@@ -91,6 +99,12 @@ def openfile():
 
 
 def openSample():
+
+    # global change_temp
+    # change_temp = open('change-temp.xml','w')
+
+    global Default_Tona
+
     global filename
 
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
@@ -177,8 +191,15 @@ def buttomOKClicked():
     Tem = var.get()
     print('get Tem: ',Tem)
     
-    for_modify.change_tempo(filename,str(Tem))
+    # for_modify.change_tempo(filename,str(Tem))
+
     
+    ########### change all - 
+    # for_change.change_temp(filename, daul, rhythm, accent, Default_Tona, Tona, Tem)
+    # print('daul, rhythm, accent, Mode, Tona, Tem:' ,daul, rhythm, accent, Mode, Tona, Tem)
+
+
+
 def buttomPlayClicked():
 
     # print('note_x :', note_x) 
@@ -230,6 +251,11 @@ if __name__ == '__main__':
 
     veiw = Label(root,width="180", height="46") 
     veiw.pack()
+
+
+    w = Canvas(width = 910, height = 500, bg = 'yellow')
+    w.place(x= 278 ,y=38)
+    
 
     labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
     labelHello.place(x=0, y= 550)
@@ -295,5 +321,7 @@ if __name__ == '__main__':
     menubar.add_cascade(label="Sample",menu=editmenu)
     
     root.config(menu=menubar)
+
+    # w.create_line(0, 0, 10, 500)
 
     mainloop()

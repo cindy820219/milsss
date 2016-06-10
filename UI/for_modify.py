@@ -18,6 +18,8 @@ from xml.etree.ElementTree import parse
 
 global fileaString
 
+global note_x
+note_x = []
 
 def read_xml(in_path):
     tree = ElementTree()
@@ -29,7 +31,7 @@ def write_xml(tree, out_path):
 
 def change_Tona_change_notes(filename,add_key):
 
-    tree = parse(filename)
+    tree = parse('change-key.xml')
     root = tree.getroot()
     ######
     # <step>F</step>
@@ -124,7 +126,7 @@ def change_Tona_change_notes(filename,add_key):
 
                 # print('new: ',step.text, octave.text)
                 
-                write_xml(tree, 'change-key-note.xml')
+                write_xml(tree, 'change-key.xml')
     print('  the file "change-key-note" is saved.')    
 
 
@@ -272,7 +274,7 @@ def simple_accent(filename):
     ##########################################
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    for_parsing.parsing(collection)
+    for_parsing.parsing(collection, note_x)
 
 
     pre_staff = 0
@@ -668,3 +670,6 @@ def simple_accent(filename):
     
     tree1.write('change-accent.xml')
     print('  the file "change-accent(1).xml" is saved.')
+
+
+
