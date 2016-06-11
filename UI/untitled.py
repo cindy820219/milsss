@@ -161,11 +161,6 @@ def buttomOKClicked():
     # print('get Mode (Daul, Rhythm, Accent): ',checklist())
     print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get())
     
-    daul = var1.get()
-    # print('daul: ',daul)
-    if(daul == 1):
-        for_modify.simple_daul(filename)
-    
     rhythm = var2.get()
     # print('rhythm: ',rhythm)
     if(rhythm == 1):
@@ -176,6 +171,10 @@ def buttomOKClicked():
     if(accent == 1):
         for_modify.simple_accent(filename)
     
+    daul = var1.get()
+    # print('daul: ',daul)
+    if(daul == 1):
+        for_modify.simple_daul(filename, accent)
 
     ### mode
     Mode = comboboxMode.get()
@@ -185,13 +184,13 @@ def buttomOKClicked():
     Tona = comboboxTona.get()
 
     print('get Tona: ',Tona)
-    for_modify.change_Tona(filename,Tona)
+    for_modify.change_Tona(filename, Tona, accent, daul)
 
     ### tempo
     Tem = var.get()
     print('get Tem: ',Tem)
     
-    # for_modify.change_tempo(filename,str(Tem))
+    for_modify.change_tempo(filename, str(Tem), accent, daul, Tona)
 
     
     ########### change all - 

@@ -31,7 +31,8 @@ def write_xml(tree, out_path):
 
 def change_Tona_change_notes(filename,add_key):
 
-    tree = parse('change-key.xml')
+    # tree = parse('change-key.xml')
+    tree = parse('change-temp.xml')
     root = tree.getroot()
     ######
     # <step>F</step>
@@ -126,15 +127,22 @@ def change_Tona_change_notes(filename,add_key):
 
                 # print('new: ',step.text, octave.text)
                 
-                write_xml(tree, 'change-key.xml')
+                # write_xml(tree, 'change-key.xml')
+                write_xml(tree, 'change-temp.xml')
+
     print('  the file "change-key-note" is saved.')    
 
 
-def change_Tona(filename,Tona):
+def change_Tona(filename, Tona ,accent, daul):
     
+    if (accent == 1 or daul == 1): 
+        filename = 'change-temp.xml'
+        print('key filename: ',filename)
+
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     tree = read_xml(filename)
+    # print('change_Tona: ', filename)
     
     Tona_str = ''
 
@@ -174,7 +182,10 @@ def change_Tona(filename,Tona):
         fifths.text = ''
         fifths.text += Tona_str
         # print("key change : ", fifths.text)
+        
         write_xml(tree, 'change-key.xml')
+        write_xml(tree, 'change-temp.xml')
+        
         print('  the file "change-key.xml" is saved.')
 
     if(pre_key == '0'):
@@ -204,7 +215,10 @@ def change_Tona(filename,Tona):
     print('add_key: ',add_key)
     change_Tona_change_notes(filename,add_key)
 
-def change_tempo(filename ,Tem):
+def change_tempo(filename ,Tem, accent, daul, Tona):
+
+    if (accent == 1 or daul == 1 or Tona == 1):
+        filename = 'change-temp.xml'
 
     global DOMTree, collection, tree
 
@@ -224,10 +238,18 @@ def change_tempo(filename ,Tem):
         # print("tempo change: ", sound.attrib)
         #print(sound.attrib)
         write_xml(tree, "change-tem.xml")
+        write_xml(tree, "change-temp.xml")
         print('  the file "change-tem.xml" is saved.')
 
-def simple_daul(filename):
+def simple_daul(filename, accent):
+    
     chord_sim = open('change-daul.xml','w')
+
+    if (accent == 1): 
+        filename = 'change-temp.xml'
+
+    else:
+        change_temp = open('change-temp.xml','w')
 
     tree = parse(filename)
     root = tree.getroot()
@@ -251,6 +273,7 @@ def simple_daul(filename):
         queue = []
 
     tree.write('change-daul.xml')
+    tree.write('change-temp.xml')
     print('  the file "change-daul.xml" is saved.')
 
 def simple_rhythm(filename):
@@ -264,6 +287,11 @@ def simple_rhythm(filename):
 
 
 def simple_accent(filename):
+
+    change_temp = open('change-temp.xml','w') 
+
+    change_accent = open('change-accent.xml','w') 
+
     must_delet_note = 0
     queue_must_delet_note = ''
 
@@ -650,11 +678,12 @@ def simple_accent(filename):
 
         queue = []
 
+    tree.write('change-temp.xml')
     tree.write('change-accent.xml')
     # print('  the file "change-accent.xml" is saved.')
 
     ### modify duration if(duration < mini_duration) and type change
-    tree1 = read_xml('change-accent.xml')
+    tree1 = read_xml('change-temp.xml')
 
     for duration in tree1.iter('duration'):
         if(int(duration.text) < mini_duration):
@@ -668,8 +697,9 @@ def simple_accent(filename):
             type.text += 'quarter'
             print('type had been change !!!!')
     
+    tree1.write('change-temp.xml')
     tree1.write('change-accent.xml')
-    print('  the file "change-accent(1).xml" is saved.')
+    print('  the file "change-accent.xml" is saved.')
 
 
 
