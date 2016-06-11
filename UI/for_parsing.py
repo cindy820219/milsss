@@ -25,7 +25,6 @@ note_x1 = []
 def create_sheet(beats, key, x, y):
 
     # w.create_line(0, 0, 200, 200)
-
     ### 4/4 
     if (beats == '4'):
         if(key == 0):
@@ -252,6 +251,15 @@ def create_sheet(beats, key, x, y):
 ### funtion pasing xml file
 def parsing(collection, note_x):
     
+    notes_all = 0
+    notes_rest = 0
+
+    notes_whole = 0
+    notes_half = 0
+    notes_quarter = 0
+    notes_eighth = 0
+    notes_16th = 0
+
     tag = 0
 
     pre_staff = 0
@@ -349,6 +357,15 @@ def parsing(collection, note_x):
 
     ### notes is a list
     notes = collection.getElementsByTagName('note')
+
+    ### all_notes
+    for note in notes:
+        notes_all += 1
+    # print('notes_all: ', notes_all)
+
+
+
+
     print('1=======================================================================')
 
     for note in notes:
@@ -570,6 +587,42 @@ def parsing(collection, note_x):
             +'\t\t'+rhythm
             +'       '+str(PI))
 
+        ### count parameters of all the notes
+
+        # notes_rest = 0
+        # notes_whole = 0
+        # notes_half = 0
+        # notes_quarter = 0
+        # notes_eighth = 0
+        # notes_16th = 0
+        if (step_data == '[ ]'):
+            notes_rest += 1
+
+        else:    
+            if (type_data == 'whole'):
+                notes_whole += 1
+            
+            if (type_data == 'half'):
+                notes_half += 1
+            
+            if (type_data == 'quarter'):
+                notes_quarter += 1
+            
+            if (type_data == 'eighth'):
+                notes_eighth += 1
+            
+            if (type_data == '16th'):
+                notes_16th += 1
+
+        # print('notes_all, notes_whole, notes_half, notes_quarter, notes_eighth, notes_16th, notes_rest: ',
+        #      notes_all   
+        #      notes_whole,
+        #      notes_half,
+        #      notes_quarter,
+        #      notes_eighth,
+        #      notes_16th, 
+        #      notes_rest)
+
         # for_sheet.create_sheet()
 
         ### for draw the notes!!!!!
@@ -611,7 +664,8 @@ def parsing(collection, note_x):
         # print('total_PI: ',total_PI)
         for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem)
         # print('note_x :', note_x) 
-        
+
+
         # print('total_PI: ',total_PI)
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)
@@ -650,5 +704,24 @@ def parsing(collection, note_x):
     print()
     print()
     print()
+
+    # print('notes_all, notes_whole, notes_half, notes_quarter, notes_eighth, notes_16th, notes_rest: ',
+    #         notes_all ,  
+    #         notes_whole,
+    #         notes_half,
+    #         notes_quarter,
+    #         notes_eighth,
+    #         notes_16th, 
+    #         notes_rest)
+
+    ### 
+    print('notes_whole', format((notes_whole / notes_all), '.2%'))
+    print('notes_half', format((notes_half / notes_all), '.2%'))
+    print('notes_quarter', format((notes_quarter / notes_all), '.2%'))
+    print('notes_eighth', format((notes_eighth / notes_all), '.2%'))
+    print('notes_16th', format((notes_16th / notes_all), '.2%'))
+    print('notes_rest', format((notes_rest / notes_all), '.2%'))
+
+    # print(format(0.5236, '.2%'))
 
     return(fifths, per_minute)
