@@ -46,9 +46,10 @@ def hello():
 def openfile():
     
     global filename
+    
     filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
     print(root.fileName)
-
+    # print(filename)
     # global change_temp
     # change_temp = open('change-temp.xml','w')
 
@@ -96,7 +97,6 @@ def openfile():
     scale.set(a[1])
 
     labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
-
 
 def openSample():
 
@@ -155,8 +155,11 @@ def openSample():
 
 def buttomOKClicked():
 
-    Mode = Tona = Tem = ''
+    global filename
 
+    Mode = Tona = Tem = ''
+    
+    print('filename: ', filename)
     ### simple
     # print('get Mode (Daul, Rhythm, Accent): ',checklist())
     print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get())
@@ -197,7 +200,11 @@ def buttomOKClicked():
     # for_change.change_temp(filename, daul, rhythm, accent, Default_Tona, Tona, Tem)
     # print('daul, rhythm, accent, Mode, Tona, Tem:' ,daul, rhythm, accent, Mode, Tona, Tem)
 
+    DOMTree = xml.dom.minidom.parse('change-temp.xml')
+    collection = DOMTree.documentElement
+    a = for_parsing.parsing(collection, note_x)
 
+    filename = 'change-temp.xml'
 
 def buttomPlayClicked():
 

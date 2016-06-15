@@ -259,6 +259,7 @@ def parsing(collection, note_x):
     notes_quarter = 0
     notes_eighth = 0
     notes_16th = 0
+    notes_notes = 0
 
     tag = 0
 
@@ -388,6 +389,8 @@ def parsing(collection, note_x):
             stem = note.getElementsByTagName('stem')[0]
             stem = stem.childNodes[0].data
             # print('stem: ',stem)
+        else:
+            stem = 0
             
 
         if(timing >= int(beats) and (hand != 1)):
@@ -705,8 +708,10 @@ def parsing(collection, note_x):
     print()
     print()
 
-    # print('notes_all, notes_whole, notes_half, notes_quarter, notes_eighth, notes_16th, notes_rest: ',
-    #         notes_all ,  
+    # notes_notes = notes_all - notes_rest
+    # print('notes_all, notes_notes, notes_whole, notes_half, notes_quarter, notes_eighth, notes_16th, notes_rest: ',
+    #         notes_all ,
+    #         notes_notes,  
     #         notes_whole,
     #         notes_half,
     #         notes_quarter,
@@ -720,6 +725,7 @@ def parsing(collection, note_x):
     print('notes_quarter', format((notes_quarter / notes_all), '.2%'))
     print('notes_eighth', format((notes_eighth / notes_all), '.2%'))
     print('notes_16th', format((notes_16th / notes_all), '.2%'))
+    print('notes_notes', format((notes_rest / notes_all), '.2%'))
     print('notes_rest', format((notes_rest / notes_all), '.2%'))
 
     # print(format(0.5236, '.2%'))
