@@ -248,20 +248,17 @@ def checklist():
    # return (Daul,Rhythm,Accent)
 
 # veiw.pack()
-if __name__ == '__main__':
 
-    print('hello world') 
+def main():
 
-    root = Tk()
-    root.title('Hello!!!')
+    global labelHello, label_1, label_2, label_3, label_4, label_keyboard
+    global comboboxMode, comboboxTona, scale, var1, var2, var3, var
 
     veiw = Label(root,width="180", height="46") 
     veiw.pack()
 
-
     w = Canvas(width = 910, height = 500, bg = 'yellow')
     w.place(x= 278 ,y=38)
-    
 
     labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
     labelHello.place(x=0, y= 550)
@@ -328,6 +325,15 @@ if __name__ == '__main__':
     
     root.config(menu=menubar)
 
+if __name__ == '__main__':
+
+
+    print('hello world') 
+
+    root = Tk()
+    root.title('Hello!!!')
+
+    main()
     # w.create_line(0, 0, 10, 500)
 
     mainloop()

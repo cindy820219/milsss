@@ -6,10 +6,106 @@ from tkinter import ttk, Tk, StringVar
 import tkinter.filedialog as filedialog
 import for_parsing
 
+global MIDI_str
+MIDI_str = []
+
+def key_location(staff_data, MIDI_fianl):
+    # MIDI_fianl 
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=402, y=705)
+    label_notes.image = left # keep a reference!
+
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=422, y=705)
+    label_notes.image = left # keep a reference!
+
+
+    right = PhotoImage(file = 'right.gif')
+    label_notes = Label(image = right)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=441, y=705)
+    label_notes.image = right # keep a reference!
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=459, y=705)
+    label_notes.image = left # keep a reference!
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=478, y=705)
+    label_notes.image = left # keep a reference!
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=497, y=705)
+    label_notes.image = left # keep a reference!
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=517, y=705)
+    label_notes.image = left # keep a reference!
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=536, y=705)
+    label_notes.image = left # keep a reference!
+
+    #####################################
+
+
+    right = PhotoImage(file = 'right.gif')
+    label_notes = Label(image = right)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=412, y=650)
+    label_notes.image = right # keep a reference!
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=433, y=650)
+    label_notes.image = left # keep a reference!
+
+    right = PhotoImage(file = 'right.gif')
+    label_notes = Label(image = right)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=468, y=650)
+    label_notes.image = right # keep a reference!
+
+    left = PhotoImage(file = 'left.gif')
+    label_notes = Label(image = left)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=487, y=650)
+    label_notes.image = left # keep a reference!
+
+    right = PhotoImage(file = 'right.gif')
+    label_notes = Label(image = right)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=505, y=650)
+    label_notes.image = right # keep a reference!
+
+    right = PhotoImage(file = 'right.gif')
+    label_notes = Label(image = right)
+    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    label_notes.place(x=412+134, y=650)
+    label_notes.image = right # keep a reference!
+
+
 
 
 ### Accidentals
-def Accidentals(alter_data, notes_measure_x, notes_staff_y):
+def Accidentals(alter_data, notes_measure_x, notes_staff_y ,MIDI):
     ### ###
     if(alter_data == 1):
         notes_measure_x = notes_measure_x - 12
@@ -19,6 +115,9 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         #label.grid(row = 3, column = 1, padx = 5, pady = 5)
         label_notes.place(x=notes_measure_x,y=notes_staff_y)
         label_notes.image = up # keep a reference!
+
+        MIDI += 1
+
     
     ### bbb
     if(alter_data == -1):
@@ -29,6 +128,8 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         label_notes.place(x=notes_measure_x,y=notes_staff_y)
         label_notes.image = down # keep a reference!
 
+        MIDI -= 1
+
     if(alter_data == 0):
         notes_measure_x = notes_measure_x - 12
         notes_staff_y = notes_staff_y + 2
@@ -38,8 +139,12 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y):
         label_notes.place(x=notes_measure_x,y=notes_staff_y)
         label_notes.image = re # keep a reference!
 
+    return (MIDI)
+
 def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem):
     notes_staff_y = 0
+    MIDI = 0
+
     # notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
     if (beats_111 == 3):
         notes_measure_x = 293 + (measure-1)*230 + ((PI-1)*70)
@@ -65,12 +170,15 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
     if(staff_data == 1):
         if(octave_data == 3):
             notes_staff_y = 85
+            MIDI += 48
 
         if(octave_data == 4):
             notes_staff_y = 60
+            MIDI += 60
 
         if(octave_data == 5):
             notes_staff_y = 35
+            MIDI += 72
 
         if (4 < measure  and measure < 9):
             notes_staff_y = notes_staff_y + 160
@@ -81,12 +189,15 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
     else:
         if(octave_data == 4):
             notes_staff_y = 97
+            MIDI += 60
 
         if(octave_data == 3):
             notes_staff_y = 132
+            MIDI += 48
         
         if(octave_data == 2):
             notes_staff_y = 167
+            MIDI += 36
 
         if (4 < measure  and measure < 9):
             notes_staff_y = notes_staff_y + 160
@@ -108,16 +219,27 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
         # notes_staff_y = notes_staff_y
     if (step_data == 'D'):
         notes_staff_y -= 5
+        MIDI += 2
+
     if (step_data == 'E'):
         notes_staff_y -= 10
+        MIDI += 4
+
     if (step_data == 'F'):
         notes_staff_y -= 15
+        MIDI += 5
+
     if (step_data == 'G'):
         notes_staff_y -= 20
+        MIDI += 7
+
     if (step_data == 'A'):
         notes_staff_y -= 25
+        MIDI += 9
+
     if (step_data == 'B'):
         notes_staff_y -= 30
+        MIDI += 11
         
 
     ### rest notes !
@@ -204,7 +326,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = quarter # keep a reference!
 
-            Accidentals(alter_data, notes_measure_x, notes_staff_y)
+            # Accidentals(alter_data, notes_measure_x, notes_staff_y)
 
         # whole
         if(type_data == 'whole'):
@@ -214,7 +336,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = whole # keep a reference!
 
-            Accidentals(alter_data, notes_measure_x, notes_staff_y)
+            # Accidentals(alter_data, notes_measure_x, notes_staff_y)
 
         # eighth
         if(type_data == 'eighth'):
@@ -227,7 +349,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = eight # keep a reference!
 
-            Accidentals(alter_data, notes_measure_x, notes_staff_y)
+            # Accidentals(alter_data, notes_measure_x, notes_staff_y)
         
         if(type_data == '16th'):
             # six
@@ -240,7 +362,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = six # keep a reference!v
 
-            Accidentals(alter_data, notes_measure_x, notes_staff_y)
+            # Accidentals(alter_data, notes_measure_x, notes_staff_y)
 
         if(type_data == 'half'):
             ### third 
@@ -254,7 +376,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
                 label_notes.place(x=notes_measure_x,y=notes_staff_y)
                 label_notes.image = half
 
-                Accidentals(alter_data, notes_measure_x, notes_staff_y)
+                # Accidentals(alter_data, notes_measure_x, notes_staff_y)
             
             else:
                 # half
@@ -267,7 +389,16 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
                 label_notes.place(x=notes_measure_x,y=notes_staff_y)
                 label_notes.image = half
 
-                Accidentals(alter_data, notes_measure_x, notes_staff_y)
-    
+                # Accidentals(alter_data, notes_measure_x, notes_staff_y)
+        
+        MIDI_fianl = Accidentals(alter_data, notes_measure_x, notes_staff_y, MIDI)
+        key_location(staff_data, MIDI_fianl)
+
+        MIDI_fianl = str(MIDI_fianl)
+        # print('MIDI_fianl: ',MIDI_fianl)
+        # MIDI_str.append(notes_measure_x)
+        MIDI_str.append(MIDI_fianl)
+
     note_x.append(notes_measure_x)
+    print('MIDI_str: ', MIDI_str)
     # print('note_x :', note_x)
