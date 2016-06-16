@@ -8,7 +8,7 @@ import for_parsing
 from xml.dom.minidom import parse
 import xml.dom.minidom
 
-import for_sheet
+from for_sheet import key_location, create_notes
 import for_modify
 import time
 
@@ -30,6 +30,11 @@ note_x = []
 
 global w
 
+global MIDI_str
+global key_str
+
+MIDI_str = []
+key_str = []
 
 def __call__(self, *args, **kwargs):
     return self.decorator(self.func)(*args, **kwargs)
@@ -59,12 +64,13 @@ def openfile():
     ### default tonalite and tempo
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection ,note_x)
+    a = for_parsing.parsing(collection ,note_x, MIDI_str, key_str)
     # print('open file note_x :', note_x) 
     # print('len note_x: ', len(note_x))
     ### a = (fifths, per_minute)
     ### a[0] = fifths
     ### a[1] = per_minute
+
 
     if (a[0] == '0'):
         Default_Tona = comboboxTona.set('C')
@@ -110,9 +116,11 @@ def openSample():
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
     
-    a = for_parsing.parsing(collection, note_x)
+    a = for_parsing.parsing(collection, note_x, MIDI_str, key_str)
     # print('note_x :', note_x) 
     # print(a)
+    print('MIDI_str: ', MIDI_str)
+    print('key_str: ', key_str)
 
     ### a = (fifths, per_minute)
     ### a[0] = fifths
@@ -206,6 +214,7 @@ def buttomOKClicked():
 
     filename = 'change-temp.xml'
 
+    print(MIDI_str)
 def buttomPlayClicked():
 
     # print('note_x :', note_x) 

@@ -7,105 +7,175 @@ import tkinter.filedialog as filedialog
 import for_parsing
 
 global MIDI_str
-MIDI_str = []
+global key_str
 
-def key_location(staff_data, MIDI_fianl):
+MIDI_str = []
+key_str = []
+
+def key_location(MIDI_fianl, key_str):
     # MIDI_fianl 
 
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=402, y=705)
-    label_notes.image = left # keep a reference!
+    note_name = MIDI_fianl % 12
+    octave = MIDI_fianl // 12 - 3
 
 
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=422, y=705)
-    label_notes.image = left # keep a reference!
+    ### C
+    if(note_name == 0):
+        key_note = 402 + 134 * octave
+
+    ### D
+    if(note_name == 2):
+        key_note = 422 + 134 * octave
+
+    ### E
+    if(note_name == 4):
+        key_note = 441 + 134 * octave
+
+    ### F
+    if(note_name == 5):
+        key_note = 459 + 134 * octave
+
+    ### G
+    if(note_name == 7):
+        key_note = 478 + 134 * octave
+
+    ### A
+    if(note_name == 9):
+        key_note = 497 + 134 * octave
+
+    ### B
+    if(note_name == 11):
+        key_note = 517 + 134 * octave
+    
+    
+    ###### ###
+    ### C#
+    if(note_name == 1):
+        key_note = 412 + 134 * octave
+
+    ### D#
+    if(note_name == 2):
+        key_note = 433 + 134 * octave
+
+    ### F#
+    if(note_name == 3):
+        key_note = 412 + 134 * octave
+
+    ### G#
+    if(note_name == 4):
+        key_note = 468 + 134 * octave
+
+    ### A#
+    if(note_name == 5):
+        key_note = 487 + 134 * octave
+
+    ### B#
+    if(note_name == 6):
+        key_note = 505 + 134 * octave
+
+    key_note = str(key_note)
+    key_str.append(key_note)
+
+    # print('key_str: ', key_str)
+    
+    ### -------------------------------------- ###
+    ### test!
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=402, y=705)
+    # label_notes.image = left # keep a reference!
 
 
-    right = PhotoImage(file = 'right.gif')
-    label_notes = Label(image = right)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=441, y=705)
-    label_notes.image = right # keep a reference!
-
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=459, y=705)
-    label_notes.image = left # keep a reference!
-
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=478, y=705)
-    label_notes.image = left # keep a reference!
-
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=497, y=705)
-    label_notes.image = left # keep a reference!
-
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=517, y=705)
-    label_notes.image = left # keep a reference!
-
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=536, y=705)
-    label_notes.image = left # keep a reference!
-
-    #####################################
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=422, y=705)
+    # label_notes.image = left # keep a reference!
 
 
-    right = PhotoImage(file = 'right.gif')
-    label_notes = Label(image = right)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=412, y=650)
-    label_notes.image = right # keep a reference!
+    # right = PhotoImage(file = 'right.gif')
+    # label_notes = Label(image = right)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=441, y=705)
+    # label_notes.image = right # keep a reference!
 
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=433, y=650)
-    label_notes.image = left # keep a reference!
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=459, y=705)
+    # label_notes.image = left # keep a reference!
 
-    right = PhotoImage(file = 'right.gif')
-    label_notes = Label(image = right)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=468, y=650)
-    label_notes.image = right # keep a reference!
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=478, y=705)
+    # label_notes.image = left # keep a reference!
 
-    left = PhotoImage(file = 'left.gif')
-    label_notes = Label(image = left)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=487, y=650)
-    label_notes.image = left # keep a reference!
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=497, y=705)
+    # label_notes.image = left # keep a reference!
 
-    right = PhotoImage(file = 'right.gif')
-    label_notes = Label(image = right)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=505, y=650)
-    label_notes.image = right # keep a reference!
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=517, y=705)
+    # label_notes.image = left # keep a reference!
 
-    right = PhotoImage(file = 'right.gif')
-    label_notes = Label(image = right)
-    #label.grid(row = 3, column = 1, padx = 5, pady = 5)
-    label_notes.place(x=412+134, y=650)
-    label_notes.image = right # keep a reference!
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=536, y=705)
+    # label_notes.image = left # keep a reference!
+
+    # #####################################
 
 
+    # right = PhotoImage(file = 'right.gif')
+    # label_notes = Label(image = right)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=412, y=650)
+    # label_notes.image = right # keep a reference!
 
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=433, y=650)
+    # label_notes.image = left # keep a reference!
+
+    # right = PhotoImage(file = 'right.gif')
+    # label_notes = Label(image = right)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=468, y=650)
+    # label_notes.image = right # keep a reference!
+
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=487, y=650)
+    # label_notes.image = left # keep a reference!
+
+    # right = PhotoImage(file = 'right.gif')
+    # label_notes = Label(image = right)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=505, y=650)
+    # label_notes.image = right # keep a reference!
+
+    # right = PhotoImage(file = 'right.gif')
+    # label_notes = Label(image = right)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=412+134, y=650)
+    # label_notes.image = right # keep a reference!
+
+    # key_x.append()
+
+    ### -------------------------------------- ###
 
 ### Accidentals
 def Accidentals(alter_data, notes_measure_x, notes_staff_y ,MIDI):
+
     ### ###
     if(alter_data == 1):
         notes_measure_x = notes_measure_x - 12
@@ -141,7 +211,8 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y ,MIDI):
 
     return (MIDI)
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem):
+def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem, MIDI_str, key_str):
+
     notes_staff_y = 0
     MIDI = 0
 
@@ -392,13 +463,11 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
                 # Accidentals(alter_data, notes_measure_x, notes_staff_y)
         
         MIDI_fianl = Accidentals(alter_data, notes_measure_x, notes_staff_y, MIDI)
-        key_location(staff_data, MIDI_fianl)
-
-        MIDI_fianl = str(MIDI_fianl)
+        key_location(MIDI_fianl, key_str)
+        # MIDI_fianl = str(MIDI_fianl)
         # print('MIDI_fianl: ',MIDI_fianl)
-        # MIDI_str.append(notes_measure_x)
         MIDI_str.append(MIDI_fianl)
 
     note_x.append(notes_measure_x)
-    print('MIDI_str: ', MIDI_str)
+    # print('MIDI_str: ', MIDI_str)
     # print('note_x :', note_x)
