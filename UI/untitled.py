@@ -210,7 +210,7 @@ def buttomOKClicked():
 
     DOMTree = xml.dom.minidom.parse('change-temp.xml')
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection, note_x)
+    a = for_parsing.parsing(collection, note_x,  MIDI_str, key_str)
 
     filename = 'change-temp.xml'
 

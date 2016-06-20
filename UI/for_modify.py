@@ -21,6 +21,9 @@ global fileaString
 global note_x
 note_x = []
 
+MIDI_str = []
+key_str = []
+
 def read_xml(in_path):
     tree = ElementTree()
     tree.parse(in_path)
@@ -302,7 +305,7 @@ def simple_accent(filename):
     ##########################################
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    for_parsing.parsing(collection, note_x)
+    for_parsing.parsing(collection, note_x, MIDI_str, key_str)
 
 
     pre_staff = 0
