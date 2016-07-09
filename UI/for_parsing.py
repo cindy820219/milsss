@@ -249,7 +249,7 @@ def create_sheet(beats, key, x, y):
         label_sheet.image = photo # keep a reference!
 
 ### funtion pasing xml file
-def parsing(collection, note_x, MIDI_str, key_str):
+def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
     
     notes_all = 0
     notes_rest = 0
@@ -665,7 +665,7 @@ def parsing(collection, note_x, MIDI_str, key_str):
 
 
         # print('total_PI: ',total_PI)
-        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem, MIDI_str, key_str)
+        for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str)
         # print('note_x :', note_x) 
 
 

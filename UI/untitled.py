@@ -31,10 +31,11 @@ note_x = []
 global w
 
 global MIDI_str
-global key_str
+global key_x_str, key_y_str
 
 MIDI_str = []
-key_str = []
+key_x_str = []
+key_y_str = []
 
 def __call__(self, *args, **kwargs):
     return self.decorator(self.func)(*args, **kwargs)
@@ -64,7 +65,7 @@ def openfile():
     ### default tonalite and tempo
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection ,note_x, MIDI_str, key_str)
+    a = for_parsing.parsing(collection ,note_x, MIDI_str, key_x_str, key_y_str)
     # print('open file note_x :', note_x) 
     # print('len note_x: ', len(note_x))
     ### a = (fifths, per_minute)
@@ -116,11 +117,12 @@ def openSample():
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
     
-    a = for_parsing.parsing(collection, note_x, MIDI_str, key_str)
+    a = for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str)
     # print('note_x :', note_x) 
     # print(a)
     print('MIDI_str: ', MIDI_str)
-    print('key_str: ', key_str)
+    print('key_x_str: ', key_x_str)
+    print('key_y_str: ', key_y_str)
 
     ### a = (fifths, per_minute)
     ### a[0] = fifths
@@ -210,11 +212,13 @@ def buttomOKClicked():
 
     DOMTree = xml.dom.minidom.parse('change-temp.xml')
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection, note_x,  MIDI_str, key_str)
+    a = for_parsing.parsing(collection, note_x,  MIDI_str, key_x_str, key_y_str)
 
     filename = 'change-temp.xml'
 
     print(MIDI_str)
+
+
 def buttomPlayClicked():
 
     # print('note_x :', note_x) 
@@ -245,7 +249,7 @@ def buttomPlayClicked():
         # for_line.continue_line(Tem,filename)
         labelHello.config(text = "Play ")   
 
-    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x)
+    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str)
     # print('note_x :', note_x) 
 
 def checklist():

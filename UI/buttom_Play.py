@@ -26,14 +26,15 @@ note_x_1 = []
 MIDI_str = []
 key_str = []
 
-def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x):
+def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str):
     # print('buttom note: ',note_x )
     # print('len note: ',len(note_x))
     note_x = []
     ### for beats
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    for_parsing.parsing(collection, note_x, MIDI_str, key_str)
+    for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str)
+    # collection, note_x, MIDI_str, key_x_str, key_y_str
 
     times = collection.getElementsByTagName('time')
     for beats in times:

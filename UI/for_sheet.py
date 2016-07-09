@@ -7,76 +7,94 @@ import tkinter.filedialog as filedialog
 import for_parsing
 
 global MIDI_str
-global key_str
+global key_x_str, key_y_str
 
 MIDI_str = []
-key_str = []
+key_x_str = []
+key_y_str = []
 
-def key_location(MIDI_fianl, key_str):
+def key_location(MIDI_fianl, key_x_str, key_y_str):
     # MIDI_fianl 
+
+    key_note_x = 0
+    key_note_y = 0
 
     note_name = MIDI_fianl % 12
     octave = MIDI_fianl // 12 - 3
 
-
     ### C
     if(note_name == 0):
-        key_note = 402 + 134 * octave
+        key_note_x = 402 + 134 * octave
+        key_note_y = 650
 
     ### D
     if(note_name == 2):
-        key_note = 422 + 134 * octave
+        key_note_x = 422 + 134 * octave
+        key_note_y = 650
 
     ### E
     if(note_name == 4):
-        key_note = 441 + 134 * octave
+        key_note_x = 441 + 134 * octave
+        key_note_y = 650
 
     ### F
     if(note_name == 5):
-        key_note = 459 + 134 * octave
+        key_note_x = 459 + 134 * octave
+        key_note_y = 650
 
     ### G
     if(note_name == 7):
-        key_note = 478 + 134 * octave
+        key_note_x = 478 + 134 * octave
+        key_note_y = 650
 
     ### A
     if(note_name == 9):
-        key_note = 497 + 134 * octave
+        key_note_x = 497 + 134 * octave
+        key_note_y = 650
 
     ### B
     if(note_name == 11):
-        key_note = 517 + 134 * octave
+        key_note_x = 517 + 134 * octave
+        key_note_y = 650
     
     
     ###### ###
     ### C#
     if(note_name == 1):
-        key_note = 412 + 134 * octave
+        key_note_x = 412 + 134 * octave
+        key_note_y = 705
 
     ### D#
     if(note_name == 2):
-        key_note = 433 + 134 * octave
+        key_note_x = 433 + 134 * octave
+        key_note_y = 705
 
     ### F#
     if(note_name == 3):
-        key_note = 412 + 134 * octave
+        key_note_x = 412 + 134 * octave
+        key_note_y = 705
 
     ### G#
     if(note_name == 4):
-        key_note = 468 + 134 * octave
+        key_note_x = 468 + 134 * octave
+        key_note_y = 705
 
     ### A#
     if(note_name == 5):
-        key_note = 487 + 134 * octave
+        key_note_x = 487 + 134 * octave
+        key_note_y = 705
 
     ### B#
     if(note_name == 6):
-        key_note = 505 + 134 * octave
+        key_note_x = 505 + 134 * octave
+        key_note_y = 705
 
-    key_note = str(key_note)
-    key_str.append(key_note)
+    # key_note_x = str(key_note_x)
+    # key_note_y = str(key_note_y)
+    key_x_str.append(key_note_x)
+    key_y_str.append(key_note_y)
 
-    # print('key_str: ', key_str)
+    # print('key_x_str, key_y_str: ', key_x_str, key_y_str)
     
     ### -------------------------------------- ###
     ### test!
@@ -211,7 +229,7 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y ,MIDI):
 
     return (MIDI)
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem, MIDI_str, key_str):
+def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str):
 
     notes_staff_y = 0
     MIDI = 0
@@ -463,7 +481,7 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
                 # Accidentals(alter_data, notes_measure_x, notes_staff_y)
         
         MIDI_fianl = Accidentals(alter_data, notes_measure_x, notes_staff_y, MIDI)
-        key_location(MIDI_fianl, key_str)
+        key_location(MIDI_fianl, key_x_str, key_y_str)
         # MIDI_fianl = str(MIDI_fianl)
         # print('MIDI_fianl: ',MIDI_fianl)
         MIDI_str.append(MIDI_fianl)
