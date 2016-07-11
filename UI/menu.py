@@ -1,257 +1,368 @@
+### import tk
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk, Tk, StringVar
 
 import tkinter.filedialog as filedialog
 
+### import time
+import time
+
+### import ElementTree for parsing 
+import xml.etree.ElementTree as ET
+from xml.etree.ElementTree import parse, Element
+
+
+'''
+import all the function 
+
+for_parsing - parse
+for_sheet- draw the sheet
+buttom_Play - when the Play button is click
+'''
 import for_parsing
 from xml.dom.minidom import parse
 import xml.dom.minidom
 
-import for_sheet
+from for_sheet import key_location, create_notes
 import for_modify
-import time
 
-import for_metronome
-import for_line
-'''
-### for mido 
-import mido
-import operator
-from mido import Message
-from mido.midifiles import MidiFile, MidiTrack
-from mido import MidiFile, MetaMessage
-'''
-
-root = Tk()
-root.title('Hello!!!')
-
-### Scrollbar
-# s = Scrollbar(root)
-### Scrollbar
-
-# veiw
-veiw = Label(root,width="180", height="46")
-# some.pack()
-veiw.pack()
-
-## label
-labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
-# labelHello = tk.Label(root, text = "")
-labelHello.place(x=0, y= 550)
-
-## difficulty
-'''
-label = tk.Label(root,text='difficulty')
-label.pack(side = LEFT) 
-
-### 
-label_1 = tk.Label(root,text='Difficulty')
-label_1.place(x=10, y=10) 
-
-# ttk combobox difficult
-comboboxDiff = ttk.Combobox(root, width =10)
-comboboxDiff.place(x=70, y=10)
-comboboxDiff['state'] = ['readonly']
-comboboxDiff['values'] = ['Original','Easy','Middle','High']
-'''
-### Checkbuttom difficulty
-daul_IntVar = IntVar()
-tempo_IntVar = IntVar()
-retake_IntVar = IntVar()
-
-daul = Checkbutton(root, text="Simplize Daul", variable=daul_IntVar)
-tempo = Checkbutton(root, text="Simplize Rhythm", variable=tempo_IntVar)
-retake = Checkbutton(root, text="Simplize ...", variable=retake_IntVar)
-
-daul.var = daul_IntVar
-tempo.var = tempo_IntVar
-retake.var = retake_IntVar
-
-daul.place(x=10, y=30)
-tempo.place(x=10, y=50)
-retake.place(x=10, y=70)
- 
-'''
-chklist= ttk.Checklist(root)
-chklist.hlist.add('choice1', text='This is Choice1') 
-chklist.hlist.add('choice2', text='This is Choice2') 
-checklist.setstatus('choice1', 'off') # or 'off' 
-checklist.getstatus('choice1') # 回傳 'on', 'off
-'''
-
-## Mode
-label_2 = tk.Label(root,text='Mode')
-label_2.place(x=10, y=110) 
-
-# ttk combobox Mode
-comboboxMode = ttk.Combobox(root, width =10)
-comboboxMode.place(x=70, y=110)
-comboboxMode['state'] = ['readonly']
-comboboxMode['values'] = ['Listen','Practice','Play']
+import buttom_Play
 
 
-## Tonality
-label_3 = tk.Label(root,text='Tonality')
-label_3.place(x=10, y=150) 
+### all the notes's x location. is str
+global note_x
+note_x = []
 
-# ttk combobox Tonality
-comboboxTona = ttk.Combobox(root, width =10)
-comboboxTona.place(x=70, y=150)
-comboboxTona['state'] = ['readonly']
-comboboxTona['values'] = ['C','D','E','F','A','B']
+### w is the canvas
+global w
 
+### all notes's MIDI, X location, Y location. is str
+global MIDI_str, key_x_str, key_y_str
 
-## speed
-label_4 = tk.Label(root,text='Speed')
-label_4.place(x=10, y=200)
-'''
-# ttk combobox tempo
-comboboxTem = ttk.Combobox(root, width =10)
-comboboxTem.place(x=70, y=190)
-# comboboxTem['state'] = ['readonly']
-comboboxTem['values'] = ['60','80','100','120']
-'''
-### speed
-#def sel():
-#   selection = "Value = " + str(var.get())
-#   label.config(text = selection)
-
-var = DoubleVar()
-scale = Scale( root, variable = var, orient=HORIZONTAL,from_=40, to=160,activebackground = 'magenta', foreground = 'blue')
-scale.place(x=65, y=180)
-# label = Label(root)
+MIDI_str = []
+key_x_str = []
+key_y_str = []
 
 
-### draw the keyboard ### 
-keyboard = PhotoImage(file = 'keyboard.gif')
-label_keyboard = Label(image = keyboard)
-#label.grid(row = 3, column = 1, padx = 5, pady = 5)
-label_keyboard.place(x=230,y=620)
-label_keyboard.image = keyboard # keep a reference!
+### def function __call__
+def __call__(self, *args, **kwargs):
+    return self.decorator(self.func)(*args, **kwargs)
 
-keyboard = PhotoImage(file = 'keyboard.gif')
-label_keyboard = Label(image = keyboard)
-#label.grid(row = 3, column = 1, padx = 5, pady = 5)
-label_keyboard.place(x=600,y=620)
-label_keyboard.image = keyboard # keep a reference!
-
-'''
-def __call__ (self, *args):
-  return self.func (*args)
-'''
-
-
-
-# for_metronome.metronome()
-
-## def click buttom OK
-def buttomOKClicked():
-
-    # global beats_111
-    #Diff = comboboxDiff.get()
-    #print('Diff: ',Diff)
-    #global beats_222
-    #beats_222 = 3
-
-    Mode = Tona = Tem = ''
-
-    Mode = comboboxMode.get()
-    print('get Mode: ',Mode)
-    
-    Tona = comboboxTona.get()
-    print('get Tona: ',Tona)
-    for_modify.change_Tona(filename,Tona)
-
-    '''
-    ### change tem
-    Tem = comboboxTem.get()
-    print('get Tem: ',Tem)
-    for_modify.change_tempo(filename,Tem)
-    '''
-
-    Tem = var.get()
-    print('get Tem: ',Tem)
-    for_modify.change_tempo(filename,str(Tem))
-
-    ### for the red line : follow the tempo
-    # print(beats_111)
-    # for_line.red_line(Tem)
-    # creat the music sheet
-    # for_sheet.create_sheet()
-
-    labelHello.config(text = "Upload")
-
-
-# ttk buttom OK
-buttomOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttomOKClicked)
-# buttomOK.place(x=20, y=230)
-buttomOK.place(x=20, y=280)
-
-##########
-def buttomPlayClicked():
-    Tem = var.get()
-    for_modify.change_tempo(filename,str(Tem))
-
-    for_line.red_line(Tem)
-    labelHello.config(text = "play ")
-
-
-# ttk buttom OK
-buttomPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttomPlayClicked)
-buttomPlay.place(x=20, y=320)
-
-
-
-
-#### About the Menu #### 
+### def function hello for test
 def hello():
     print('hello')
 
+### def function open the file
 def openfile():
     
+    ### file name is global
     global filename
-
-    # global filename
+    
+    ### choose the file named '*.mid' & '*.xml'
     filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
-    # print(x)
     print(root.fileName)
 
-    ### for-parsing
+    ### Default_Tona is global
+    global Default_Tona
+
+
+    '''
+    parsing the xml file and default tonalite and tempo
+    
+    note_x is all the notes' location
+    
+    a = (fifths, per_minute)
+    a[0] = fifths
+    a[1] = per_minute
+
+    MIDI_str & notes x,y location  
+    '''
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    for_parsing.parsing(collection)
+    a = for_parsing.parsing(collection ,note_x, MIDI_str, key_x_str, key_y_str)
 
-    labelHello.config(text = 'Choose the Simplify, Mode, Tonality and speed')
+    ### Default_Tona
+    if (a[0] == '0'):
+        Default_Tona = comboboxTona.set('C')
+    if (a[0] == '1'):
+        Default_Tona = comboboxTona.set('G')
+    if (a[0] == '2'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '3'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '4'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '5'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '6'):
+        Default_Tona = comboboxTona.set('F')
 
-def savefile():
-    labelHello.config(text = 'save the file: -change.xml')
+    if (a[0] == '-1'):
+        Default_Tona = comboboxTona.set('F')
+    if (a[0] == '-2'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '-3'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '-4'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '-5'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '-6'):
+        Default_Tona = comboboxTona.set('G')
 
-def about():
-    print('This is about simplify sheet')
+    ### default tempo
+    scale.set(a[1])
 
-menubar = Menu(root)
+def openSample():
 
-# the UP row down File, and then add they to the up menu
-filemenu = Menu(menubar,tearoff=0)
-filemenu.add_command(label="Open", command=openfile)
-filemenu.add_command(label="Save", command=savefile)
-filemenu.add_separator()
-filemenu.add_command(label="Exit", command=root.quit)
-menubar.add_cascade(label="File", menu=filemenu)
+    ### Unkown
+    # global Default_Tona
 
-# Create the next the row down Edit
-editmenu = Menu(menubar, tearoff=0)
-editmenu.add_command(label="Sample 1", command=hello)
-editmenu.add_command(label="Sample 2", command=hello)
-editmenu.add_command(label="Sample 3", command=hello)
-menubar.add_cascade(label="Sample",menu=editmenu)
- 
+    ### open Sample - global file name
+    global filename
+    filename = 'two-hand-2.xml'
 
-# view the menu
-root.config(menu=menubar)
 
-# veiw.pack()
+    '''
+    parsing the file named 'two-hand-2.xml' 
+    
+    note_x is all the notes' location
+    
+    a = (fifths, per_minute)
+    a[0] = fifths
+    a[1] = per_minute
+
+    MIDI_str & notes x,y location  
+    '''
+    DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
+    collection = DOMTree.documentElement
+    
+    a = for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str)
+    
+    ### Default_Tona
+    if (a[0] == '0'):
+        Default_Tona = comboboxTona.set('C')
+    if (a[0] == '1'):
+        Default_Tona = comboboxTona.set('G')
+    if (a[0] == '2'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '3'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '4'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '5'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '6'):
+        Default_Tona = comboboxTona.set('F')
+
+    if (a[0] == '-1'):
+        Default_Tona = comboboxTona.set('F')
+    if (a[0] == '-2'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '-3'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '-4'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '-5'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '-6'):
+        Default_Tona = comboboxTona.set('G')
+
+    ### default tempo
+    scale.set(a[1])
+
+### def function OK button
+def buttonOKClicked():
+
+    global filename
+
+    ### default the Mode, Tonation and Tempo
+    Mode = Tona = Tem = ''
+    
+
+    ''' 
+    check the file name and get Mode, Tonation and Tempo
+    get rhythm from var2
+    get accent from var3
+    get daul   from var1
+    '''
+    print('filename: ', filename)
+    print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get())
+    
+    rhythm = var2.get()
+    # print('rhythm: ',rhythm)
+    if(rhythm == 1):
+        for_modify.simple_rhythm(filename)
+    
+    accent = var3.get()
+    if(accent == 1):
+        for_modify.simple_accent(filename)
+    
+    daul = var1.get()
+    if(daul == 1):
+        for_modify.simple_daul(filename, accent)
+
+    ### get Mode value
+    Mode = comboboxMode.get()
+    print('get Mode: ',Mode)
+    
+
+    '''
+    get Tonality value
+
+    call the change_Tona funtion 
+    from ouside file named for_modify 
+    file name, Tonation, Accent and daul 
+    '''
+    Tona = comboboxTona.get()
+    print('get Tona: ',Tona)
+    for_modify.change_Tona(filename, Tona, accent, daul)
+
+
+    '''
+    get Tempo value
+
+    call the change_tempo funtion 
+    from ouside file named for_modify 
+    file name, Tempo, accent, daul, and tonation
+    '''
+    Tem = var.get()
+    print('get Tem: ',Tem)
+    for_modify.change_tempo(filename, str(Tem), accent, daul, Tona)
+
+    
+    '''
+    parsing the 'change-temp.xml' 
+    and turn the file name to 'change-temp.xml' 
+    '''
+    DOMTree = xml.dom.minidom.parse('change-temp.xml')
+    collection = DOMTree.documentElement
+    a = for_parsing.parsing(collection, note_x,  MIDI_str, key_x_str, key_y_str)
+
+    filename = 'change-temp.xml'
+
+### def functuin the button Play
+def buttonPlayClicked():
+
+    ### Mode Listen, Practice, Play = 0
+    Li = 0
+    Pr = 0
+    Pl = 0
+
+    ### get the Tem 
+    Tem = var.get()
+    
+
+    '''
+    get the Mode Listen or Practice or Play
+
+    call the buttomPlay funtion 
+    from ouside file named buttom_Play 
+    file name, ,Listen value, Pratice value, Play value, Tempo, note_x, key_x_str, key_y_str
+    '''
+    if (comboboxMode.get() == 'Listen'):
+        Li = 1
+    
+    if (comboboxMode.get() == 'Practice'):
+        Pr = 1
+
+    if (comboboxMode.get() == 'Play'):
+        Pl = 1
+
+    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str)
+
+### def main menu
+def main():
+
+    ### global all the event
+    global labelHello, label_1, label_2, label_3, label_4, label_keyboard
+    global comboboxMode, comboboxTona, scale, var1, var2, var3, var
+
+    ### labal
+    veiw = Label(root,width="180", height="46") 
+    veiw.pack()
+
+    ### w = Canvas 
+    w = Canvas(width = 910, height = 500, bg = 'yellow')
+    w.place(x= 278 ,y=38)
+
+    ### labelHello define
+    labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
+    labelHello.place(x=0, y= 550)
+
+    # Checkbutton - Daul (var1), Rhythm (var2), Accent (var3)
+    var1 = IntVar()
+    Checkbutton(root, text="Daul", variable=var1).place(x=70,y=30)
+    
+    var2 = IntVar()
+    Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
+    
+    var3 = IntVar()
+    Checkbutton(root, text="non-Accent", variable=var3).place(x=70,y=70)
+
+    ### comboboxMode Mode
+    label_2 = tk.Label(root,text='Mode').place(x=10, y=110)
+
+    comboboxMode = ttk.Combobox(root, width =10)
+    comboboxMode.place(x=70, y=110)
+    comboboxMode['state'] = ['readonly']
+    comboboxMode['values'] = ['Listen','Practice','Play']
+    Default_Listen = comboboxMode.set('Listen')
+
+    ### comboboxMode Tonality
+    label_3 = tk.Label(root,text='Tonality').place(x=10, y=150) 
+
+    comboboxTona = ttk.Combobox(root, width =10)
+    comboboxTona.place(x=70, y=150)
+    comboboxTona['state'] = ['readonly']
+    comboboxTona['values'] = ['C','D','E','F','G','A','B']
+
+    ### scale tempo
+    label_4 = tk.Label(root,text='Speed').place(x=10, y=200)
+
+    var = DoubleVar()
+    scale = Scale( root, variable = var, orient=HORIZONTAL,from_=40, to=160,activebackground = 'magenta', foreground = 'blue')
+    scale.place(x=65, y=180)
+
+    ### keyboard picture
+    keyboard = PhotoImage(file = 'keyboard.gif')
+    label_keyboard = Label(image = keyboard)
+    label_keyboard.place(x=130,y=620)
+    label_keyboard.image = keyboard # keep a reference!
+
+    ### button OK, Play
+    buttonOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttonOKClicked)
+    buttonOK.place(x=20, y=280)
+
+    buttonPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttonPlayClicked)
+    buttonPlay.place(x=20, y=320)
+
+    # Create the Menu 
+    menubar = Menu(root)
+
+    filemenu = Menu(menubar,tearoff=0)
+    filemenu.add_command(label="Open", command=openfile)
+    filemenu.add_separator()
+
+    filemenu.add_command(label="Exit", command=root.quit)
+    menubar.add_cascade(label="File", menu=filemenu)
+    
+    editmenu = Menu(menubar, tearoff=0)
+    editmenu.add_command(label="Sample 1", command=openSample)
+    editmenu.add_command(label="Sample 2", command=hello)
+    editmenu.add_command(label="Sample 3", command=hello)
+    menubar.add_cascade(label="Sample",menu=editmenu)
+    
+    root.config(menu=menubar)
+
+### main loop
 if __name__ == '__main__':
+
     print('hello world') 
+
+    root = Tk()
+    root.title('Hello!!!')
+
+    main()
     mainloop()

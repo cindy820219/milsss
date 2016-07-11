@@ -12,9 +12,6 @@ import for_sheet
 import for_modify
 import time
 
-import for_metronome
-import for_line
-
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import parse, Element
 
@@ -49,6 +46,7 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str):
         print('Listen mode')
         for_line.continue_line(Tem, filename, beats)
 
+    
     ### Practice mode 
     if (Pr == 1):
         print('Practice mode')
