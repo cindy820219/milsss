@@ -235,7 +235,10 @@ def create_sheet(beats, key, x, y):
             label_sheet.image = photo # keep a reference!
 
 ### funtion pasing xml file (root, all notes' x location, MIDI, key_x_str, key_y_str)
-def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
+def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
+    
+    # if (hands == 1):
+    #     print('wowowowoow')
     
     '''
     count all the notes
@@ -278,14 +281,14 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
     timing = 0
     flag_of_daul = 0
 
-    '''
+    
     ### single
     single_measure = 1
     single_time = 0
     single_pre_x = ''
 
     single_flag_of_daul = 0
-    '''
+    
 
     ### hand default is 1, but we need to input the 2 hands xml file
     hand = 1
@@ -371,6 +374,10 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
         daul = ''
         close_daul = 0
 
+        ### single 
+        # single_pre_x =''
+        # single_time = 
+
         ### default str = ''
         pitch = step_data = octave_data = type_data = staff_next_data  = staff_data = alter_data = ''
 
@@ -387,13 +394,13 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
             ### notes are rest
             stem = 0
             
-        '''
+        
         ### single
         if(timing >= int(beats) and (hand != 1)):
             # print('=======================================================================')
             # single_measure += 1
             timing = 0
-        '''
+        
 
         ### accidental : temporary sharp or flat
         ### if no temporary accidental --> alter = 0
@@ -444,7 +451,8 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
             type_data = '---'
 
         ### to reguar the right-hand or left-hand
-        if (note.getElementsByTagName('staff')):
+        # if (note.getElementsByTagName('staff')):
+        if (hands != 1):
             hand = 2
             ### find out the staff
             staff = note.getElementsByTagName('staff')[0]
@@ -524,11 +532,12 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
             if(timing > int(beats)):
                 timing = 0  
 
-        '''
+        
         ### single
         ### one-hand for measure and daul 
-        if (hand == 1): 
+        if (hands == 1): 
             single_flag_of_daul = 0
+            # PI = 1
 
             if(note.hasAttribute('default-x')):
                 single_now_x = note.getAttribute('default-x')
@@ -559,21 +568,27 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
                 single_time += float(rhythm)
                 timing = 0
                 single_pre_x = ''
+                ### 
+                measure = single_measure
+                total_PI = 1
 
             timing = single_time
-        '''
+            # print ('timing: ', timing)
 
         ### staff_data = 0 
         if (staff_data == ''):
             staff_data = '0'
 
         # about the timing
-        if(flag_of_daul == 0 and (hand != 1)):
+        if(flag_of_daul == 0 and (hand != 1) and hands == 0):
             timing += float(rhythm)
 
+        if(single_flag_of_daul == 0 and hands == 1):
+            timing += float(rhythm)
+            
         ### About the PI        
         PI = math.floor(timing - float(rhythm) +1)
-        
+
         ### about the ID : note num(4) // measure(2) // staff(1) // timing(1)
         ### ID: note_num 
         # note_num = str(note_num).zfill(4)
@@ -660,8 +675,8 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str):
             create_sheet(beats, int(fifths), x, y)
         
         ### call the function create_notes from the outside for_sheet
+        # print('measure: ', measure)
         for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str)
-
         # print('total_PI: ',total_PI)
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)

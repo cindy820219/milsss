@@ -278,29 +278,33 @@ def simple_daul(filename, accent):
 
     ### pre notes
     daul_pre_note = ''
+    daul_staff_data = ''
 
     ### measure -> notes -> chord 
     ### right hand delete chord, left hand delete chord
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
             # print('here note: ',note)
-
-
-
+            for staff in note.iter('staff'):
+                daul_staff_data = staff.text
+                # print('daul_staff_data: ',daul_staff_data)
+                
             ### must delete notes
             chord = note.find('chord')
-            daul_staff = note.find('staff')
-            print('daul_staff.attrib:',daul_staff)
+            # print('chord text: ',chord)
+            # print('-------------------------')
 
-            # print('daul_staff: ',daul_staff)
-            
-
-            if(chord != None):
+            ### left hand delete 'chord'
+            if(chord != None and daul_staff_data == '2'):
                 queue.append(note)
-        # print('queue: ',queue)
+
+            ### right hand delete 'chord'
+            if(chord != None and daul_staff_data == '1'):
+                queue.append(daul_pre_note)
             
             daul_pre_note = note
 
+            ### print('queue: ',queue)
         for i in queue:
             measure.remove(i)
             # measure.remove(queue.pop(0))
@@ -325,7 +329,7 @@ def simple_rhythm(filename):
     # print('  the file "change-rhythm.xml" is saved.')
 
 ### simple accent, change all the type to qauter
-def simple_accent(filename):
+def simple_accent(filename, hands):
 
     ### open the file named change-temp
     change_temp = open('change-temp.xml','w') 
@@ -344,7 +348,7 @@ def simple_accent(filename):
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     
-    for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str)
+    for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
 
     ### define measure and pre staff
     pre_staff = 0
@@ -684,5 +688,40 @@ def simple_accent(filename):
     # tree1.write('change-accent.xml')
     # print('  the file "change-accent.xml" is saved.')
 
+def hand(filename, hand):
+    ### if accent was changed, the read the file named 'change-temp.xml'
+    change_temp = open('change-temp.xml','w')
 
+    ### parsing the file
+    tree = parse(filename)
+    root = tree.getroot()
 
+    ### define the queue
+    queue = []
+
+    pre_staff = ''
+
+    ### measure -> notes -> chord 
+    ### right hand delete chord, left hand delete chord
+    for measure in root.iter('measure'):
+        for note in measure.iter('note'):
+            # print('here note: ',note)
+            for staff in note.iter('staff'):
+                staff_data = staff.text
+                
+            ### must delete notes
+            ### right hand delete staff 2
+            if(staff_data != hand):
+
+                queue.append(note)
+
+            pre_staff = staff_data
+
+        for i in queue:
+            measure.remove(i)
+
+        queue = []
+
+    ### save the change to 'change-temp.xml' file
+    tree.write('change-temp.xml')
+    

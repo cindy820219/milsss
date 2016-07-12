@@ -44,6 +44,8 @@ MIDI_str = []
 key_x_str = []
 key_y_str = []
 
+### global hands
+global hands
 
 ### def function __call__
 def __call__(self, *args, **kwargs):
@@ -123,7 +125,9 @@ def openSample():
     global filename
     filename = 'two-hand-2.xml'
 
+    global hands
 
+    hands = 0
     '''
     parsing the file named 'two-hand-2.xml' 
     
@@ -138,7 +142,7 @@ def openSample():
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
     
-    a = for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str)
+    a = for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
     
     ### Default_Tona
     if (a[0] == '0'):
@@ -180,6 +184,13 @@ def buttonOKClicked():
     ### default the Mode, Tonation and Tempo
     Mode = Tona = Tem = ''
     
+    '''
+    if both  hand, hands = 0
+    if right hand, hands = 1
+    if left  hand, hands = 1
+    '''
+    hands = 0
+    
 
     ''' 
     check the file name and get Mode, Tonation and Tempo
@@ -197,7 +208,7 @@ def buttonOKClicked():
     
     accent = var3.get()
     if(accent == 1):
-        for_modify.simple_accent(filename)
+        for_modify.simple_accent(filename, hands)
     
     daul = var1.get()
     if(daul == 1):
@@ -230,15 +241,29 @@ def buttonOKClicked():
     Tem = var.get()
     print('get Tem: ',Tem)
     for_modify.change_tempo(filename, str(Tem), accent, daul, Tona)
+   
+    ### radio for right or left hand
+    # print('seletion: ', str(radio_hand.get()))
+    hand = str(radio_hand.get())
+    # if (hand == '0'):
+    #     print('hand: ',hand)
+
+    # global hands
+    ### if only one hand, then call the funtion
+    if(hand != '0'):
+        hands = 1
+        for_modify.hand(filename, hand)
+    # print('hands = ', hands)
 
     
+
     '''
     parsing the 'change-temp.xml' 
     and turn the file name to 'change-temp.xml' 
     '''
     DOMTree = xml.dom.minidom.parse('change-temp.xml')
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection, note_x,  MIDI_str, key_x_str, key_y_str)
+    a = for_parsing.parsing(collection, note_x,  MIDI_str, key_x_str, key_y_str, hands)
 
     filename = 'change-temp.xml'
 
@@ -270,14 +295,15 @@ def buttonPlayClicked():
     if (comboboxMode.get() == 'Play'):
         Pl = 1
 
-    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str)
+    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands)
+
 
 ### def main menu
 def main():
 
     ### global all the event
     global labelHello, label_1, label_2, label_3, label_4, label_keyboard
-    global comboboxMode, comboboxTona, scale, var1, var2, var3, var
+    global comboboxMode, comboboxTona, scale, var1, var2, var3, var, radio_hand
 
     ### labal
     veiw = Label(root,width="180", height="46") 
@@ -301,29 +327,35 @@ def main():
     var3 = IntVar()
     Checkbutton(root, text="non-Accent", variable=var3).place(x=70,y=70)
 
+    ### radio for right or left hand
+    radio_hand = IntVar()
+    Radiobutton(root, text='Both Hands', variable=radio_hand, value='0').place(x=70, y=110)
+    Radiobutton(root, text='Only Right Hand', variable=radio_hand, value='1').place(x=70, y=130)
+    Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=70, y=150)
+
     ### comboboxMode Mode
-    label_2 = tk.Label(root,text='Mode').place(x=10, y=110)
+    label_2 = tk.Label(root,text='Mode').place(x=10, y=310)
 
     comboboxMode = ttk.Combobox(root, width =10)
-    comboboxMode.place(x=70, y=110)
+    comboboxMode.place(x=70, y=310)
     comboboxMode['state'] = ['readonly']
     comboboxMode['values'] = ['Listen','Practice','Play']
     Default_Listen = comboboxMode.set('Listen')
 
     ### comboboxMode Tonality
-    label_3 = tk.Label(root,text='Tonality').place(x=10, y=150) 
+    label_3 = tk.Label(root,text='Tonality').place(x=10, y=350) 
 
     comboboxTona = ttk.Combobox(root, width =10)
-    comboboxTona.place(x=70, y=150)
+    comboboxTona.place(x=70, y=350)
     comboboxTona['state'] = ['readonly']
     comboboxTona['values'] = ['C','D','E','F','G','A','B']
 
     ### scale tempo
-    label_4 = tk.Label(root,text='Speed').place(x=10, y=200)
+    label_4 = tk.Label(root,text='Speed').place(x=10, y=400)
 
     var = DoubleVar()
     scale = Scale( root, variable = var, orient=HORIZONTAL,from_=40, to=160,activebackground = 'magenta', foreground = 'blue')
-    scale.place(x=65, y=180)
+    scale.place(x=65, y=380)
 
     ### keyboard picture
     keyboard = PhotoImage(file = 'keyboard.gif')
@@ -333,10 +365,10 @@ def main():
 
     ### button OK, Play
     buttonOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttonOKClicked)
-    buttonOK.place(x=20, y=280)
+    buttonOK.place(x=20, y=480)
 
     buttonPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttonPlayClicked)
-    buttonPlay.place(x=20, y=320)
+    buttonPlay.place(x=20, y=520)
 
     # Create the Menu 
     menubar = Menu(root)
