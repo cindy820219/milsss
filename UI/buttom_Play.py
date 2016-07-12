@@ -1,19 +1,19 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk, Tk, StringVar
-
 import tkinter.filedialog as filedialog
 
-import for_parsing
 from xml.dom.minidom import parse
 import xml.dom.minidom
 
-import for_sheet
-import for_modify
-import time
-
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import parse, Element
+
+import time
+
+import for_parsing
+import for_sheet
+import for_modify
 
 note_x = []
 sort_note_x = []
@@ -114,4 +114,4 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str):
     ### Play mode
     if (Pl ==1):
         print('Play mode')
-        for_line.continue_line(Tem, filename, beats)
+        # for_line.continue_line(Tem, filename, beats)

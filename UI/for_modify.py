@@ -1,49 +1,54 @@
-import tkinter as tk
-from tkinter import *
-from tkinter import ttk, Tk, StringVar
-import tkinter.filedialog as filedialog
-
-import for_parsing
+### import parse
 from xml.dom.minidom import parse
 import xml.dom.minidom
+from xml.etree.ElementTree import ElementTree, Element, parse
+
+### import math
 import math
 
-from xml.etree.ElementTree import ElementTree, Element
-
-import for_sheet
+### import file from for_parsing, for_sheet
 import for_parsing
+import for_sheet
 
-# import xml.etree.ElementTree as ET
-from xml.etree.ElementTree import parse
-
-global fileaString
-
+### global note_x : all the notes x location
 global note_x
 note_x = []
 
+### all the notes' MIDI key, x, y
 MIDI_str = []
 key_x_str = []
 key_y_str = []
 
-
+### def function read_xml
 def read_xml(in_path):
     tree = ElementTree()
     tree.parse(in_path)
     return tree
 
+### def funtion write_xml
 def write_xml(tree, out_path):
     tree.write(out_path, encoding="utf-8",xml_declaration=True)
 
+### def function when change_Tonation then change_notes
 def change_Tona_change_notes(filename,add_key):
 
-    # tree = parse('change-key.xml')
-    tree = parse('change-temp.xml')
-    root = tree.getroot()
     ######
     # <step>F</step>
     # <alter>1</alter>
     # <octave>4</octave>
     ######
+    
+    ### parsing the change-temp
+    tree = parse('change-temp.xml')
+    root = tree.getroot()
+
+    '''
+    find all the measure -> note 
+    -> pitch -> step -> octave -> alrer
+    count the key of MIDI code
+
+    and then change the new MIDI to new pitch
+    ''' 
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
             for pitch in note.iter('pitch'):
@@ -135,22 +140,24 @@ def change_Tona_change_notes(filename,add_key):
                 # write_xml(tree, 'change-key.xml')
                 write_xml(tree, 'change-temp.xml')
 
-    print('  the file "change-key-note" is saved.')    
+    # print('  the file "change-key-note" is saved.')    
 
-
+### def function to change tonation
 def change_Tona(filename, Tona ,accent, daul):
     
+    ### if daul or accent is changed, then read file named 'change-temp.xml'
     if (accent == 1 or daul == 1): 
         filename = 'change-temp.xml'
-        print('key filename: ',filename)
 
+    ### parsing the file
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     tree = read_xml(filename)
-    # print('change_Tona: ', filename)
     
+    ### change tonation str
     Tona_str = ''
 
+    ### define the pre tionation num and str
     if(Tona == 'C'):
         Tona_str = '0'
         Tona_num = 60
@@ -179,20 +186,20 @@ def change_Tona(filename, Tona ,accent, daul):
         Tona_str = '5'
         Tona_num = 71
     
-    # 屬性修改 - Tonality:
+    # modify the attri of Tonality
     for fifths in tree.iter('fifths'):
-        # print('fifths.text:' ,fifths.text)
         pre_key = fifths.text
+        
         # change the key
         fifths.text = ''
         fifths.text += Tona_str
         # print("key change : ", fifths.text)
         
-        write_xml(tree, 'change-key.xml')
         write_xml(tree, 'change-temp.xml')
-        
-        print('  the file "change-key.xml" is saved.')
+        # write_xml(tree, 'change-key.xml')
+        # print('  the file "change-key.xml" is saved.')
 
+    ### when change key, count how many number would add.
     if(pre_key == '0'):
         add_key = Tona_num - 60
 
@@ -214,24 +221,28 @@ def change_Tona(filename, Tona ,accent, daul):
     if(pre_key == '6'):
         add_key = Tona_num - 65
 
-    #if(pre_key == '7'):
-    #    add_key = Tona_num - 61
+    # if(pre_key == '7'):
+    #     add_key = Tona_num - 61
 
-    print('add_key: ',add_key)
+    # print('add_key: ',add_key)
+    
+    ### call the function to change the notes
     change_Tona_change_notes(filename,add_key)
 
+### def function change the tempo
 def change_tempo(filename ,Tem, accent, daul, Tona):
 
+    ### if daul or accent is changed, then read file named 'change-temp.xml'
     if (accent == 1 or daul == 1 or Tona == 1):
         filename = 'change-temp.xml'
 
+    ### global DOMTree, collection, tree
     global DOMTree, collection, tree
 
-    #DOMTree = xml.dom.minidom.parse(filename)
-    #collection = DOMTree.documentElement
+    ### read the filename
     tree = read_xml(filename)
 
-    # 屬性修改 - tempo:
+    # change the attr - tempo:
     for per_minute in tree.iter('per-minute'):
         per_minute.text = ''
         per_minute.text += Tem
@@ -241,35 +252,55 @@ def change_tempo(filename ,Tem, accent, daul, Tona):
         #print(sound.attrib)
         sound.set("tempo", Tem)
         # print("tempo change: ", sound.attrib)
-        #print(sound.attrib)
-        write_xml(tree, "change-tem.xml")
+        
         write_xml(tree, "change-temp.xml")
-        print('  the file "change-tem.xml" is saved.')
+        # write_xml(tree, "change-tem.xml")
+        # print('  the file "change-tem.xml" is saved.')
 
+### def function about simple daul(chord)
 def simple_daul(filename, accent):
     
-    chord_sim = open('change-daul.xml','w')
+    ### open the file named 'change-daul.xml'
+    # chord_sim = open('change-daul.xml','w')
 
+    ### if accent was changed, the read the file named 'change-temp.xml'
     if (accent == 1): 
         filename = 'change-temp.xml'
-
     else:
         change_temp = open('change-temp.xml','w')
 
+    ### parsing the file
     tree = parse(filename)
     root = tree.getroot()
 
+    ### define the queue
     queue = []
 
+    ### pre notes
+    daul_pre_note = ''
+
+    ### measure -> notes -> chord 
+    ### right hand delete chord, left hand delete chord
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
-            ### 要刪除的音
-            chord =  note.find('chord')
+            # print('here note: ',note)
+
+
+
+            ### must delete notes
+            chord = note.find('chord')
+            daul_staff = note.find('staff')
+            print('daul_staff.attrib:',daul_staff)
+
+            # print('daul_staff: ',daul_staff)
             
+
             if(chord != None):
                 queue.append(note)
         # print('queue: ',queue)
-        
+            
+            daul_pre_note = note
+
         for i in queue:
             measure.remove(i)
             # measure.remove(queue.pop(0))
@@ -277,42 +308,52 @@ def simple_daul(filename, accent):
 
         queue = []
 
-    tree.write('change-daul.xml')
+    ### save the change to 'change-temp.xml' file
     tree.write('change-temp.xml')
-    print('  the file "change-daul.xml" is saved.')
+    # tree.write('change-daul.xml')
+    # print('  the file "change-daul.xml" is saved.')
 
+### simple rhythm 
+### is doesn't work now
 def simple_rhythm(filename):
     rhythm = open('change-rhythm.xml','w')
     
     tree = parse(filename)
     root = tree.getroot()
 
-    tree.write('change-rhythm.xml')
-    print('  the file "change-rhythm.xml" is saved.')
+    # tree.write('change-rhythm.xml')
+    # print('  the file "change-rhythm.xml" is saved.')
 
-
+### simple accent, change all the type to qauter
 def simple_accent(filename):
 
+    ### open the file named change-temp
     change_temp = open('change-temp.xml','w') 
 
-    change_accent = open('change-accent.xml','w') 
+    # change_accent = open('change-accent.xml','w') 
 
+    ### delete notes
     must_delet_note = 0
+    ### queue put the delete notes
     queue_must_delet_note = ''
 
+    ### difine mini duration
     mini_duration = 0
 
-    ##########################################
-    ##########################################
-    ##########################################
+    ### parsing the file
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
+    
     for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str)
 
-
+    ### define measure and pre staff
     pre_staff = 0
     measure = 1
     
+    ##########################################
+    ##########################################
+    ##########################################
+
     pre_x_1 = pre_x_2 = ''
     pre_step_data = pre_octave_data = ''
 
@@ -366,33 +407,27 @@ def simple_accent(filename):
 
 
     sounds = collection.getElementsByTagName('sound')
-    # sound(sounds)
-    # print(sounds)
     for sound in sounds:
         if (sound.hasAttribute('tempo')):
             sound = sound.getAttribute('tempo')
             print('tempo: ',sound)
     
-    ##################################################
-    ### if no set tempo ! add new node about tempo !!!
-    #if (sounds == []):
-     #   add_tempo_node()
-#
+
     pre_staff_data = 1
     
     ### print about the pitch type staff rhyth
     print('pitch\ttype\t\tstaff\t\trhythm')
+    print('1=======================================================================')
     total_PI = 1
 
     ### notes is a list
     notes = collection.getElementsByTagName('note')
-    print('1=======================================================================')
-
     for note in notes:
 
         # print('!!!!!!!!!! note: ',note)
         # if note.hasAttribute('default-x'):
         #   print('default-x: %s' % note.getAttribute('default-x'))
+        
         note_num = int(note_num) + 1
 
         is_daul = 0
@@ -408,20 +443,16 @@ def simple_accent(filename):
         rhythm_1 = float(rhythm)
         
         if (rhythm_1 == 1.0):
-            # print('rhythm: ',rhythm_1)
             mini_duration = int(duration.childNodes[0].data)
             # print('mini_duration: ',mini_duration)
 
         if(timing >= int(beats) and (hand != 1)):
-            # print('=======================================================================')
-            # single_measure += 1
             timing = 0
 
         if (note.getElementsByTagName('accidental')):
             accidental = note.getElementsByTagName('accidental')[0]
             # alter_data = accidental.childNodes[0].data
             alter_data = '0'
-
         else:
             alter_data = '50'
 
@@ -515,8 +546,7 @@ def simple_accent(filename):
                     print(measure,'=======================================================================')
                     pre_staff = 1
                     pre_step_data = pre_x_1 = pre_x_2 = ''
-                    total_PI = 1
-                    
+                    total_PI = 1          
 
             if(int(staff_data)== 1):    
                 pre_staff = 1
@@ -526,7 +556,6 @@ def simple_accent(filename):
                 # print(staff_data_1_x)
                     ### test!
                 
-
             if(int(staff_data)== 2):
                 pre_staff = 2   
                 pre_x_2 = note.getAttribute('default-x')
@@ -537,43 +566,6 @@ def simple_accent(filename):
             if(timing > int(beats)):
                 timing = 0  
 
-        ### one-hand for measure and daul 
-        if (hand == 1): 
-            single_flag_of_daul = 0
-
-            if(note.hasAttribute('default-x')):
-                single_now_x = note.getAttribute('default-x')
-                if(single_pre_x != ''):
-                    single_pre_x_flaot = float(single_pre_x)
-                    if(single_now_x != ''):
-                        single_now_x_float = float(single_now_x)
-                        close_daul = math.fabs(single_pre_x_flaot-single_now_x_float)
-
-                    if(close_daul < 20):
-                        if(single_pre_x != ''):
-                            daul='there is a daul: '+pre_step_data+pre_octave_data+' and '+step_data+octave_data
-                            single_flag_of_daul = 1
-
-            pre_step_data = step_data
-            pre_octave_data = octave_data
-
-            single_pre_x = single_now_x
-            #print(single_time,timing)
-            
-            if (single_flag_of_daul == 0):
-                single_time += float(rhythm)
-
-            if (single_time > int(beats)):
-                single_measure += 1
-                print(single_measure,'----------------------------------------------------------------------')
-                single_time = 0
-                single_time += float(rhythm)
-                timing = 0
-                single_pre_x = ''
-
-            timing = single_time
-
-
         if (staff_data == ''):
             staff_data = '0'
 
@@ -583,23 +575,6 @@ def simple_accent(filename):
 
         ### About the PI        
         PI = math.floor(timing - float(rhythm) +1)
-        
-        # about the ID : note num(4) // measure(2) // staff(1) // timing(1)
-        # ID: note_num 
-        note_num = str(note_num).zfill(4)
-        
-        # ID: measure_id
-        measure_id = str(measure) 
-        measure_id = measure_id.zfill(2)
-        # ID: measure_id of one-hand
-        if staff_data == '0':
-            measure_id = str(single_measure)
-            measure_id = measure_id.zfill(2)
-
-        # ID: staff_id
-        staff_id = staff_data
-
-        # ID = note_num + measure_id + staff_id + str(PI)
     
         print(step_data
             +str(octave_data)
@@ -608,7 +583,6 @@ def simple_accent(filename):
             +'\t\t'+staff_data
             +'\t\t'+rhythm
             +'       '+str(PI))
-
 
         if (daul != ''):
             print(daul)
@@ -651,7 +625,7 @@ def simple_accent(filename):
     # print(queue_must_delet_note)
     # print('len: ',len(queue_must_delet_note))
     
-    accent_sim = open('change-accent.xml','w')
+    # accent_sim = open('change-accent.xml','w')
     
     tree = parse(filename)
     root = tree.getroot()
@@ -660,6 +634,10 @@ def simple_accent(filename):
     now_note_num = 0
     next_mutch_note_tag = 0
     
+    '''
+    measure -> note 
+    append the must delete notes to queue
+    '''
     for measure in root.iter('measure'):
         for note1 in measure.iter('note'): 
             # print(note1)
@@ -684,7 +662,7 @@ def simple_accent(filename):
         queue = []
 
     tree.write('change-temp.xml')
-    tree.write('change-accent.xml')
+    # tree.write('change-accent.xml')
     # print('  the file "change-accent.xml" is saved.')
 
     ### modify duration if(duration < mini_duration) and type change
@@ -703,8 +681,8 @@ def simple_accent(filename):
             print('type had been change !!!!')
     
     tree1.write('change-temp.xml')
-    tree1.write('change-accent.xml')
-    print('  the file "change-accent.xml" is saved.')
+    # tree1.write('change-accent.xml')
+    # print('  the file "change-accent.xml" is saved.')
 
 
 
