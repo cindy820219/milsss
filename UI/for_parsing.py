@@ -452,6 +452,7 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
 
         ### to reguar the right-hand or left-hand
         # if (note.getElementsByTagName('staff')):
+        ### both hands
         if (hands != 1):
             hand = 2
             ### find out the staff
@@ -532,12 +533,15 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
             if(timing > int(beats)):
                 timing = 0  
 
-        
-        ### single
+        '''single'''
+        '''single'''
         ### one-hand for measure and daul 
         if (hands == 1): 
             single_flag_of_daul = 0
             # PI = 1
+            
+            staff = note.getElementsByTagName('staff')[0]
+            staff_data = staff.childNodes[0].data
 
             if(note.hasAttribute('default-x')):
                 single_now_x = note.getAttribute('default-x')
@@ -547,9 +551,9 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
                         single_now_x_float = float(single_now_x)
                         close_daul = math.fabs(single_pre_x_flaot-single_now_x_float)
 
-                    if(close_daul < 20):
+                    if(close_daul < 10):
                         if(single_pre_x != ''):
-                            daul='there is a daul: '+pre_step_data+pre_octave_data+' and '+step_data+octave_data
+                            daul='there is a daul: ' + str(pre_step_data) + str(pre_octave_data) + ' and ' + str(step_data) + str(octave_data)
                             single_flag_of_daul = 1
 
             pre_step_data = step_data
@@ -574,8 +578,13 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
 
             timing = single_time
             # print ('timing: ', timing)
+        '''single'''
+        '''single'''
 
         ### staff_data = 0 
+        # if (staff_data == ''):
+        #     staff_data = '0'
+
         if (staff_data == ''):
             staff_data = '0'
 

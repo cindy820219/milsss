@@ -320,7 +320,7 @@ def simple_daul(filename, accent):
 ### simple rhythm 
 ### is doesn't work now
 def simple_rhythm(filename):
-    rhythm = open('change-rhythm.xml','w')
+    # rhythm = open('change-rhythm.xml','w')
     
     tree = parse(filename)
     root = tree.getroot()
@@ -332,10 +332,12 @@ def simple_rhythm(filename):
 def simple_accent(filename, hands):
 
     ### open the file named change-temp
-    change_temp = open('change-temp.xml','w') 
+    # if (hands == 1):
+    #     filename = 'change-temp.xml'
+    # else:    
+    #     change_temp = open('change-temp.xml','w') 
 
-    # change_accent = open('change-accent.xml','w') 
-
+    
     ### delete notes
     must_delet_note = 0
     ### queue put the delete notes
@@ -688,9 +690,18 @@ def simple_accent(filename, hands):
     # tree1.write('change-accent.xml')
     # print('  the file "change-accent.xml" is saved.')
 
-def hand(filename, hand):
+def hand(filename, hand,  accent, daul, Tona):
     ### if accent was changed, the read the file named 'change-temp.xml'
-    change_temp = open('change-temp.xml','w')
+    
+    ### hand not both, and accent ==0, daul==0, tona ==0
+    ### open the file 'change-temp.xml'
+
+    ### else 
+    ### filename == 'change-temp.xml'
+    if( hand!='0' and accent != 1 and daul != 1 and Tona != 1):
+        change_temp = open('change-temp.xml','w')
+    else:
+        filename = 'change-temp.xml' 
 
     ### parsing the file
     tree = parse(filename)
@@ -698,8 +709,6 @@ def hand(filename, hand):
 
     ### define the queue
     queue = []
-
-    pre_staff = ''
 
     ### measure -> notes -> chord 
     ### right hand delete chord, left hand delete chord
@@ -712,10 +721,7 @@ def hand(filename, hand):
             ### must delete notes
             ### right hand delete staff 2
             if(staff_data != hand):
-
                 queue.append(note)
-
-            pre_staff = staff_data
 
         for i in queue:
             measure.remove(i)

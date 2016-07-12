@@ -190,7 +190,7 @@ def buttonOKClicked():
     if left  hand, hands = 1
     '''
     hands = 0
-    
+
 
     ''' 
     check the file name and get Mode, Tonation and Tempo
@@ -205,7 +205,7 @@ def buttonOKClicked():
     # print('rhythm: ',rhythm)
     if(rhythm == 1):
         for_modify.simple_rhythm(filename)
-    
+
     accent = var3.get()
     if(accent == 1):
         for_modify.simple_accent(filename, hands)
@@ -242,20 +242,15 @@ def buttonOKClicked():
     print('get Tem: ',Tem)
     for_modify.change_tempo(filename, str(Tem), accent, daul, Tona)
    
+
     ### radio for right or left hand
     # print('seletion: ', str(radio_hand.get()))
     hand = str(radio_hand.get())
-    # if (hand == '0'):
-    #     print('hand: ',hand)
-
-    # global hands
     ### if only one hand, then call the funtion
     if(hand != '0'):
         hands = 1
-        for_modify.hand(filename, hand)
-    # print('hands = ', hands)
+        for_modify.hand(filename, hand, accent, daul, Tona)
 
-    
 
     '''
     parsing the 'change-temp.xml' 
@@ -263,6 +258,7 @@ def buttonOKClicked():
     '''
     DOMTree = xml.dom.minidom.parse('change-temp.xml')
     collection = DOMTree.documentElement
+    hand
     a = for_parsing.parsing(collection, note_x,  MIDI_str, key_x_str, key_y_str, hands)
 
     filename = 'change-temp.xml'

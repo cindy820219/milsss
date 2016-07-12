@@ -15,10 +15,12 @@ import for_parsing
 import for_sheet
 import for_modify
 
+global note_x
 note_x = []
-sort_note_x = []
 
 note_x_1 = []
+
+sort_note_x = []
 
 MIDI_str = []
 key_str = []
@@ -26,11 +28,16 @@ key_str = []
 def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands):
     # print('buttom note: ',note_x )
     # print('len note: ',len(note_x))
+    global note_x_1
+
+    filename = 'change-temp.xml'
+
     note_x = []
     ### for beats
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
+    print('finised draing')
     # collection, note_x, MIDI_str, key_x_str, key_y_str
 
     times = collection.getElementsByTagName('time')
@@ -38,13 +45,15 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands):
         beats = beats.getElementsByTagName('beats')[0]
         beats = beats.childNodes[0].data
 
+
+
     # print('note_x = []', note_x )
 
     # print('Li, Pr, Pl, Tem: ',Li, Pr, Pl, Tem)
     ### Listen mode
     if (Li == 1):
         print('Listen mode')
-        for_line.continue_line(Tem, filename, beats)
+        # for_line.continue_line(Tem, filename, beats)
 
     
     ### Practice mode 
@@ -92,6 +101,7 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands):
         ### -------------------------------------------------------
 
         ### note_x_1 ----------------------------------------------
+        
         sort_note_x_1 = sorted(note_x_1)
         len_note_x_1 = len(note_x_1)
         # print('sorted note_x: ', sort_note_x)
