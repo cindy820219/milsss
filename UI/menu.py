@@ -300,7 +300,13 @@ def buttonPlayClicked():
 
     ### call the function named buttomPlay from the file named buttom_Play
     ### 'change_hands' is very importand
-    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, change_hands)
+
+
+    # global w
+    # w = Canvas(width = 910, height = 500, bg = 'yellow')
+    # w.place(x= 278 ,y=8)
+
+    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, change_hands, MIDI_str)
 
 ### def main menu
 def main():
@@ -313,6 +319,7 @@ def main():
     veiw = Label(root,width="180", height="46") 
     veiw.pack()
 
+    global w
     ### w = Canvas 
     w = Canvas(width = 910, height = 500, bg = 'yellow')
     w.place(x= 278 ,y=38)

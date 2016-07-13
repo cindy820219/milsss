@@ -686,7 +686,7 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
         ### call the function create_notes from the outside for_sheet
         # print('measure: ', measure)
         for_sheet.create_notes(int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str)
-        # print('total_PI: ',total_PI)
+        print('total_PI: ',total_PI)
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)
 
