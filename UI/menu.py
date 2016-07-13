@@ -82,7 +82,7 @@ def openfile():
     '''
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection ,note_x, MIDI_str, key_x_str, key_y_str)
+    a = for_parsing.parsing(collection ,note_x, MIDI_str, key_x_str, key_y_str, hands)
 
     ### Default_Tona
     if (a[0] == '0'):
@@ -262,9 +262,19 @@ def buttonOKClicked():
     a = for_parsing.parsing(collection, note_x,  MIDI_str, key_x_str, key_y_str, hands)
 
     filename = 'change-temp.xml'
+    
+    ### if hands are two, then change hands = hands
+    ### to mark the hands
+    global change_hands
+    change_hands = 0
+    change_hands = hands
+    # print('hands change: ', change_hands)
 
 ### def functuin the button Play
 def buttonPlayClicked():
+    
+    if(change_hands == 1):
+        print('hands1111: ', change_hands)
 
     ### Mode Listen, Practice, Play = 0
     Li = 0
@@ -274,7 +284,6 @@ def buttonPlayClicked():
     ### get the Tem 
     Tem = var.get()
     
-
     '''
     get the Mode Listen or Practice or Play
 
@@ -284,15 +293,14 @@ def buttonPlayClicked():
     '''
     if (comboboxMode.get() == 'Listen'):
         Li = 1
-    
     if (comboboxMode.get() == 'Practice'):
         Pr = 1
-
     if (comboboxMode.get() == 'Play'):
         Pl = 1
 
-    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands)
-
+    ### call the function named buttomPlay from the file named buttom_Play
+    ### 'change_hands' is very importand
+    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, change_hands)
 
 ### def main menu
 def main():

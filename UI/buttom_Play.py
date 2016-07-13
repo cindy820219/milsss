@@ -30,6 +30,7 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands):
     # print('len note: ',len(note_x))
     global note_x_1
 
+    print('hands: ', hands)
     filename = 'change-temp.xml'
 
     note_x = []
@@ -37,7 +38,7 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands):
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
-    print('finised draing')
+
     # collection, note_x, MIDI_str, key_x_str, key_y_str
 
     times = collection.getElementsByTagName('time')
