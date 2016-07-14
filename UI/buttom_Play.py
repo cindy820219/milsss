@@ -28,6 +28,11 @@ sort_note_x = []
 MIDI_str = []
 key_str = []
 
+note = 0
+
+
+note_queue = []
+
 global w
 
 def readMIDI():
@@ -36,15 +41,67 @@ def readMIDI():
     pygame.midi.init()
     inp = pygame.midi.Input(1)
 
+    ### clear all the notes
+    empty = PhotoImage(file = 'empty.gif')
+    label_notes = Label(image = empty)
+    label_notes.place(x=402, y=705)
+    label_notes.image = empty # keep a ref
+
+    label_notes = Label(image = empty)
+    label_notes.place(x=422, y=705)
+    label_notes.image = empty # keep a ref
+    ### clear all the notes
+
+
+    ### input the key board
     while True:
         if (inp.poll()):
             note = inp.read(10)
-            print (note)
+            print(note)
 
+            MIDI_key = note[0][0][1]
+            print (MIDI_key)
+            print('------------------')
+
+            ###### 做雙音彈奏判斷部分
+                # .............
+            ######
+
+            if (MIDI_key == 60):
+                print('60 and create')
+                note_queue.append(60)
+                break
+
+            if (MIDI_key == 62):
+                print('62 and create')
+                note_queue.append(62)
+
+
+    print(note_queue)
+
+    if(note_queue[0] == 60):
+        left = PhotoImage(file = 'left.gif')
+        label_notes = Label(image = left)
+        label_notes.place(x=402, y=705)
+        label_notes.image = left # keep a reference!
+
+    if(note_queue[1] == 62):
+        left = PhotoImage(file = 'left.gif')
+        label_notes = Label(image = left)
+        label_notes.place(x=422, y=705)
+        label_notes.image = left # keep a reference!
 
 def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, MIDI_str):
     # print('buttom note: ',note_x )
     # print('len note: ',len(note_x)
+
+    # left = PhotoImage(file = 'left.gif')
+    # label_notes = Label(image = left)
+    # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+    # label_notes.place(x=670, y=705)
+    # label_notes.image = left # keep a reference!
+
+
     print('MIDI_str: ', MIDI_str)
     
     global note_x_1

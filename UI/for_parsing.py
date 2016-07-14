@@ -136,7 +136,7 @@ def create_sheet(beats, key, x, y):
             label_sheet.image = photo # keep a reference!
 
         if(key == 1):
-            photo = PhotoImage(file = '3u1.gif')
+            photo = PhotoImage(file = '3u1 new.gif')
             label_sheet = Label(image = photo)
             #label.grid(row = 3, column = 1, padx = 5, pady = 5)
             label_sheet.place(x=x,y=y)
@@ -236,7 +236,7 @@ def create_sheet(beats, key, x, y):
 
 ### funtion pasing xml file (root, all notes' x location, MIDI, key_x_str, key_y_str)
 def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
-    
+    # w.create_line(0, 0, 400, 400)
     # if (hands == 1):
     #     print('wowowowoow')
     
@@ -337,6 +337,7 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
             x = 200
             y = 20
             create_sheet(beats, int(fifths), x, y)
+            # w.create_line(0, 0, 400, 400)
 
     ### about the write tempo
     directions = collection.getElementsByTagName('direction')
@@ -702,6 +703,9 @@ def parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
         #    max_measure = measure
             # print('max_measure:' ,max_measure)
 
+        # create_sheet(beats, int(fifths), x, y)
+        # w.create_line(0, 0, 400, 400)
+        
     print('mini rhythm is : ',mini_rhythm)
     # print('max_measure: ',max_measure)
     

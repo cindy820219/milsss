@@ -316,17 +316,30 @@ def main():
     global comboboxMode, comboboxTona, scale, var1, var2, var3, var, radio_hand
 
     ### labal
-    veiw = Label(root,width="180", height="46") 
+    veiw = Frame(root,width="1800", height="800") 
+    # veiw.grid(row=0,column=0)
     veiw.pack()
 
+    # ### big bug is here
+    # canvas=Canvas(veiw, bg='yellow', width=1030, height=600, scrollregion=(0,0,300,300))
+    
+    # vbar=Scrollbar(veiw,orient=VERTICAL)
+    # vbar.pack(side=RIGHT,fill=Y)
+    # vbar.config(command=canvas.yview)
+    # # canvas.config(width=1420,height=600)
+    # canvas.place(x= 180 ,y=8)    
+    # canvas.pack(side=RIGHT,expand=True,fill=BOTH)
+
     global w
-    ### w = Canvas 
+    ### w = Canvas
     w = Canvas(width = 910, height = 500, bg = 'yellow')
     w.place(x= 278 ,y=38)
 
+
+
     ### labelHello define
-    labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
-    labelHello.place(x=0, y= 550)
+    # labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
+    # labelHello.place(x=0, y= 550)
 
     # Checkbutton - Daul (var1), Rhythm (var2), Accent (var3)
     var1 = IntVar()
@@ -340,9 +353,9 @@ def main():
 
     ### radio for right or left hand
     radio_hand = IntVar()
-    Radiobutton(root, text='Both Hands', variable=radio_hand, value='0').place(x=70, y=110)
-    Radiobutton(root, text='Only Right Hand', variable=radio_hand, value='1').place(x=70, y=130)
-    Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=70, y=150)
+    Radiobutton(root, text='Both Hands', variable=radio_hand, value='0').place(x=30, y=110)
+    Radiobutton(root, text='Only Right Hand', variable=radio_hand, value='1').place(x=30, y=130)
+    Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=30, y=150)
 
     ### comboboxMode Mode
     label_2 = tk.Label(root,text='Mode').place(x=10, y=310)
@@ -406,6 +419,18 @@ if __name__ == '__main__':
 
     root = Tk()
     root.title('Hello!!!')
+
+
+    scrollbar = Scrollbar(root)
+    scrollbar.pack( side = RIGHT, fill=Y )
+
+    mylist = Listbox(root, yscrollcommand = scrollbar.set )
+    for line in range(100):
+       mylist.insert(END, "This is line number " + str(line))
+
+    mylist.pack( side = RIGHT, fill = BOTH )
+    scrollbar.config( command = mylist.yview )
+
 
     main()
     mainloop()

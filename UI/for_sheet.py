@@ -415,7 +415,8 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.place(x=notes_measure_x,y=notes_staff_y)
             label_notes.image = quarter # keep a reference!
 
-            # Accidentals(alter_data, notes_measure_x, notes_staff_y)
+            # Accidentals(alter_data, notes_measure_x, notes_staff_y
+
 
         # whole
         if(type_data == 'whole'):
