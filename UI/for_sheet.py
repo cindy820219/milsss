@@ -229,7 +229,26 @@ def Accidentals(alter_data, notes_measure_x, notes_staff_y ,MIDI):
 
     return (MIDI)
 
-def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str):
+def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str):
+
+    ### line 5
+    w.create_line(5, 5, 980, 5)
+
+    ### line 4
+    w.create_line(5, 13, 980, 15)
+
+    ### line 3
+    w.create_line(5, 21, 980, 25)
+
+    ### line 2
+    w.create_line(5, 29, 980, 35)
+
+    ### line 1
+    w.create_line(5, 37, 980, 45)
+
+    ### line 4
+    # w.create_line(15, 15, 980, 15)
+
 
     notes_staff_y = 0
     MIDI = 0
@@ -427,17 +446,22 @@ def create_notes(measure, PI, staff_data, type_data, step_data, rhythm, octave_d
             label_notes.image = whole # keep a reference!
 
             # Accidentals(alter_data, notes_measure_x, notes_staff_y)
+        if(type_data == 'eighth'):
+            w.create_oval(100,100,110,110,fill='blue')
+            # w.create_oval(10,10,100,100,fill='red')
+            # w.create_line(0, 0, 400, 400)
+
 
         # eighth
-        if(type_data == 'eighth'):
-            if (stem == 'down'):
-                eight = PhotoImage(file = 'eighth_d.gif')
-            else:
-                eight = PhotoImage(file = 'eighth.gif')
+        # if(type_data == 'eighth'):
+        #     if (stem == 'down'):
+        #         eight = PhotoImage(file = 'eighth_d.gif')
+        #     else:
+        #         eight = PhotoImage(file = 'eighth.gif')
 
-            label_notes = Label(image = eight)
-            label_notes.place(x=notes_measure_x,y=notes_staff_y)
-            label_notes.image = eight # keep a reference!
+        #     label_notes = Label(image = eight)
+        #     label_notes.place(x=notes_measure_x,y=notes_staff_y)
+        #     label_notes.image = eight # keep a reference!
 
             # Accidentals(alter_data, notes_measure_x, notes_staff_y)
         

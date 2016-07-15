@@ -142,7 +142,7 @@ def openSample():
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
     
-    a = for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
+    a = for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
     
     ### Default_Tona
     if (a[0] == '0'):
@@ -270,11 +270,18 @@ def buttonOKClicked():
     change_hands = hands
     # print('hands change: ', change_hands)
 
+    # global w
+    # ### w = Canvas
+    # w = Canvas(width = 910, height = 500, bg = 'yellow')
+    # w.place(x= 278 ,y=38)
+
+    
+
 ### def functuin the button Play
 def buttonPlayClicked():
     
-    if(change_hands == 1):
-        print('hands1111: ', change_hands)
+    ## if(change_hands == 1):
+        ## print('hands1111: ', change_hands)
 
     ### Mode Listen, Practice, Play = 0
     Li = 0
@@ -332,10 +339,9 @@ def main():
 
     global w
     ### w = Canvas
-    w = Canvas(width = 910, height = 500, bg = 'yellow')
-    w.place(x= 278 ,y=38)
-
-
+    w = Canvas(width = 1100, height = 570, bg = 'yellow')
+    # w.place(x= 278 ,y=38)
+    w.place(x= 265 ,y=36)
 
     ### labelHello define
     # labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
@@ -420,7 +426,7 @@ if __name__ == '__main__':
     root = Tk()
     root.title('Hello!!!')
 
-
+    ### scroll bar
     scrollbar = Scrollbar(root)
     scrollbar.pack( side = RIGHT, fill=Y )
 
@@ -430,7 +436,6 @@ if __name__ == '__main__':
 
     mylist.pack( side = RIGHT, fill = BOTH )
     scrollbar.config( command = mylist.yview )
-
 
     main()
     mainloop()
