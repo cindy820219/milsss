@@ -58,6 +58,7 @@ def hello():
 ### def function open the file
 def openfile():
     
+    w.delete('all')
     ### file name is global
     global filename
     
@@ -68,6 +69,9 @@ def openfile():
     ### Default_Tona is global
     global Default_Tona
 
+    global hands
+
+    hands = 0
 
     '''
     parsing the xml file and default tonalite and tempo
@@ -82,7 +86,7 @@ def openfile():
     '''
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    a = for_parsing.parsing(collection ,note_x, MIDI_str, key_x_str, key_y_str, hands)
+    a = for_parsing.parsing(w, collection ,note_x, MIDI_str, key_x_str, key_y_str, hands)
 
     ### Default_Tona
     if (a[0] == '0'):
@@ -117,7 +121,7 @@ def openfile():
     scale.set(a[1])
 
 def openSample():
-
+    w.delete('all')
     ### Unkown
     # global Default_Tona
 
@@ -259,7 +263,7 @@ def buttonOKClicked():
     DOMTree = xml.dom.minidom.parse('change-temp.xml')
     collection = DOMTree.documentElement
     hand
-    a = for_parsing.parsing(collection, note_x,  MIDI_str, key_x_str, key_y_str, hands)
+    a = for_parsing.parsing(w, collection, note_x,  MIDI_str, key_x_str, key_y_str, hands)
 
     filename = 'change-temp.xml'
     
@@ -339,9 +343,11 @@ def main():
 
     global w
     ### w = Canvas
-    w = Canvas(width = 1100, height = 570, bg = 'yellow')
-    # w.place(x= 278 ,y=38)
-    w.place(x= 265 ,y=36)
+    # w = Canvas(width = 1100, height = 570, bg = 'yellow')
+    # w.place(x= 265 ,y=36)
+
+    w = Canvas(width = 1100, height = 605)# , bg = 'yellow')
+    w.place(x= 265 ,y=1)
 
     ### labelHello define
     # labelHello = tk.Label(root, text = "Choose the file ", height = 5, width = 80, fg = "blue")
