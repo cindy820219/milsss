@@ -323,16 +323,16 @@ def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octav
     if (step_data == '[ ]'):
         if(staff_data == 1):
             notes_staff_y = 40
-            if (4 < measure  and measure < 8):
+            if (4 < measure  and measure < 9):
                 notes_staff_y = notes_staff_y + 160
-            if (9 < measure  and measure < 12):
+            if (9 < measure  and measure < 13):
                 notes_staff_y = notes_staff_y + 320
 
         else:
             notes_staff_y = 132
-            if (4 < measure  and measure < 8):
+            if (4 < measure  and measure < 9):
                 notes_staff_y = notes_staff_y + 160
-            if (9 < measure  and measure < 12):
+            if (9 < measure  and measure < 13):
                 notes_staff_y = notes_staff_y + 320
 
         if(type_data == 'quarter'):
@@ -349,6 +349,7 @@ def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octav
             w.create_line(notes_measure_x-2, notes_staff_y+23, notes_measure_x+6, notes_staff_y+26, width = 2)
 
             ### arc c
+            # coord = notes_measure_x-1, notes_staff_y+23, notes_measure_x+6, notes_staff_y+30
             coord = notes_measure_x-5, notes_staff_y+23, notes_measure_x+2, notes_staff_y+30
             w.create_arc(coord, start=110, extent=130, width=1, fill="black")
             ### line \
@@ -369,24 +370,41 @@ def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octav
             # eighth
             if(staff_data == 2):
                 notes_staff_y += 4
+            # ### .
+            # w.create_oval(notes_measure_x+1, notes_staff_y+13, notes_measure_x+ 5, notes_staff_y+17, fill='black')
+            # ### -
+            # w.create_line(notes_measure_x+5, notes_staff_y+14, notes_measure_x+9, notes_staff_y+12)
+            # ### /
+            # w.create_line(notes_measure_x+9, notes_staff_y+9, notes_measure_x+7, notes_staff_y+24, width = 1)
+            
             ### .
-            w.create_oval(notes_measure_x+1, notes_staff_y+13, notes_measure_x+ 5, notes_staff_y+17, fill='black')
+            w.create_oval(notes_measure_x-2, notes_staff_y+13, notes_measure_x+1, notes_staff_y+17, fill='black')
             ### -
-            w.create_line(notes_measure_x+5, notes_staff_y+14, notes_measure_x+9, notes_staff_y+12)
+            w.create_line(notes_measure_x+1, notes_staff_y+14, notes_measure_x+5, notes_staff_y+12)
             ### /
-            w.create_line(notes_measure_x+9, notes_staff_y+9, notes_measure_x+7, notes_staff_y+24, width = 1)
-        
+            w.create_line(notes_measure_x+5, notes_staff_y+9, notes_measure_x+3, notes_staff_y+24, width = 1)
+
         if(type_data == '16th'):
             # six
+            # ### . . 
+            # w.create_oval(notes_measure_x+1, notes_staff_y+13, notes_measure_x+ 4, notes_staff_y+16, fill='black')
+            # w.create_oval(notes_measure_x-1, notes_staff_y+22, notes_measure_x+ 2, notes_staff_y+25, fill='black')
+            # ### - 
+            # ### -
+            # w.create_line(notes_measure_x+4, notes_staff_y+13, notes_measure_x+8, notes_staff_y+11)
+            # w.create_line(notes_measure_x+2, notes_staff_y+22, notes_measure_x+6, notes_staff_y+20)
+            # ### /
+            # w.create_line(notes_measure_x+7, notes_staff_y+11, notes_measure_x+4, notes_staff_y+30, width = 1)
+
             ### . . 
-            w.create_oval(notes_measure_x+1, notes_staff_y+13, notes_measure_x+ 4, notes_staff_y+16, fill='black')
-            w.create_oval(notes_measure_x-1, notes_staff_y+22, notes_measure_x+ 2, notes_staff_y+25, fill='black')
+            w.create_oval(notes_measure_x-1, notes_staff_y+13, notes_measure_x+2, notes_staff_y+16, fill='black')
+            w.create_oval(notes_measure_x-3, notes_staff_y+22, notes_measure_x, notes_staff_y+25, fill='black')
             ### - 
             ### -
-            w.create_line(notes_measure_x+4, notes_staff_y+13, notes_measure_x+8, notes_staff_y+11)
-            w.create_line(notes_measure_x+2, notes_staff_y+22, notes_measure_x+6, notes_staff_y+20)
+            w.create_line(notes_measure_x+2, notes_staff_y+13, notes_measure_x+6, notes_staff_y+11)
+            w.create_line(notes_measure_x, notes_staff_y+22, notes_measure_x+4, notes_staff_y+20)
             ### /
-            w.create_line(notes_measure_x+7, notes_staff_y+11, notes_measure_x+4, notes_staff_y+30, width = 1)
+            w.create_line(notes_measure_x+5, notes_staff_y+11, notes_measure_x+2, notes_staff_y+30, width = 1)
 
         if(type_data == 'half'):
             if (rhythm == 3.0):
@@ -413,12 +431,12 @@ def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octav
         if(type_data == 'quarter'):
             
             if (stem == 'down'):
-                w.create_line(notes_measure_x+1, notes_staff_y+1.5, notes_measure_x+1, notes_staff_y+26.5, width=2)
+                w.create_line(notes_measure_x-1, notes_staff_y+1.5, notes_measure_x-1, notes_staff_y+26.5, width=2)
 
             else :
-                w.create_line(notes_measure_x+8.5, notes_staff_y-20.5, notes_measure_x+8.5, notes_staff_y+5.5, width=2)
+                w.create_line(notes_measure_x+6.5, notes_staff_y-20.5, notes_measure_x+6.5, notes_staff_y+5.5, width=2)
 
-            w.create_oval(notes_measure_x, notes_staff_y-1, notes_measure_x+8.5, notes_staff_y+7, fill='black')
+            w.create_oval(notes_measure_x-2, notes_staff_y-1, notes_measure_x+6.5, notes_staff_y+7, fill='black')
             
             ### midle sol
             # w.create_oval(80, 29.5, 88.5, 36.5, fill='black')
@@ -461,81 +479,81 @@ def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octav
 
         # whole
         if(type_data == 'whole'):
-            w.create_oval(notes_measure_x, notes_staff_y-1, notes_measure_x+8.5, notes_staff_y+7, width=1.5)
+            w.create_oval(notes_measure_x-2, notes_staff_y-1, notes_measure_x+6.5, notes_staff_y+7, width=1.5)
 
         ### eighth
         if(type_data == 'eighth'):
             if (stem == 'down'):
-                w.create_line(notes_measure_x+1, notes_staff_y+1.5, notes_measure_x+1, notes_staff_y+26.5, width=2)
+                w.create_line(notes_measure_x-1, notes_staff_y+1.5, notes_measure_x-1, notes_staff_y+26.5, width=2)
                 
                 ### /
-                w.create_line(notes_measure_x+1, notes_staff_y+26.5, notes_measure_x+9, notes_staff_y+17, width = 2)
+                w.create_line(notes_measure_x-1, notes_staff_y+26.5, notes_measure_x+7, notes_staff_y+17, width = 2)
                 ### |
-                w.create_line(notes_measure_x+9, notes_staff_y+17, notes_measure_x+7, notes_staff_y+10, width = 2)
+                w.create_line(notes_measure_x+7, notes_staff_y+17, notes_measure_x+5, notes_staff_y+10, width = 2)
                 
             else:
-                w.create_line(notes_measure_x+8.5, notes_staff_y-20.5, notes_measure_x+8.5, notes_staff_y+5.5, width=2)
+                w.create_line(notes_measure_x+6.5, notes_staff_y-20.5, notes_measure_x+6.5, notes_staff_y+5.5, width=2)
                 
                 ### \
-                w.create_line(notes_measure_x+8.5, notes_staff_y-20.5, notes_measure_x+16.5, notes_staff_y-11, width = 2)
+                w.create_line(notes_measure_x+6.5, notes_staff_y-20.5, notes_measure_x+14.5, notes_staff_y-11, width = 2)
                 ### |
-                w.create_line(notes_measure_x+16.5, notes_staff_y-11, notes_measure_x+14.5, notes_staff_y-4, width = 2)
+                w.create_line(notes_measure_x+14.5, notes_staff_y-11, notes_measure_x+12.5, notes_staff_y-4, width = 2)
 
-            w.create_oval(notes_measure_x, notes_staff_y-1, notes_measure_x+8.5, notes_staff_y+7, fill='black')
+            w.create_oval(notes_measure_x-2, notes_staff_y-1, notes_measure_x+6.5, notes_staff_y+7, fill='black')
             
            
         if(type_data == '16th'):
             # six
             if (stem == 'down'):
-                w.create_line(notes_measure_x+1, notes_staff_y+1.5, notes_measure_x+1, notes_staff_y+26.5, width=2)
+                w.create_line(notes_measure_x-1, notes_staff_y+1.5, notes_measure_x-1, notes_staff_y+26.5, width=2)
                 
                 ### /
-                w.create_line(notes_measure_x+1, notes_staff_y+26.5, notes_measure_x+8, notes_staff_y+16.5, width = 1)
+                w.create_line(notes_measure_x-1, notes_staff_y+26.5, notes_measure_x+6, notes_staff_y+16.5, width = 1)
                 ### |
                 # w.create_line(notes_measure_x+5, notes_staff_y+17, notes_measure_x+3, notes_staff_y+10, width = 1)
 
                 ### /
-                w.create_line(notes_measure_x+1, notes_staff_y+20.5, notes_measure_x+8, notes_staff_y+10.5, width = 1)
+                w.create_line(notes_measure_x-1, notes_staff_y+20.5, notes_measure_x+6, notes_staff_y+10.5, width = 1)
                 ### |
                 # w.create_line(notes_measure_x+5, notes_staff_y+13, notes_measure_x+3, notes_staff_y+4, width = 1)
 
 
             else:
-                w.create_line(notes_measure_x+8.5, notes_staff_y-20.5, notes_measure_x+8.5, notes_staff_y+5.5, width=2)
+                w.create_line(notes_measure_x+6.5, notes_staff_y-20.5, notes_measure_x+6.5, notes_staff_y+5.5, width=2)
                 
                 ### \
-                w.create_line(notes_measure_x+8.5, notes_staff_y-20.5, notes_measure_x+13.5, notes_staff_y-10, width = 1)
+                w.create_line(notes_measure_x+6.5, notes_staff_y-20.5, notes_measure_x+11.5, notes_staff_y-10, width = 1)
                 ### |
                 # w.create_line(notes_measure_x+12.5, notes_staff_y-11, notes_measure_x+10.5, notes_staff_y-4, width = 1)
 
                 ### \
-                w.create_line(notes_measure_x+8.5, notes_staff_y-14.5, notes_measure_x+13.5, notes_staff_y-4, width = 1)
+                w.create_line(notes_measure_x+6.5, notes_staff_y-14.5, notes_measure_x+11.5, notes_staff_y-4, width = 1)
                 ### |
                 # w.create_line(notes_measure_x+12.5, notes_staff_y-9, notes_measure_x+10.5, notes_staff_y-2, width = 1)
             
-            w.create_oval(notes_measure_x, notes_staff_y-1, notes_measure_x+8.5, notes_staff_y+7, fill='black')
+            w.create_oval(notes_measure_x-2, notes_staff_y-1, notes_measure_x+6.5, notes_staff_y+7, fill='black')
 
         if(type_data == 'half'):
             ### third 
             if (rhythm == 3.0):
                 if (stem == 'down'):
-                    w.create_line(notes_measure_x+1, notes_staff_y+1.5, notes_measure_x+1, notes_staff_y+26.5, width=2)
-                    w.create_oval(notes_measure_x+13, notes_staff_y+2, notes_measure_x+16, notes_staff_y+5, fill = 'black')
+                    w.create_line(notes_measure_x-1, notes_staff_y+1.5, notes_measure_x-1, notes_staff_y+26.5, width=2)
+                    w.create_oval(notes_measure_x+11, notes_staff_y+2, notes_measure_x+13, notes_staff_y+5, fill = 'black')
 
                 else:
-                    w.create_line(notes_measure_x+8.5, notes_staff_y-20.5, notes_measure_x+8.5, notes_staff_y+5.5, width=2)
-                    w.create_oval(notes_measure_x+13, notes_staff_y+2, notes_measure_x+16, notes_staff_y+5, fill = 'black')
+                    w.create_line(notes_measure_x+6.5, notes_staff_y-20.5, notes_measure_x+6.5, notes_staff_y+5.5, width=2)
+                    w.create_oval(notes_measure_x+11, notes_staff_y+2, notes_measure_x+14, notes_staff_y+5, fill = 'black')
 
-                w.create_oval(notes_measure_x, notes_staff_y-1, notes_measure_x+9, notes_staff_y+7, width=2)
+                w.create_oval(notes_measure_x-2, notes_staff_y-1, notes_measure_x+7, notes_staff_y+7, width=2)
 
             else:
                 # half
                 if (stem == 'down'):
-                    w.create_line(notes_measure_x+1, notes_staff_y+1.5, notes_measure_x+1, notes_staff_y+26.5, width=2)
+                    w.create_line(notes_measure_x-1, notes_staff_y+1.5, notes_measure_x-1, notes_staff_y+26.5, width=2)
                 else: 
-                    w.create_line(notes_measure_x+8.5, notes_staff_y-20.5, notes_measure_x+8.5, notes_staff_y+5.5, width=2)
+                    w.create_line(notes_measure_x+6.5, notes_staff_y-20.5, notes_measure_x+6.5, notes_staff_y+5.5, width=2)
 
-                w.create_oval(notes_measure_x, notes_staff_y-1, notes_measure_x+9, notes_staff_y+7, width=2)
+                w.create_oval(notes_measure_x-2, notes_staff_y-1, notes_measure_x+7, notes_staff_y+7, width=2)
             
         
         MIDI_fianl = Accidentals(w, alter_data, notes_measure_x, notes_staff_y, MIDI)
