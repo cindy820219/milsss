@@ -1,3 +1,4 @@
+
 ### import parsing
 from xml.dom.minidom import parse
 import xml.dom.minidom
@@ -21,6 +22,9 @@ beats = 0
 ### note_x : all the notes' x location 
 global note_x
 note_x = []
+
+# global single_now_x
+# single_now_x = ''
 
 '''
 def funtion - draw the music sheet
@@ -559,6 +563,10 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
                             daul='there is a daul: ' + str(pre_step_data) + str(pre_octave_data) + ' and ' + str(step_data) + str(octave_data)
                             single_flag_of_daul = 1
 
+            else:
+                single_now_x = ''
+
+
             pre_step_data = step_data
             pre_octave_data = octave_data
 
@@ -700,7 +708,9 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
         ### call the function create_notes from the outside for_sheet
         # print('measure: ', measure)
         for_sheet.create_notes(w, int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str)
-        print('total_PI: ',total_PI)
+        
+        # print('total_PI: ',total_PI)
+
         if (total_PI < int(beats)+1):
             total_PI = total_PI + float(rhythm)
 
@@ -711,10 +721,10 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
         if(float(rhythm) < float(mini_rhythm)):
             mini_rhythm = rhythm
 
-        ### max_measure
-        #if(int(measure) > int(max_measure)):
-        #    max_measure = measure
-            # print('max_measure:' ,max_measure)
+        # ### max_measure
+        # if(int(measure) > int(max_measure)):
+        #     max_measure = measure
+        #     print('max_measure:' ,max_measure)
 
         # create_sheet(beats, int(fifths), x, y)
         # w.create_line(0, 0, 400, 400)

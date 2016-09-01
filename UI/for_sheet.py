@@ -220,16 +220,19 @@ def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octav
     # notes_measure_x = 263 + (measure-1)*230 + (PI*57.5)
     # new notes_measure_x = 20 + (measure-1)*240 + (PI*60)
     if (beats_111 == 3):
-        notes_measure_x = 60 + (measure-1)*240 + ((PI-1)*60)
+        # notes_measure_x = 60 + (measure-1)*240 + ((PI-1)*60)
+        notes_measure_x = 80 + (measure-1)*240 + ((PI-1)*60)
         
         ### measure 4-8
         if (4 < measure  and measure < 9):
-            notes_measure_x = 60 + (measure-5)*240 + ((PI-1)*60)
+            notes_measure_x = 80 + (measure-5)*240 + ((PI-1)*60)
         if (8 < measure  and measure < 13):
-            notes_measure_x = 60 + (measure-9)*240 + ((PI-1)*60)
+            notes_measure_x = 80 + (measure-9)*240 + ((PI-1)*60)
     ### 4/4 
     else: 
+        # notes_measure_x = 60 + (measure-1)*240 + ((PI-1)*48)
         notes_measure_x = 60 + (measure-1)*240 + ((PI-1)*48)
+
         ### measure 4-8
         if (4 < measure  and measure < 9):
             notes_measure_x = 60 + (measure-5)*240 + ((PI-1)*48)  

@@ -18,11 +18,11 @@ import for_modify
 import sys, pygame, pygame.midi, time
 from pygame.locals import *
 
+from threading import Thread
+
 global note_x
 note_x = []
-
 note_x_1 = []
-
 sort_note_x = []
 
 MIDI_str = []
@@ -30,12 +30,121 @@ key_str = []
 
 note = 0
 
-
 note_queue = []
 
 global w
 
+global max_measure
+max_measure = 0
+
+
+# def run(max_measure):
+#     measure = 1
+
+#     canvas = Canvas(width = 980, height = 30, bg = 'yellow')
+#     canvas.place(x= 265 ,y= -10)
+
+#     arrow = PhotoImage(file = 'arrow.gif')
+    
+#     a = 5
+
+#     ### 1
+#     if (measure <= max_measure):
+#         # canvas.create_image(20, 20, image = arrow, tag = "pic")
+#         # canvas.update()
+#         # time.sleep(1)
+#         for i in range(20, 259, 10):
+#             canvas.create_image(i, 20, image = arrow, tag = "pic")
+#             canvas.update()
+#             time.sleep(0.1)
+#             canvas.delete('pic')
+#         measure += 1
+
+#     ### 2
+#     if (measure <= max_measure):
+#         # canvas.create_image(260, 20, image = arrow, tag = "pic")
+#         # canvas.update()
+#         # time.sleep(1)
+#         canvas.delete('pic')
+#         for i in range(260, 499, 10):
+#             canvas.create_image(i, 20, image = arrow, tag = "pic")
+#             canvas.update()
+#             time.sleep(0.1)
+#             canvas.delete('pic')
+#         measure += 1
+
+#     ### 3
+#     if (measure <= max_measure):
+#         # canvas.create_image(500, 20, image = arrow, tag = "pic")
+#         # canvas.update()
+#         # time.sleep(1)
+#         for i in range(500, 739, 10):
+#             canvas.create_image(i, 20, image = arrow, tag = "pic")
+#             canvas.update()
+#             time.sleep(0.1)
+#             canvas.delete('pic')
+#         measure += 1
+
+#     ### 4 
+#     if (measure <= max_measure):
+#         # canvas.create_image(740, 20, image = arrow, tag = "pic")
+#         # canvas.update()
+#         # time.sleep(1)
+#         for i in range(740, 1000, 10):
+#             canvas.create_image(i, 20, image = arrow, tag = "pic")
+#             canvas.update()
+#             time.sleep(0.1)
+#             canvas.delete('pic')
+#         measure += 1
+
+    ### 5
+    # canvas = Canvas(width = 980, height = 30, bg = 'yellow')
+    # canvas.place(x= 265 ,y= -10)
+
+    # if (measure <= max_measure):
+    #     # canvas.create_image(740, 20, image = arrow, tag = "pic")
+    #     # canvas.update()
+    #     # time.sleep(1)
+    #     for i in range(20, 259, 10):
+    #         canvas.create_image(i, 20, image = arrow, tag = "pic")
+    #         canvas.update()
+    #         time.sleep(0.1)
+    #         canvas.delete('pic')
+    #     measure += 1
+
+
+
+
+
+
+### class!!! 
+# class worker(Thread):
+#     def run(self):
+#         pygame.init()
+
+#         pygame.midi.init()
+#         inp = pygame.midi.Input(1)
+             
+#         # run the event loop
+#         while True:
+#             if (inp.poll()):
+#                 note = inp.read(10)
+#                 print (note)
+
+# class waiter(Thread):
+#     def run(self):
+#         for x in range(100,103):
+#             print (x)
+#             time.sleep(5)
+
 def readMIDI():
+
+    start = time.time()
+    print("hello")
+    end = time.time()
+    print(end - start)
+    print("hello")
+
     pygame.init()
 
     pygame.midi.init()
@@ -69,29 +178,32 @@ def readMIDI():
 
             if (MIDI_key == 60):
                 print('60 and create')
-                note_queue.append(60)
+                # note_queue.append(60)
+                left = PhotoImage(file = 'left.gif')
+                label_notes = Label(image = left)
+                label_notes.place(x=402, y=705)
+                label_notes.image = left # keep a reference!
+
                 break
 
             if (MIDI_key == 62):
                 print('62 and create')
-                note_queue.append(62)
+                left = PhotoImage(file = 'left.gif')
+                label_notes = Label(image = left)
+                label_notes.place(x=422, y=705)
+                label_notes.image = left # keep a reference!
+                # note_queue.append(62)
+                break
+
+    # print(note_queue)
 
 
-    print(note_queue)
+    
+# if(note_queue[1] == 62):
+    
 
-    if(note_queue[0] == 60):
-        left = PhotoImage(file = 'left.gif')
-        label_notes = Label(image = left)
-        label_notes.place(x=402, y=705)
-        label_notes.image = left # keep a reference!
 
-    if(note_queue[1] == 62):
-        left = PhotoImage(file = 'left.gif')
-        label_notes = Label(image = left)
-        label_notes.place(x=422, y=705)
-        label_notes.image = left # keep a reference!
-
-def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, MIDI_str):
+def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, MIDI_str):
     # print('buttom note: ',note_x )
     # print('len note: ',len(note_x)
 
@@ -101,9 +213,9 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, M
     # label_notes.place(x=670, y=705)
     # label_notes.image = left # keep a reference!
 
+    # print('MIDI_str: ', MIDI_str)
+ 
 
-    print('MIDI_str: ', MIDI_str)
-    
     global note_x_1
 
     filename = 'change-temp.xml'
@@ -114,7 +226,7 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, M
     # collection, note_x, MIDI_str, key_x_str, key_y_str, hands
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
-    for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
+    for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
 
     ### got the time
     times = collection.getElementsByTagName('time')
@@ -123,12 +235,115 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, M
         beats = beats.childNodes[0].data
 
     ### print('note_x = []', note_x )
-    ### print('Li, Pr, Pl, Tem: ',Li, Pr, Pl, Tem)
+    print('Li, Pr, Pl, Tem: ',Li, Pr, Pl, Tem)
     
+    ### count the measure
+    tree = parse('change-temp.xml')
+    root = tree.getroot()
+
+    ### count max_measure
+    max_measure = 0
+
+    for measure in root.iter('measure'):
+        max_measure += 1
+    # print('max_measire: ',max_measure)
+
+    ### Listen mode
+    ### Listen mode
     ### Listen mode
     if (Li == 1):
         print('Listen mode')
-        # for_line.continue_line(Tem, filename, beats)
+
+        ### function arrow
+        # run(max_measure)
+
+        ### class arrow
+        # worker().start()
+        # waiter().start()
+
+        ### Wang's class
+        # ThreadForTagMove.start()
+
+        ### defined in class
+        # class ThreadForTagMove(Thread):
+        #     def __init__(self, thread_id, name, counter):
+        #         threading.Thread.__init__(self)
+        #         self.thread_id = thread_id
+        #         self.name = name
+        #         self.counter = counter
+        #         self.tag = 0
+        #         self.daemon = True
+            
+        
+        #     canvas = Canvas(width = 980, height = 30) #, bg = 'yellow')
+        #     canvas.place(x= 265 ,y= -10)
+
+        #     arrow = PhotoImage(file = 'arrow.gif')
+            
+        #     measure = 1
+
+        #     ### 1
+        #     if (measure <= max_measure):
+        #         # canvas.create_image(20, 20, image = arrow, tag = "pic")
+        #         # canvas.update()
+        #         # time.sleep(1)
+        #         for i in range(20, 259, 10):
+        #             canvas.create_image(i, 20, image = arrow, tag = "pic")
+        #             canvas.update()
+        #             time.sleep(0.1)
+        #             canvas.delete('pic')
+        #         measure += 1
+
+        #     ### 2
+        #     if (measure <= max_measure):
+        #         # canvas.create_image(260, 20, image = arrow, tag = "pic")
+        #         # canvas.update()
+        #         # time.sleep(1)
+        #         canvas.delete('pic')
+        #         for i in range(260, 499, 10):
+        #             canvas.create_image(i, 20, image = arrow, tag = "pic")
+        #             canvas.update()
+        #             time.sleep(0.1)
+        #             canvas.delete('pic')
+        #         measure += 1
+
+        #     ### 3
+        #     if (measure <= max_measure):
+        #         # canvas.create_image(500, 20, image = arrow, tag = "pic")
+        #         # canvas.update()
+        #         # time.sleep(1)
+        #         for i in range(500, 739, 10):
+        #             canvas.create_image(i, 20, image = arrow, tag = "pic")
+        #             canvas.update()
+        #             time.sleep(0.1)
+        #             canvas.delete('pic')
+        #         measure += 1
+
+        #     ### 4 
+        #     if (measure <= max_measure):
+        #         # canvas.create_image(740, 20, image = arrow, tag = "pic")
+        #         # canvas.update()
+        #         # time.sleep(1)
+        #         for i in range(740, 1000, 10):
+        #             canvas.create_image(i, 20, image = arrow, tag = "pic")
+        #             canvas.update()
+        #             time.sleep(0.1)
+        #             canvas.delete('pic')
+        #         measure += 1
+
+
+            # for i in range(200, 300, 10):
+            #     print(i)
+            #     canvas.create_image(i, 20, image = arrow, tag = "pic")
+            #     canvas.update()
+            #     time.sleep(0.1)
+            #     canvas.delete('pic')
+
+    ### Listen mode
+    ### Listen mode
+    ### Listen mode
+
+
 
     ### Practice mode 
     if (Pr == 1):
@@ -173,6 +388,7 @@ def buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, M
             canvas.update()
             
             readMIDI()
+            # readMIDI().start()
 
             canvas.delete('pic')
         ### -------------------------------------------------------

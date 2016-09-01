@@ -13,6 +13,12 @@ import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import parse, Element
 
 
+
+### import keyboard and thread
+from threading import Thread
+import sys, pygame, pygame.midi, time
+from pygame.locals import *
+
 '''
 import all the function 
 
@@ -182,6 +188,7 @@ def openSample():
 
 ### def function OK button
 def buttonOKClicked():
+    w.delete('all')
 
     global filename
 
@@ -195,7 +202,6 @@ def buttonOKClicked():
     '''
     hands = 0
 
-
     ''' 
     check the file name and get Mode, Tonation and Tempo
     get rhythm from var2
@@ -203,8 +209,14 @@ def buttonOKClicked():
     get daul   from var1
     '''
     print('filename: ', filename)
-    print("Daul: ",var1.get(), "Rhythm: ",var2.get(), "Accent: ",var3.get())
+    print("Daul: ",var1.get(), "Accent: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
     
+    ### radio for level
+    ### hight level = 2, low level = 1
+    level = str(radio_level.get())
+    print('level: ', level)
+
+
     rhythm = var2.get()
     # print('rhythm: ',rhythm)
     if(rhythm == 1):
@@ -212,11 +224,11 @@ def buttonOKClicked():
 
     accent = var3.get()
     if(accent == 1):
-        for_modify.simple_accent(filename, hands)
+       for_modify.simple_accent(w, filename, hands)
     
     daul = var1.get()
     if(daul == 1):
-        for_modify.simple_daul(filename, accent)
+        for_modify.simple_daul(filename, accent, level)
 
     ### get Mode value
     Mode = comboboxMode.get()
@@ -255,6 +267,8 @@ def buttonOKClicked():
         hands = 1
         for_modify.hand(filename, hand, accent, daul, Tona)
 
+    
+
 
     '''
     parsing the 'change-temp.xml' 
@@ -262,7 +276,7 @@ def buttonOKClicked():
     '''
     DOMTree = xml.dom.minidom.parse('change-temp.xml')
     collection = DOMTree.documentElement
-    hand
+    # hand
     a = for_parsing.parsing(w, collection, note_x,  MIDI_str, key_x_str, key_y_str, hands)
 
     filename = 'change-temp.xml'
@@ -317,14 +331,14 @@ def buttonPlayClicked():
     # w = Canvas(width = 910, height = 500, bg = 'yellow')
     # w.place(x= 278 ,y=8)
 
-    buttom_Play.buttomPlay(filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, change_hands, MIDI_str)
+    buttom_Play.buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, change_hands, MIDI_str)
 
 ### def main menu
 def main():
 
     ### global all the event
     global labelHello, label_1, label_2, label_3, label_4, label_keyboard
-    global comboboxMode, comboboxTona, scale, var1, var2, var3, var, radio_hand
+    global comboboxMode, comboboxTona, scale, var1, var2, var3, var, radio_hand, radio_level
 
     ### labal
     veiw = Frame(root,width="1800", height="800") 
@@ -358,16 +372,23 @@ def main():
     Checkbutton(root, text="Daul", variable=var1).place(x=70,y=30)
     
     var2 = IntVar()
-    Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
+    # Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
     
     var3 = IntVar()
-    Checkbutton(root, text="non-Accent", variable=var3).place(x=70,y=70)
+    Checkbutton(root, text="Rhythm", variable=var3).place(x=70,y=50)
 
     ### radio for right or left hand
     radio_hand = IntVar()
     Radiobutton(root, text='Both Hands', variable=radio_hand, value='0').place(x=30, y=110)
     Radiobutton(root, text='Only Right Hand', variable=radio_hand, value='1').place(x=30, y=130)
     Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=30, y=150)
+
+    ### radio for level
+    radio_level = IntVar()
+    # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
+    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=30, y=200)
+    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=30, y=220)
+
 
     ### comboboxMode Mode
     label_2 = tk.Label(root,text='Mode').place(x=10, y=310)
@@ -423,6 +444,7 @@ def main():
     menubar.add_cascade(label="Sample",menu=editmenu)
     
     root.config(menu=menubar)
+
 
 ### main loop
 if __name__ == '__main__':

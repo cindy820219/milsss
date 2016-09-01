@@ -31,7 +31,6 @@ def write_xml(tree, out_path):
 
 ### def function when change_Tonation then change_notes
 def change_Tona_change_notes(filename,add_key):
-
     ######
     # <step>F</step>
     # <alter>1</alter>
@@ -156,6 +155,8 @@ def change_Tona(filename, Tona ,accent, daul):
     
     ### change tonation str
     Tona_str = ''
+    
+    # print('Tona: ',Tona)
 
     ### define the pre tionation num and str
     if(Tona == 'C'):
@@ -198,6 +199,9 @@ def change_Tona(filename, Tona ,accent, daul):
         write_xml(tree, 'change-temp.xml')
         # write_xml(tree, 'change-key.xml')
         # print('  the file "change-key.xml" is saved.')
+    
+    ### print('pre_key: ', pre_key)
+
 
     ### when change key, count how many number would add.
     if(pre_key == '0'):
@@ -221,6 +225,32 @@ def change_Tona(filename, Tona ,accent, daul):
     if(pre_key == '6'):
         add_key = Tona_num - 65
 
+    ############################
+    ############################
+
+    # if(pre_key == '-1'):
+    #     add_key = Tona_num - 65
+
+    # if(pre_key == '-2'):
+    #     add_key = Tona_num - 70
+
+    # if(pre_key == '-3'):
+    #     add_key = Tona_num - 64
+
+    # if(pre_key == '-4'):
+    #     add_key = Tona_num - 69
+
+    # if(pre_key == '-5'):
+    #     add_key = Tona_num - 72
+
+    # if(pre_key == '-6'):
+    #     add_key = Tona_num - 67
+    ############################
+    ############################
+    
+    ### add key
+    # print('add_key: ', add_key)
+    
     # if(pre_key == '7'):
     #     add_key = Tona_num - 61
 
@@ -258,10 +288,24 @@ def change_tempo(filename ,Tem, accent, daul, Tona):
         # print('  the file "change-tem.xml" is saved.')
 
 ### def function about simple daul(chord)
-def simple_daul(filename, accent):
+def simple_daul(filename, accent, level):
     
+    ### to count all the chord notes
+    chord_num = 0
+
+    ### to count the number of three dual notes
+    chord_pre = 0
+    chord_now = 0
+    chord_three = 0
+    
+    ### to count the total PI
+    total_PI = 1
+
     ### open the file named 'change-daul.xml'
     # chord_sim = open('change-daul.xml','w')
+
+    ### hight level = 2, low level = 1
+    # print('IN level: ', level)
 
     ### if accent was changed, the read the file named 'change-temp.xml'
     if (accent == 1): 
@@ -280,6 +324,7 @@ def simple_daul(filename, accent):
     daul_pre_note = ''
     daul_staff_data = ''
 
+
     ### measure -> notes -> chord 
     ### right hand delete chord, left hand delete chord
     for measure in root.iter('measure'):
@@ -288,32 +333,140 @@ def simple_daul(filename, accent):
             for staff in note.iter('staff'):
                 daul_staff_data = staff.text
                 # print('daul_staff_data: ',daul_staff_data)
-                
+            
+            chord_now = 0
+
             ### must delete notes
             chord = note.find('chord')
+
+            ### count all the chord
+            if (chord != None):
+                chord_num = chord_num + 1
+                chord_now = 1
+
+            ### three notes
+            if(chord_pre == 1 and chord_now == 1):
+                chord_three = chord_three + 1
+     
             # print('chord text: ',chord)
             # print('-------------------------')
 
+            ######### low level #########
             ### left hand delete 'chord'
-            if(chord != None and daul_staff_data == '2'):
+            if(chord != None and daul_staff_data == '2' and level == '1'):
                 queue.append(note)
 
             ### right hand delete 'chord'
-            if(chord != None and daul_staff_data == '1'):
+            if(chord != None and daul_staff_data == '1' and level == '1'):
                 queue.append(daul_pre_note)
             
             daul_pre_note = note
-
             ### print('queue: ',queue)
+
+            ######### low level #########
+
+
+            ######### Original #########
+            
+            # ### left hand delete 'chord'
+            # if(chord != None and daul_staff_data == '2'):
+            #     queue.append(note)
+
+            # ### right hand delete 'chord'
+            # if(chord != None and daul_staff_data == '1'):
+            #     queue.append(daul_pre_note)
+            
+            # daul_pre_note = note
+
+            # ### print('queue: ',queue)
+
+            ######### Original #########
+
+            chord_pre = chord_now
+
+
         for i in queue:
             measure.remove(i)
             # measure.remove(queue.pop(0))
             # print('deleted queue[0]: ',queue)
 
         queue = []
+    
+
+    ### total chord_num
+    # print('chord_num: ',chord_num)
+    # print('chord_three: ',chord_three)
+    chord_num = chord_num - chord_three
+
+    ######### high level #########
+    if(level == '2'):
+        
+        chord_num = chord_num // 2
+        print('chord_num/2: ',chord_num, 'and must delete note: ', chord_num - chord_three)
+
+
+        ### to get the divisions :(((
+        DOMTree = xml.dom.minidom.parse(filename)
+        collection = DOMTree.documentElement
+
+        attrs = collection.getElementsByTagName('attributes')
+        for attr in attrs:
+            divs = collection.getElementsByTagName('divisions')
+            for div in divs:
+                divisions = div.childNodes[0].data
+            ### print(divisions)
+
+            times = collection.getElementsByTagName('time')
+            for time in times:
+                beats = time.getElementsByTagName('beats')[0]
+                beats = beats.childNodes[0].data
+
+
+        for measure in root.iter('measure'):
+            print('----new measure----')
+            for note in measure.iter('note'):
+                # print('here note: ',note)
+                chord == None
+                print ('total_PI: ', total_PI)
+                
+                for staff in note.iter('staff'):
+                    daul_staff_data = staff.text
+                    # print('daul_staff_data: ',daul_staff_data)
+                
+                for duration in note.iter('duration'):
+                    duration_data = duration.text
+
+
+                ### must delete notes
+                chord = note.find('chord')
+
+                #  ### left hand delete 'chord'
+                # if(chord != None and daul_staff_data == '2'):
+                #     queue.append(note)
+
+                # ### right hand delete 'chord'
+                # if(chord != None and daul_staff_data == '1'):
+                #     queue.append(daul_pre_note)
+                
+                # daul_pre_note = note
+
+                #  ### print('queue: ',queue)
+
+                if(chord == None):
+                    print(' hahaah  None')
+                    total_PI = total_PI + float(duration_data)/float(divisions)
+                
+                if (total_PI >= int(beats)+1):
+                    total_PI = 1
+
+
+    ######### high level #########
+
+
 
     ### save the change to 'change-temp.xml' file
     tree.write('change-temp.xml')
+
     # tree.write('change-daul.xml')
     # print('  the file "change-daul.xml" is saved.')
 
@@ -329,7 +482,7 @@ def simple_rhythm(filename):
     # print('  the file "change-rhythm.xml" is saved.')
 
 ### simple accent, change all the type to qauter
-def simple_accent(filename, hands):
+def simple_accent(w, filename, hands):
 
     ### open the file named change-temp
     # if (hands == 1):
@@ -337,7 +490,6 @@ def simple_accent(filename, hands):
     # else:    
     #     change_temp = open('change-temp.xml','w') 
 
-    
     ### delete notes
     must_delet_note = 0
     ### queue put the delete notes
@@ -350,8 +502,11 @@ def simple_accent(filename, hands):
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement
     
-    for_parsing.parsing(collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
-
+    for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
+    
+    ### clear all the menu
+    w.delete('all')
+    
     ### define measure and pre staff
     pre_staff = 0
     measure = 1
