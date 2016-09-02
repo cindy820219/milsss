@@ -367,7 +367,6 @@ def simple_daul(filename, accent, level):
 
 
             ######### Original #########
-            
             # ### left hand delete 'chord'
             # if(chord != None and daul_staff_data == '2'):
             #     queue.append(note)
@@ -379,7 +378,6 @@ def simple_daul(filename, accent, level):
             # daul_pre_note = note
 
             # ### print('queue: ',queue)
-
             ######### Original #########
 
             chord_pre = chord_now
@@ -398,12 +396,19 @@ def simple_daul(filename, accent, level):
     # print('chord_three: ',chord_three)
     chord_num = chord_num - chord_three
 
+
+    ######### high level #########
+    ######### high level #########
     ######### high level #########
     if(level == '2'):
         
         chord_num = chord_num // 2
         print('chord_num/2: ',chord_num, 'and must delete note: ', chord_num - chord_three)
-
+        
+        ### pre_*
+        pre_rhythm = 0
+        pre_chord = 0
+        pre_total_PI = 1
 
         ### to get the divisions :(((
         DOMTree = xml.dom.minidom.parse(filename)
@@ -424,10 +429,11 @@ def simple_daul(filename, accent, level):
 
         for measure in root.iter('measure'):
             print('----new measure----')
+
             for note in measure.iter('note'):
                 # print('here note: ',note)
-                chord == None
-                print ('total_PI: ', total_PI)
+                
+                
                 
                 for staff in note.iter('staff'):
                     daul_staff_data = staff.text
@@ -452,14 +458,48 @@ def simple_daul(filename, accent, level):
 
                 #  ### print('queue: ',queue)
 
-                if(chord == None):
-                    print(' hahaah  None')
+                ### now is chord and pre not chord
+                if((chord != None and pre_chord == 0)):
+                    print(' chord')
+                    total_PI = total_PI - pre_rhythm
+                    pre_chord = 1
+
+                # if(total_PI < 1):
+                #     total_PI = pre_total_PI
+
+                ### now is note chord and pre is chord
+                if(chord == None and pre_chord == 1):
+                    total_PI = total_PI + pre_rhythm
+                    pre_chord = 0
+
+
+
+                print ('total_PI: ', total_PI)
+
+
+                ### now is not chord pre_chord is not
+                if(chord == None and pre_chord ==0):
+                    print(' not chord')
                     total_PI = total_PI + float(duration_data)/float(divisions)
-                
+                    pre_chord = 0
+
+                ### now is chord and pre is chord
+                if(pre_chord == 1 and chord != None):
+                    pre_chord = 1
+
+                ### mark pre_total_PI 
+                pre_total_PI = total_PI
+
+                ### if total_PI >= beats, then turn the total_PI to 1
                 if (total_PI >= int(beats)+1):
                     total_PI = 1
 
+               
+                pre_rhythm = float(duration_data)/float(divisions)
 
+                print('----------------')
+    ######### high level #########
+    ######### high level #########
     ######### high level #########
 
 
