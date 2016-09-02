@@ -10,9 +10,16 @@ import math
 import for_parsing
 import for_sheet
 
+### import pprint
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
+
 ### global note_x : all the notes x location
 global note_x
 note_x = []
+
+
 
 ### all the notes' MIDI key, x, y
 MIDI_str = []
@@ -301,6 +308,9 @@ def simple_daul(filename, accent, level):
     ### to count the total PI
     total_PI = 1
 
+    ### test !!!
+    count_rest = 0
+
     ### open the file named 'change-daul.xml'
     # chord_sim = open('change-daul.xml','w')
 
@@ -362,7 +372,6 @@ def simple_daul(filename, accent, level):
             
             daul_pre_note = note
             ### print('queue: ',queue)
-
             ######### low level #########
 
 
@@ -394,21 +403,32 @@ def simple_daul(filename, accent, level):
     ### total chord_num
     # print('chord_num: ',chord_num)
     # print('chord_three: ',chord_three)
-    chord_num = chord_num - chord_three
+    # chord_num = chord_num - chord_three
 
 
-    ######### high level #########
-    ######### high level #########
-    ######### high level #########
+    ########################### high level ###########################
+    ########################### high level ###########################
+    ########################### high level ###########################
     if(level == '2'):
         
-        chord_num = chord_num // 2
-        print('chord_num/2: ',chord_num, 'and must delete note: ', chord_num - chord_three)
+        ### count the number of chord we need to keep
+        chord_min = chord_num *2 // 5
+        chord_max = chord_num *3 // 5
+        # print('chord_min: ',chord_min, ', and chord_max: ', chord_max)
         
+        queue_0 = []
+        queue_1 = []
+        queue_3 = []
+        queue_2 = []
+        queue_4 = []
+
         ### pre_*
         pre_rhythm = 0
         pre_chord = 0
         pre_total_PI = 1
+
+        ### keep note num
+        keep_note_num = 0
 
         ### to get the divisions :(((
         DOMTree = xml.dom.minidom.parse(filename)
@@ -428,12 +448,10 @@ def simple_daul(filename, accent, level):
 
 
         for measure in root.iter('measure'):
-            print('----new measure----')
+            ### print('----new measure----')
 
             for note in measure.iter('note'):
                 # print('here note: ',note)
-                
-                
                 
                 for staff in note.iter('staff'):
                     daul_staff_data = staff.text
@@ -445,7 +463,145 @@ def simple_daul(filename, accent, level):
 
                 ### must delete notes
                 chord = note.find('chord')
+                
+                if (chord == None):
+                    total_PI = total_PI + pre_rhythm
+                
+                ### if total_PI >= beats, then turn the total_PI to 1
+                if (total_PI >= int(beats)+1):
+                    total_PI = 1
 
+                print ('total_PI: ', total_PI)
+
+
+                ### now is chord and pre not chord
+                if((chord != None and pre_chord == 0)):
+                    # total_PI = total_PI - pre_rhythm
+                    pre_chord = 1
+
+                    # ### print the total_PI
+                    # print ('total_PI: ', total_PI)
+
+                    ### one PI
+                    if(1.0 == float(total_PI)):
+
+                        # print(' 1.0 == float(total_PI ')
+                        if(daul_staff_data == '2'):
+                            # xml.etree.ElementTree.SubElement(note, 'keep', attrib={'keep':'2'})
+                            
+                            xml.etree.ElementTree.SubElement(note, 'keep')
+                            note.find('keep').text = '2'
+
+                            queue_1.append(note)
+                            
+                            # print('hahahaha: ', note.find('keep').get('keep'))
+
+                            # queue_1.append(daul_staff_data)
+                            # print(note.get('keep'))
+                            # keep_note_num = keep_note_num + 1
+
+
+                        elif (daul_staff_data == '1'):
+                            # xml.etree.ElementTree.SubElement(daul_pre_note, 'keep', attrib={'keep':'1'})
+                            xml.etree.ElementTree.SubElement(daul_pre_note, 'keep')
+                            daul_pre_note.find('keep').text = '1'
+                            
+                            queue_1.append(daul_pre_note)
+                            # queue_1.append(daul_staff_data)
+                            # print(daul_pre_note.get('keep'))
+                            # keep_note_num = keep_note_num + 1
+
+                    ### three PI
+                    elif(3.0 == float(total_PI)):
+                        # print(' 3.0 == float(total_PI ')
+                        if(daul_staff_data == '2'):
+                            queue_3.append(note)
+                            queue_3.append(daul_staff_data)
+
+                            # keep_note_num = keep_note_num + 1
+
+                        elif(daul_staff_data == '1'):
+                            queue_3.append(daul_pre_note)
+                            queue_3.append(daul_staff_data)
+
+
+                            # keep_note_num = keep_note_num + 1
+
+                    ### two PI
+                    elif(2.0 == float(total_PI)):
+                        # print(' 2.0 == float(total_PI ')
+                        if(daul_staff_data == '2'):
+                            queue_2.append(note)
+                            queue_2.append(daul_staff_data)
+                            
+                            # keep_note_num = keep_note_num + 1
+
+                        elif(daul_staff_data == '1'):
+                            queue_2.append(daul_pre_note)
+                            queue_2.append(daul_staff_data)
+
+                            # keep_note_num = keep_note_num + 1
+
+                    ### four PI
+                    elif(4.0 == float(total_PI)):
+                        # print(' 4.0 == float(total_PI ')
+
+                        if(daul_staff_data == '2'):
+                            queue_4.append(note)
+                            queue_4.append(daul_staff_data)
+                            
+                            # keep_note_num = keep_note_num + 1
+
+                        elif(daul_staff_data == '1'):
+                            queue_4.append(daul_pre_note)
+                            queue_4.append(daul_staff_data)
+
+                            # keep_note_num = keep_note_num + 1
+
+                    else:
+                        # print('float(total_PI): ', float(total_PI))
+                        count_rest = count_rest + 1
+                        
+
+                ### now is note chord and pre is chord ###
+                elif (chord == None and pre_chord == 1):
+                    # total_PI = total_PI + pre_rhythm
+                    pre_chord = 0
+
+
+                    ### print the total_PI
+                    # print ('total_PI: ', total_PI)
+
+
+                ### now is not chord pre_chord is not
+                elif (chord == None and pre_chord == 0):
+                    ### print the total_PI
+                    # total_PI = total_PI + float(duration_data)/float(divisions)
+                    pre_chord = 0
+
+                ### now is chord and pre is chord (three-daul-notes)
+                elif (chord != None and pre_chord == 1):
+                    ### print the total_PI
+                    # print ('total_PI: ', total_PI)
+
+                    queue_0.append(daul_pre_note)
+                    pre_chord = 1
+
+                    ### keep the notes ! delete the middle notes
+                    # keep_note_num = keep_note_num + 1
+
+                
+
+                ### mark pre_total_PI 
+                pre_total_PI = total_PI
+
+
+               
+                pre_rhythm = float(duration_data)/float(divisions)
+                
+                daul_pre_note = note
+
+                
                 #  ### left hand delete 'chord'
                 # if(chord != None and daul_staff_data == '2'):
                 #     queue.append(note)
@@ -457,50 +613,28 @@ def simple_daul(filename, accent, level):
                 # daul_pre_note = note
 
                 #  ### print('queue: ',queue)
+                
+                # print('-------------')
 
-                ### now is chord and pre not chord
-                if((chord != None and pre_chord == 0)):
-                    print(' chord')
-                    total_PI = total_PI - pre_rhythm
-                    pre_chord = 1
+        print('siZe 0: ',len(queue_0))    
+        print('siZe 1: ',len(queue_1))
+        print('siZe 3: ',len(queue_3))
+        print('siZe 2: ',len(queue_2))
+        print('siZe 4: ',len(queue_4))
+        # note.find('keep').get('keep')
+        print('all the rest: ', count_rest)
+            # if(chord_three > chord_min):
+            #     for i in queue:
+            #         measure.remove(i)
+        
+            
 
-                # if(total_PI < 1):
-                #     total_PI = pre_total_PI
-
-                ### now is note chord and pre is chord
-                if(chord == None and pre_chord == 1):
-                    total_PI = total_PI + pre_rhythm
-                    pre_chord = 0
-
-
-
-                print ('total_PI: ', total_PI)
-
-
-                ### now is not chord pre_chord is not
-                if(chord == None and pre_chord ==0):
-                    print(' not chord')
-                    total_PI = total_PI + float(duration_data)/float(divisions)
-                    pre_chord = 0
-
-                ### now is chord and pre is chord
-                if(pre_chord == 1 and chord != None):
-                    pre_chord = 1
-
-                ### mark pre_total_PI 
-                pre_total_PI = total_PI
-
-                ### if total_PI >= beats, then turn the total_PI to 1
-                if (total_PI >= int(beats)+1):
-                    total_PI = 1
-
-               
-                pre_rhythm = float(duration_data)/float(divisions)
-
-                print('----------------')
-    ######### high level #########
-    ######### high level #########
-    ######### high level #########
+        # print(keep_note_num, ' : break 2')
+    
+    # print(keep_note_num, ' : break 3')
+    ########################### high level ###########################
+    ########################### high level ###########################
+    ########################### high level ###########################
 
 
 
