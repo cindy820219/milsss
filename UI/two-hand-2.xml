@@ -69,7 +69,7 @@
       <attributes>
         <divisions>2</divisions>
         <key>
-          <fifths>1</fifths>
+          <fifths>-1</fifths>
           </key>
         <time>
           <beats>3</beats>

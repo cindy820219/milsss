@@ -164,6 +164,8 @@ def change_Tona(filename, Tona ,accent, daul):
     Tona_str = ''
     
     # print('Tona: ',Tona)
+    
+    add_key = 0
 
     ### define the pre tionation num and str
     if(Tona == 'C'):
@@ -264,7 +266,7 @@ def change_Tona(filename, Tona ,accent, daul):
     # print('add_key: ',add_key)
     
     ### call the function to change the notes
-    change_Tona_change_notes(filename,add_key)
+    change_Tona_change_notes(filename, add_key)
 
 ### def function change the tempo
 def change_tempo(filename ,Tem, accent, daul, Tona):
@@ -308,7 +310,7 @@ def simple_daul(filename, accent, level):
     ### to count the total PI
     total_PI = 1
 
-    ### test !!!
+    ### test !!! not on the on-beat dual notes
     count_rest = 0
 
     ### open the file named 'change-daul.xml'
@@ -411,6 +413,10 @@ def simple_daul(filename, accent, level):
     ########################### high level ###########################
     if(level == '2'):
         
+        ### define all_notes and rest_notes
+        all_notes = 0
+        rest_notes = 0
+
         ### count the number of chord we need to keep
         chord_min = chord_num *2 // 5
         chord_max = chord_num *3 // 5
@@ -452,7 +458,16 @@ def simple_daul(filename, accent, level):
 
             for note in measure.iter('note'):
                 # print('here note: ',note)
+
+                ### count all notes
+                all_notes = all_notes + 1
                 
+                ### count all rest
+                for staff in note.iter('rest'):
+                    ### count all notes
+                    rest_notes = rest_notes+ 1
+
+
                 for staff in note.iter('staff'):
                     daul_staff_data = staff.text
                     # print('daul_staff_data: ',daul_staff_data)
@@ -471,7 +486,8 @@ def simple_daul(filename, accent, level):
                 if (total_PI >= int(beats)+1):
                     total_PI = 1
 
-                print ('total_PI: ', total_PI)
+                ### print total_PI
+                # print ('total_PI: ', total_PI)
 
 
                 ### now is chord and pre not chord
@@ -493,7 +509,7 @@ def simple_daul(filename, accent, level):
                             note.find('keep').text = '2'
 
                             queue_1.append(note)
-                            
+                            queue_1.append(daul_staff_data)
                             # print('hahahaha: ', note.find('keep').get('keep'))
 
                             # queue_1.append(daul_staff_data)
@@ -507,6 +523,7 @@ def simple_daul(filename, accent, level):
                             daul_pre_note.find('keep').text = '1'
                             
                             queue_1.append(daul_pre_note)
+                            queue_1.append(daul_staff_data)
                             # queue_1.append(daul_staff_data)
                             # print(daul_pre_note.get('keep'))
                             # keep_note_num = keep_note_num + 1
@@ -569,7 +586,7 @@ def simple_daul(filename, accent, level):
                     pre_chord = 0
 
 
-                    ### print the total_PI
+                    ### print the real total_PI
                     # print ('total_PI: ', total_PI)
 
 
@@ -587,6 +604,7 @@ def simple_daul(filename, accent, level):
                     queue_0.append(daul_pre_note)
                     pre_chord = 1
 
+
                     ### keep the notes ! delete the middle notes
                     # keep_note_num = keep_note_num + 1
 
@@ -594,44 +612,51 @@ def simple_daul(filename, accent, level):
 
                 ### mark pre_total_PI 
                 pre_total_PI = total_PI
-
-
                
                 pre_rhythm = float(duration_data)/float(divisions)
                 
                 daul_pre_note = note
 
-                
-                #  ### left hand delete 'chord'
-                # if(chord != None and daul_staff_data == '2'):
-                #     queue.append(note)
+        ### count all the on the on-beats dual!!!
+        # print('siZe 0: ',len(queue_0))      ### three notes
+        # print('siZe 1: ',len(queue_1))      ### PI 1
+        # print('siZe 3: ',len(queue_3))      ### PI 3
+        # print('siZe 2: ',len(queue_2))      ### PI 2
+        # print('siZe 4: ',len(queue_4))      ### PI 4
 
-                # ### right hand delete 'chord'
-                # if(chord != None and daul_staff_data == '1'):
-                #     queue.append(daul_pre_note)
-                
-                # daul_pre_note = note
-
-                #  ### print('queue: ',queue)
-                
-                # print('-------------')
-
-        print('siZe 0: ',len(queue_0))    
-        print('siZe 1: ',len(queue_1))
-        print('siZe 3: ',len(queue_3))
-        print('siZe 2: ',len(queue_2))
-        print('siZe 4: ',len(queue_4))
-        # note.find('keep').get('keep')
-        print('all the rest: ', count_rest)
-            # if(chord_three > chord_min):
-            #     for i in queue:
-            #         measure.remove(i)
+        ### count all the notes and not rest notes!!!
+        # print('all_notes: ', all_notes - rest_notes)
         
-            
+        ### count the number of 'delete notes'
+        mini = all_notes * 2 // 5
+        maxi = all_notes * 3 / 5
+        
+        if (int(maxi) != maxi) :
+            maxi = int(maxi)
+            maxi = maxi + 1
 
+        if (mini<len(queue_0) and len(queue_0)<maxi):
+
+        elif (mini<len(queue_0)+len(queue_1)  and len(queue_0)+len(queue_1)<maxi):
+
+        elif (mini<len(queue_0)+len(queue_1)+len(queue_3)  and len(queue_0)+len(queue_1)+len(queue_3)<maxi):
+
+        elif (mini<len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)  and len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)<maxi):
+
+        elif (mini<len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4)  and len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4)<maxi):
+        
+        ### if all on the off-beat !!! 
+        elif 
+
+
+        # for i in queue:
+        #     measure.remove(i)
+           
+
+        # note.find('keep').get('keep')
         # print(keep_note_num, ' : break 2')
-    
     # print(keep_note_num, ' : break 3')
+
     ########################### high level ###########################
     ########################### high level ###########################
     ########################### high level ###########################
