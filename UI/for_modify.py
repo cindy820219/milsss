@@ -427,6 +427,7 @@ def simple_daul(filename, accent, level):
         queue_3 = []
         queue_2 = []
         queue_4 = []
+        queue_delete = []
 
         ### pre_*
         pre_rhythm = 0
@@ -460,7 +461,7 @@ def simple_daul(filename, accent, level):
                 # print('here note: ',note)
 
                 ### count all notes
-                all_notes = all_notes + 1
+                # all_notes = all_notes + 1
                 
                 ### count all rest
                 for staff in note.iter('rest'):
@@ -481,7 +482,12 @@ def simple_daul(filename, accent, level):
                 
                 if (chord == None):
                     total_PI = total_PI + pre_rhythm
-                
+                    ### count all notes
+                    
+                elif (chord != None):
+                    all_notes = all_notes + 2
+
+
                 ### if total_PI >= beats, then turn the total_PI to 1
                 if (total_PI >= int(beats)+1):
                     total_PI = 1
@@ -509,7 +515,7 @@ def simple_daul(filename, accent, level):
                             note.find('keep').text = '2'
 
                             queue_1.append(note)
-                            queue_1.append(daul_staff_data)
+                            # queue_1.append(daul_staff_data)
                             # print('hahahaha: ', note.find('keep').get('keep'))
 
                             # queue_1.append(daul_staff_data)
@@ -523,7 +529,7 @@ def simple_daul(filename, accent, level):
                             daul_pre_note.find('keep').text = '1'
                             
                             queue_1.append(daul_pre_note)
-                            queue_1.append(daul_staff_data)
+                            # queue_1.append(daul_staff_data)
                             # queue_1.append(daul_staff_data)
                             # print(daul_pre_note.get('keep'))
                             # keep_note_num = keep_note_num + 1
@@ -533,13 +539,13 @@ def simple_daul(filename, accent, level):
                         # print(' 3.0 == float(total_PI ')
                         if(daul_staff_data == '2'):
                             queue_3.append(note)
-                            queue_3.append(daul_staff_data)
+                            # queue_3.append(daul_staff_data)
 
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_3.append(daul_pre_note)
-                            queue_3.append(daul_staff_data)
+                            # queue_3.append(daul_staff_data)
 
 
                             # keep_note_num = keep_note_num + 1
@@ -549,13 +555,13 @@ def simple_daul(filename, accent, level):
                         # print(' 2.0 == float(total_PI ')
                         if(daul_staff_data == '2'):
                             queue_2.append(note)
-                            queue_2.append(daul_staff_data)
+                            # queue_2.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_2.append(daul_pre_note)
-                            queue_2.append(daul_staff_data)
+                            # queue_2.append(daul_staff_data)
 
                             # keep_note_num = keep_note_num + 1
 
@@ -565,20 +571,71 @@ def simple_daul(filename, accent, level):
 
                         if(daul_staff_data == '2'):
                             queue_4.append(note)
-                            queue_4.append(daul_staff_data)
+                            # queue_4.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_4.append(daul_pre_note)
-                            queue_4.append(daul_staff_data)
+                            # queue_4.append(daul_staff_data)
 
                             # keep_note_num = keep_note_num + 1
 
+                    ### must delet dual note!!! the dual note not on the on-beats!
+                    ### must delet dual note!!! the dual note not on the on-beats!
+                    ### must delet dual note!!! the dual note not on the on-beats!
+                    elif (1<float(total_PI) and float(total_PI)<2):
+                        if(daul_staff_data == '2'):
+                            queue_delete.append(note)
+                            #queue_delete.append(daul_staff_data)
+                            
+                            # keep_note_num = keep_note_num + 1
+
+                        elif(daul_staff_data == '1'):
+                            queue_delete.append(daul_pre_note)
+                            #queue_delete.append(daul_staff_data)
+
+                    elif (2<float(total_PI) and float(total_PI)<3):
+                        if(daul_staff_data == '2'):
+                            queue_delete.append(note)
+                            #queue_delete.append(daul_staff_data)
+                            
+                            # keep_note_num = keep_note_num + 1
+
+                        elif(daul_staff_data == '1'):
+                            queue_delete.append(daul_pre_note)
+                            #queue_delete.append(daul_staff_data)
+
+                    elif (3<float(total_PI) and float(total_PI)<4):
+                        if(daul_staff_data == '2'):
+                            queue_delete.append(note)
+                            #queue_delete.append(daul_staff_data)
+                            
+                            # keep_note_num = keep_note_num + 1
+
+                        elif(daul_staff_data == '1'):
+                            queue_delete.append(daul_pre_note)
+                            # queue_delete.append(daul_staff_data)
+
+                    elif (4<float(total_PI) and float(total_PI)<5):
+                        if(daul_staff_data == '2'):
+                            queue_delete.append(note)
+                            # queue_delete.append(daul_staff_data)
+                            
+                            # keep_note_num = keep_note_num + 1
+
+                        elif(daul_staff_data == '1'):
+                            queue_delete.append(daul_pre_note)
+                            # queue_delete.append(daul_staff_data)
+                    ### must delet dual note!!! the dual note not on the on-beats!
+                    ### must delet dual note!!! the dual note not on the on-beats!
+                    ### must delet dual note!!! the dual note not on the on-beats!
+
+                    
                     else:
                         # print('float(total_PI): ', float(total_PI))
                         count_rest = count_rest + 1
-                        
+
 
                 ### now is note chord and pre is chord ###
                 elif (chord == None and pre_chord == 1):
@@ -604,11 +661,11 @@ def simple_daul(filename, accent, level):
                     queue_0.append(daul_pre_note)
                     pre_chord = 1
 
-
                     ### keep the notes ! delete the middle notes
                     # keep_note_num = keep_note_num + 1
+                    all_notes = all_notes - 2
 
-                
+
 
                 ### mark pre_total_PI 
                 pre_total_PI = total_PI
@@ -617,36 +674,124 @@ def simple_daul(filename, accent, level):
                 
                 daul_pre_note = note
 
+
+            ### delete all the dual notes not on the on-beat !!!
+            for i in queue_delete:
+                measure.remove(i)
+            queue_delete = []
+            # print(len(queue_delete))
+
+
+
         ### count all the on the on-beats dual!!!
         # print('siZe 0: ',len(queue_0))      ### three notes
         # print('siZe 1: ',len(queue_1))      ### PI 1
         # print('siZe 3: ',len(queue_3))      ### PI 3
         # print('siZe 2: ',len(queue_2))      ### PI 2
         # print('siZe 4: ',len(queue_4))      ### PI 4
+       
+        ### delete note
+        # print('siZe delete: ',len(queue_delete))      
+
 
         ### count all the notes and not rest notes!!!
-        # print('all_notes: ', all_notes - rest_notes)
+        all_notes = all_notes/2
+        print('all_chord: ', all_notes)
+        # print('rest_notes: ', rest_notes)
         
+
         ### count the number of 'delete notes'
         mini = all_notes * 2 // 5
-        maxi = all_notes * 3 / 5
+        maxi = all_notes * 0.6
         
         if (int(maxi) != maxi) :
             maxi = int(maxi)
             maxi = maxi + 1
 
-        if (mini<len(queue_0) and len(queue_0)<maxi):
+        # print('max, min: ', maxi, mini)
 
-        elif (mini<len(queue_0)+len(queue_1)  and len(queue_0)+len(queue_1)<maxi):
+        ### #1
+        ### mini < len[three] , good !
 
-        elif (mini<len(queue_0)+len(queue_1)+len(queue_3)  and len(queue_0)+len(queue_1)+len(queue_3)<maxi):
+        if (len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4) < mini):
+            case = 100
 
-        elif (mini<len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)  and len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)<maxi):
+        elif (mini <= len(queue_0)):
+            if (len(queue_0) <= maxi):
+                case = 1
+            elif (len(queue_0) > maxi):
+                case = 2
 
-        elif (mini<len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4)  and len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4)<maxi):
+        ### #2  
+        ### mini < len[three + 1] , keep three and 1
+        elif (mini <= len(queue_0)+len(queue_1)):
+            ### good !
+            if (len(queue_0)+len(queue_1) <= maxi):
+                case = 3
+
+            ### mini < len[three + 1 + 3]   but   maxi < len[three + 1 + 3]
+            elif (len(queue_0)+len(queue_1) > maxi):
+                case = 4
+
+        ### #3
+        ### mini < len[three + 1 + 3] , keep three and 1 ,3
+        elif (mini <= len(queue_0)+len(queue_1)+len(queue_3)):
+            ### good !
+            if (len(queue_0)+len(queue_1)+len(queue_3) <= maxi):
+                case = 5
+
+            ### mini < len[three + 1 + 3]   but   maxi < len[three + 1 + 3]
+            elif (len(queue_0)+len(queue_1)+len(queue_3) > maxi):
+                case = 6
+
+        ### #4
+        ### min < [three + 1 + 3 + 2] , keep three and 1,3,2
+        elif (mini <= len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)):
+            ### good !
+            if (len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2) <= maxi):
+                case = 7
+
+            ### mini < len[three + 1 + 3 + 2]   but   maxi < len[three + 1 + 3 + 2]
+            elif (mini<len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)) > maxi:
+                case = 8
+
+        ### #5
+        ### min < [three + 1 + 3 + 2 + 4] , keep three and 1,3,2,4
+        elif (mini <= len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4)):
+            ### good !
+            if (len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4) <= maxi):
+                case = 9
+
+            ### mini < len[three + 1 + 3 + 2 + 4]   but   maxi < len[three + 1 + 3 + 2 + 4]    
+            elif (len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4) > maxi):
+                case = 10
+
+
         
-        ### if all on the off-beat !!! 
-        elif 
+        ###########################################
+        # print('case: ', case)
+        # if(case == 1):
+
+        # elif(case == 2):
+
+        # elif(case == 3):
+
+        # elif(case == 4):
+
+        # elif(case == 5):
+
+        # elif(case == 6):
+
+        # elif(case == 7):
+
+        # elif(case == 8):
+
+        # elif(case == 9):
+
+        # elif(case == 10):
+
+
+
 
 
         # for i in queue:
