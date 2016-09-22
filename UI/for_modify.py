@@ -680,7 +680,11 @@ def simple_daul(filename, accent, level):
             for i in queue_delete:
                 measure.remove(i)
             queue_delete = []
-            # print(len(queue_delete))
+
+
+            # for j in queue_2:
+            #     measure.remove(j)
+            # queue_2 = []
 
 
         ### count all the on the on-beats dual!!!
@@ -770,53 +774,24 @@ def simple_daul(filename, accent, level):
         
         ###########################################
         # print('case: ', case)
-        
+
         if(case == 1):
-        
-            print('1')
+            print('case 1')
+
+
         # elif(case == 2):
 
-
         elif(case == 3):
-            # print(len(queue_delete))
-            # queue_delete = queue_delete + queue_2
-            # print('queue_delete: ', queue_delete)
+            print('case 3')
+            # for measureA in root.iter('measure'):
+            #     for j in queue_2:
+            #         measureA.remove(j)
+            #     queue_2 = []
 
-            # l2 = list(set(queue_delete)) 
-
-            # print('here: ',len(l2))
-
-            for measure in root.iter('measure'):
-                # for note in measure.iter('note'):
-                #     # print('here note: ',note)
-                #     print('a')
-                # print('-----')
-
-                for ii in queue_2:
-
-                    print('in')
-                    measure.remove(ii)
-
-                    print('out')
-                    print('-----')
-
-                queue_2 = []
-
-                # queue_2 = []
-                # for k in :
-                #     measure.remove(k)
-                #     print(queue_2)
-
-
-
-                
+               
         # elif(case == 4):
 
         # elif(case == 5):
-        
-
-        
-    
 
         # elif(case == 6):
 
