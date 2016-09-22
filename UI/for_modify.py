@@ -676,11 +676,11 @@ def simple_daul(filename, accent, level):
 
 
             ### delete all the dual notes not on the on-beat !!!
+            ### this is true, but now is test!
             for i in queue_delete:
                 measure.remove(i)
             queue_delete = []
             # print(len(queue_delete))
-
 
 
         ### count all the on the on-beats dual!!!
@@ -770,15 +770,53 @@ def simple_daul(filename, accent, level):
         
         ###########################################
         # print('case: ', case)
-        # if(case == 1):
-
+        
+        if(case == 1):
+        
+            print('1')
         # elif(case == 2):
 
-        # elif(case == 3):
 
+        elif(case == 3):
+            # print(len(queue_delete))
+            # queue_delete = queue_delete + queue_2
+            # print('queue_delete: ', queue_delete)
+
+            # l2 = list(set(queue_delete)) 
+
+            # print('here: ',len(l2))
+
+            for measure in root.iter('measure'):
+                # for note in measure.iter('note'):
+                #     # print('here note: ',note)
+                #     print('a')
+                # print('-----')
+
+                for ii in queue_2:
+
+                    print('in')
+                    measure.remove(ii)
+
+                    print('out')
+                    print('-----')
+
+                queue_2 = []
+
+                # queue_2 = []
+                # for k in :
+                #     measure.remove(k)
+                #     print(queue_2)
+
+
+
+                
         # elif(case == 4):
 
         # elif(case == 5):
+        
+
+        
+    
 
         # elif(case == 6):
 
