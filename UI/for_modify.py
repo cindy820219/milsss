@@ -26,6 +26,26 @@ MIDI_str = []
 key_x_str = []
 key_y_str = []
 
+
+def call_func(root, queue_delete):
+    print('++++++++++++')
+    print('IN FUNC')
+        
+    # queue_delete = list(set(queue_delete))
+    # for i in queue_delete:
+    #     print(i)
+
+    for measure in root.iter('measure'):
+        for i in queue_delete:
+            if(i in queue_delete):
+                # print('true')
+                measure.remove(i)
+    
+        queue_delete = []
+
+
+
+
 ### def function read_xml
 def read_xml(in_path):
     tree = ElementTree()
@@ -106,13 +126,21 @@ def change_Tona_change_notes(filename,add_key):
 
                 if(new_step == 0):
                     new_step = 'C'
+
+                    
                 if(new_step == 1):
                     new_step = 'C'
+                    xml.etree.ElementTree.SubElement(note, 'accidental')
+                    note.find('accidental').text = 'sharp'
+
 
                 if(new_step == 2):
                     new_step = 'D'
                 if(new_step == 3):
                     new_step = 'D'
+                    xml.etree.ElementTree.SubElement(note, 'accidental')
+                    note.find('accidental').text = 'sharp'
+
 
                 if(new_step == 4):
                     new_step = 'E'
@@ -121,16 +149,22 @@ def change_Tona_change_notes(filename,add_key):
                     new_step = 'F'
                 if(new_step == 6):
                     new_step = 'F'
+                    xml.etree.ElementTree.SubElement(note, 'accidental')
+                    note.find('accidental').text = 'sharp'
 
                 if(new_step == 7):
                     new_step = 'G'
                 if(new_step == 8):
                     new_step = 'G'
+                    xml.etree.ElementTree.SubElement(note, 'accidental')
+                    note.find('accidental').text = 'sharp'
                 
                 if(new_step == 9):
                     new_step = 'A'
                 if(new_step == 10):
                     new_step = 'A'
+                    xml.etree.ElementTree.SubElement(note, 'accidental')
+                    note.find('accidental').text = 'sharp'
                 
                 if(new_step == 11):
                     new_step = 'B'
@@ -150,7 +184,6 @@ def change_Tona_change_notes(filename,add_key):
 
 ### def function to change tonation
 def change_Tona(filename, Tona ,accent, daul):
-    
     ### if daul or accent is changed, then read file named 'change-temp.xml'
     if (accent == 1 or daul == 1): 
         filename = 'change-temp.xml'
@@ -164,10 +197,10 @@ def change_Tona(filename, Tona ,accent, daul):
     Tona_str = ''
     
     # print('Tona: ',Tona)
-    
+    ###
     add_key = 0
 
-    ### define the pre tionation num and str
+    ### define the change tonation num and str
     if(Tona == 'C'):
         Tona_str = '0'
         Tona_num = 60
@@ -199,11 +232,11 @@ def change_Tona(filename, Tona ,accent, daul):
     # modify the attri of Tonality
     for fifths in tree.iter('fifths'):
         pre_key = fifths.text
-        
+
         # change the key
         fifths.text = ''
         fifths.text += Tona_str
-        # print("key change : ", fifths.text)
+        print('key change : ', fifths.text)
         
         write_xml(tree, 'change-temp.xml')
         # write_xml(tree, 'change-key.xml')
@@ -237,8 +270,8 @@ def change_Tona(filename, Tona ,accent, daul):
     ############################
     ############################
 
-    # if(pre_key == '-1'):
-    #     add_key = Tona_num - 65
+    if(pre_key == '-1'):
+        add_key = Tona_num - 65
 
     # if(pre_key == '-2'):
     #     add_key = Tona_num - 70
@@ -322,6 +355,7 @@ def simple_daul(filename, accent, level):
     ### if accent was changed, the read the file named 'change-temp.xml'
     if (accent == 1): 
         filename = 'change-temp.xml'
+    
     else:
         change_temp = open('change-temp.xml','w')
 
@@ -454,6 +488,49 @@ def simple_daul(filename, accent, level):
                 beats = beats.childNodes[0].data
 
 
+        ### ----------------------------------- ### 
+        # for measure in root.iter('measure'):
+        #     for note in measure.iter('note'):
+        #         ### must delete notes
+        #         chord = note.find('chord')
+                    
+        #         if (chord != None):
+        #             all_notes = all_notes + 2
+
+        #         ### now is chord and pre not chord
+        #         if((chord != None and pre_chord == 0)):
+        #             pre_chord = 1
+
+        #         ### now is note chord and pre is chord ###
+        #         elif (chord == None and pre_chord == 1):
+        #             pre_chord = 0
+
+        #         ### now is not chord pre_chord is not
+        #         elif (chord == None and pre_chord == 0):
+        #             pre_chord = 0
+
+        #         ### now is chord and pre is chord (three-daul-notes)
+        #         elif (chord != None and pre_chord == 1):
+        #             pre_chord = 1
+        #             all_notes = all_notes - 2
+    
+
+
+        # all_notes = all_notes/2
+        # print('this one !!! all_chord: ', all_notes)
+
+        # mini = all_notes * 2 // 5
+        # maxi = all_notes * 0.6
+        
+        # if (int(maxi) != maxi) :
+        #     maxi = int(maxi)
+        #     maxi = maxi + 1
+
+
+        # print('mini, maxi: ', mini, maxi)
+        ### ------------------------------------------- ###
+
+
         for measure in root.iter('measure'):
             ### print('----new measure----')
 
@@ -509,13 +586,15 @@ def simple_daul(filename, accent, level):
 
                         # print(' 1.0 == float(total_PI ')
                         if(daul_staff_data == '2'):
+                            queue_1.append(note)
+
+
                             # xml.etree.ElementTree.SubElement(note, 'keep', attrib={'keep':'2'})
                             
                             xml.etree.ElementTree.SubElement(note, 'keep')
                             note.find('keep').text = '2'
 
-                            queue_1.append(note)
-                            # queue_1.append(daul_staff_data)
+
                             # print('hahahaha: ', note.find('keep').get('keep'))
 
                             # queue_1.append(daul_staff_data)
@@ -524,13 +603,12 @@ def simple_daul(filename, accent, level):
 
 
                         elif (daul_staff_data == '1'):
+                            queue_1.append(daul_pre_note)
+
                             # xml.etree.ElementTree.SubElement(daul_pre_note, 'keep', attrib={'keep':'1'})
                             xml.etree.ElementTree.SubElement(daul_pre_note, 'keep')
                             daul_pre_note.find('keep').text = '1'
                             
-                            queue_1.append(daul_pre_note)
-                            # queue_1.append(daul_staff_data)
-                            # queue_1.append(daul_staff_data)
                             # print(daul_pre_note.get('keep'))
                             # keep_note_num = keep_note_num + 1
 
@@ -677,14 +755,40 @@ def simple_daul(filename, accent, level):
 
             ### delete all the dual notes not on the on-beat !!!
             ### this is true, but now is test!
-            for i in queue_delete:
-                measure.remove(i)
-            queue_delete = []
+            ### right !!! 
+            # for i in queue_delete:
+            #     measure.remove(i)
+            
+            # queue_delete = []
+            ### right !!! 
 
 
-            # for j in queue_2:
-            #     measure.remove(j)
-            # queue_2 = []
+            # for i in queue_delete:
+            #     print(i)
+            
+            # call_func(root, queue_delete)
+
+            # for kk in queue_2:
+            #     measure.remove(kk)
+            
+            # queue_2 = []        
+
+        print('----------')
+        
+        # queue_delete = list(set(queue_delete))
+        # call_func(root, queue_delete)    
+        
+        
+        
+
+        # for measure in root.iter('measure'):
+        #     # for note in root.iter('note'):
+        #     #     print('note')
+        #     for kk in queue_2:
+        #         measure.remove(kk)
+        #     queue_2 = []
+        #     print('OUT 000')
+
 
 
         ### count all the on the on-beats dual!!!
@@ -698,6 +802,7 @@ def simple_daul(filename, accent, level):
         # print('siZe delete: ',len(queue_delete))      
 
 
+        ### --------------------------------------------- ###
         ### count all the notes and not rest notes!!!
         all_notes = all_notes/2
         print('all_chord: ', all_notes)
@@ -783,9 +888,18 @@ def simple_daul(filename, accent, level):
 
         elif(case == 3):
             print('case 3')
+
+            # queue_2 = list(set(queue_2))
+
             # for measureA in root.iter('measure'):
-            #     for j in queue_2:
-            #         measureA.remove(j)
+            #     # for note in root.iter('note'):
+            #     #     print(note)
+
+            #     for kk in queue_2:
+            #         # print(kk)
+            #         measureA.remove(kk)
+
+            #     print('============')
             #     queue_2 = []
 
                
@@ -818,7 +932,7 @@ def simple_daul(filename, accent, level):
     ########################### high level ###########################
     ########################### high level ###########################
     ########################### high level ###########################
-
+    ### --------------------------------------------- ###
 
 
     ### save the change to 'change-temp.xml' file

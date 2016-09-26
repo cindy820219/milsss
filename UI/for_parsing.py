@@ -34,12 +34,13 @@ beats, key, sheet x, sheet y
 key 1 or -1 (sharp or flat)
 ''' 
 def create_sheet(beats, key, x, y):
-
+    # print('IN KEY: ',key)
     ### 4/4 
     if (beats == '4'):
         ### sharp
         if(key == 0):
-            photo = PhotoImage(file = '4u4 new.gif')
+            # print('right!!!')
+            photo = PhotoImage(file = '4u0 new.gif')
             label_sheet = Label(image = photo)
             label_sheet.place(x=x ,y=y)
             label_sheet.image = photo # keep a reference!

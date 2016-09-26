@@ -53,6 +53,8 @@ key_y_str = []
 ### global hands
 global hands
 
+# global Default_Tona
+
 ### def function __call__
 def __call__(self, *args, **kwargs):
     return self.decorator(self.func)(*args, **kwargs)
@@ -112,6 +114,7 @@ def openfile():
 
     if (a[0] == '-1'):
         Default_Tona = comboboxTona.set('F')
+
     if (a[0] == '-2'):
         Default_Tona = comboboxTona.set('B')
     if (a[0] == '-3'):
@@ -126,10 +129,11 @@ def openfile():
     ### default tempo
     scale.set(a[1])
 
+
 def openSample():
     w.delete('all')
     ### Unkown
-    # global Default_Tona
+    global Default_Tona
 
     ### open Sample - global file name
     global filename
@@ -157,6 +161,7 @@ def openSample():
     ### Default_Tona
     if (a[0] == '0'):
         Default_Tona = comboboxTona.set('C')
+
     if (a[0] == '1'):
         Default_Tona = comboboxTona.set('G')
     if (a[0] == '2'):
@@ -171,7 +176,9 @@ def openSample():
         Default_Tona = comboboxTona.set('F')
 
     if (a[0] == '-1'):
-        Default_Tona = comboboxTona.set('F')
+        comboboxTona.set('F')
+        Default_Tona = -1
+
     if (a[0] == '-2'):
         Default_Tona = comboboxTona.set('B')
     if (a[0] == '-3'):
@@ -185,11 +192,14 @@ def openSample():
 
     ### default tempo
     scale.set(a[1])
+    # print('Default_Tona: ',Default_Tona)
 
 ### def function OK button
 def buttonOKClicked():
     w.delete('all')
 
+    # print('Default_Tona: ',Default_Tona)
+    
     global filename
 
     ### default the Mode, Tonation and Tempo
