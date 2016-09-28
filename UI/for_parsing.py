@@ -416,9 +416,11 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
         if (note.getElementsByTagName('accidental')):
             accidental = note.getElementsByTagName('accidental')[0]
             # alter_data = accidental.childNodes[0].data
-            alter_data = '0'
+            alter_data = '1'
+            # print('accidental 000')
         else:
             alter_data = '50'
+            # print('accidental 500')
 
         ### about the type: type = note.getElementsByTagName('type')[0]
         if (note.getElementsByTagName('type')): 
@@ -442,6 +444,7 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
                 alter = pitch.getElementsByTagName('alter')[0]
                 alter_data = alter.childNodes[0].data
                 # print(alter.childNodes[0].data)
+                print('alter_data: ',alter_data)
 
         '''
         rest notes : 

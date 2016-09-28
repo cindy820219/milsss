@@ -97,7 +97,7 @@ def key_location(MIDI_fianl, key_x_str, key_y_str):
 
 ### Accidentals
 def Accidentals(w, alter_data, notes_measure_x, notes_staff_y ,MIDI):
-
+    # print('alter_data: ',alter_data)
     ### ###
     if(alter_data == 1):
         ### v

@@ -85,7 +85,7 @@ def change_Tona_change_notes(filename,add_key):
                 for octave in pitch.iter('octave'):
                     # print('octave: ',octave.text)
                     octave_text = octave.text
-                
+                    
                 if(pitch.iter('alter')):
                     for alter in pitch.iter('alter'):
                         alter = alter.text
@@ -93,8 +93,11 @@ def change_Tona_change_notes(filename,add_key):
 
                 # print(step_text,octave_text)
 
+                ### define and count the octave_num
                 octave_num = (int(octave_text)+1) * 12
+                # print(' !! octave_num: ',octave_num)
                 
+                ### oringe step
                 if(step_text == 'C'):
                     step_num = 0
 
@@ -116,58 +119,116 @@ def change_Tona_change_notes(filename,add_key):
                 if(step_text == 'B'):
                     step_num = 11
 
+                ### count the midi 
                 midi = step_num + octave_num + alter_nun
                 # print('Midi: ', midi )
+
+                ### count the new midi
                 new_midi = midi + add_key
                 # print('New Midi: ', new_midi)
 
                 new_octave = (new_midi // 12) -1
                 new_step = new_midi % 12
 
+                ### C
                 if(new_step == 0):
                     new_step = 'C'
-
-                    
+                    ### delete all sharp
+                    if(note.find('accidental') != None):
+                        acci =  note.find('accidental')
+                        note.remove(acci)
+                    if(pitch.find('alter') != None):
+                        alt = pitch.find('alter')
+                        pitch.remove(alt)
+                
                 if(new_step == 1):
                     new_step = 'C'
+                    ### add sharp
                     xml.etree.ElementTree.SubElement(note, 'accidental')
                     note.find('accidental').text = 'sharp'
 
-
+                ### D
                 if(new_step == 2):
                     new_step = 'D'
+                    if(note.find('accidental') != None):
+                        acci =  note.find('accidental')
+                        note.remove(acci)
+                    if(pitch.find('alter') != None):
+                        alt = pitch.find('alter')
+                        pitch.remove(alt)
+                
                 if(new_step == 3):
                     new_step = 'D'
                     xml.etree.ElementTree.SubElement(note, 'accidental')
                     note.find('accidental').text = 'sharp'
 
-
+                ### E
                 if(new_step == 4):
                     new_step = 'E'
+                    if(note.find('accidental') != None):
+                        acci =  note.find('accidental')
+                        note.remove(acci)
+                    if(pitch.find('alter') != None):
+                        alt = pitch.find('alter')
+                        pitch.remove(alt)
 
+                ### F
                 if(new_step == 5):
                     new_step = 'F'
+                    if(note.find('accidental') != None):
+                        acci =  note.find('accidental')
+                        note.remove(acci)
+                    if(pitch.find('alter') != None):
+                        alt = pitch.find('alter')
+                        pitch.remove(alt)
+                
                 if(new_step == 6):
                     new_step = 'F'
                     xml.etree.ElementTree.SubElement(note, 'accidental')
                     note.find('accidental').text = 'sharp'
 
+                ### G
                 if(new_step == 7):
                     new_step = 'G'
+                    if(note.find('accidental') != None):
+                        acci =  note.find('accidental')
+                        note.remove(acci)
+                    if(pitch.find('alter') != None):
+                        alt = pitch.find('alter')
+                        pitch.remove(alt)
+                
                 if(new_step == 8):
                     new_step = 'G'
                     xml.etree.ElementTree.SubElement(note, 'accidental')
                     note.find('accidental').text = 'sharp'
-                
+            
+                ### A
                 if(new_step == 9):
                     new_step = 'A'
+                    if(note.find('accidental') != None):
+                        acci =  note.find('accidental')
+                        note.remove(acci)
+                    if(pitch.find('alter') != None):
+                        alt = pitch.find('alter')
+                        pitch.remove(alt)
+                
                 if(new_step == 10):
                     new_step = 'A'
                     xml.etree.ElementTree.SubElement(note, 'accidental')
                     note.find('accidental').text = 'sharp'
-                
+
+                ### B
                 if(new_step == 11):
+                    # if(note.find('accidental') != None):
+                        # print('gooooood')
+
                     new_step = 'B'
+                    if(note.find('accidental') != None):
+                        acci =  note.find('accidental')
+                        note.remove(acci)
+                    if(pitch.find('alter') != None):
+                        alt = pitch.find('alter')
+                        pitch.remove(alt)
     
                 step.text = ''
                 step.text += new_step
@@ -299,6 +360,7 @@ def change_Tona(filename, Tona ,accent, daul):
     # print('add_key: ',add_key)
     
     ### call the function to change the notes
+    # add_key = 5
     change_Tona_change_notes(filename, add_key)
 
 ### def function change the tempo
