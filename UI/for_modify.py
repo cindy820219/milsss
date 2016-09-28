@@ -827,10 +827,10 @@ def simple_daul(filename, accent, level):
             ### delete all the dual notes not on the on-beat !!!
             ### this is true, but now is test!
             ### right !!! 
-            # for i in queue_delete:
-            #     measure.remove(i)
+            for i in queue_delete:
+                measure.remove(i)
             
-            # queue_delete = []
+            queue_delete = []
             ### right !!! 
 
 
@@ -839,10 +839,10 @@ def simple_daul(filename, accent, level):
             
             # call_func(root, queue_delete)
 
-            # for kk in queue_2:
-            #     measure.remove(kk)
+            for kk in queue_2:
+                measure.remove(kk)
             
-            # queue_2 = []        
+            queue_2 = []        
 
         print('----------')
         

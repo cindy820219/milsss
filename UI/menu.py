@@ -379,13 +379,13 @@ def main():
 
     # Checkbutton - Daul (var1), Rhythm (var2), Accent (var3)
     var1 = IntVar()
-    Checkbutton(root, text="Daul", variable=var1).place(x=70,y=30)
+    Checkbutton(root, text="Dual", variable=var1).place(x=30,y=30)
     
     var2 = IntVar()
     # Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
     
     var3 = IntVar()
-    Checkbutton(root, text="Rhythm", variable=var3).place(x=70,y=50)
+    Checkbutton(root, text="Rhythm", variable=var3).place(x=30,y=50)
 
     ### radio for right or left hand
     radio_hand = IntVar()
@@ -396,8 +396,8 @@ def main():
     ### radio for level
     radio_level = IntVar()
     # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
-    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=30, y=200)
-    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=30, y=220)
+    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=110, y=30)
+    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=110, y=50)
 
 
     ### comboboxMode Mode
