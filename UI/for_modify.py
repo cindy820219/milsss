@@ -248,6 +248,7 @@ def change_Tona(filename, Tona ,accent, daul):
     ### if daul or accent is changed, then read file named 'change-temp.xml'
     if (accent == 1 or daul == 1): 
         filename = 'change-temp.xml'
+    # print('  is me ! tona: ', Tona)
 
     ### parsing the file
     DOMTree = xml.dom.minidom.parse(filename)
@@ -256,9 +257,11 @@ def change_Tona(filename, Tona ,accent, daul):
     
     ### change tonation str
     Tona_str = ''
-    
+    pre_fifths = ''
+
     # print('Tona: ',Tona)
-    ###
+    
+    ### default add_key
     add_key = 0
 
     ### define the change tonation num and str
@@ -293,11 +296,17 @@ def change_Tona(filename, Tona ,accent, daul):
     # modify the attri of Tonality
     for fifths in tree.iter('fifths'):
         pre_key = fifths.text
+        print('  is me !! pre_key: ', pre_key)
+        
+        if(pre_key == '-1' or pre_key == '6'):
+            pre_fifths = '6'
 
-        # change the key
-        fifths.text = ''
-        fifths.text += Tona_str
-        print('key change : ', fifths.text)
+        ### to bool if must to change tonality
+        if (pre_fifths != Tona_str):
+            # change the key
+            fifths.text = ''
+            fifths.text += Tona_str
+            print('key change : ', fifths.text)
         
         write_xml(tree, 'change-temp.xml')
         # write_xml(tree, 'change-key.xml')

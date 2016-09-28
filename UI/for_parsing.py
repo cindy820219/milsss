@@ -674,7 +674,7 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
         ### no daul
         if(is_daul == 0):
             total_PI = total_PI
-#########
+        #########
             if(total_PI ==0):
                 total_PI = 1
             
@@ -682,7 +682,7 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
         ### is daul and then is_daul_2 = 1
         if (is_daul == 1):
             total_PI = total_PI - float(rhythm)
-#########
+        #########
             if(total_PI ==0):
                 total_PI = 1
 
@@ -711,7 +711,8 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
 
         ### call the function create_notes from the outside for_sheet
         # print('measure: ', measure)
-        for_sheet.create_notes(w, int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str)
+
+        for_sheet.create_notes(w, int(measure), float(total_PI), int(staff_data), type_data, step_data, float(rhythm), int(octave_data), int(alter_data), beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str, daul)
         
         # print('total_PI: ',total_PI)
 

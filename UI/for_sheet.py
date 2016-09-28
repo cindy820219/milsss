@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk, Tk, StringVar
@@ -131,12 +130,16 @@ def Accidentals(w, alter_data, notes_measure_x, notes_staff_y ,MIDI):
 
     return (MIDI)
 
-def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str):
-    
+def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octave_data, alter_data, beats_111, note_x, stem, MIDI_str, key_x_str, key_y_str, daul):
+
+    if (daul != ''):
+        print('000000000000 dual : ',daul)
+        
     ### Measure 1-4 : measure line
     measure_line_x0 = 20
     measure_line_y0 = 40
     measure_line_y1 = 77
+
     for i in range(1,5):
         w.create_line(measure_line_x0 + i*240, measure_line_y0, measure_line_x0 + i*240, measure_line_y1)
         w.create_line(measure_line_x0 + i*240, measure_line_y0+96, measure_line_x0 + i*240, measure_line_y1+96)
@@ -187,33 +190,34 @@ def create_notes(w, measure, PI, staff_data, type_data, step_data, rhythm, octav
 
     ### measure 5-9 right
     ### right
-    ### line 5
+    
     # x += 28
-    w.create_line(5, 166+35, 980, 166+35)
-    ### line 4
-    w.create_line(5, 175+35, 980, 175+35)
-    ### line 3
-    w.create_line(5, 184.5+35, 980, 184.5+35)
-    ### line 2
-    w.create_line(5, 193+35, 980, 193+35)
-    ### line 1
-    w.create_line(5, 202+35, 980, 202+35)
-    ### measure 5-9 left
-    ### line 5
-    w.create_line(5, 261.5+35, 980, 261.5+35)
-    ### line 4
-    w.create_line(5, 271+35, 980, 271+35)
-    ### line 3
-    w.create_line(5, 280+35, 980, 280+35)
-    ### line 2
-    w.create_line(5, 289+35, 980, 289+35)
-    ### line 1
-    w.create_line(5, 298+35, 980, 298+35)
+    if (5 <= measure and measure <= 9):
+        ### line 5
+        w.create_line(5, 166+35, 980, 166+35)
+        ### line 4
+        w.create_line(5, 175+35, 980, 175+35)
+        ### line 3
+        w.create_line(5, 184.5+35, 980, 184.5+35)
+        ### line 2
+        w.create_line(5, 193+35, 980, 193+35)
+        ### line 1
+        w.create_line(5, 202+35, 980, 202+35)
+        ### measure 5-9 left
+        ### line 5
+        w.create_line(5, 261.5+35, 980, 261.5+35)
+        ### line 4
+        w.create_line(5, 271+35, 980, 271+35)
+        ### line 3
+        w.create_line(5, 280+35, 980, 280+35)
+        ### line 2
+        w.create_line(5, 289+35, 980, 289+35)
+        ### line 1
+        w.create_line(5, 298+35, 980, 298+35)
 
     ### draw the notes
     notes_staff_y = 0
     MIDI = 0
-
 
 
     ### 3/4 PI and 4/4 PI

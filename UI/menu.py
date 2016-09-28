@@ -53,6 +53,7 @@ key_y_str = []
 ### global hands
 global hands
 
+
 # global Default_Tona
 
 ### def function __call__
@@ -78,7 +79,6 @@ def openfile():
     global Default_Tona
 
     global hands
-
     hands = 0
 
     '''
@@ -155,7 +155,7 @@ def openSample():
     '''
     DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
     collection = DOMTree.documentElement
-    
+
     a = for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
     
     ### Default_Tona
