@@ -35,6 +35,12 @@ import for_modify
 
 import buttom_Play
 
+from PIL import *
+from PIL import Image, ImageTk
+# import PIL.Image
+# import PIL.ImageTk
+
+
 
 ### all the notes's x location. is str
 global note_x
@@ -131,68 +137,79 @@ def openfile():
 
 
 def openSample():
-    w.delete('all')
-    ### Unkown
-    global Default_Tona
-
-    ### open Sample - global file name
-    global filename
-    filename = 'two-hand-2.xml'
-
-    global hands
-
-    hands = 0
-    '''
-    parsing the file named 'two-hand-2.xml' 
     
-    note_x is all the notes' location
+    # root = Tk()
+    image = PhotoImage(file = 'file.gif')
+    label_image = Label(image = image)
+    label_image.place(x=180,y=-160)
+    label_image.image = image # keep a reference!
+
+    # root.mainloop()
+
+
+
+    # w.delete('all')
+    # ### Unkown
+    # global Default_Tona
+
+    # ### open Sample - global file name
+    # global filename
+    # filename = 'two-hand-2.xml'
+
+    # global hands
+
+    # hands = 0
+    # '''
+    # parsing the file named 'two-hand-2.xml' 
     
-    a = (fifths, per_minute)
-    a[0] = fifths
-    a[1] = per_minute
-
-    MIDI_str & notes x,y location  
-    '''
-    DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
-    collection = DOMTree.documentElement
-
-    a = for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
+    # note_x is all the notes' location
     
-    ### Default_Tona
-    if (a[0] == '0'):
-        Default_Tona = comboboxTona.set('C')
+    # a = (fifths, per_minute)
+    # a[0] = fifths
+    # a[1] = per_minute
 
-    if (a[0] == '1'):
-        Default_Tona = comboboxTona.set('G')
-    if (a[0] == '2'):
-        Default_Tona = comboboxTona.set('D')
-    if (a[0] == '3'):
-        Default_Tona = comboboxTona.set('A')
-    if (a[0] == '4'):
-        Default_Tona = comboboxTona.set('E')
-    if (a[0] == '5'):
-        Default_Tona = comboboxTona.set('B')
-    if (a[0] == '6'):
-        Default_Tona = comboboxTona.set('F')
+    # MIDI_str & notes x,y location  
+    # '''
+    # DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
+    # collection = DOMTree.documentElement
 
-    if (a[0] == '-1'):
-        comboboxTona.set('F')
-        Default_Tona = -1
+    # a = for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
+    
+    # ### Default_Tona
+    # if (a[0] == '0'):
+    #     Default_Tona = comboboxTona.set('C')
 
-    if (a[0] == '-2'):
-        Default_Tona = comboboxTona.set('B')
-    if (a[0] == '-3'):
-        Default_Tona = comboboxTona.set('E')
-    if (a[0] == '-4'):
-        Default_Tona = comboboxTona.set('A')
-    if (a[0] == '-5'):
-        Default_Tona = comboboxTona.set('D')
-    if (a[0] == '-6'):
-        Default_Tona = comboboxTona.set('G')
+    # if (a[0] == '1'):
+    #     Default_Tona = comboboxTona.set('G')
+    # if (a[0] == '2'):
+    #     Default_Tona = comboboxTona.set('D')
+    # if (a[0] == '3'):
+    #     Default_Tona = comboboxTona.set('A')
+    # if (a[0] == '4'):
+    #     Default_Tona = comboboxTona.set('E')
+    # if (a[0] == '5'):
+    #     Default_Tona = comboboxTona.set('B')
+    # if (a[0] == '6'):
+    #     Default_Tona = comboboxTona.set('F')
 
-    ### default tempo
-    scale.set(a[1])
-    # print('Default_Tona: ',Default_Tona)
+    # if (a[0] == '-1'):
+    #     comboboxTona.set('F')
+    #     Default_Tona = -1
+
+    # if (a[0] == '-2'):
+    #     Default_Tona = comboboxTona.set('B')
+    # if (a[0] == '-3'):
+    #     Default_Tona = comboboxTona.set('E')
+    # if (a[0] == '-4'):
+    #     Default_Tona = comboboxTona.set('A')
+    # if (a[0] == '-5'):
+    #     Default_Tona = comboboxTona.set('D')
+    # if (a[0] == '-6'):
+    #     Default_Tona = comboboxTona.set('G')
+
+    # ### default tempo
+    # scale.set(a[1])
+    # # print('Default_Tona: ',Default_Tona)
 
 ### def function OK button
 def buttonOKClicked():
@@ -429,6 +446,18 @@ def main():
     label_keyboard = Label(image = keyboard)
     label_keyboard.place(x=130,y=620)
     label_keyboard.image = keyboard # keep a reference!
+
+
+    # im = Image.open("file.png")
+    # im.show()
+
+    pilImage = Image.open("file.png")
+    image = ImageTk.PhotoImage(pilImage)
+    imagesprite = w.create_image(1000,1000,image= image)
+
+
+
+
 
     ### button OK, Play
     buttonOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttonOKClicked)

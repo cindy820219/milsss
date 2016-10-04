@@ -18,7 +18,10 @@ import for_modify
 import sys, pygame, pygame.midi, time
 from pygame.locals import *
 
+### maybe it will be use! 
+import subprocess
 from threading import Thread
+
 
 global note_x
 note_x = []
@@ -118,32 +121,32 @@ max_measure = 0
 
 
 ### class!!! 
-# class worker(Thread):
-#     def run(self):
-#         pygame.init()
+class worker(Thread):
+    def run(self):
+        pygame.init()
 
-#         pygame.midi.init()
-#         inp = pygame.midi.Input(1)
+        pygame.midi.init()
+        inp = pygame.midi.Input(1)
              
-#         # run the event loop
-#         while True:
-#             if (inp.poll()):
-#                 note = inp.read(10)
-#                 print (note)
+        # run the event loop
+        while True:
+            if (inp.poll()):
+                note = inp.read(10)
+                print (note)
 
-# class waiter(Thread):
-#     def run(self):
-#         for x in range(100,103):
-#             print (x)
-#             time.sleep(5)
+class waiter(Thread):
+    def run(self):
+        for x in range(100,103):
+            print (x)
+            time.sleep(5)
 
 def readMIDI():
 
     start = time.time()
-    print("hello")
+    # print("hello")
     end = time.time()
     print(end - start)
-    print("hello")
+    # print("hello")
 
     pygame.init()
 
@@ -153,13 +156,41 @@ def readMIDI():
     ### clear all the notes
     empty = PhotoImage(file = 'empty.gif')
     label_notes = Label(image = empty)
-    label_notes.place(x=402, y=705)
+    label_notes.place(x= 536+134, y=705)
     label_notes.image = empty # keep a ref
 
+
+    empty = PhotoImage(file = 'empty.gif')
     label_notes = Label(image = empty)
-    label_notes.place(x=422, y=705)
+    label_notes.place(x=556+134, y=705)
     label_notes.image = empty # keep a ref
-    ### clear all the notes
+    
+    empty = PhotoImage(file = 'empty.gif')
+    label_notes = Label(image = empty)
+    label_notes.place(x=575+134, y=705)
+    label_notes.image = empty # keep a re
+
+    empty = PhotoImage(file = 'empty.gif')
+    label_notes = Label(image = empty)
+    label_notes.place(x=593+134, y=705)
+    label_notes.image = empty # keep a re
+
+    empty = PhotoImage(file = 'empty.gif')
+    label_notes = Label(image = empty)
+    label_notes.place(x=612+134, y=705)
+    label_notes.image = empty # keep a re
+
+    empty = PhotoImage(file = 'empty.gif')
+    label_notes = Label(image = empty)
+    label_notes.place(x=631+134, y=705)
+    label_notes.image = empty # keep a re
+
+    empty = PhotoImage(file = 'empty.gif')
+    label_notes = Label(image = empty)
+    label_notes.place(x=651+134, y=705)
+    label_notes.image = empty # keep a re
+
+
 
 
     ### input the key board
@@ -175,30 +206,75 @@ def readMIDI():
             ###### 做雙音彈奏判斷部分
                 # .............
             ######
+            right = PhotoImage(file = 'right.gif')
+            label_notes = Label(image = right)
+
+            # left = PhotoImage(file = 'left.gif')
+            # label_notes = Label(image = left)
+
 
             if (MIDI_key == 60):
-                print('60 and create')
+                print('60 C')
                 # note_queue.append(60)
-                left = PhotoImage(file = 'left.gif')
-                label_notes = Label(image = left)
-                label_notes.place(x=402, y=705)
-                label_notes.image = left # keep a reference!
-
+                # x=536
+                # y=705
+                label_notes.place(x= 536+134, y=705)
+                label_notes.image = right # keep a reference!
+                
                 break
 
-            if (MIDI_key == 62):
-                print('62 and create')
-                left = PhotoImage(file = 'left.gif')
-                label_notes = Label(image = left)
-                label_notes.place(x=422, y=705)
-                label_notes.image = left # keep a reference!
+            elif (MIDI_key == 62):
+                print('62 D')
+                label_notes.place(x=556+134, y=705)
+                label_notes.image = right # keep a reference!
+                break
+
+            elif (MIDI_key == 64):
+                print('64 E')
+                label_notes.place(x=575+134, y=705)
+                label_notes.image = right # keep a reference!
                 # note_queue.append(62)
                 break
 
+            elif (MIDI_key == 65):
+                print('65 F')
+                label_notes.place(x=593+134, y=705)
+                label_notes.image = right # keep a reference!
+                # note_queue.append(62)
+                break
+
+            elif (MIDI_key == 67):
+                print('67 G')
+                label_notes.place(x=612+134, y=705)
+                label_notes.image = right # keep a reference!
+                # note_queue.append(62)
+                break
+
+            elif (MIDI_key == 69):
+                print('69 A')
+                label_notes.place(x=631+134, y=705)
+                label_notes.image = right # keep a reference!
+                # note_queue.append(62)
+                break
+
+            elif (MIDI_key == 71):
+                print('71 B')
+                label_notes.place(x=651+134, y=705)
+                label_notes.image = right # keep a reference!
+                # note_queue.append(62)
+                break
+
+
     # print(note_queue)
+            # time.sleep(3)
 
+            # left = PhotoImage(file = 'empty.gif')
+            # label_notes = Label(image = left)
+            # label_notes.place(x, y)
+            # label_notes.image = left # keep a reference!
+            # note_queue.append(62)
 
-    
+            
 # if(note_queue[1] == 62):
     
 
@@ -262,7 +338,7 @@ def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands
         # waiter().start()
 
         ### Wang's class
-        # ThreadForTagMove.start()
+        ThreadForTagMove.start()
 
         ### defined in class
         # class ThreadForTagMove(Thread):
@@ -378,7 +454,7 @@ def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands
         ## print(sort_note_x.pop(0))
 
         ### default canvas: create the canvas, size in pixels
-        canvas = Canvas(width = 920, height = 30, bg = 'yellow')
+        canvas = Canvas(width = 920, height = 30) #, bg = 'yellow')
         canvas.place(x= 270 ,y=-10)
 
 
@@ -402,15 +478,15 @@ def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands
         ## print(sort_note_x.pop(0))
 
         ### default canvas: create the canvas, size in pixels
-        canvas = Canvas(width = 920, height = 30) # bg = 'yellow')
-        canvas.place(x= 270 ,y= 160)
+        # canvas = Canvas(width = 920, height = 30) # bg = 'yellow')
+        # canvas.place(x= 270 ,y= 160)
 
-        for i in range (len_note_x_1):
-            x = sort_note_x_1.pop(0) - 260 
-            canvas.create_image(x, 20, image = arrow, tag = "pic")
-            canvas.update()
-            time.sleep(0.2)
-            canvas.delete('pic')
+        # for i in range (len_note_x_1):
+        #     x = sort_note_x_1.pop(0) - 260 
+        #     canvas.create_image(x, 20, image = arrow, tag = "pic")
+        #     canvas.update()
+        #     time.sleep(0.2)
+        #     canvas.delete('pic')
 
         ### -------------------------------------------------------
 

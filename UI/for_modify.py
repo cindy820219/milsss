@@ -476,6 +476,10 @@ def simple_daul(filename, accent, level):
             ### right hand delete 'chord'
             if(chord != None and daul_staff_data == '1' and level == '1'):
                 queue.append(daul_pre_note)
+                ### 
+                if(note.find('chord') != None):
+                    chord =  note.find('chord')
+                    note.remove(chord)
             
             daul_pre_note = note
             ### print('queue: ',queue)
@@ -827,22 +831,35 @@ def simple_daul(filename, accent, level):
             ### delete all the dual notes not on the on-beat !!!
             ### this is true, but now is test!
             ### right !!! 
+
+        
+        # for measure in root.iter('measure'):
             for i in queue_delete:
                 measure.remove(i)
-            
             queue_delete = []
+            
+
+            # for j in queue_delete:
+            #     if(j.find('chord') != None):
+            #         chord =  note.find('chord')
+            #         j.remove(chord)
+
+            # queue_delete = []
             ### right !!! 
-
-
-            # for i in queue_delete:
-            #     print(i)
             
             # call_func(root, queue_delete)
 
             for kk in queue_2:
                 measure.remove(kk)
+
+            queue_2 = []   
+
+
+            # if(note.find('chord') != None):
+            #     chord =  note.find('chord')
+            #     note.remove(chord)
             
-            queue_2 = []        
+                 
 
         print('----------')
         
