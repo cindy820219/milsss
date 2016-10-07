@@ -343,7 +343,7 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
             ### create_sheet
             x = 200
             y = 20
-            create_sheet(beats, int(fifths), x, y)
+            # create_sheet(beats, int(fifths), x, y)
             # w.create_line(0, 0, 400, 400)
 
     ### about the write tempo
@@ -694,7 +694,7 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
             x = 200
             y = 180
             measure_tag = 1
-            create_sheet(beats, int(fifths), x, y)
+            # create_sheet(beats, int(fifths), x, y)
 
         if(measure == 9):
             measure_tag == 0
@@ -704,7 +704,7 @@ def parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands):
             x = 200
             y = 360
             measure_tag = 1
-            create_sheet(beats, int(fifths), x, y)
+            # create_sheet(beats, int(fifths), x, y)
         
         if (total_PI >= (int(beats)+1)):
             total_PI = float(total_PI) - float(rhythm)

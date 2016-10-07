@@ -40,7 +40,11 @@ from PIL import Image, ImageTk
 # import PIL.Image
 # import PIL.ImageTk
 
+### call the external command
+from subprocess import call
+import os
 
+from tkinter import messagebox
 
 ### all the notes's x location. is str
 global note_x
@@ -72,7 +76,7 @@ def hello():
 
 ### def function open the file
 def openfile():
-    
+      
     w.delete('all')
     ### file name is global
     global filename
@@ -86,6 +90,35 @@ def openfile():
 
     global hands
     hands = 0
+
+    ### external command line
+    ### open XML with the MuseScore and save the file named : test-file.png
+    # cmd1 = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/two-hand-2.xml -o /Users/BlueT/Desktop/milsss/UI/test-file.png'
+    # print( 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/two-hand-2.xml -o /Users/BlueT/Desktop/milsss/UI/test-file.png')
+    cmd = 'sudo '
+    cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
+    cmd2 = filename
+    cmd3 = ' -o /Users/BlueT/Desktop/milsss/UI/test-file.png'
+    # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
+    os.system(cmd + cmd1  + cmd2 + cmd3)
+
+    ### small 50% : test-file-1.png to small.png
+    cmd = 'convert test-file-1.png -resize 50% small.png'
+    os.system(cmd)
+
+    ### turn the small.png to test-file-1.gif
+    cmd = 'convert -delay 35 -loop 0 small.png test-file-1.gif'
+    os.system(cmd)  
+
+    # root = Tk()
+    # image = PhotoImage(file = 'test.gif-file.gif')
+    image = PhotoImage(file = 'test-file-1.gif')
+    label_image = Label(image = image)
+    label_image.place(x=180,y=-160)
+    label_image.image = image # keep a reference!
+
+    # root.mainloop()
+
 
     '''
     parsing the xml file and default tonalite and tempo
@@ -137,82 +170,94 @@ def openfile():
 
 
 def openSample():
-    
+    ### open XML with the MuseScore and save the file named : test-file.png
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/two-hand-2.xml -o /Users/BlueT/Desktop/milsss/UI/test-file.png'
+    os.system(cmd)
+
+    ### small 50% : test-file-1.png to small.png
+    cmd = 'convert test-file-1.png -resize 50% small.png'
+    os.system(cmd)
+
+    ### turn the small.png to test-file-1.gif
+    cmd = 'convert -delay 35 -loop 0 small.png test-file-1.gif'
+    os.system(cmd)    
+
+
     # root = Tk()
-    image = PhotoImage(file = 'file.gif')
+    # image = PhotoImage(file = 'test.gif-file.gif')
+    image = PhotoImage(file = 'test-file-1.gif')
     label_image = Label(image = image)
     label_image.place(x=180,y=-160)
     label_image.image = image # keep a reference!
 
     # root.mainloop()
 
+    w.delete('all')
+    ### Unkown
+    global Default_Tona
 
+    ### open Sample - global file name
+    global filename
+    filename = 'two-hand-2.xml'
 
-    # w.delete('all')
-    # ### Unkown
-    # global Default_Tona
+    global hands
 
-    # ### open Sample - global file name
-    # global filename
-    # filename = 'two-hand-2.xml'
-
-    # global hands
-
-    # hands = 0
-    # '''
-    # parsing the file named 'two-hand-2.xml' 
+    hands = 0
+    '''
+    parsing the file named 'two-hand-2.xml' 
     
-    # note_x is all the notes' location
+    note_x is all the notes' location
     
-    # a = (fifths, per_minute)
-    # a[0] = fifths
-    # a[1] = per_minute
+    a = (fifths, per_minute)
+    a[0] = fifths
+    a[1] = per_minute
 
-    # MIDI_str & notes x,y location  
-    # '''
-    # DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
-    # collection = DOMTree.documentElement
+    MIDI_str & notes x,y location  
+    '''
+    DOMTree = xml.dom.minidom.parse('two-hand-2.xml')
+    collection = DOMTree.documentElement
 
-    # a = for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
+    a = for_parsing.parsing(w, collection, note_x, MIDI_str, key_x_str, key_y_str, hands)
     
-    # ### Default_Tona
-    # if (a[0] == '0'):
-    #     Default_Tona = comboboxTona.set('C')
+    ### Default_Tona
+    if (a[0] == '0'):
+        Default_Tona = comboboxTona.set('C')
 
-    # if (a[0] == '1'):
-    #     Default_Tona = comboboxTona.set('G')
-    # if (a[0] == '2'):
-    #     Default_Tona = comboboxTona.set('D')
-    # if (a[0] == '3'):
-    #     Default_Tona = comboboxTona.set('A')
-    # if (a[0] == '4'):
-    #     Default_Tona = comboboxTona.set('E')
-    # if (a[0] == '5'):
-    #     Default_Tona = comboboxTona.set('B')
-    # if (a[0] == '6'):
-    #     Default_Tona = comboboxTona.set('F')
+    if (a[0] == '1'):
+        Default_Tona = comboboxTona.set('G')
+    if (a[0] == '2'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '3'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '4'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '5'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '6'):
+        Default_Tona = comboboxTona.set('F')
 
-    # if (a[0] == '-1'):
-    #     comboboxTona.set('F')
-    #     Default_Tona = -1
+    if (a[0] == '-1'):
+        comboboxTona.set('F')
+        Default_Tona = -1
 
-    # if (a[0] == '-2'):
-    #     Default_Tona = comboboxTona.set('B')
-    # if (a[0] == '-3'):
-    #     Default_Tona = comboboxTona.set('E')
-    # if (a[0] == '-4'):
-    #     Default_Tona = comboboxTona.set('A')
-    # if (a[0] == '-5'):
-    #     Default_Tona = comboboxTona.set('D')
-    # if (a[0] == '-6'):
-    #     Default_Tona = comboboxTona.set('G')
+    if (a[0] == '-2'):
+        Default_Tona = comboboxTona.set('B')
+    if (a[0] == '-3'):
+        Default_Tona = comboboxTona.set('E')
+    if (a[0] == '-4'):
+        Default_Tona = comboboxTona.set('A')
+    if (a[0] == '-5'):
+        Default_Tona = comboboxTona.set('D')
+    if (a[0] == '-6'):
+        Default_Tona = comboboxTona.set('G')
 
-    # ### default tempo
-    # scale.set(a[1])
-    # # print('Default_Tona: ',Default_Tona)
+    ### default tempo
+    scale.set(a[1])
+    # print('Default_Tona: ',Default_Tona)
 
 ### def function OK button
 def buttonOKClicked():
+    
     w.delete('all')
 
     # print('Default_Tona: ',Default_Tona)
@@ -308,6 +353,31 @@ def buttonOKClicked():
 
     filename = 'change-temp.xml'
     
+    ### external command line
+    ### open XML with the MuseScore and save the file named : test-file.png
+    ### sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/change-temp.xml -o /Users/BlueT/Desktop/milsss/UI/change-temp.png
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/change-temp.xml -o /Users/BlueT/Desktop/milsss/UI/change-temp.png'
+    os.system(cmd)
+
+    ### small 50% : test-file-1.png to small.png
+    cmd = 'convert change-temp-1.png -resize 50% change-temp-small.png'
+    os.system(cmd)
+
+    ### turn the small.png to test-file-1.gif
+    cmd = 'convert -delay 35 -loop 0 change-temp-small.png change-temp-1.gif'
+    os.system(cmd)    
+
+
+    # root = Tk()
+    # image = PhotoImage(file = 'test.gif-file.gif')
+    image = PhotoImage(file = 'change-temp-1.gif')
+    label_image = Label(image = image)
+    label_image.place(x=180,y=-160)
+    label_image.image = image # keep a reference!
+
+
+
+
     ### if hands are two, then change hands = hands
     ### to mark the hands
     global change_hands
@@ -320,7 +390,12 @@ def buttonOKClicked():
     # w = Canvas(width = 910, height = 500, bg = 'yellow')
     # w.place(x= 278 ,y=38)
 
-    
+    # dialog_title = 'Attention !'
+    # dialog_text = 'Its finished :)'
+
+    # answer = messagebox.askquestion(dialog_title, dialog_text)
+    # if (answer == 'yes'):
+    #     print('yoyoyo')
 
 ### def functuin the button Play
 def buttonPlayClicked():
