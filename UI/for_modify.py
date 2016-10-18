@@ -13,6 +13,9 @@ import for_sheet
 ### import pprint
 import pprint
 
+### for pygame and play wav
+import pygame
+
 pp = pprint.PrettyPrinter(indent=4)
 
 ### global note_x : all the notes x location
@@ -537,6 +540,7 @@ def simple_daul(filename, accent, level):
         queue_2 = []
         queue_4 = []
         queue_delete = []
+        queue_note_number = []
 
         ### pre_*
         pre_rhythm = 0
@@ -605,11 +609,13 @@ def simple_daul(filename, accent, level):
         # print('mini, maxi: ', mini, maxi)
         ### ------------------------------------------- ###
 
+        note_number = 0
 
         for measure in root.iter('measure'):
             ### print('----new measure----')
 
             for note in measure.iter('note'):
+                note_number = note_number + 1
                 # print('here note: ',note)
 
                 ### count all notes
@@ -662,7 +668,7 @@ def simple_daul(filename, accent, level):
                         # print(' 1.0 == float(total_PI ')
                         if(daul_staff_data == '2'):
                             queue_1.append(note)
-
+                            queue_note_number.append(note_number)
 
                             # xml.etree.ElementTree.SubElement(note, 'keep', attrib={'keep':'2'})
                             
@@ -679,6 +685,7 @@ def simple_daul(filename, accent, level):
 
                         elif (daul_staff_data == '1'):
                             queue_1.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
 
                             # xml.etree.ElementTree.SubElement(daul_pre_note, 'keep', attrib={'keep':'1'})
                             xml.etree.ElementTree.SubElement(daul_pre_note, 'keep')
@@ -692,12 +699,14 @@ def simple_daul(filename, accent, level):
                         # print(' 3.0 == float(total_PI ')
                         if(daul_staff_data == '2'):
                             queue_3.append(note)
+                            queue_note_number.append(note_number)
                             # queue_3.append(daul_staff_data)
 
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_3.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
                             # queue_3.append(daul_staff_data)
 
 
@@ -708,12 +717,14 @@ def simple_daul(filename, accent, level):
                         # print(' 2.0 == float(total_PI ')
                         if(daul_staff_data == '2'):
                             queue_2.append(note)
+                            queue_note_number.append(note_number)
                             # queue_2.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_2.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
                             # queue_2.append(daul_staff_data)
 
                             # keep_note_num = keep_note_num + 1
@@ -724,12 +735,14 @@ def simple_daul(filename, accent, level):
 
                         if(daul_staff_data == '2'):
                             queue_4.append(note)
+                            queue_note_number.append(note_number)
                             # queue_4.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_4.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
                             # queue_4.append(daul_staff_data)
 
                             # keep_note_num = keep_note_num + 1
@@ -740,45 +753,53 @@ def simple_daul(filename, accent, level):
                     elif (1<float(total_PI) and float(total_PI)<2):
                         if(daul_staff_data == '2'):
                             queue_delete.append(note)
+                            queue_note_number.append(note_number)
                             #queue_delete.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_delete.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
                             #queue_delete.append(daul_staff_data)
 
                     elif (2<float(total_PI) and float(total_PI)<3):
                         if(daul_staff_data == '2'):
                             queue_delete.append(note)
+                            queue_note_number.append(note_number)
                             #queue_delete.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_delete.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
                             #queue_delete.append(daul_staff_data)
 
                     elif (3<float(total_PI) and float(total_PI)<4):
                         if(daul_staff_data == '2'):
                             queue_delete.append(note)
+                            queue_note_number.append(note_number)
                             #queue_delete.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_delete.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
                             # queue_delete.append(daul_staff_data)
 
                     elif (4<float(total_PI) and float(total_PI)<5):
                         if(daul_staff_data == '2'):
                             queue_delete.append(note)
+                            queue_note_number.append(note_number)
                             # queue_delete.append(daul_staff_data)
                             
                             # keep_note_num = keep_note_num + 1
 
                         elif(daul_staff_data == '1'):
                             queue_delete.append(daul_pre_note)
+                            queue_note_number.append(note_number-1)
                             # queue_delete.append(daul_staff_data)
                     ### must delet dual note!!! the dual note not on the on-beats!
                     ### must delet dual note!!! the dual note not on the on-beats!
@@ -858,11 +879,9 @@ def simple_daul(filename, accent, level):
             # if(note.find('chord') != None):
             #     chord =  note.find('chord')
             #     note.remove(chord)
-            
-                 
 
         print('----------')
-        
+        # print('queue_note_number: ', queue_note_number)
         # queue_delete = list(set(queue_delete))
         # call_func(root, queue_delete)    
         
@@ -893,7 +912,7 @@ def simple_daul(filename, accent, level):
         ### --------------------------------------------- ###
         ### count all the notes and not rest notes!!!
         all_notes = all_notes/2
-        print('all_chord: ', all_notes)
+        # print('all_chord: ', all_notes)
         # print('rest_notes: ', rest_notes)
         
 

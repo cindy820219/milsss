@@ -37,9 +37,9 @@ root = Tk()
 # label_notes.place(x=0,y=0)
 # label_notes.image = image # keep a reference!
 
-img = PhotoImage(file = 'file.png')
-a = Label(root, image= img)
-a.pack()
+# img = PhotoImage(file = 'file.png')
+# a = Label(root, image= img)
+# a.pack()
 
 
 ### load.show()
@@ -56,11 +56,55 @@ a.pack()
 # image_label.place(x = 0,y= 0)
 
 
-print('size: ', load.size)
-print('name: ', load.filename)
+# new = imafe.new('RGBA', (200,200),'white')
+# draw = ImageDraw.Draw()
 
-
-root.mainloop()
+# print('size: ', load.size)
+# print('name: ', load.filename)
 
 
 # root.mainloop()
+
+
+# root.mainloop()
+
+
+
+# import pygame
+
+# # music = pyglet.resource.media('wav.wav')
+# import time
+
+# pygame.init()
+
+# pygame.mixer.music.load("wav.wav")
+# # pygame.mixer.music.load("file.mid")
+
+# pygame.mixer.music.play()
+
+# time.sleep(3)
+
+
+#!/usr/bin/python3
+
+import _thread
+import time
+
+# 为线程定义一个函数
+def print_time( threadName, delay):
+   count = 0
+   while count < 5:
+      time.sleep(delay)
+      count += 1
+      print( threadName)
+
+# 创建两个线程
+try:
+   _thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+   _thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+
+except:
+   print ("Error: cant start the thread!")
+
+# while 1:
+#    pass

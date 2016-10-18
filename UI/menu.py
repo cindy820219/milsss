@@ -46,6 +46,10 @@ import os
 
 from tkinter import messagebox
 
+### for pygame and play wav
+import pygame
+
+
 ### all the notes's x location. is str
 global note_x
 note_x = []
@@ -116,6 +120,16 @@ def openfile():
     label_image = Label(image = image)
     label_image.place(x=180,y=-160)
     label_image.image = image # keep a reference!
+
+    ### turn the xml to wav
+    cmd = 'sudo '
+    cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
+    cmd2 = filename
+    cmd3 = ' -o /Users/BlueT/Desktop/milsss/UI/wav.wav'
+    # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
+    os.system(cmd + cmd1  + cmd2 + cmd3)
+
+
 
     # root.mainloop()
 
@@ -189,6 +203,11 @@ def openSample():
     label_image = Label(image = image)
     label_image.place(x=180,y=-160)
     label_image.image = image # keep a reference!
+
+    ### turn the xml to wav
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/two-hand-2.xml -o /Users/BlueT/Desktop/milsss/UI/wav.wav'
+    os.system(cmd)
+
 
     # root.mainloop()
 
@@ -376,6 +395,9 @@ def buttonOKClicked():
     label_image.image = image # keep a reference!
 
 
+    ### turn the xml to wav
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/change-temp.xml -o /Users/BlueT/Desktop/milsss/UI/wav.wav'
+    os.system(cmd)
 
 
     ### if hands are two, then change hands = hands
@@ -517,10 +539,10 @@ def main():
     scale.place(x=65, y=380)
 
     ### keyboard picture
-    keyboard = PhotoImage(file = 'keyboard.gif')
-    label_keyboard = Label(image = keyboard)
-    label_keyboard.place(x=130,y=620)
-    label_keyboard.image = keyboard # keep a reference!
+    # keyboard = PhotoImage(file = 'keyboard.gif')
+    # label_keyboard = Label(image = keyboard)
+    # label_keyboard.place(x=130,y=620)
+    # label_keyboard.image = keyboard # keep a reference!
 
 
     # im = Image.open("file.png")
@@ -529,7 +551,6 @@ def main():
     pilImage = Image.open("file.png")
     image = ImageTk.PhotoImage(pilImage)
     imagesprite = w.create_image(1000,1000,image= image)
-
 
 
 

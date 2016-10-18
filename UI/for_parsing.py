@@ -13,6 +13,9 @@ import math
 ### import draw the music sheet
 import for_sheet
 
+### for pygame and play wav
+import pygame
+
 ### total measure
 max_measure = 0
 

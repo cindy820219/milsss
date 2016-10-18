@@ -5,16 +5,15 @@ from tkinter import ttk, Tk, StringVar
 import tkinter.filedialog as filedialog
 import for_parsing
 
+### for pygame and play wav
+import pygame
+
 global MIDI_str
 global key_x_str, key_y_str
 
 MIDI_str = []
 key_x_str = []
 key_y_str = []
-
-
-
-
 
 def key_location(MIDI_fianl, key_x_str, key_y_str):
     # MIDI_fianl 

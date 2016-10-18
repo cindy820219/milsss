@@ -9,8 +9,7 @@ import xml.dom.minidom
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import parse, Element
 
-import time
-
+### import other file
 import for_parsing
 import for_sheet
 import for_modify
@@ -22,6 +21,13 @@ from pygame.locals import *
 import subprocess
 from threading import Thread
 
+### for pygame and play wav
+import pygame
+import time
+
+### import thread
+import _thread
+# import time
 
 global note_x
 note_x = []
@@ -39,6 +45,12 @@ global w
 
 global max_measure
 max_measure = 0
+
+
+
+
+
+
 
 
 # def run(max_measure):
@@ -279,6 +291,22 @@ def readMIDI():
     
 
 
+def print_time( threadName, delay):
+    # count = 0
+    # while count < 5:
+    #   time.sleep(delay)
+    #   count += 1
+    #   print( threadName)
+
+    print('in the thread!!!!!')
+
+    pygame.init()
+    pygame.mixer.music.load("wav.wav")
+
+    pygame.mixer.music.play()
+    time.sleep(10)
+
+
 def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, MIDI_str):
     # print('buttom note: ',note_x )
     # print('len note: ',len(note_x)
@@ -330,6 +358,38 @@ def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands
     if (Li == 1):
         print('Listen mode')
 
+        try:
+           _thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+           # _thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+
+        except:
+           print ("Error: cant start the thread!")
+
+
+
+        ### picture
+        # quarter = PhotoImage(file = '4d5 new.gif')
+        # label_notes = Label(image = quarter)
+        # #label.grid(row = 3, column = 1, padx = 5, pady = 5)
+        # label_notes.place(x=200,y=100)
+        # label_notes.image = quarter # keep a reference!
+
+
+        ### play music
+        # pygame.init()
+        # pygame.mixer.music.load("wav.wav")
+
+        # pygame.mixer.music.play()
+        # time.sleep(10)
+
+
+
+        
+
+
+
+
+
         ### function arrow
         # run(max_measure)
 
@@ -338,7 +398,7 @@ def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands
         # waiter().start()
 
         ### Wang's class
-        ThreadForTagMove.start()
+        # ThreadForTagMove.start()
 
         ### defined in class
         # class ThreadForTagMove(Thread):
