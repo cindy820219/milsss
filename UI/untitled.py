@@ -2,6 +2,9 @@
 from xml.dom.minidom import parse
 import xml.dom.minidom
 
+### import ElementTree
+from xml.etree.ElementTree import ElementTree, Element, parse
+
 ### import math
 import math
 
@@ -112,6 +115,7 @@ def melody_rhythm_count(staff_data, rhythm, melody_rhythm_R, melody_rhythm_L):
     # print('melody_rhythm_R: ',melody_rhythm_R)
     # print('melody_rhythm_L: ',melody_rhythm_L)
 
+### function about melody rhythm
 def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
     # print('R: ', melody_rhythm_R)
     # print('L: ', melody_rhythm_L)
@@ -142,6 +146,7 @@ def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
     # print('melody_rhythm: ', melody_rhythm)
     return(melody_rhythm)
 
+### ### function about melody pitch
 def melody_pitch_func(step_data, octave_data, alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI):
     # print(step_data, octave_data, alter_data)
     dict = {'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11}
@@ -180,7 +185,7 @@ def melody_pitch_func(step_data, octave_data, alter_data, staff_data, melody_pit
     file = open("hahahhahaha.xml", 'w')
     file.write(DOMTree.toxml())
 
-
+### function about melody_pitch
 def melody_pitch_set_func(melody_pitch, melody_pitch_temp_R, melody_pitch_temp_L):
     len_R = len(list(set(melody_pitch_temp_R)))
     len_L = len(list(set(melody_pitch_temp_L)))
@@ -199,9 +204,22 @@ def melody_pitch_set_func(melody_pitch, melody_pitch_temp_R, melody_pitch_temp_L
 
 ### funtion pasing xml file (root, all notes' x location, MIDI, key_x_str, key_y_str)
 
+### add node about total PI
 def add_node_total_PI(DOMTree, note_num_total_PI, total_PI):
     newEle = DOMTree.createElement("TotalPI")
     newText = DOMTree.createTextNode(str(total_PI))
+    newEle.appendChild(newText)
+
+    DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
+    DOMTree.toxml()
+
+    file = open("hahahhahaha.xml", 'w')
+    file.write(DOMTree.toxml())
+
+### add node about rhythm
+def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
+    newEle = DOMTree.createElement("rhythm")
+    newText = DOMTree.createTextNode(str(rhythm))
     newEle.appendChild(newText)
 
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
@@ -217,9 +235,42 @@ def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
     if(melody_rhythm[length-1] == melody_pitch[length-1]):
         # print('same', melody_rhythm[length-1])
         Melody.append(melody_rhythm[length-1])
-    elif(melody_rhythm[length-1] != melody_pitch[length-1]):
+
+    elif(melody_rhythm[length-1] != melody_pitch[length-1] ):
         # print('diff: ', melody_rhythm[length-1], melody_pitch[length-1])
-        Melody.append('D')
+        # Melody.append('D')
+        ### melody_rhythm = melody_cutnote ---> melody_rhythm
+        if(melody_rhythm[length-1] == melody_cutnote[length-1]):
+            Melody.append(melody_rhythm[length-1])
+        ### melody_pitch = melody_cutnote ---> melody_pitch
+        elif(melody_pitch[length-1] == melody_cutnote[length-1]):
+            Melody.append(melody_pitch[length-1])
+        ### melody_cutnote == 0 ---> '1'
+        elif(melody_cutnote[length-1] == '0'):
+            Melody.append('1')
+
+def add_Melody_node_func(DOMTree, Melody):
+    print(Melody)
+    tree = parse('hahahhahaha.xml')
+    root = tree.getroot()
+
+    # print('reverse', reMelody)
+
+    for measure in root.iter('measure'):
+        Main = Melody.pop(0)
+        
+        for note in measure.iter('note'):
+            for staff in note.iter('staff'):
+                    staff_text = staff.text
+                    if(Main == staff_text):
+                        xml.etree.ElementTree.SubElement(note, 'melody')
+                        note.find('melody').text = 'main'
+                    else:
+                        xml.etree.ElementTree.SubElement(note, 'melody')
+                        note.find('melody').text = 'no_main'
+
+    tree.write('hahahhahaha.xml')
+
 
 
 def parsing(DOMTree, collection, hands):
@@ -662,6 +713,7 @@ def parsing(DOMTree, collection, hands):
             +'\t\t'+rhythm
             +'        '+str(PI))
         
+        add_node_rhythm(DOMTree, note_num_total_PI, rhythm)
 
         ### melody - cut note !!
         if(rhythm =='0.75'):
@@ -675,6 +727,7 @@ def parsing(DOMTree, collection, hands):
         ### melody - pitch !!
         if(step_data != '[ ]'):
             melody_pitch_func(step_data, str(octave_data), alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI)
+
 
         ### count parameters of all the notes
         if (step_data == '[ ]'):
@@ -783,8 +836,10 @@ def parsing(DOMTree, collection, hands):
     print()
     print()
 
-    print(Melody)
+    # print(Melody)
+    add_Melody_node_func(DOMTree, Melody)
     
+
 DOMTree = xml.dom.minidom.parse('sonatina.xml')
 collection = DOMTree.documentElement
 
