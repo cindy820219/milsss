@@ -48,7 +48,8 @@ from tkinter import messagebox
 
 ### for pygame and play wav
 import pygame
-
+import _thread
+import time
 
 ### all the notes's x location. is str
 global note_x
@@ -66,6 +67,34 @@ key_y_str = []
 
 ### global hands
 global hands
+
+# pygame.init()
+
+# def print_time( threadName, delay):
+#     count = 0
+#     while count < 5:
+#         time.sleep(delay)
+#         count += 1
+#         print( threadName)
+#     print('                    in the thread!!!!!')
+
+    
+#     pygame.mixer.music.load("wav.wav")
+
+#     pygame.mixer.music.play()
+#     time.sleep(10)
+
+# try:
+#     _thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+#     print('       create 1')
+#     _thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+#     print('       create 2')
+
+# except:
+#     print ("Error: cant start the thread!")
+    
+
+
 
 
 # global Default_Tona
@@ -193,7 +222,7 @@ def openSample():
     os.system(cmd)
 
     ### turn the small.png to test-file-1.gif
-    cmd = 'convert -delay 35 -loop 0 small.png test-file-1.gif'
+    cmd = 'convert small.png test-file-1.gif'
     os.system(cmd)    
 
 
@@ -581,9 +610,13 @@ def main():
     root.config(menu=menubar)
 
 
+
+
+
+
+
 ### main loop
 if __name__ == '__main__':
-
     print('hello world') 
 
     root = Tk()
@@ -599,6 +632,9 @@ if __name__ == '__main__':
 
     mylist.pack( side = RIGHT, fill = BOTH )
     scrollbar.config( command = mylist.yview )
+
+    
+
 
     main()
     mainloop()

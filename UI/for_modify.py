@@ -405,7 +405,7 @@ def change_tempo(filename ,Tem, accent, daul, Tona):
 
 ### def function about simple daul(chord)
 def simple_daul(filename, accent, level):
-    
+    a = 0
     ### to count all the chord notes
     chord_num = 0
 
@@ -444,6 +444,14 @@ def simple_daul(filename, accent, level):
     daul_pre_note = ''
     daul_staff_data = ''
 
+    ### default measure_max and measure_num
+    measure_max = 0
+    measure_num = 0
+
+    for measure in root.iter('measure'):
+        measure_max = measure_max +1
+
+    # print('measure_max: ',measure_max)
 
     ### measure -> notes -> chord 
     ### right hand delete chord, left hand delete chord
@@ -505,14 +513,17 @@ def simple_daul(filename, accent, level):
 
             chord_pre = chord_now
 
+        
 
-        for i in queue:
-            measure.remove(i)
-            # measure.remove(queue.pop(0))
-            # print('deleted queue[0]: ',queue)
+        if (measure_num == measure_max):
+            # print('aaaaaaaaaaaaaaaaaaa')
+            for i in queue:
+                measure.remove(i)
+                # measure.remove(queue.pop(0))
+                # print('deleted queue[0]: ',queue)
 
-        queue = []
-    
+            queue = []
+        
 
     ### total chord_num
     # print('chord_num: ',chord_num)
@@ -613,6 +624,7 @@ def simple_daul(filename, accent, level):
 
         for measure in root.iter('measure'):
             ### print('----new measure----')
+            measure_num = measure_num + 1
 
             for note in measure.iter('note'):
                 note_number = note_number + 1
@@ -854,11 +866,21 @@ def simple_daul(filename, accent, level):
             ### right !!! 
 
         
-        # for measure in root.iter('measure'):
-            for i in queue_delete:
-                measure.remove(i)
-            queue_delete = []
+                # for measure in root.iter('measure'):
             
+            # print('measure_num: ', measure_num)
+            a = 3
+            # print('measure_num: ', measure_num)
+            # print('measure_max: ', measure_max)
+            
+            if(a==3):
+                if(measure_max == measure_num):
+                # if(a==3):
+                    print('------aaaaaaaaaa')
+                    for i in queue_delete:
+                        measure.remove(i)
+                    queue_delete = []
+                    
 
             # for j in queue_delete:
             #     if(j.find('chord') != None):
@@ -866,6 +888,8 @@ def simple_daul(filename, accent, level):
             #         j.remove(chord)
 
             # queue_delete = []
+
+
             ### right !!! 
             
             # call_func(root, queue_delete)
@@ -916,19 +940,20 @@ def simple_daul(filename, accent, level):
         # print('rest_notes: ', rest_notes)
         
 
-        ### count the number of 'delete notes'
+        ### ### ### count the number of 'delete notes' ### ### ###
         mini = all_notes * 2 // 5
         maxi = all_notes * 0.6
         
         if (int(maxi) != maxi) :
             maxi = int(maxi)
             maxi = maxi + 1
-
         # print('max, min: ', maxi, mini)
+        ### ### ### count the number of 'delete notes' ### ### ###
 
+
+        ### ### ### count the case ### ### ###
         ### #1
         ### mini < len[three] , good !
-
         if (len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4) < mini):
             case = 100
 
@@ -981,11 +1006,11 @@ def simple_daul(filename, accent, level):
             ### mini < len[three + 1 + 3 + 2 + 4]   but   maxi < len[three + 1 + 3 + 2 + 4]    
             elif (len(queue_0)+len(queue_1)+len(queue_3)+len(queue_2)+len(queue_4) > maxi):
                 case = 10
-
-
         
         ###########################################
         # print('case: ', case)
+        ### ### ### count the case ### ### ###
+
 
         if(case == 1):
             print('case 1')

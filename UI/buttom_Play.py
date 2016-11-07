@@ -47,12 +47,6 @@ global max_measure
 max_measure = 0
 
 
-
-
-
-
-
-
 # def run(max_measure):
 #     measure = 1
 
@@ -290,22 +284,19 @@ def readMIDI():
 # if(note_queue[1] == 62):
     
 
+def print_time( threadName, delay):    
+    count = 0
+    while count < 5:
+        time.sleep(delay)
+        count += 1
+        print( threadName)
 
-def print_time( threadName, delay):
-    # count = 0
-    # while count < 5:
-    #   time.sleep(delay)
-    #   count += 1
-    #   print( threadName)
 
-    print('in the thread!!!!!')
+    # pygame.init()
+    # pygame.mixer.music.load("wav.wav")
 
-    pygame.init()
-    pygame.mixer.music.load("wav.wav")
-
-    pygame.mixer.music.play()
-    time.sleep(10)
-
+    # pygame.mixer.music.play()
+    # time.sleep(10)
 
 def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands, MIDI_str):
     # print('buttom note: ',note_x )
@@ -355,17 +346,17 @@ def buttomPlay(w, filename ,Li, Pr, Pl, Tem, note_x, key_x_str, key_y_str, hands
     ### Listen mode
     ### Listen mode
     ### Listen mode
+    
     if (Li == 1):
         print('Listen mode')
 
-        try:
-           _thread.start_new_thread( print_time, ("Thread-1", 2, ) )
-           # _thread.start_new_thread( print_time, ("Thread-2", 4, ) )
-
-        except:
-           print ("Error: cant start the thread!")
-
-
+        ### create new thread named print_time
+        # try:
+        #     _thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+        #     _thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+        
+        # except:
+        #     print ("Error: cant start the thread!")
 
         ### picture
         # quarter = PhotoImage(file = '4d5 new.gif')
