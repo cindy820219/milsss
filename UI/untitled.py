@@ -250,7 +250,7 @@ def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
             Melody.append('1')
 
 def add_Melody_node_func(DOMTree, Melody):
-    print(Melody)
+    # print(Melody)
     tree = parse('hahahhahaha.xml')
     root = tree.getroot()
 
@@ -271,7 +271,43 @@ def add_Melody_node_func(DOMTree, Melody):
 
     tree.write('hahahhahaha.xml')
 
+    high_melody()
+    low_melody()
 
+def high_melody():
+    print('high')
+
+    tree = parse('hahahhahaha.xml')
+    root = tree.getroot()
+
+    for measure in root.iter('measure'):
+        for note in measure.iter('note'):
+            for melody in note.iter('melody'):
+                melody_text = melody.text
+                for TotalPI in note.iter('TotalPI'):
+                    TotalPI_text = TotalPI.text
+                    break
+                # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
+                if (3.0 > float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
+                    xml.etree.ElementTree.SubElement(note, 'rest')
+                if (5.0 > float(TotalPI_text) > 3.0 and melody_text == 'no_main'):
+                    xml.etree.ElementTree.SubElement(note, 'rest')
+    tree.write('delete_high.xml')
+
+def low_melody():
+    print('low')
+
+    tree = parse('hahahhahaha.xml')
+    root = tree.getroot()
+
+    for measure in root.iter('measure'):
+        for note in measure.iter('note'):
+            for melody in note.iter('melody'):
+                melody_text = melody.text
+                if(melody_text == 'no_main'):
+                    xml.etree.ElementTree.SubElement(note, 'rest')
+
+    tree.write('delete_low.xml')
 
 def parsing(DOMTree, collection, hands):
     
@@ -840,7 +876,7 @@ def parsing(DOMTree, collection, hands):
     add_Melody_node_func(DOMTree, Melody)
     
 
-DOMTree = xml.dom.minidom.parse('sonatina.xml')
+DOMTree = xml.dom.minidom.parse('sonatina2.xml')
 collection = DOMTree.documentElement
 
 hands = 0

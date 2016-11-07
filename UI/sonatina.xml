@@ -7,7 +7,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
-      <encoding-date>2016-11-06</encoding-date>
+      <encoding-date>2016-11-08</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -112,7 +112,6 @@
         <dot/>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">begin</beam>
         </note>
       <note default-x="120.96" default-y="-15.00">
         <pitch>
@@ -124,8 +123,6 @@
         <type>16th</type>
         <stem>down</stem>
         <staff>1</staff>
-        <beam number="1">end</beam>
-        <beam number="2">backward hook</beam>
         </note>
       <note default-x="141.61" default-y="-5.00">
         <pitch>

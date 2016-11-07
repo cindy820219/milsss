@@ -487,7 +487,8 @@ def simple_daul(filename, accent, level):
             ### right hand delete 'chord'
             if(chord != None and daul_staff_data == '1' and level == '1'):
                 queue.append(daul_pre_note)
-                ### 
+                
+                ### remove !!!
                 if(note.find('chord') != None):
                     chord =  note.find('chord')
                     note.remove(chord)
