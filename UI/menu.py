@@ -123,7 +123,7 @@ def openfile():
 
     global hands
     hands = 0
-
+    print(file)
     ### external command line
     ### open XML with the MuseScore and save the file named : test-file.png
     # cmd1 = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/two-hand-2.xml -o /Users/BlueT/Desktop/milsss/UI/test-file.png'
@@ -131,7 +131,7 @@ def openfile():
     cmd = 'sudo '
     cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
     cmd2 = filename
-    cmd3 = ' -o /Users/BlueT/Desktop/milsss/UI/test-file.png'
+    cmd3 = ' -o /Users/nien/Desktop/milsss/UI/test-file.png'
     # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
     os.system(cmd + cmd1  + cmd2 + cmd3)
 
@@ -154,7 +154,7 @@ def openfile():
     cmd = 'sudo '
     cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
     cmd2 = filename
-    cmd3 = ' -o /Users/BlueT/Desktop/milsss/UI/wav.wav'
+    cmd3 = ' -o /Users/nien/Desktop/milsss/UI/wav.wav'
     # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
     os.system(cmd + cmd1  + cmd2 + cmd3)
 
@@ -214,7 +214,7 @@ def openfile():
 
 def openSample():
     ### open XML with the MuseScore and save the file named : test-file.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/two-hand-2.xml -o /Users/BlueT/Desktop/milsss/UI/test-file.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/two-hand-2.xml -o /Users/nien/Desktop/milsss/UI/test-file.png'
     os.system(cmd)
 
     ### small 50% : test-file-1.png to small.png
@@ -234,7 +234,7 @@ def openSample():
     label_image.image = image # keep a reference!
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/two-hand-2.xml -o /Users/BlueT/Desktop/milsss/UI/wav.wav'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/two-hand-2.xml -o /Users/nien/Desktop/milsss/UI/wav.wav'
     os.system(cmd)
 
 
@@ -404,7 +404,7 @@ def buttonOKClicked():
     ### external command line
     ### open XML with the MuseScore and save the file named : test-file.png
     ### sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/change-temp.xml -o /Users/BlueT/Desktop/milsss/UI/change-temp.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/change-temp.xml -o /Users/BlueT/Desktop/milsss/UI/change-temp.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change-temp.xml -o /Users/nien/Desktop/milsss/UI/change-temp.png'
     os.system(cmd)
 
     ### small 50% : test-file-1.png to small.png
@@ -425,7 +425,7 @@ def buttonOKClicked():
 
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/change-temp.xml -o /Users/BlueT/Desktop/milsss/UI/wav.wav'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change-temp.xml -o /Users/nien/Desktop/milsss/UI/wav.wav'
     os.system(cmd)
 
 
