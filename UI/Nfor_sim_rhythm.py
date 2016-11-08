@@ -182,7 +182,7 @@ def melody_pitch_func(step_data, octave_data, alter_data, staff_data, melody_pit
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
     DOMTree.toxml()
 
-    file = open("hahahhahaha.xml", 'w')
+    file = open("change-temp.xml", 'w')
     file.write(DOMTree.toxml())
 
 ### function about melody_pitch
@@ -213,7 +213,7 @@ def add_node_total_PI(DOMTree, note_num_total_PI, total_PI):
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
     DOMTree.toxml()
 
-    file = open("hahahhahaha.xml", 'w')
+    file = open("change-temp.xml", 'w')
     file.write(DOMTree.toxml())
 
 ### add node about rhythm
@@ -225,7 +225,7 @@ def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
     DOMTree.toxml()
 
-    file = open("hahahhahaha.xml", 'w')
+    file = open("change-temp.xml", 'w')
     file.write(DOMTree.toxml())
 
 def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
@@ -251,7 +251,7 @@ def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
 
 def add_Melody_node_func(DOMTree, Melody):
     # print(Melody)
-    tree = parse('hahahhahaha.xml')
+    tree = parse('change-temp.xml')
     root = tree.getroot()
 
     # print('reverse', reMelody)
@@ -269,7 +269,7 @@ def add_Melody_node_func(DOMTree, Melody):
                         xml.etree.ElementTree.SubElement(note, 'melody')
                         note.find('melody').text = 'no_main'
 
-    tree.write('hahahhahaha.xml')
+    tree.write('change-rhythm.xml')
 
     high_melody()
     low_melody()
@@ -277,7 +277,7 @@ def add_Melody_node_func(DOMTree, Melody):
 def high_melody():
     print('high')
 
-    tree = parse('hahahhahaha.xml')
+    tree = parse('change-rhythm.xml')
     root = tree.getroot()
 
     for measure in root.iter('measure'):
@@ -293,11 +293,12 @@ def high_melody():
                 if (5.0 > float(TotalPI_text) > 3.0 and melody_text == 'no_main'):
                     xml.etree.ElementTree.SubElement(note, 'rest')
     tree.write('delete_high.xml')
+    print('  save the file name "delete_high.xml"')
 
 def low_melody():
     print('low')
 
-    tree = parse('hahahhahaha.xml')
+    tree = parse('change-rhythm.xml')
     root = tree.getroot()
 
     for measure in root.iter('measure'):
@@ -308,6 +309,7 @@ def low_melody():
                     xml.etree.ElementTree.SubElement(note, 'rest')
 
     tree.write('delete_low.xml')
+    print('  save the file name "delete_low.xml"')
 
 def parsing(DOMTree, collection, hands):
     
