@@ -8,143 +8,30 @@ from xml.etree.ElementTree import ElementTree, Element, parse
 ### import math
 import math
 
-### if it's cut note, change melody_cutnote[] of staff_data
-def melody_cut_note(melody_cutnote, measure, staff_data):
-    if(len(melody_cutnote) < measure) :
-        melody_cutnote.append(staff_data)
-        # print(melody_cutnote)    
 
-### count right hand and left hand rhythm of a measure 
-def melody_rhythm_count(staff_data, rhythm, melody_rhythm_R, melody_rhythm_L):    
-    if(rhythm == '0.25'):
-        if(staff_data == '1'):
-            melody_rhythm_R[0] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[0] = 1
 
-    if(rhythm == '0.5'):
-        if(staff_data == '1'):
-            melody_rhythm_R[1] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[1] = 1
 
-    if(rhythm == '0.75'):
-        if(staff_data == '1'):
-            melody_rhythm_R[2] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[2] = 1
+def add_node_total_PI(DOMTree, note_num_total_PI, total_PI):
+    newEle = DOMTree.createElement("TotalPI")
+    newText = DOMTree.createTextNode(str(total_PI))
+    newEle.appendChild(newText)
 
-    if(rhythm == '1' or rhythm == '1.0'):
-        if(staff_data == '1'):
-            melody_rhythm_R[3] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[3] = 1
+    DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
+    DOMTree.toxml()
 
-    if(rhythm == '1.25'):
-        if(staff_data == '1'):
-            melody_rhythm_R[4] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[4] = 1
+    file = open("change-parse.xml", 'w')
+    file.write(DOMTree.toxml())
 
-    if(rhythm == '1.5'):
-        if(staff_data == '1'):
-            melody_rhythm_R[5] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[5] = 1
+def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
+    newEle = DOMTree.createElement("rhythm")
+    newText = DOMTree.createTextNode(str(rhythm))
+    newEle.appendChild(newText)
 
-    if(rhythm == '1.75'):
-        if(staff_data == '1'):
-            melody_rhythm_R[6] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[6] = 1
+    DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
+    DOMTree.toxml()
 
-    if(rhythm == '2' or rhythm == '2.0'):
-        if(staff_data == '1'):
-            melody_rhythm_R[7] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[7] = 1
-
-    if(rhythm == '2.25'):
-        if(staff_data == '1'):
-            melody_rhythm_R[8] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[8] = 1
-
-    if(rhythm == '2.5'):
-        if(staff_data == '1'):
-            melody_rhythm_R[9] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[9] = 1
-
-    if(rhythm == '2.75'):
-        if(staff_data == '1'):
-            melody_rhythm_R[10] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[10] = 1
-
-    if(rhythm == '3' or rhythm == '3.0'):
-        if(staff_data == '1'):
-            melody_rhythm_R[11] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[11] = 1
-
-    if(rhythm == '3.25'):
-        if(staff_data == '1'):
-            melody_rhythm_R[12] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[12] = 1
-
-    if(rhythm == '3.5'):
-        if(staff_data == '1'):
-            melody_rhythm_R[13] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[13] = 1
-
-    if(rhythm == '3.75'):
-        if(staff_data == '1'):
-            melody_rhythm_R[14] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[14] = 1
-
-    if(rhythm == '4.0' or rhythm == '4'):
-        if(staff_data == '1'):
-            melody_rhythm_R[15] = 1
-        elif(staff_data == '2'):
-            melody_rhythm_L[15] = 1
-            
-    # print('melody_rhythm_R: ',melody_rhythm_R)
-    # print('melody_rhythm_L: ',melody_rhythm_L)
-
-### function about melody rhythm
-def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
-    # print('R: ', melody_rhythm_R)
-    # print('L: ', melody_rhythm_L)
-
-    # print('find: ',melody_rhythm_R.index(1))
-    # print('find: ',melody_rhythm_L.index(1))
-
-    ### maxi sum is 15 !
-    sum_R = sum(melody_rhythm_R)
-    sum_L = sum(melody_rhythm_L)
-
-    ### if sum_R > sum_L
-    if(sum_R > sum_L): 
-        melody_rhythm.append('1')
-
-    elif(sum_R < sum_L): 
-        melody_rhythm.append('2')
-
-    elif(sum_R == sum_L): 
-        ### index 
-        if(melody_rhythm_R.index(1) < melody_rhythm_L.index(1)):
-            melody_rhythm.append('1')
-        elif(melody_rhythm_R.index(1) > melody_rhythm_L.index(1)):
-            melody_rhythm.append('2')
-        elif(melody_rhythm_R.index(1) == melody_rhythm_L.index(1)):
-            melody_rhythm.append('1')
-
-    # print('melody_rhythm: ', melody_rhythm)
-    return(melody_rhythm)
+    file = open("change-parse.xml", 'w')
+    file.write(DOMTree.toxml())
 
 ### ### function about melody pitch
 def melody_pitch_func(step_data, octave_data, alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI):
@@ -182,166 +69,11 @@ def melody_pitch_func(step_data, octave_data, alter_data, staff_data, melody_pit
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
     DOMTree.toxml()
 
-    file = open("change-temp.xml", 'w')
+    file = open("change-parse.xml", 'w')
     file.write(DOMTree.toxml())
 
-### function about melody_pitch
-def melody_pitch_set_func(melody_pitch, melody_pitch_temp_R, melody_pitch_temp_L):
-    len_R = len(list(set(melody_pitch_temp_R)))
-    len_L = len(list(set(melody_pitch_temp_L)))
-
-    if(len_R > len_L):
-        melody_pitch.append('1')
-
-    if(len_R < len_L):
-        melody_pitch.append('2')
-
-    if(len_R == len_L):
-        melody_pitch.append('1')
-
-    # print('melody_pitch:  ', melody_pitch)
-    return(melody_pitch)
-
-### funtion pasing xml file (root, all notes' x location, MIDI, key_x_str, key_y_str)
-
-### add node about total PI
-def add_node_total_PI(DOMTree, note_num_total_PI, total_PI):
-    newEle = DOMTree.createElement("TotalPI")
-    newText = DOMTree.createTextNode(str(total_PI))
-    newEle.appendChild(newText)
-
-    DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
-    DOMTree.toxml()
-
-    file = open("change-temp.xml", 'w')
-    file.write(DOMTree.toxml())
-
-### add node about rhythm
-def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
-    newEle = DOMTree.createElement("rhythm")
-    newText = DOMTree.createTextNode(str(rhythm))
-    newEle.appendChild(newText)
-
-    DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
-    DOMTree.toxml()
-
-    file = open("change-temp.xml", 'w')
-    file.write(DOMTree.toxml())
-
-def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
-    ### measure !
-    length = len(melody_rhythm)
-    
-    if(melody_rhythm[length-1] == melody_pitch[length-1]):
-        # print('same', melody_rhythm[length-1])
-        Melody.append(melody_rhythm[length-1])
-
-    elif(melody_rhythm[length-1] != melody_pitch[length-1] ):
-        # print('diff: ', melody_rhythm[length-1], melody_pitch[length-1])
-        # Melody.append('D')
-        ### melody_rhythm = melody_cutnote ---> melody_rhythm
-        if(melody_rhythm[length-1] == melody_cutnote[length-1]):
-            Melody.append(melody_rhythm[length-1])
-        ### melody_pitch = melody_cutnote ---> melody_pitch
-        elif(melody_pitch[length-1] == melody_cutnote[length-1]):
-            Melody.append(melody_pitch[length-1])
-        ### melody_cutnote == 0 ---> '1'
-        elif(melody_cutnote[length-1] == '0'):
-            Melody.append('1')
-
-def add_Melody_node_func(DOMTree, Melody):
-    # print(Melody)
-    tree = parse('change-temp.xml')
-    root = tree.getroot()
-
-    # print('reverse', reMelody)
-
-    for measure in root.iter('measure'):
-        Main = Melody.pop(0)
-        
-        for note in measure.iter('note'):
-            for staff in note.iter('staff'):
-                    staff_text = staff.text
-                    if(Main == staff_text):
-                        xml.etree.ElementTree.SubElement(note, 'melody')
-                        note.find('melody').text = 'main'
-                    else:
-                        xml.etree.ElementTree.SubElement(note, 'melody')
-                        note.find('melody').text = 'no_main'
-
-    tree.write('change-rhythm.xml')
-    print('    save change-rhythm.xml'))
-    high_melody()
-    low_melody()
-
-def high_melody():
-    print('high')
-
-    tree = parse('change-rhythm.xml')
-    root = tree.getroot()
-
-    for measure in root.iter('measure'):
-        for note in measure.iter('note'):
-            for melody in note.iter('melody'):
-                melody_text = melody.text
-                for TotalPI in note.iter('TotalPI'):
-                    TotalPI_text = TotalPI.text
-                    break
-                # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
-                if (3.0 > float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
-                    xml.etree.ElementTree.SubElement(note, 'rest')
-                if (5.0 > float(TotalPI_text) > 3.0 and melody_text == 'no_main'):
-                    xml.etree.ElementTree.SubElement(note, 'rest')
-    tree.write('delete_high.xml')
-    print('  save the file name "delete_high.xml"')
-
-def low_melody():
-    print('low')
-
-    tree = parse('change-rhythm.xml')
-    root = tree.getroot()
-
-    for measure in root.iter('measure'):
-        for note in measure.iter('note'):
-            for melody in note.iter('melody'):
-                melody_text = melody.text
-                if(melody_text == 'no_main'):
-                    xml.etree.ElementTree.SubElement(note, 'rest')
-
-    tree.write('delete_low.xml')
-    print('  save the file name "delete_low.xml"')
 
 def parsing(DOMTree, collection, hands):
-    
-    ### melody define
-    melody_cutnote = []
-    melody_rhythm  = []
-    melody_rhythm_R = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    melody_rhythm_L = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-    sum_R = 0
-    sum_L = 0
-
-    melody_pitch  = []
-    melody_pitch_temp_R = []
-    melody_pitch_temp_L = []
-
-    Melody = []
-
-    '''
-    count all the notes
-    '''
-    notes_all = 0
-    notes_rest = 0
-    notes_whole = 0
-    notes_half = 0
-    notes_quarter = 0
-    notes_eighth = 0
-    notes_16th = 0
-    notes_notes = 0
-
-    ### measure's tag
-    measure_tag = 0
 
     ### pre staff - right hand or left hand
     pre_staff = 0
@@ -359,11 +91,6 @@ def parsing(DOMTree, collection, hands):
     # about the mini_rhythm for the simple
     mini_rhythm = 6
 
-    '''
-    ### about the ID
-    # ID = ''
-    '''
-
     # about the (time.rhythm / measure)
     timing = 0
     flag_of_daul = 0
@@ -375,16 +102,21 @@ def parsing(DOMTree, collection, hands):
 
     single_flag_of_daul = 0
     
-
     ### hand default is 1, but we need to input the 2 hands xml file
     hand = 1
 
     ### the number of notes
     note_num = 0
 
+    notes_all = 0
+
     ### total PI
     total_PI = 1
     note_num_total_PI = 0
+
+    melody_pitch_temp_R = []
+    melody_pitch_temp_L = []
+    
     '''
     to defind the sheet: key && divs && time
     ### divisions 3/4 or 4/4
@@ -404,7 +136,6 @@ def parsing(DOMTree, collection, hands):
 
             fifths = fifths.childNodes[0].data
             print('key:' ,fifths)
-
 
         times = collection.getElementsByTagName('time')
         for time in times:
@@ -518,7 +249,6 @@ def parsing(DOMTree, collection, hands):
                 # print(alter.childNodes[0].data)
                 # print('alter_data: ',alter_data)
 
-
         '''
         rest notes : 
             octave_data = 10, 
@@ -593,42 +323,6 @@ def parsing(DOMTree, collection, hands):
             if (int(staff_data)== 1):
                 if(pre_staff == 2): 
 
-                    ### melody about cut note ! 
-                    ### if no cut note, then put '0' in the array melody_cutnote[]
-                    if(len(melody_cutnote) < measure) :
-                        melody_cutnote.append('0')
-
-                    ### important !!!
-                    # print('melody_cutnote:' ,melody_cutnote)
-
-                    ### melody about rhythm and count all the different
-                    # print(melody_rhythm_R, '  ', sum(melody_rhythm_R))
-                    # print(melody_rhythm_L, '  ', sum(melody_rhythm_L))
-                    melody_rhythm = melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L)
-                    ### important !!!
-                    # print('melody_rhythm: ', melody_rhythm)
-                    ### next measure, need to clear melody_rhythm_R and melody_rhythm_L
-                    
-
-
-                    melody_pitch = melody_pitch_set_func(melody_pitch, melody_pitch_temp_R, melody_pitch_temp_L)
-                    ### important !!!
-                    # print('melody_pitch:  ', melody_pitch)
-
-                    ### function for the Melody
-                    Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch)
-
-
-                    ### clear for the next measure !!
-                    melody_rhythm_R = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    melody_rhythm_L = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-                    melody_pitch_temp_R = []
-                    melody_pitch_temp_L = []
-
-
-                    # print('pre_staff == 2 and staff_data == 1')
-                    #print(measure)
                     timing = 0
                     measure = measure+1
                     print(measure,'=======================================================================')
@@ -700,7 +394,6 @@ def parsing(DOMTree, collection, hands):
                 total_PI = 1
 
             timing = single_time
-            # print ('timing: ', timing)
         '''single'''
         '''single'''
 
@@ -721,27 +414,6 @@ def parsing(DOMTree, collection, hands):
         ### About the PI        
         PI = math.floor(timing - float(rhythm) +1)
 
-        ### about the ID : note num(4) // measure(2) // staff(1) // timing(1)
-        ### ID: note_num 
-        # note_num = str(note_num).zfill(4)
-        
-        ### ID: measure_id
-        # measure_id = str(measure) 
-        # measure_id = measure_id.zfill(2)
-        
-        '''
-        single
-        ### ID: measure_id of one-hand
-        if staff_data == '0':
-            measure_id = str(single_measure)
-            measure_id = measure_id.zfill(2)
-        '''
-
-        ### ID: staff_id
-        # staff_id = staff_data
-        # ID = note_num + measure_id + staff_id + str(PI)
-    
-
         ### $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ ####
         print(step_data
             +str(octave_data)
@@ -751,45 +423,14 @@ def parsing(DOMTree, collection, hands):
             +'\t\t'+rhythm
             +'        '+str(PI))
         
+        ### rhythm
         add_node_rhythm(DOMTree, note_num_total_PI, rhythm)
 
-        ### melody - cut note !!
-        if(rhythm =='0.75'):
-            melody_cut_note(melody_cutnote, measure, staff_data)
-        # print(melody_cutnote)
-
-        ### melody - rhythm !!
-        if(step_data != '[ ]'):
-            melody_rhythm_count(staff_data, rhythm, melody_rhythm_R, melody_rhythm_L)
-        
-        ### melody - pitch !!
+        ### MIDI
         if(step_data != '[ ]'):
             melody_pitch_func(step_data, str(octave_data), alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI)
 
 
-        ### count parameters of all the notes
-        if (step_data == '[ ]'):
-            notes_rest += 1
-        else:    
-            if (type_data == 'whole'):
-                notes_whole += 1
-            if (type_data == 'half'):
-                notes_half += 1
-            if (type_data == 'quarter'):
-                notes_quarter += 1
-            if (type_data == 'eighth'):
-                notes_eighth += 1
-            if (type_data == '16th'):
-                notes_16th += 1
-
-        # print('notes_all, notes_whole, notes_half, notes_quarter, notes_eighth, notes_16th, notes_rest: ',
-        #      notes_all   
-        #      notes_whole,
-        #      notes_half,
-        #      notes_quarter,
-        #      notes_eighth,
-        #      notes_16th, 
-        #      notes_rest)
 
         ### is daul
         if (daul != ''):
@@ -802,7 +443,6 @@ def parsing(DOMTree, collection, hands):
         #########
             if(total_PI ==0):
                 total_PI = 1
-
 
         ### is daul and then is_daul_2 = 1
         if (is_daul == 1):
@@ -821,7 +461,6 @@ def parsing(DOMTree, collection, hands):
 
         ### add_node about total_PI !!!
         add_node_total_PI(DOMTree, note_num_total_PI, total_PI)
-
 
         total_PI = float(total_PI)
         note_num_total_PI = note_num_total_PI + 1
@@ -845,26 +484,6 @@ def parsing(DOMTree, collection, hands):
         
     print('mini rhythm is : ',mini_rhythm)
     # print('max_measure: ',max_measure)
-    
-    
-    ### melody 
-    
-
-    ###### the final measure !!!
-    ### melody cut note
-    if(len(melody_cutnote) < measure) :
-        melody_cutnote.append('0')
-    # print('melody_cutnote:', melody_cutnote)
-
-    ### melody rhythm final measure
-    melody_rhythm = melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L)
-    # print('melody_pitch:  ', melody_rhythm)
-
-    ### melody pitch final measure
-    melody_pitch = melody_pitch_set_func(melody_pitch, melody_pitch_temp_R, melody_pitch_temp_L)
-    # print('melody_pitch:  ', melody_pitch)
-
-    Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch)
 
     print()
     print()
@@ -873,11 +492,7 @@ def parsing(DOMTree, collection, hands):
     print()
     print()
     print()
-
-    # print(Melody)
-    add_Melody_node_func(DOMTree, Melody)
-    
-
+   
 DOMTree = xml.dom.minidom.parse('sonatina2.xml')
 collection = DOMTree.documentElement
 
