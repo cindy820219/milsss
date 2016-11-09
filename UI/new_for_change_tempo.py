@@ -1,11 +1,13 @@
 ### import ElementTree
 from xml.etree.ElementTree import ElementTree, Element, parse
+import xml.etree.ElementTree 
 
 ### def funtion write_xml
 # def write_xml(tree, out_path):
 #     tree.write(out_path, encoding="utf-8",xml_declaration=True)
 
 def change_tempo(filename ,Tem):
+    print('in filename: ', filename)
 
     ### if daul or accent is changed, then read file named 'change-temp.xml'
     # if (accent == 1 or daul == 1 or Tona == 1):
@@ -30,11 +32,11 @@ def change_tempo(filename ,Tem):
         sound.set("tempo", Tem)
         # print("tempo change: ", sound.attrib)
        
-        tree.write('change-tempo.xml')
-        tree.write('change-temp.xml')
-        print('  the file "change-tempo.xml" is saved.')
+        tree.write('change_tempo.xml')
+        tree.write('change_temp.xml')
+        print('  the file "change_tempo.xml" is saved.')
 
 
-Tem = '40'
-filename = 'sonatina.xml'
-change_tempo(filename, Tem)
+# Tem = '40'
+# filename = 'sonatina.xml'
+# change_tempo(filename, Tem)

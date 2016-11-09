@@ -28,8 +28,11 @@ for_sheet- draw the sheet
 buttom_Play - when the Play button is click
 '''
 import new_for_change_tempo
-from for_sheet import key_location, create_notes
+import new_for_sim_rhythm
 import new_for_change_hand
+
+from for_sheet import key_location, create_notes
+
 import buttom_Play
 
 
@@ -110,7 +113,7 @@ def default(collection):
     return(Default_Tona, per_minute)
 
 def openSample1():
-    print('open file : sonatina.xml')
+    print('  open file : sonatina.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
     os.system(cmd)
@@ -227,7 +230,7 @@ def openfile():
 ### def function OK button
 def buttonOKClicked():
     global filename
-    print(filename)
+    # print(filename)
     
     ### default the Mode, Tonation and Tempo
     Mode = Tona = Tem = ''
@@ -235,44 +238,75 @@ def buttonOKClicked():
     '''
     if both  hand, hands = 0
     if right hand, hands = 1
-    if left  hand, hands = 1
+    if left  hand, hands = 2
     '''
     hands = 0
+    hand_is_change = 0
+    tempo_is_change = 0
 
     ''' 
     check the file name and get Mode, Tonation and Tempo
-    get rhythm from var2
-    get accent from var3
+    get Rhythm from var3
     get daul   from var1
     '''
+    ### ### ### ###
+    hand = str(radio_hand.get())
+    if(hand != '0'):
+        hand_is_change = 1
+        new_for_change_hand.change_hand(filename, hand)
+
+    ### ### ### ###
+    # get Tempo
+    Tem = var.get()
+    print('Tempo: ',Tem)
+    if(hand_is_change == 1):
+        filename = 'change_temp.xml'
+        tempo_is_change = 1
+        new_for_change_tempo.change_tempo(filename ,Tem)
+    else:
+        tempo_is_change = 1
+        new_for_change_tempo.change_tempo(filename ,Tem)
+    ### ### ### ###
+    ### ### ### ###
     print("Dual: ",var1.get(), ",  Rhythm: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
     dual = var1.get()
-    Rhythm = var3.get()
-    ### radio for level
-    ### hight level = 2, low level = 1
-    level = str(radio_level.get())
+    rhythm = var3.get()
+ 
+    ### radio for level : hight level = 2, low level = 1, level = 0
+    level = int(radio_level.get())
     print('level: ', level)
+
+    ### ### ### ###
+    print(tempo_is_change, hand_is_change)
+    if (tempo_is_change == 1 or hand_is_change == 1):
+        filename = 'change_temp.xml'
+        DOMTree = xml.dom.minidom.parse(filename)
+        collection = DOMTree.documentElement
+
+        hands = 0
+        new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level)
+    else:
+        if(rhythm == 1 and level != 0):
+            print('b')
+            DOMTree = xml.dom.minidom.parse(filename)
+            collection = DOMTree.documentElement
+
+            hands = 0
+            new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level)
+    ### ### ### ###
 
     ### get Mode value
     Mode = comboboxMode.get()
-    print('Mode: ',Mode)
-    
+    print('Mode: ',Mode)    
 
     # get Tonality value
     Tona = comboboxTona.get()
     print('Tona: ',Tona)
     # for_modify.change_Tona(filename, Tona, accent, daul)
 
-    # get Tempo value
-    Tem = var.get()
-    print('Tempo: ',Tem)
-    new_for_change_tempo.change_tempo(filename ,Tem)
-   
+    
     ### radio for right or left hand
     ### both -> hand = 0 ; right -> hand = 1 ; left -> hand = 2
-    hand = str(radio_hand.get())
-    if(hand != '0'):
-        new_for_change_hand.change_hand(filename, hand)
     
 
 def main():

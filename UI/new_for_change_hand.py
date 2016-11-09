@@ -15,11 +15,12 @@ def change_hand(filename, hand):
                 print(staff_text)
                 if(staff_text != hand):
                     if(note.find('rest') != None):
-                        print('a' ,staff_text)
+                        print('a')
                         # xml.etree.ElementTree.SubElement(note, 'rest')
                     else:
-                        print('b')
+                        # print('b')
                         xml.etree.ElementTree.SubElement(note, 'rest')
 
     tree.write('change_hand.xml')
+    tree.write('change_temp.xml')
     print('  save the file name "change_hand.xml"')
