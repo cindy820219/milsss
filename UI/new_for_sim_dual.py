@@ -5,9 +5,12 @@ import xml.dom.minidom
 ### import ElementTree
 from xml.etree.ElementTree import ElementTree, Element, parse
 
-def simple_dual(DOMTree, collection):
+def simple_dual(DOMTree, collection, level):
     ### ????
     a = 0
+
+    # new_for_parse.py
+
 
     ### to count the number of three dual notes
     chord_pre = 0
@@ -21,8 +24,9 @@ def simple_dual(DOMTree, collection):
     count_rest = 0
 
     ### parsing the file
-    tree = parse('change-parse.xml')
+    tree = parse('change_parse.xml')
     root = tree.getroot()
+    print(' is in the simple_dual function !')
 
     ### pre notes
     daul_pre_note = ''
@@ -37,10 +41,12 @@ def simple_dual(DOMTree, collection):
     for measure in root.iter('measure'):
         measure_max = measure_max +1
 
-
+    print('innnnnnnnnnnnnnnnnnnnnnnn level', level)
     ### write to the test_dual.xml
-    high_dual_fun(root, tree)
-    low_dual_func(root, tree)
+    if(level == 2):
+        high_dual_fun(root, tree)
+    # if(level == 1):
+        # low_dual_func(root, tree)
     
 
 def high_dual_fun(root, tree):
@@ -57,7 +63,7 @@ def high_dual_fun(root, tree):
     is_three_chord = 0 
 
     ### to get the divisions :(((
-    DOMTree = xml.dom.minidom.parse('change-parse.xml')
+    DOMTree = xml.dom.minidom.parse('change_parse.xml')
     collection = DOMTree.documentElement
 
     attrs = collection.getElementsByTagName('attributes')
@@ -155,7 +161,8 @@ def high_dual_fun(root, tree):
     #     for note in measure.iter('note'):
     #         if(note.find('must_chord_delete') != None):
     #             measure.remove(note)
-
+    print('delete_high_dual.xml')
+    tree.write('change_temp.xml')
     tree.write('delete_high_dual.xml')
 
     chord_num = chord_num - chord_three
@@ -553,13 +560,15 @@ def case_delete_function(case):
 
 
 
-    tree.write('case!.xml')
+    tree.write('delete_high_dual.xml')
+    tree.write('change_temp.xml')
+    print('delete_high_dual.xml')
 
 def low_dual_func(root, tree):
     ### low !!!
 
-    tree = parse('sonatina2.xml')
-    root = tree.getroot()
+    # tree = parse('sonatina2.xml')
+    # root = tree.getroot()
 
     ### count all the chord notes
     chord_num = 0
@@ -636,10 +645,12 @@ def low_dual_func(root, tree):
                 measure.remove(note)
 
     tree.write('delete_low_dual.xml')
+    print('  the file "delete_low_dual.xml" is save.')
+    tree.write('change_temp.xml')
 
-DOMTree = xml.dom.minidom.parse('change-parse.xml')
-collection = DOMTree.documentElement
-
-hands = 0
-simple_dual(DOMTree, collection)
+# DOMTree = xml.dom.minidom.parse('change-parse.xml')
+# collection = DOMTree.documentElement
+# level = 1
+# hands = 0
+# simple_dual(DOMTree, collection, level)
 

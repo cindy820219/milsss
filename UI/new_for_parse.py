@@ -8,9 +8,6 @@ from xml.etree.ElementTree import ElementTree, Element, parse
 ### import math
 import math
 
-
-
-
 def add_node_total_PI(DOMTree, note_num_total_PI, total_PI):
     newEle = DOMTree.createElement("TotalPI")
     newText = DOMTree.createTextNode(str(total_PI))
@@ -19,7 +16,8 @@ def add_node_total_PI(DOMTree, note_num_total_PI, total_PI):
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
     DOMTree.toxml()
 
-    file = open("change-parse.xml", 'w')
+    file = open("change_parse.xml", 'w')
+    
     file.write(DOMTree.toxml())
 
 def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
@@ -30,11 +28,11 @@ def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
     DOMTree.toxml()
 
-    file = open("change-parse.xml", 'w')
+    file = open("change_parse.xml", 'w')
     file.write(DOMTree.toxml())
 
 ### ### function about melody pitch
-def melody_pitch_func(step_data, octave_data, alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI):
+def melody_pitch_func(DOMTree, step_data, octave_data, alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI):
     # print(step_data, octave_data, alter_data)
     dict = {'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11}
     # print("C: ", dict['C'])
@@ -69,7 +67,7 @@ def melody_pitch_func(step_data, octave_data, alter_data, staff_data, melody_pit
     DOMTree.getElementsByTagName("note")[note_num_total_PI].appendChild(newEle)
     DOMTree.toxml()
 
-    file = open("change-parse.xml", 'w')
+    file = open("change_parse.xml", 'w')
     file.write(DOMTree.toxml())
 
 
@@ -428,7 +426,7 @@ def parsing(DOMTree, collection, hands):
 
         ### MIDI
         if(step_data != '[ ]'):
-            melody_pitch_func(step_data, str(octave_data), alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI)
+            melody_pitch_func(DOMTree, step_data, str(octave_data), alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI)
 
 
 
@@ -493,9 +491,9 @@ def parsing(DOMTree, collection, hands):
     print()
     print()
    
-DOMTree = xml.dom.minidom.parse('sonatina2.xml')
-collection = DOMTree.documentElement
+# DOMTree = xml.dom.minidom.parse('sonatina2.xml')
+# collection = DOMTree.documentElement
 
-hands = 0
-parsing(DOMTree, collection, hands)
+# hands = 0
+# parsing(DOMTree, collection, hands)
 

@@ -9,10 +9,16 @@ from tkinter import messagebox
 
 ### import ElementTree for parsing 
 import xml.etree.ElementTree as ET
-from xml.etree.ElementTree import parse, Element
+from xml.etree.ElementTree import parse, Element, ElementTree
 
 from xml.dom.minidom import parse
 import xml.dom.minidom
+
+from xml.dom.minidom import parse
+import xml.dom.minidom
+
+### import ElementTree
+from xml.etree.ElementTree import ElementTree, Element, parse
 
 ### import keyboard and thread
 from threading import Thread
@@ -30,6 +36,8 @@ buttom_Play - when the Play button is click
 import new_for_change_tempo
 import new_for_sim_rhythm
 import new_for_change_hand
+import new_for_sim_dual
+import new_for_parse
 
 from for_sheet import key_location, create_notes
 
@@ -230,6 +238,7 @@ def openfile():
 ### def function OK button
 def buttonOKClicked():
     global filename
+    prefile = filename
     # print(filename)
     
     ### default the Mode, Tonation and Tempo
@@ -243,56 +252,83 @@ def buttonOKClicked():
     hands = 0
     hand_is_change = 0
     tempo_is_change = 0
+    rhythm_is_change = 0
+    dual_is_change = 0
 
+    ### Tem
+    Tem = var.get()
+    print('Tempo: ',Tem)
+
+    ### hand
+    hand = str(radio_hand.get())
+    print('hand: ', hand)
+
+    print("Dual: ",var1.get(), ",  Rhythm: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
+    dual = var1.get()
+    rhythm = var3.get()
+
+    ### radio for level : hight level = 2, low level = 1, level = 0
+    level = int(radio_level.get())
+    print('level: ', level)
+
+    ### ### ### ###    
+    print(' ---------->  is tempo change')
+    new_for_change_tempo.change_tempo(filename ,Tem)
+    filename = 'change_temp.xml'
+    ### ### ### ###
+    
     ''' 
     check the file name and get Mode, Tonation and Tempo
     get Rhythm from var3
     get daul   from var1
     '''
     ### ### ### ###
-    hand = str(radio_hand.get())
-    if(hand != '0'):
+    if(hand != '0'): 
+        print(' ---------->  is hand change')
         hand_is_change = 1
         new_for_change_hand.change_hand(filename, hand)
 
     ### ### ### ###
-    # get Tempo
-    Tem = var.get()
-    print('Tempo: ',Tem)
-    if(hand_is_change == 1):
-        filename = 'change_temp.xml'
-        tempo_is_change = 1
-        new_for_change_tempo.change_tempo(filename ,Tem)
-    else:
-        tempo_is_change = 1
-        new_for_change_tempo.change_tempo(filename ,Tem)
-    ### ### ### ###
-    ### ### ### ###
-    print("Dual: ",var1.get(), ",  Rhythm: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
-    dual = var1.get()
-    rhythm = var3.get()
- 
-    ### radio for level : hight level = 2, low level = 1, level = 0
-    level = int(radio_level.get())
-    print('level: ', level)
+    
 
     ### ### ### ###
-    print(tempo_is_change, hand_is_change)
-    if (tempo_is_change == 1 or hand_is_change == 1):
-        filename = 'change_temp.xml'
+    
+    ### ### ### ###
+    if(dual == 1 and level != 0):
+        print(' ---------->  go to the dual simple')
+        if(level ==1):
+            # print('in   filename: ',filename)
+            tree = parse(filename)
+            root = tree.getroot()
+            new_for_sim_dual.low_dual_func(root, tree)
+            print('out')
+
+        if(level == 2):
+            # print('innnnnnnnn')
+            DOMTree = xml.dom.minidom.parse(filename)
+            collection = DOMTree.documentElement
+            hands = 0
+                        
+            new_for_parse.parsing(DOMTree, collection, hands)
+            filename = 'change_parse.xml'
+
+            DOMTree = xml.dom.minidom.parse(filename)
+            collection = DOMTree.documentElement
+
+            new_for_sim_dual.simple_dual(DOMTree, collection, level)
+
+
+    filename = 'change_temp.xml'
+
+    ### Rhythm !!!!!
+    if(rhythm == 1 and level != 0):
+        print(' ---------->  is rhythm simple')
+        
         DOMTree = xml.dom.minidom.parse(filename)
         collection = DOMTree.documentElement
 
         hands = 0
         new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level)
-    else:
-        if(rhythm == 1 and level != 0):
-            print('b')
-            DOMTree = xml.dom.minidom.parse(filename)
-            collection = DOMTree.documentElement
-
-            hands = 0
-            new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level)
     ### ### ### ###
 
     ### get Mode value
@@ -307,7 +343,8 @@ def buttonOKClicked():
     
     ### radio for right or left hand
     ### both -> hand = 0 ; right -> hand = 1 ; left -> hand = 2
-    
+    filename = prefile
+
 
 def main():
     ### global all the event
