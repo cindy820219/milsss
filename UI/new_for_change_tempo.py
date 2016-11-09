@@ -2,8 +2,8 @@
 from xml.etree.ElementTree import ElementTree, Element, parse
 
 ### def funtion write_xml
-def write_xml(tree, out_path):
-    tree.write(out_path, encoding="utf-8",xml_declaration=True)
+# def write_xml(tree, out_path):
+#     tree.write(out_path, encoding="utf-8",xml_declaration=True)
 
 def change_tempo(filename ,Tem):
 
@@ -21,6 +21,7 @@ def change_tempo(filename ,Tem):
     # change the attr - tempo:
     for per_minute in tree.iter('per-minute'):
         per_minute.text = ''
+        Tem = str(Tem)
         per_minute.text += Tem
         # print("tempo change 1: ", per_minute.text)
 
@@ -30,7 +31,8 @@ def change_tempo(filename ,Tem):
         # print("tempo change: ", sound.attrib)
        
         tree.write('change-tempo.xml')
-        print('  the file "change-tem.xml" is saved.')
+        tree.write('change-temp.xml')
+        print('  the file "change-tempo.xml" is saved.')
 
 
 Tem = '40'

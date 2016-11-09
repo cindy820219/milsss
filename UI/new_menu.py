@@ -27,9 +27,9 @@ for_parsing - parse
 for_sheet- draw the sheet
 buttom_Play - when the Play button is click
 '''
-import for_parsing
+import new_for_change_tempo
 from for_sheet import key_location, create_notes
-import for_modify
+import new_for_change_hand
 import buttom_Play
 
 
@@ -47,7 +47,7 @@ def default(collection):
         for key in keys:
             fifths = key.getElementsByTagName('fifths')[0]
             fifths = fifths.childNodes[0].data
-            print('key:' ,fifths)
+            # print('key:' ,fifths)
 
         times = collection.getElementsByTagName('time')
         for time in times:
@@ -57,7 +57,7 @@ def default(collection):
             beats = beats.childNodes[0].data
             beattype = beattype.childNodes[0].data
 
-            print('times: ',beats+'/'+beattype+' ')
+            # print('times: ',beats+'/'+beattype+' ')
             
     ### about the write tempo
     directions = collection.getElementsByTagName('direction')
@@ -70,7 +70,7 @@ def default(collection):
     for sound in sounds:
         if (sound.hasAttribute('tempo')):
             sound = sound.getAttribute('tempo')
-            print('tempo: ',sound)
+            # print('tempo: ',sound)
 
 
     ### Default_Tona
@@ -149,7 +149,6 @@ def openSample1():
     comboboxTona.set(default_tempo_tonation[0])
     scale.set(default_tempo_tonation[1])
 
-
 def openSample2():
     print('open file : sonatina2.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
@@ -225,15 +224,11 @@ def openfile():
     comboboxTona.set(default_tempo_tonation[0])
     scale.set(default_tempo_tonation[1])
 
-
-
 ### def function OK button
 def buttonOKClicked():
-    
-    print('Default_Tona: ',Default_Tona)
-    
     global filename
-
+    print(filename)
+    
     ### default the Mode, Tonation and Tempo
     Mode = Tona = Tem = ''
     
@@ -250,129 +245,35 @@ def buttonOKClicked():
     get accent from var3
     get daul   from var1
     '''
-    print('filename: ', filename)
-    print("Daul: ",var1.get(), "Accent: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
-    
+    print("Dual: ",var1.get(), ",  Rhythm: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
+    dual = var1.get()
+    Rhythm = var3.get()
     ### radio for level
     ### hight level = 2, low level = 1
     level = str(radio_level.get())
     print('level: ', level)
 
-
-    rhythm = var2.get()
-    # print('rhythm: ',rhythm)
-    if(rhythm == 1):
-        for_modify.simple_rhythm(filename)
-
-    accent = var3.get()
-    if(accent == 1):
-       for_modify.simple_accent(w, filename, hands)
-    
-    daul = var1.get()
-    if(daul == 1):
-        for_modify.simple_daul(filename, accent, level)
-
     ### get Mode value
     Mode = comboboxMode.get()
-    print('get Mode: ',Mode)
+    print('Mode: ',Mode)
     
 
-    '''
-    get Tonality value
-
-    call the change_Tona funtion 
-    from ouside file named for_modify 
-    file name, Tonation, Accent and daul 
-    '''
+    # get Tonality value
     Tona = comboboxTona.get()
-    print('get Tona: ',Tona)
-    for_modify.change_Tona(filename, Tona, accent, daul)
+    print('Tona: ',Tona)
+    # for_modify.change_Tona(filename, Tona, accent, daul)
 
-
-    '''
-    get Tempo value
-
-    call the change_tempo funtion 
-    from ouside file named for_modify 
-    file name, Tempo, accent, daul, and tonation
-    '''
+    # get Tempo value
     Tem = var.get()
-    print('get Tem: ',Tem)
-    for_modify.change_tempo(filename, str(Tem), accent, daul, Tona)
+    print('Tempo: ',Tem)
+    new_for_change_tempo.change_tempo(filename ,Tem)
    
-
     ### radio for right or left hand
-    # print('seletion: ', str(radio_hand.get()))
+    ### both -> hand = 0 ; right -> hand = 1 ; left -> hand = 2
     hand = str(radio_hand.get())
-    ### if only one hand, then call the funtion
     if(hand != '0'):
-        hands = 1
-        for_modify.hand(filename, hand, accent, daul, Tona)
-
+        new_for_change_hand.change_hand(filename, hand)
     
-
-
-    '''
-    parsing the 'change-temp.xml' 
-    and turn the file name to 'change-temp.xml' 
-    '''
-    DOMTree = xml.dom.minidom.parse('change-temp.xml')
-    collection = DOMTree.documentElement
-    # hand
-    a = for_parsing.parsing(w, collection, note_x,  MIDI_str, key_x_str, key_y_str, hands)
-
-    filename = 'change-temp.xml'
-    
-    ### external command line
-    ### open XML with the MuseScore and save the file named : test-file.png
-    ### sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/BlueT/Desktop/milsss/UI/change-temp.xml -o /Users/BlueT/Desktop/milsss/UI/change-temp.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change-temp.xml -o /Users/nien/Desktop/milsss/UI/change-temp.png'
-    os.system(cmd)
-
-    ### small 50% : test-file-1.png to small.png
-    cmd = 'convert change-temp-1.png -resize 50% change-temp-small.png'
-    os.system(cmd)
-
-    ### turn the small.png to test-file-1.gif
-    cmd = 'convert -delay 35 -loop 0 change-temp-small.png change-temp-1.gif'
-    os.system(cmd)    
-
-
-    # root = Tk()
-    # image = PhotoImage(file = 'test.gif-file.gif')
-    image = PhotoImage(file = 'change-temp-1.gif')
-    label_image = Label(image = image)
-    label_image.place(x=180,y=-160)
-    label_image.image = image # keep a reference!
-
-
-    ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change-temp.xml -o /Users/nien/Desktop/milsss/UI/wav.wav'
-    os.system(cmd)
-
-
-    ### if hands are two, then change hands = hands
-    ### to mark the hands
-    global change_hands
-    change_hands = 0
-    change_hands = hands
-    # print('hands change: ', change_hands)
-
-    # global w
-    # ### w = Canvas
-    # w = Canvas(width = 910, height = 500, bg = 'yellow')
-    # w.place(x= 278 ,y=38)
-
-    # dialog_title = 'Attention !'
-    # dialog_text = 'Its finished :)'
-
-    # answer = messagebox.askquestion(dialog_title, dialog_text)
-    # if (answer == 'yes'):
-    #     print('yoyoyo')
-
-
-
-
 
 def main():
     ### global all the event
