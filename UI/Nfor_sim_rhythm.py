@@ -270,7 +270,6 @@ def add_Melody_node_func(DOMTree, Melody):
                         note.find('melody').text = 'no_main'
 
     tree.write('change-rhythm.xml')
-    print('    save change-rhythm.xml'))
     high_melody()
     low_melody()
 
