@@ -26,6 +26,9 @@ import _thread
 import sys, pygame, pygame.midi, time
 from pygame.locals import *
 
+
+import pygame
+import time
 '''
 import all the function 
 
@@ -121,6 +124,13 @@ def default(collection):
     return(Default_Tona, per_minute)
 
 def openSample1():
+
+    # global image
+    # image.destroy()
+
+
+    # label_image.config(image='')
+    
     print('  open file : sonatina.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
@@ -139,6 +149,7 @@ def openSample1():
     label_image = Label(image = image)
     label_image.place(x=180,y=-140)
     label_image.image = image # keep a reference!
+
 
     ### turn the xml to wav
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
@@ -163,7 +174,7 @@ def openSample1():
 def openSample2():
     print('open file : sonatina2.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
     os.system(cmd)
 
     ### small 50% : test-file-1.png to small.png
@@ -181,7 +192,7 @@ def openSample2():
     label_image.image = image # keep a reference!
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
     os.system(cmd)
 
     ### filename
@@ -220,6 +231,11 @@ def openfile():
     ### turn the small.png to test-file-1.gif
     cmd = 'convert new_small.png new_readfilegif.gif'
     os.system(cmd)  
+
+    ### turn the xml to wav
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    os.system(cmd)
+
 
     # image = PhotoImage(file = 'test.gif-file.gif')
     image = PhotoImage(file = 'new_readfilegif.gif')
@@ -332,8 +348,8 @@ def buttonOKClicked():
     ### ### ### ###
 
     ### get Mode value
-    Mode = comboboxMode.get()
-    print('Mode: ',Mode)    
+   
+
 
     # get Tonality value
     Tona = comboboxTona.get()
@@ -345,6 +361,47 @@ def buttonOKClicked():
     ### both -> hand = 0 ; right -> hand = 1 ; left -> hand = 2
     filename = prefile
 
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    os.system(cmd)
+
+    ### small 50% : test-file-1.png to small.png
+    cmd = 'convert new_readxml-1.png -resize 40% new_small.png'
+    os.system(cmd)
+
+    ### turn the small.png to test-file-1.gif
+    cmd = 'convert new_small.png new_readfilegif.gif'
+    os.system(cmd)    
+
+    ### turn the xml to wav
+
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    os.system(cmd)
+
+
+    # image = PhotoImage(file = 'test.gif-file.gif')
+    image = PhotoImage(file = 'new_readfilegif.gif')
+    label_image = Label(image = image)
+    label_image.place(x=180,y=-140)
+    label_image.image = image # keep a reference!
+
+
+def play(x, y):    
+    pygame.mixer.music.load('new_wav.wav')
+    pygame.mixer.music.play()
+    time.sleep(10000)
+
+def buttonStopClicked():
+    pygame.mixer.music.stop()    
+
+def buttonPlayClicked():
+
+    Mode = comboboxMode.get()
+    print('Mode: ',Mode)    
+
+    ### init pygame and call the thread!
+    pygame.init()
+    th = Thread(target=play, args=(1,2))
+    th.start()
 
 def main():
     ### global all the event
@@ -414,8 +471,11 @@ def main():
     buttonOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttonOKClicked)
     buttonOK.place(x=40, y=450)
 
-    # buttonPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttonPlayClicked)
-    # buttonPlay.place(x=20, y=520)
+    buttonPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttonPlayClicked)
+    buttonPlay.place(x=40, y=490)
+
+    buttonPlay = tk.Button(root, relief='flat', text='Stop', width=10, command = buttonStopClicked)
+    buttonPlay.place(x=40, y=530)
 
     # Create the Menu 
     menubar = Menu(root)
