@@ -41,10 +41,14 @@ import new_for_sim_rhythm
 import new_for_change_hand
 import new_for_sim_dual
 import new_for_parse
+import new_for_change_tonation
 
-from for_sheet import key_location, create_notes
 
-import buttom_Play
+import untitled
+
+# from for_sheet import key_location, create_notes
+
+# import buttom_Play
 
 
 ### call the external command
@@ -101,9 +105,16 @@ def default(collection):
     if (fifths == '5'):
         Default_Tona = 'C'
         print('  is too difficult!')
+        messagebox.showinfo("Alter", "Toooo difficult")
     if (fifths == '6'):
         Default_Tona = 'C'
         print('  is too difficult!')
+        messagebox.showinfo("Alter ", "Toooo difficult")
+    if (fifths == '7'):
+        Default_Tona = 'C'
+        print('  is too difficult!')
+        messagebox.showinfo("Alter ", "Toooo difficult")
+
 
     if (fifths == '-1'):
         Default_Tona = 'F'
@@ -115,10 +126,14 @@ def default(collection):
         Default_Tona = 'Ab'
     if (fifths == '-5'):
         Default_Tona = 'C'
-        print('  is too difficult!')
+        messagebox.showinfo("Alter", "Toooo difficult")
     if (fifths == '-6'):
         Default_Tona = 'C'
+        messagebox.showinfo("Alter", "Toooo difficult")
+    if (fifths == '-7'):
+        Default_Tona = 'C'
         print('  is too difficult!')
+        messagebox.showinfo("Alter ", "Toooo difficult")
 
     # print('Default_Tona: ',Default_Tona)
     return(Default_Tona, per_minute)
@@ -358,9 +373,9 @@ def buttonOKClicked():
         new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level_radio_rhythm)
     ### ### ### ###
 
-    # print('aaaaaaa: ',Tona)
+    print('aaaaaaa: ',Tona)
     # new_for_change_tonation.change_Tonation(filename, Tona)
-
+    untitled.change_Tonation(filename, Tona)
 
 
 
