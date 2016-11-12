@@ -320,7 +320,7 @@ def low_melody():
 
 def rhythm_parsing(DOMTree, collection, hands, rhythm, level):
     # print('rhythm: ',rhythm)
-    print('level: ',level)
+    # print('level: ',level)
 
     ### melody define
     melody_cutnote = []

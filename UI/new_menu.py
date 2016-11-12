@@ -285,23 +285,28 @@ def buttonOKClicked():
 
     ### radio for level : hight level = 2, low level = 1, level = 0
     level = int(radio_level.get())
-    print('level: ', level)
+    print('level Dual: ', level)
+
+    level_radio_rhythm = int(radio_rhythm.get())
+    print('level rhythm: ', level_radio_rhythm)
+
 
     ### ### ### ###    
     print(' ---------->  is tempo change')
     new_for_change_tempo.change_tempo(filename ,Tem)
     filename = 'change_temp.xml'
     ### ### ### ###
-    
+
     ''' 
     check the file name and get Mode, Tonation and Tempo
     get Rhythm from var3
     get daul   from var1
     '''
+
     ### ### ### ###
     if(hand != '0'): 
         print(' ---------->  is hand change')
-        hand_is_change = 1
+        # hand_is_change = 1
         new_for_change_hand.change_hand(filename, hand)
 
     ### ### ### ###
@@ -313,31 +318,33 @@ def buttonOKClicked():
     if(dual == 1 and level != 0):
         print(' ---------->  go to the dual simple')
         if(level ==1):
-            # print('in   filename: ',filename)
+            print(' ---------->  go to the dual simple 1')
             tree = parse(filename)
             root = tree.getroot()
+            
             new_for_sim_dual.low_dual_func(root, tree)
-            print('out')
+            # print('out')
 
         if(level == 2):
-            # print('innnnnnnnn')
+            print(' ---------->  go to the dual simple 2')
             DOMTree = xml.dom.minidom.parse(filename)
             collection = DOMTree.documentElement
             hands = 0
                         
             new_for_parse.parsing(DOMTree, collection, hands)
             filename = 'change_parse.xml'
+            # change_parse.xml
 
             DOMTree = xml.dom.minidom.parse(filename)
             collection = DOMTree.documentElement
 
             new_for_sim_dual.simple_dual(DOMTree, collection, level)
 
-
-    filename = 'change_temp.xml'
+            filename = 'change_temp.xml'
+    
 
     ### Rhythm !!!!!
-    if(rhythm == 1 and level != 0):
+    if(rhythm == 1 and level_radio_rhythm != 0):
         print(' ---------->  is rhythm simple')
         
         DOMTree = xml.dom.minidom.parse(filename)
@@ -347,19 +354,21 @@ def buttonOKClicked():
         new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level)
     ### ### ### ###
 
+
+
+
+
     ### get Mode value
-   
-
-
     # get Tonality value
     Tona = comboboxTona.get()
     print('Tona: ',Tona)
     # for_modify.change_Tona(filename, Tona, accent, daul)
 
+    print('save change_temp')
     
     ### radio for right or left hand
     ### both -> hand = 0 ; right -> hand = 1 ; left -> hand = 2
-    filename = prefile
+    # filename = prefile
 
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
     os.system(cmd)
@@ -406,7 +415,7 @@ def buttonPlayClicked():
 def main():
     ### global all the event
     global label_2, label_3, label_4, label_keyboard
-    global comboboxMode, comboboxTona, scale, var1, var2, var3, var, radio_hand, radio_level
+    global comboboxMode, comboboxTona, scale, var1, var2, var3, var, radio_hand, radio_level, radio_rhythm
 
     ### labal
     veiw = Frame(root,width="1400", height="700") 
@@ -421,45 +430,52 @@ def main():
 
     # Checkbutton - Daul (var1), Rhythm (var2), Accent (var3)
     var1 = IntVar()
-    Checkbutton(root, text="Dual", variable=var1).place(x=30,y=140)
+    Checkbutton(root, text="Dual", variable=var1).place(x=25,y=150)
     
     var2 = IntVar()
     # Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
     
     var3 = IntVar()
-    Checkbutton(root, text="Rhythm", variable=var3).place(x=30,y=170)
+    Checkbutton(root, text="Rhythm", variable=var3).place(x=25,y=220)
 
     
-    ### radio for level
+    ### radio for level_Dual
     radio_level = IntVar()
     # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
-    Radiobutton(root, text='original', variable=radio_level, value='0').place(x=110, y=130)
-    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=110, y=150)
-    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=110, y=170)
+    Radiobutton(root, text='original', variable=radio_level, value='0').place(x=100, y=130)
+    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=100, y=150)
+    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=100, y=170)
+
+    ### radio for level_Rhythm
+    radio_rhythm = IntVar()
+    # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
+    Radiobutton(root, text='original', variable=radio_rhythm, value='0').place(x=100, y=200)
+    Radiobutton(root, text='High', variable=radio_rhythm, value='2').place(x=100, y=220)
+    Radiobutton(root, text='Low', variable=radio_rhythm, value='1').place(x=100, y=240)
 
     ### comboboxMode Mode
-    label_2 = tk.Label(root,text='Mode').place(x=10, y=250)
+    label_2 = tk.Label(root,text='Mode').place(x=10, y=300)
 
     comboboxMode = ttk.Combobox(root, width =10)
-    comboboxMode.place(x=70, y=250)
+    comboboxMode.place(x=70, y=300)
     comboboxMode['state'] = ['readonly']
     comboboxMode['values'] = ['Listen','Practice','Play']
     Default_Listen = comboboxMode.set('Listen')
 
     ### comboboxMode Tonality
-    label_3 = tk.Label(root,text='Tonality').place(x=10, y=290) 
+    label_3 = tk.Label(root,text='Tonality').place(x=10, y=340) 
 
     comboboxTona = ttk.Combobox(root, width =10)
-    comboboxTona.place(x=70, y=290)
+    comboboxTona.place(x=70, y=340)
     comboboxTona['state'] = ['readonly']
     comboboxTona['values'] = ['C','G','D','A','E','F','Bb','Eb','Ab']
 
     ### scale tempo
-    label_4 = tk.Label(root,text='Speed').place(x=10, y=340)
+    label_4 = tk.Label(root,text='Speed').place(x=10, y=390)
 
     var = DoubleVar()
     scale = Scale( root, variable = var, orient=HORIZONTAL,from_=40, to=200,activebackground = 'magenta', foreground = 'blue')
-    scale.place(x=70, y=320)
+    scale.place(x=70, y=370)
 
     ### keyboard picture
     # keyboard = PhotoImage(file = 'keyboard.gif')
@@ -474,8 +490,8 @@ def main():
     buttonPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttonPlayClicked)
     buttonPlay.place(x=40, y=490)
 
-    buttonPlay = tk.Button(root, relief='flat', text='Stop', width=10, command = buttonStopClicked)
-    buttonPlay.place(x=40, y=530)
+    buttonStop = tk.Button(root, relief='flat', text='Stop', width=10, command = buttonStopClicked)
+    buttonStop.place(x=40, y=530)
 
     # Create the Menu 
     menubar = Menu(root)
