@@ -290,6 +290,9 @@ def buttonOKClicked():
     level_radio_rhythm = int(radio_rhythm.get())
     print('level rhythm: ', level_radio_rhythm)
 
+    # get Tonality value
+    Tona = comboboxTona.get()
+    print('Tona: ',Tona)
 
     ### ### ### ###    
     print(' ---------->  is tempo change')
@@ -316,6 +319,7 @@ def buttonOKClicked():
     
     ### ### ### ###
     if(dual == 1 and level != 0):
+        print('aaaaaaaaaaaaaaaa: ', level)
         print(' ---------->  go to the dual simple')
         if(level ==1):
             print(' ---------->  go to the dual simple 1')
@@ -351,24 +355,14 @@ def buttonOKClicked():
         collection = DOMTree.documentElement
 
         hands = 0
-        new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level)
+        new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level_radio_rhythm)
     ### ### ### ###
 
+    # print('aaaaaaa: ',Tona)
+    # new_for_change_tonation.change_Tonation(filename, Tona)
 
 
 
-
-    ### get Mode value
-    # get Tonality value
-    Tona = comboboxTona.get()
-    print('Tona: ',Tona)
-    # for_modify.change_Tona(filename, Tona, accent, daul)
-
-    print('save change_temp')
-    
-    ### radio for right or left hand
-    ### both -> hand = 0 ; right -> hand = 1 ; left -> hand = 2
-    # filename = prefile
 
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
     os.system(cmd)

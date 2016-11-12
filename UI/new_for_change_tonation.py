@@ -187,11 +187,7 @@ def change_Tona_change_notes(filename,add_key):
 
 ### def function to change tonation
 def change_Tona(filename, Tona ,accent, daul):
-    ### if daul or accent is changed, then read file named 'change-temp.xml'
-    if (accent == 1 or daul == 1): 
-        filename = 'change-temp.xml'
-    # print('  is me ! tona: ', Tona)
-
+    
     ### parsing the file
     DOMTree = xml.dom.minidom.parse(filename)
     collection = DOMTree.documentElement

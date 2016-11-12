@@ -272,7 +272,7 @@ def add_Melody_node_func(DOMTree, Melody, level):
                         xml.etree.ElementTree.SubElement(note, 'melody')
                         note.find('melody').text = 'no_main'
 
-    tree.write('change-rhythm.xml')
+    tree.write('change_rhythm.xml')
     
     if(level == 2):
         high_melody()
@@ -282,7 +282,7 @@ def add_Melody_node_func(DOMTree, Melody, level):
 def high_melody():
     print('high')
 
-    tree = parse('change-rhythm.xml')
+    tree = parse('change_rhythm.xml')
     root = tree.getroot()
 
     for measure in root.iter('measure'):
@@ -304,7 +304,7 @@ def high_melody():
 def low_melody():
     print('low')
 
-    tree = parse('change-rhythm.xml')
+    tree = parse('change_rhythm.xml')
     root = tree.getroot()
 
     for measure in root.iter('measure'):
@@ -319,7 +319,7 @@ def low_melody():
     print('  save the file name "delete_low.xml"')
 
 def rhythm_parsing(DOMTree, collection, hands, rhythm, level):
-    # print('rhythm: ',rhythm)
+    print(' ---------->  in rhythm_parsing funtion')
     # print('level: ',level)
 
     ### melody define

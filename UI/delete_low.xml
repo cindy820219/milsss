@@ -93,11 +93,11 @@
         <direction-type>
           <metronome parentheses="no">
             <beat-unit>quarter</beat-unit>
-            <per-minute>120.0</per-minute>
+            <per-minute>176.0</per-minute>
             </metronome>
           </direction-type>
         <staff>1</staff>
-        <sound tempo="120.0" />
+        <sound tempo="176.0" />
         </direction>
       <note default-x="80.67" default-y="-15.00">
         <pitch>
