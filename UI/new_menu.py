@@ -65,6 +65,8 @@ def default(collection):
         for key in keys:
             fifths = key.getElementsByTagName('fifths')[0]
             fifths = fifths.childNodes[0].data
+
+            global fifths
             # print('key:' ,fifths)
 
         times = collection.getElementsByTagName('time')
@@ -372,10 +374,11 @@ def buttonOKClicked():
         hands = 0
         new_for_sim_rhythm.rhythm_parsing(DOMTree, collection, hands, rhythm, level_radio_rhythm)
     ### ### ### ###
-
-    print('aaaaaaa: ',Tona)
+    
+    # print('default original tonational: ', fifths)
+    # print('change tona: ',Tona)
     # new_for_change_tonation.change_Tonation(filename, Tona)
-    untitled.change_Tonation(filename, Tona)
+    untitled.change_Tonation(filename, fifths, Tona)
 
 
 
