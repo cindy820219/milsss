@@ -84,8 +84,7 @@ def change_Tonation(filename, fifths, Tona):
                 
                 new = func_new_MIDI(new_MIDI)
                 # print(new[0], new[1], new[2])
-                # print(new[2])
-                new_alter = str(new[2])
+            
 
                 for pitch in note.iter('pitch'):
                     for step in pitch.iter('step'):
@@ -94,13 +93,24 @@ def change_Tonation(filename, fifths, Tona):
                     for octave in pitch.iter('octave'):
                         octave.text = new[1]
 
-                    # for alter in pitch.iter('alter'):
+                    altert = pitch.find('alter')
+
+                    if(altert != None):
+                        for alter in pitch.iter('alter'):
+                            alter.text = new[2]
+                    else:
+                        xml.etree.ElementTree.SubElement(pitch, 'alter')
+                        pitch.find('alter').text = new[2]
+
+                    # ### if find 'alter'
+                    # alter.text = new[2]
                     # for alter in pitch.iter('alter'):
                     #     alter.text = new[2]
-
-                    xml.etree.ElementTree.SubElement(pitch, 'alter')
-                    pitch.find('alter').text = new_alter
-
+                    
+                    ### if not find 'alter', add node alter
+                    # xml.etree.ElementTree.SubElement(pitch, 'alter')
+                    # pitch.find('alter').text = new[2]
+                    print('------------')
                         
     tree.write('change_tonation.xml')
     print(' ---------->  have change tonational')
