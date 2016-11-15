@@ -17,8 +17,9 @@ def add_node_total_PI(DOMTree, note_num_total_PI, total_PI):
     DOMTree.toxml()
 
     file = open("change_parse.xml", 'w')
-    
+    file1 = open("change_temp.xml", 'w')
     file.write(DOMTree.toxml())
+    file1.write(DOMTree.toxml())
 
 def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
     newEle = DOMTree.createElement("rhythm")
@@ -29,7 +30,9 @@ def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
     DOMTree.toxml()
 
     file = open("change_parse.xml", 'w')
+    file1 = open("change_temp.xml", 'w')
     file.write(DOMTree.toxml())
+    file1.write(DOMTree.toxml())
 
 ### ### function about melody pitch
 def melody_pitch_func(DOMTree, step_data, octave_data, alter_data, staff_data, melody_pitch_temp_R, melody_pitch_temp_L, note_num_total_PI):
@@ -68,7 +71,9 @@ def melody_pitch_func(DOMTree, step_data, octave_data, alter_data, staff_data, m
     DOMTree.toxml()
 
     file = open("change_parse.xml", 'w')
+    file1 = open("change_temp.xml", 'w')
     file.write(DOMTree.toxml())
+    file1.write(DOMTree.toxml())
 
 
 def parsing(DOMTree, collection, hands):

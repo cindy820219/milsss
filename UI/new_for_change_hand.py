@@ -21,6 +21,7 @@ def change_hand(filename, hand):
                         # print('b')
                         xml.etree.ElementTree.SubElement(note, 'rest')
 
-    tree.write('change_hand.xml')
+    # tree.write('change_hand.xml')
     tree.write('change_temp.xml')
-    print('  save the file name "change_hand.xml"')
+    # print('  save the file name "change_hand.xml"')
+    print(' ---------->  have change hands')

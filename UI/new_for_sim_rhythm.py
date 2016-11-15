@@ -299,6 +299,7 @@ def high_melody():
                     xml.etree.ElementTree.SubElement(note, 'rest')
     tree.write('delete_high.xml')
     tree.write('change_temp.xml')
+    print(' ---------->  have change high rhythm')
     print('  save the file name "delete_high.xml"')
 
 def low_melody():
@@ -316,6 +317,7 @@ def low_melody():
 
     tree.write('delete_low.xml')
     tree.write('change_temp.xml')
+    print(' ---------->  have change low rhythm')
     print('  save the file name "delete_low.xml"')
 
 def rhythm_parsing(DOMTree, collection, hands, rhythm, level):

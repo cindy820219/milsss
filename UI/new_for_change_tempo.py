@@ -32,9 +32,10 @@ def change_tempo(filename ,Tem):
         sound.set("tempo", Tem)
         # print("tempo change: ", sound.attrib)
        
-        tree.write('change_tempo.xml')
+        # tree.write('change_tempo.xml')
         tree.write('change_temp.xml')
-        print('  the file "change_tempo.xml" is saved.')
+        # print('  the file "change_tempo.xml" is saved.')
+        print(' ---------->  have change tempo')
 
 
 # Tem = '40'

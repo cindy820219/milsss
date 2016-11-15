@@ -7,28 +7,23 @@ import tkinter.filedialog as filedialog
 
 from tkinter import messagebox
 
-### import ElementTree for parsing 
-import xml.etree.ElementTree as ET
-from xml.etree.ElementTree import parse, Element, ElementTree
-
-from xml.dom.minidom import parse
-import xml.dom.minidom
-
-from xml.dom.minidom import parse
-import xml.dom.minidom
-
-### import ElementTree
-from xml.etree.ElementTree import ElementTree, Element, parse
-
 ### import keyboard and thread
 from threading import Thread
 import _thread
 import sys, pygame, pygame.midi, time
 from pygame.locals import *
 
-
 import pygame
 import time
+
+### import minidom
+from xml.dom.minidom import parse
+import xml.dom.minidom
+
+### import ElementTree
+from xml.etree.ElementTree import ElementTree, Element, parse
+
+
 '''
 import all the function 
 
@@ -43,9 +38,6 @@ import new_for_sim_dual
 import new_for_parse
 import new_for_change_tonation
 
-
-import untitled
-
 # from for_sheet import key_location, create_notes
 
 # import buttom_Play
@@ -55,6 +47,8 @@ import untitled
 from subprocess import call
 import os
 
+
+
 # from PIL import *
 # from PIL import Image, ImageTk
 
@@ -63,10 +57,11 @@ def default(collection):
     for attr in attrs:
         keys = collection.getElementsByTagName('key')
         for key in keys:
+            global fifths
             fifths = key.getElementsByTagName('fifths')[0]
             fifths = fifths.childNodes[0].data
 
-            global fifths
+            # global fifths
             # print('key:' ,fifths)
 
         times = collection.getElementsByTagName('time')
@@ -105,13 +100,13 @@ def default(collection):
     if (fifths == '4'):
         Default_Tona = 'E'
     if (fifths == '5'):
-        Default_Tona = 'C'
-        print('  is too difficult!')
-        messagebox.showinfo("Alter", "Toooo difficult")
+        Default_Tona = 'B'
+        # print('  is too difficult!')
+        # messagebox.showinfo("Alter", "Toooo difficult")
     if (fifths == '6'):
-        Default_Tona = 'C'
-        print('  is too difficult!')
-        messagebox.showinfo("Alter ", "Toooo difficult")
+        Default_Tona = 'Gb'
+        # print('  is too difficult!')
+        # messagebox.showinfo("Alter ", "Toooo difficult")
     if (fifths == '7'):
         Default_Tona = 'C'
         print('  is too difficult!')
@@ -127,15 +122,15 @@ def default(collection):
     if (fifths == '-4'):
         Default_Tona = 'Ab'
     if (fifths == '-5'):
-        Default_Tona = 'C'
-        messagebox.showinfo("Alter", "Toooo difficult")
+        Default_Tona = 'Db'
+        # messagebox.showinfo("Alter", "Toooo difficult")
     if (fifths == '-6'):
-        Default_Tona = 'C'
-        messagebox.showinfo("Alter", "Toooo difficult")
+        Default_Tona = 'Gb'
+        # messagebox.showinfo("Alter", "Toooo difficult")
     if (fifths == '-7'):
         Default_Tona = 'C'
-        print('  is too difficult!')
-        messagebox.showinfo("Alter ", "Toooo difficult")
+        # print('  is too difficult!')
+        # messagebox.showinfo("Alter ", "Toooo difficult")
 
     # print('Default_Tona: ',Default_Tona)
     return(Default_Tona, per_minute)
@@ -150,7 +145,7 @@ def openSample1():
     
     print('  open file : sonatina.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
     os.system(cmd)
 
     ### small 50% : test-file-1.png to small.png
@@ -169,12 +164,12 @@ def openSample1():
 
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
     os.system(cmd)
 
     ### filename
     global filename
-    filename = 'sonatina.xml'
+    filename = 'Samplesonatina.xml'
 
     ### hand
     global hands
@@ -188,10 +183,12 @@ def openSample1():
     comboboxTona.set(default_tempo_tonation[0])
     scale.set(default_tempo_tonation[1])
 
+
+
 def openSample2():
     print('open file : sonatina2.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
     os.system(cmd)
 
     ### small 50% : test-file-1.png to small.png
@@ -209,12 +206,12 @@ def openSample2():
     label_image.image = image # keep a reference!
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
     os.system(cmd)
 
     ### filename
     global filename
-    filename = 'sonatina2.xml'
+    filename = 'Samplesonatina2.xml'
 
     ### hand
     # global hands
@@ -250,8 +247,12 @@ def openfile():
     os.system(cmd)  
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/sonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
-    os.system(cmd)
+    cmd = 'sudo '
+    cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
+    cmd2 = filename
+    cmd3 = ' -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
+    os.system(cmd + cmd1  + cmd2 + cmd3)
 
 
     # image = PhotoImage(file = 'test.gif-file.gif')
@@ -277,6 +278,12 @@ def buttonOKClicked():
     ### default the Mode, Tonation and Tempo
     Mode = Tona = Tem = ''
     
+    # hands = 0
+    # DOMTree = xml.dom.minidom.parse(filename)
+    # collection = DOMTree.documentElement
+
+    # new_for_parse.parsing(DOMTree, collection, hands)
+
     '''
     if both  hand, hands = 0
     if right hand, hands = 1
@@ -336,10 +343,8 @@ def buttonOKClicked():
     
     ### ### ### ###
     if(dual == 1 and level != 0):
-        print('aaaaaaaaaaaaaaaa: ', level)
-        print(' ---------->  go to the dual simple')
         if(level ==1):
-            print(' ---------->  go to the dual simple 1')
+            print(' ---------->  go to the dual low simple 1')
             tree = parse(filename)
             root = tree.getroot()
             
@@ -347,7 +352,7 @@ def buttonOKClicked():
             # print('out')
 
         if(level == 2):
-            print(' ---------->  go to the dual simple 2')
+            print(' ---------->  go to the dual  high simple 2')
             DOMTree = xml.dom.minidom.parse(filename)
             collection = DOMTree.documentElement
             hands = 0
@@ -366,7 +371,7 @@ def buttonOKClicked():
 
     ### Rhythm !!!!!
     if(rhythm == 1 and level_radio_rhythm != 0):
-        print(' ---------->  is rhythm simple')
+        print(' ---------->  go to rhythm simple')
         
         DOMTree = xml.dom.minidom.parse(filename)
         collection = DOMTree.documentElement
@@ -378,9 +383,7 @@ def buttonOKClicked():
     # print('default original tonational: ', fifths)
     # print('change tona: ',Tona)
     # new_for_change_tonation.change_Tonation(filename, Tona)
-    untitled.change_Tonation(filename, fifths, Tona)
-
-
+    new_for_change_tonation.change_Tonation(filename, fifths, Tona)
 
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
     os.system(cmd)
@@ -405,11 +408,16 @@ def buttonOKClicked():
     label_image.place(x=180,y=-140)
     label_image.image = image # keep a reference!
 
+    messagebox.showinfo("Yo", "It's finished !")
+
 
 def play(x, y):    
     pygame.mixer.music.load('new_wav.wav')
     pygame.mixer.music.play()
     time.sleep(10000)
+
+    messagebox.showinfo("Over", "Play over")
+
 
 def buttonStopClicked():
     pygame.mixer.music.stop()    
