@@ -95,22 +95,14 @@ def change_Tonation(filename, fifths, Tona):
 
                     altert = pitch.find('alter')
 
+                    # ### if find 'alter'
                     if(altert != None):
                         for alter in pitch.iter('alter'):
                             alter.text = new[2]
+                    ### if not find 'alter', add node alter
                     else:
                         xml.etree.ElementTree.SubElement(pitch, 'alter')
-                        pitch.find('alter').text = new[2]
-
-                    # ### if find 'alter'
-                    # alter.text = new[2]
-                    # for alter in pitch.iter('alter'):
-                    #     alter.text = new[2]
-                    
-                    ### if not find 'alter', add node alter
-                    # xml.etree.ElementTree.SubElement(pitch, 'alter')
-                    # pitch.find('alter').text = new[2]
-                    print('------------')
+                        pitch.find('alter').text = new[2]      
                         
     tree.write('change_tonation.xml')
     print(' ---------->  have change tonational')
