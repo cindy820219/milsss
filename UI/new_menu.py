@@ -145,21 +145,21 @@ def openSample1():
     
     print('  open file : sonatina.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina.xml -o /Users/nien/Desktop/milsss/UI/file.png'
     os.system(cmd)
 
+    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     ### small 50% : test-file-1.png to small.png
-    cmd = 'convert new_readxml-1.png -resize 40% new_small.png'
+    # cmd = 'convert file-1.png -resize 40% file_small.png'
+    cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
     os.system(cmd)
-
-    ### turn the small.png to test-file-1.gif
-    cmd = 'convert new_small.png new_readfilegif.gif'
-    os.system(cmd)    
+    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
+    os.system(cmd)
 
     # image = PhotoImage(file = 'test.gif-file.gif')
-    image = PhotoImage(file = 'new_readfilegif.gif')
+    image = PhotoImage(file = 'file_small.gif')
     label_image = Label(image = image)
-    label_image.place(x=180,y=-140)
+    label_image.place(x=180,y=-250)
     label_image.image = image # keep a reference!
 
 
@@ -188,21 +188,23 @@ def openSample1():
 def openSample2():
     print('open file : sonatina2.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina2.xml -o /Users/nien/Desktop/milsss/UI/file.png'
     os.system(cmd)
 
+    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     ### small 50% : test-file-1.png to small.png
-    cmd = 'convert new_readxml-1.png -resize 40% new_small.png'
+    # cmd = 'convert file-1.png -resize 40% file_small.png'
+    cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
     os.system(cmd)
-
-    ### turn the small.png to test-file-1.gif
-    cmd = 'convert new_small.png new_readfilegif.gif'
-    os.system(cmd)    
+    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
+    os.system(cmd)
+    # cmd = 'convert -quality 100 -resize 95% file_small.gif file_small.gif'
+    # os.system(cmd)  
 
     # image = PhotoImage(file = 'test.gif-file.gif')
-    image = PhotoImage(file = 'new_readfilegif.gif')
+    image = PhotoImage(file = 'file_small.gif')
     label_image = Label(image = image)
-    label_image.place(x=180,y=-140)
+    label_image.place(x=180,y=-250)
     label_image.image = image # keep a reference!
 
     ### turn the xml to wav
@@ -231,20 +233,28 @@ def openfile():
     filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
     print(root.fileName)
     
+    tree = parse(filename)
+    aroot = tree.getroot()
+
+    ### change the page-width
+    for page in aroot.iter('page-width'):
+        # print(page.text)
+        page.text = '980'
+    tree.write(filename)
+
     cmd = 'sudo '
     cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
     cmd2 = filename
-    cmd3 = ' -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    cmd3 = ' -o /Users/nien/Desktop/milsss/UI/file.png'
     # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
     os.system(cmd + cmd1  + cmd2 + cmd3)
 
-    ### small 50% : test-file-1.png to small.png
-    cmd = 'convert new_readxml-1.png -resize 40% new_small.png'
+    # cmd = 'convert file-1.png -resize 40% file_small.png'
+    cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
+    os.system(cmd)
+    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
     os.system(cmd)
 
-    ### turn the small.png to test-file-1.gif
-    cmd = 'convert new_small.png new_readfilegif.gif'
-    os.system(cmd)  
 
     ### turn the xml to wav
     cmd = 'sudo '
@@ -256,9 +266,9 @@ def openfile():
 
 
     # image = PhotoImage(file = 'test.gif-file.gif')
-    image = PhotoImage(file = 'new_readfilegif.gif')
+    image = PhotoImage(file = 'file_small.gif')
     label_image = Label(image = image)
-    label_image.place(x=180,y=-140)
+    label_image.place(x=180,y=-250)
     label_image.image = image # keep a reference!
 
     DOMTree = xml.dom.minidom.parse(filename)
@@ -303,16 +313,16 @@ def buttonOKClicked():
     hand = str(radio_hand.get())
     print('hand: ', hand)
 
-    print("Dual: ",var1.get(), ",  Rhythm: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
-    dual = var1.get()
-    rhythm = var3.get()
+    # print("Dual: ",var1.get(), ",  Rhythm: ",var3.get()) ###, "Rhythm: ",var2.get(), "Accent: ",var3.get())
+    # dual = var1.get()
+    # rhythm = var3.get()
 
     ### radio for level : hight level = 2, low level = 1, level = 0
     level = int(radio_level.get())
-    print('level Dual: ', level)
+    # print('level Dual: ', level)
 
     level_radio_rhythm = int(radio_rhythm.get())
-    print('level rhythm: ', level_radio_rhythm)
+    # print('level rhythm: ', level_radio_rhythm)
 
     # get Tonality value
     Tona = comboboxTona.get()
@@ -342,7 +352,7 @@ def buttonOKClicked():
     ### ### ### ###
     
     ### ### ### ###
-    if(dual == 1 and level != 0):
+    if(level != 0):
         if(level ==1):
             print(' ---------->  go to the dual low simple 1')
             tree = parse(filename)
@@ -370,9 +380,9 @@ def buttonOKClicked():
     
 
     ### Rhythm !!!!!
-    if(rhythm == 1 and level_radio_rhythm != 0):
+    if(level_radio_rhythm != 0):
         print(' ---------->  go to rhythm simple')
-        
+        rhythm = 1
         DOMTree = xml.dom.minidom.parse(filename)
         collection = DOMTree.documentElement
 
@@ -385,17 +395,14 @@ def buttonOKClicked():
     # new_for_change_tonation.change_Tonation(filename, Tona)
     new_for_change_tonation.change_Tonation(filename, fifths, Tona)
 
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_readxml.png'
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/file.png'
     os.system(cmd)
 
-    ### small 50% : test-file-1.png to small.png
-    cmd = 'convert new_readxml-1.png -resize 40% new_small.png'
+    ### small 70%
+    cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
     os.system(cmd)
-
-    ### turn the small.png to test-file-1.gif
-    cmd = 'convert new_small.png new_readfilegif.gif'
-    os.system(cmd)    
-
+    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
+    os.system(cmd)
     ### turn the xml to wav
 
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
@@ -403,9 +410,9 @@ def buttonOKClicked():
 
 
     # image = PhotoImage(file = 'test.gif-file.gif')
-    image = PhotoImage(file = 'new_readfilegif.gif')
+    image = PhotoImage(file = 'file_small.gif')
     label_image = Label(image = image)
-    label_image.place(x=180,y=-140)
+    label_image.place(x=180,y=-250)
     label_image.image = image # keep a reference!
 
     messagebox.showinfo("Yo", "It's finished !")
@@ -438,7 +445,7 @@ def main():
     global comboboxMode, comboboxTona, scale, var1, var2, var3, var, radio_hand, radio_level, radio_rhythm
 
     ### labal
-    veiw = Frame(root,width="1400", height="700") 
+    veiw = Frame(root,width="1450", height="700") 
     # veiw.grid(row=0,column=0)
     veiw.pack()
 
@@ -449,29 +456,32 @@ def main():
     Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=30, y=80)
 
     # Checkbutton - Daul (var1), Rhythm (var2), Accent (var3)
-    var1 = IntVar()
-    Checkbutton(root, text="Dual", variable=var1).place(x=25,y=150)
+    # var1 = IntVar()
+    # Checkbutton(root, text="Dual", variable=var1).place(x=25,y=150)
     
-    var2 = IntVar()
-    # Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
+    # var2 = IntVar()
+    # # Checkbutton(root, text="Rhythm", variable=var2).place(x=70,y=50)
     
-    var3 = IntVar()
-    Checkbutton(root, text="Rhythm", variable=var3).place(x=25,y=220)
+    # var3 = IntVar()
+    # Checkbutton(root, text="Rhythm", variable=var3).place(x=25,y=220)
 
     
+    label_5 = tk.Label(root,text='Dual').place(x=10, y=150) 
+    label_6 = tk.Label(root,text='Rhythm').place(x=10, y=220) 
+
     ### radio for level_Dual
     radio_level = IntVar()
     # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
-    Radiobutton(root, text='original', variable=radio_level, value='0').place(x=100, y=130)
-    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=100, y=150)
-    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=100, y=170)
+    Radiobutton(root, text='original', variable=radio_level, value='0').place(x=80, y=130)
+    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=80, y=150)
+    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=80, y=170)
 
     ### radio for level_Rhythm
     radio_rhythm = IntVar()
     # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
-    Radiobutton(root, text='original', variable=radio_rhythm, value='0').place(x=100, y=200)
-    Radiobutton(root, text='High', variable=radio_rhythm, value='2').place(x=100, y=220)
-    Radiobutton(root, text='Low', variable=radio_rhythm, value='1').place(x=100, y=240)
+    Radiobutton(root, text='original', variable=radio_rhythm, value='0').place(x=80, y=200)
+    Radiobutton(root, text='High', variable=radio_rhythm, value='2').place(x=80, y=220)
+    Radiobutton(root, text='Low', variable=radio_rhythm, value='1').place(x=80, y=240)
 
     ### comboboxMode Mode
     label_2 = tk.Label(root,text='Mode').place(x=10, y=300)
