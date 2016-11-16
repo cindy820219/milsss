@@ -153,7 +153,7 @@ def openSample1():
     # cmd = 'convert file-1.png -resize 40% file_small.png'
     cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
     os.system(cmd)
-    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
+    cmd = 'convert -quality 100 -resize 91% file_small.gif file_small.gif'
     os.system(cmd)
 
     # image = PhotoImage(file = 'test.gif-file.gif')
@@ -196,7 +196,7 @@ def openSample2():
     # cmd = 'convert file-1.png -resize 40% file_small.png'
     cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
     os.system(cmd)
-    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
+    cmd = 'convert -quality 100 -resize 91% file_small.gif file_small.gif'
     os.system(cmd)
     # cmd = 'convert -quality 100 -resize 95% file_small.gif file_small.gif'
     # os.system(cmd)  
@@ -252,7 +252,7 @@ def openfile():
     # cmd = 'convert file-1.png -resize 40% file_small.png'
     cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
     os.system(cmd)
-    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
+    cmd = 'convert -quality 100 -resize 91% file_small.gif file_small.gif'
     os.system(cmd)
 
 
@@ -401,7 +401,7 @@ def buttonOKClicked():
     ### small 70%
     cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
     os.system(cmd)
-    cmd = 'convert -quality 100 -resize 90.25% file_small.gif file_small.gif'
+    cmd = 'convert -quality 100 -resize 91% file_small.gif file_small.gif'
     os.system(cmd)
     ### turn the xml to wav
 

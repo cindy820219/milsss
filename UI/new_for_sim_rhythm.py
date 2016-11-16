@@ -129,20 +129,27 @@ def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
     sum_L = sum(melody_rhythm_L)
 
     ### if sum_R > sum_L
-    if(sum_R > sum_L): 
+    if(sum_R >= sum_L): 
         melody_rhythm.append('1')
 
     elif(sum_R < sum_L): 
         melody_rhythm.append('2')
 
-    elif(sum_R == sum_L): 
-        ### index 
-        if(melody_rhythm_R.index(1) < melody_rhythm_L.index(1)):
-            melody_rhythm.append('1')
-        elif(melody_rhythm_R.index(1) > melody_rhythm_L.index(1)):
-            melody_rhythm.append('2')
-        elif(melody_rhythm_R.index(1) == melody_rhythm_L.index(1)):
-            melody_rhythm.append('1')
+    # elif(sum_R == sum_L): 
+    #     ### index 
+        # print('ggggggggggggggggggggggggggg')
+        # print(melody_rhythm_R.index(1))
+        # print(melody_rhythm_L.index(1))
+        if(melody_rhythm_L.index(1) == True):
+            print('aaa')
+            # melody_rhythm.append('1')
+        else:
+            if(melody_rhythm_R.index(1) < melody_rhythm_L.index(1)):
+                melody_rhythm.append('1')
+            elif(melody_rhythm_R.index(1) > melody_rhythm_L.index(1)):
+                melody_rhythm.append('2')
+            elif(melody_rhythm_R.index(1) == melody_rhythm_L.index(1)):
+                melody_rhythm.append('1')
 
     # print('melody_rhythm: ', melody_rhythm)
     return(melody_rhythm)
