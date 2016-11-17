@@ -421,9 +421,10 @@ def buttonOKClicked():
 def play(x, y):    
     pygame.mixer.music.load('new_wav.wav')
     pygame.mixer.music.play()
+    ### add count lenth wav
     time.sleep(10000)
 
-    messagebox.showinfo("Over", "Play over")
+    # messagebox.showinfo("Over", "Play over")
 
 
 def buttonStopClicked():
