@@ -183,8 +183,6 @@ def openSample1():
     comboboxTona.set(default_tempo_tonation[0])
     scale.set(default_tempo_tonation[1])
 
-
-
 def openSample2():
     print('open file : sonatina2.xml')
     ### open XML with the MuseScore and save the file named : test-file.png
@@ -395,29 +393,32 @@ def buttonOKClicked():
     # new_for_change_tonation.change_Tonation(filename, Tona)
     new_for_change_tonation.change_Tonation(filename, fifths, Tona)
 
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/file.png'
-    os.system(cmd)
+    # cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/file.png'
+    # os.system(cmd)
 
-    ### small 70%
-    cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
-    os.system(cmd)
-    cmd = 'convert -quality 100 -resize 91% file_small.gif file_small.gif'
-    os.system(cmd)
-    ### turn the xml to wav
+    # ### small 70%
+    # cmd = 'convert -quality 100 -resize 70% file-1.png file_small.gif'
+    # os.system(cmd)
+    # cmd = 'convert -quality 100 -resize 91% file_small.gif file_small.gif'
+    # os.system(cmd)
+    # ### turn the xml to wav
 
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
-    os.system(cmd)
-
+    # cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    # os.system(cmd)
 
     # image = PhotoImage(file = 'test.gif-file.gif')
-    image = PhotoImage(file = 'file_small.gif')
-    label_image = Label(image = image)
-    label_image.place(x=180,y=-250)
-    label_image.image = image # keep a reference!
+    # image = PhotoImage(file = 'file_small.gif')
+    # label_image = Label(image = image)
+    # label_image.place(x=180,y=-250)
+    # label_image.image = image # keep a reference!
 
-    messagebox.showinfo("Yo", "It's finished !")
+    # messagebox.showinfo("Yo", "It's finished !")
 
+    ### open the muse
+    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml'
+    os.system(cmd)
 
+    
 def play(x, y):    
     pygame.mixer.music.load('new_wav.wav')
     pygame.mixer.music.play()
@@ -425,7 +426,6 @@ def play(x, y):
     time.sleep(10000)
 
     # messagebox.showinfo("Over", "Play over")
-
 
 def buttonStopClicked():
     pygame.mixer.music.stop()    
@@ -439,6 +439,9 @@ def buttonPlayClicked():
     pygame.init()
     th = Thread(target=play, args=(1,2))
     th.start()
+
+def onKeyPress(event):
+    print('You pressed %s\n' % (event.char, ))
 
 def main():
     ### global all the event
@@ -547,6 +550,8 @@ if __name__ == '__main__':
 
     root = Tk()
     root.title('Hello!!!')
+
+    root.bind('<KeyPress>', onKeyPress)
 
     main()
     mainloop()
