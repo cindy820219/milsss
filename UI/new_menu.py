@@ -417,31 +417,30 @@ def buttonOKClicked():
     ### open the muse
     cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml'
     os.system(cmd)
-
     
-def play(x, y):    
-    pygame.mixer.music.load('new_wav.wav')
-    pygame.mixer.music.play()
-    ### add count lenth wav
-    time.sleep(10000)
+# def play(x, y):    
+#     pygame.mixer.music.load('new_wav.wav')
+#     pygame.mixer.music.play()
+#     ### add count lenth wav
+#     time.sleep(10000)
 
-    # messagebox.showinfo("Over", "Play over")
+#     # messagebox.showinfo("Over", "Play over")
 
-def buttonStopClicked():
-    pygame.mixer.music.stop()    
+# def buttonStopClicked():
+#     pygame.mixer.music.stop()    
 
-def buttonPlayClicked():
+# def buttonPlayClicked():
 
-    Mode = comboboxMode.get()
-    print('Mode: ',Mode)    
+#     Mode = comboboxMode.get()
+#     print('Mode: ',Mode)    
 
-    ### init pygame and call the thread!
-    pygame.init()
-    th = Thread(target=play, args=(1,2))
-    th.start()
+#     ### init pygame and call the thread!
+#     pygame.init()
+#     th = Thread(target=play, args=(1,2))
+#     th.start()
 
-def onKeyPress(event):
-    print('You pressed %s\n' % (event.char, ))
+# def onKeyPress(event):
+#     print('You pressed %s\n' % (event.char, ))
 
 def main():
     ### global all the event
@@ -455,9 +454,10 @@ def main():
 
     ### radio for right or left hand
     radio_hand = IntVar()
-    Radiobutton(root, text='Both Hands', variable=radio_hand, value='0').place(x=30, y=40)
-    Radiobutton(root, text='Only Right Hand', variable=radio_hand, value='1').place(x=30, y=60)
-    Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=30, y=80)
+    labal_7 = tk.Label(root,text='Hand').place(x=10, y=60) 
+    Radiobutton(root, text='Both Hands', variable=radio_hand, value='0').place(x=60, y=40)
+    Radiobutton(root, text='Only Right Hand', variable=radio_hand, value='1').place(x=60, y=60)
+    Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=60, y=80)
 
     # Checkbutton - Daul (var1), Rhythm (var2), Accent (var3)
     # var1 = IntVar()
@@ -476,25 +476,25 @@ def main():
     ### radio for level_Dual
     radio_level = IntVar()
     # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
-    Radiobutton(root, text='original', variable=radio_level, value='0').place(x=80, y=130)
-    Radiobutton(root, text='High', variable=radio_level, value='2').place(x=80, y=150)
-    Radiobutton(root, text='Low', variable=radio_level, value='1').place(x=80, y=170)
+    Radiobutton(root, text='Original (✭✭✭✭✭)', variable=radio_level, value='0').place(x=60, y=130)
+    Radiobutton(root, text='High     (✭✭✭)', variable=radio_level, value='2').place(x=60, y=150)
+    Radiobutton(root, text='Low      (✭)', variable=radio_level, value='1').place(x=60, y=170)
 
     ### radio for level_Rhythm
     radio_rhythm = IntVar()
     # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
-    Radiobutton(root, text='original', variable=radio_rhythm, value='0').place(x=80, y=200)
-    Radiobutton(root, text='High', variable=radio_rhythm, value='2').place(x=80, y=220)
-    Radiobutton(root, text='Low', variable=radio_rhythm, value='1').place(x=80, y=240)
+    Radiobutton(root, text='Original (✭✭✭✭✭)', variable=radio_rhythm, value='0').place(x=60, y=200)
+    Radiobutton(root, text='High     (✭✭✭)', variable=radio_rhythm, value='2').place(x=60, y=220)
+    Radiobutton(root, text='Low      (✭)', variable=radio_rhythm, value='1').place(x=60, y=240)
 
     ### comboboxMode Mode
-    label_2 = tk.Label(root,text='Mode').place(x=10, y=300)
+    # label_2 = tk.Label(root,text='Mode').place(x=10, y=300)
 
-    comboboxMode = ttk.Combobox(root, width =10)
-    comboboxMode.place(x=70, y=300)
-    comboboxMode['state'] = ['readonly']
-    comboboxMode['values'] = ['Listen','Practice','Play']
-    Default_Listen = comboboxMode.set('Listen')
+    # comboboxMode = ttk.Combobox(root, width =10)
+    # comboboxMode.place(x=70, y=300)
+    # comboboxMode['state'] = ['readonly']
+    # comboboxMode['values'] = ['Listen','Practice','Play']
+    # Default_Listen = comboboxMode.set('Listen')
 
     ### comboboxMode Tonality
     label_3 = tk.Label(root,text='Tonality').place(x=10, y=340) 
@@ -521,11 +521,11 @@ def main():
     buttonOK = tk.Button(root, relief='flat', text='OK!', width=10, command = buttonOKClicked)
     buttonOK.place(x=40, y=450)
 
-    buttonPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttonPlayClicked)
-    buttonPlay.place(x=40, y=490)
+    # buttonPlay = tk.Button(root, relief='flat', text='Play !!!', width=10, command = buttonPlayClicked)
+    # buttonPlay.place(x=40, y=490)
 
-    buttonStop = tk.Button(root, relief='flat', text='Stop', width=10, command = buttonStopClicked)
-    buttonStop.place(x=40, y=530)
+    # buttonStop = tk.Button(root, relief='flat', text='Stop', width=10, command = buttonStopClicked)
+    # buttonStop.place(x=40, y=530)
 
     # Create the Menu 
     menubar = Menu(root)
@@ -551,7 +551,7 @@ if __name__ == '__main__':
     root = Tk()
     root.title('Hello!!!')
 
-    root.bind('<KeyPress>', onKeyPress)
+    # root.bind('<KeyPress>', onKeyPress)
 
     main()
     mainloop()
