@@ -242,8 +242,8 @@ def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
     ### measure !
 
     print('melody_cutnote', melody_cutnote)
-    print('melody_rhythm', melody_rhythm)
-    print('melody_pitch', melody_pitch)
+    print('melody_rhythm ', melody_rhythm)
+    print('melody_pitch  ', melody_pitch)
 
     length = len(melody_pitch)
     # print('length: ',length)
