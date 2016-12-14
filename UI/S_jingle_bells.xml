@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise>
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
       <encoding-date>2016-12-13</encoding-date>
-      <supports element="accidental" type="yes"/>
-      <supports element="beam" type="yes"/>
-      <supports element="print" attribute="new-page" type="yes" value="yes"/>
-      <supports element="print" attribute="new-system" type="yes" value="yes"/>
-      <supports element="stem" type="yes"/>
+      <supports element="accidental" type="yes" />
+      <supports element="beam" type="yes" />
+      <supports attribute="new-page" element="print" type="yes" value="yes" />
+      <supports attribute="new-system" element="print" type="yes" value="yes" />
+      <supports element="stem" type="yes" />
       </encoding>
     </identification>
   <defaults>
@@ -33,20 +31,20 @@
         <bottom-margin>113.386</bottom-margin>
         </page-margins>
       </page-layout>
-    <word-font font-family="FreeSerif" font-size="10"/>
-    <lyric-font font-family="FreeSerif" font-size="11"/>
+    <word-font font-family="FreeSerif" font-size="10" />
+    <lyric-font font-family="FreeSerif" font-size="11" />
     </defaults>
   <credit page="1">
-    <credit-words default-x="490" default-y="1627.09" justify="center" valign="top" font-size="24">Jingle Bell</credit-words>
+    <credit-words default-x="490" default-y="1627.09" font-size="24" justify="center" valign="top">Jingle Bell</credit-words>
     </credit>
   <part-list>
     <score-part id="P1">
-      <part-name>鋼琴, Piano</part-name>
+      <part-name>&#37628;&#29748;, Piano</part-name>
       <part-abbreviation>Pno.</part-abbreviation>
       <score-instrument id="P1-I1">
-        <instrument-name>鋼琴</instrument-name>
+        <instrument-name>&#37628;&#29748;</instrument-name>
         </score-instrument>
-      <midi-device id="P1-I1" port="1"></midi-device>
+      <midi-device id="P1-I1" port="1" />
       <midi-instrument id="P1-I1">
         <midi-channel>1</midi-channel>
         <midi-program>1</midi-program>
@@ -96,10 +94,10 @@
             </metronome>
           </direction-type>
         <staff>1</staff>
-        <sound tempo="132"/>
+        <sound tempo="132" />
         </direction>
       <note>
-        <rest/>
+        <rest />
         <duration>384</duration>
         <voice>1</voice>
         <staff>1</staff>
@@ -123,7 +121,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="110.16" default-y="-145.00" dynamics="110.00">
@@ -142,7 +140,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="135.43" default-y="-140.00" dynamics="120.00">
@@ -161,7 +159,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="168.24" default-y="-145.00" dynamics="102.22">
@@ -180,7 +178,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="193.51" default-y="-165.00" dynamics="101.11">
@@ -199,7 +197,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="226.32" default-y="-145.00" dynamics="112.22">
@@ -218,7 +216,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="251.59" default-y="-140.00" dynamics="116.67">
@@ -237,7 +235,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="284.40" default-y="-145.00" dynamics="102.22">
@@ -256,13 +254,13 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
     <measure number="2" width="263.42">
       <note>
-        <rest/>
+        <rest />
         <duration>384</duration>
         <voice>1</voice>
         <staff>1</staff>
@@ -286,7 +284,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="47.31" default-y="-145.00" dynamics="113.33">
@@ -305,7 +303,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="72.58" default-y="-140.00" dynamics="112.22">
@@ -324,7 +322,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="107.89" default-y="-145.00" dynamics="100.00">
@@ -343,7 +341,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="133.16" default-y="-165.00" dynamics="108.89">
@@ -362,7 +360,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="168.47" default-y="-145.00" dynamics="108.89">
@@ -381,7 +379,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="193.74" default-y="-140.00" dynamics="114.44">
@@ -400,7 +398,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="229.05" default-y="-145.00" dynamics="97.78">
@@ -419,7 +417,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -436,7 +434,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="102.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -459,7 +457,7 @@
         <staff>1</staff>
         </note>
       <note default-x="72.58" default-y="-5.00" dynamics="112.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -482,7 +480,7 @@
         <staff>1</staff>
         </note>
       <note default-x="132.80" default-y="-5.00" dynamics="112.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -512,7 +510,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="47.31" default-y="-145.00" dynamics="108.89">
@@ -531,7 +529,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="72.58" default-y="-140.00" dynamics="120.00">
@@ -550,7 +548,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="107.89" default-y="-145.00" dynamics="96.67">
@@ -569,7 +567,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="133.16" default-y="-165.00" dynamics="105.56">
@@ -588,7 +586,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="168.47" default-y="-145.00" dynamics="111.11">
@@ -607,7 +605,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="193.74" default-y="-140.00" dynamics="118.89">
@@ -626,7 +624,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="229.05" default-y="-145.00" dynamics="104.44">
@@ -645,7 +643,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -674,7 +672,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="-5.00" dynamics="108.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -697,7 +695,7 @@
         <staff>1</staff>
         </note>
       <note default-x="111.51" default-y="-5.00" dynamics="107.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -720,7 +718,7 @@
         <staff>1</staff>
         </note>
       <note default-x="171.40" default-y="-5.00" dynamics="113.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -750,7 +748,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="86.23" default-y="-145.00" dynamics="106.67">
@@ -769,7 +767,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="111.51" default-y="-140.00" dynamics="120.00">
@@ -788,7 +786,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="146.49" default-y="-145.00" dynamics="96.67">
@@ -807,7 +805,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="171.76" default-y="-165.00" dynamics="105.56">
@@ -826,7 +824,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="206.74" default-y="-145.00" dynamics="106.67">
@@ -845,7 +843,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="232.02" default-y="-140.00" dynamics="117.78">
@@ -864,7 +862,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="267.00" default-y="-145.00" dynamics="102.22">
@@ -883,7 +881,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -900,7 +898,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="113.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -948,7 +946,7 @@
         <duration>384</duration>
         </backup>
       <note>
-        <rest/>
+        <rest />
         <duration>192</duration>
         <voice>2</voice>
         <type>half</type>
@@ -986,7 +984,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="49.48" default-y="-145.00" dynamics="115.56">
@@ -1005,7 +1003,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.76" default-y="-140.00" dynamics="122.22">
@@ -1024,7 +1022,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="112.24" default-y="-145.00" dynamics="95.56">
@@ -1043,7 +1041,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="137.51" default-y="-150.00" dynamics="111.11">
@@ -1062,7 +1060,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="174.99" default-y="-130.00" dynamics="115.56">
@@ -1081,7 +1079,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="200.27" default-y="-125.00" dynamics="120.00">
@@ -1100,7 +1098,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-130.00" dynamics="104.44">
@@ -1119,7 +1117,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -1135,7 +1133,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="123.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -1164,7 +1162,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="51.97" default-y="-145.00" dynamics="112.22">
@@ -1183,7 +1181,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="77.25" default-y="-140.00" dynamics="117.78">
@@ -1202,7 +1200,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="113.90" default-y="-145.00" dynamics="98.89">
@@ -1221,7 +1219,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="139.17" default-y="-165.00" dynamics="106.67">
@@ -1240,7 +1238,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="175.82" default-y="-145.00" dynamics="111.11">
@@ -1259,7 +1257,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="201.10" default-y="-140.00" dynamics="116.67">
@@ -1278,7 +1276,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-145.00" dynamics="96.67">
@@ -1297,7 +1295,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -1326,7 +1324,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="0.00" dynamics="122.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -1349,7 +1347,7 @@
         <staff>1</staff>
         </note>
       <note default-x="110.89" default-y="0.00" dynamics="115.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -1372,7 +1370,7 @@
         <staff>1</staff>
         </note>
       <note default-x="170.53" default-y="0.00" dynamics="115.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -1395,7 +1393,7 @@
         <staff>1</staff>
         </note>
       <note default-x="230.17" default-y="0.00" dynamics="107.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -1425,7 +1423,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="85.62" default-y="-130.00" dynamics="113.33">
@@ -1444,7 +1442,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="110.89" default-y="-125.00" dynamics="114.44">
@@ -1463,7 +1461,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="145.26" default-y="-130.00" dynamics="104.44">
@@ -1482,7 +1480,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="170.53" default-y="-150.00" dynamics="108.89">
@@ -1501,7 +1499,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="204.90" default-y="-130.00" dynamics="107.78">
@@ -1520,7 +1518,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="230.17" default-y="-125.00" dynamics="117.78">
@@ -1539,7 +1537,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="264.54" default-y="-130.00" dynamics="98.89">
@@ -1558,7 +1556,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -1575,7 +1573,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="0.00" dynamics="116.67">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -1598,7 +1596,7 @@
         <staff>1</staff>
         </note>
       <note default-x="74.14" default-y="-5.00" dynamics="111.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -1621,7 +1619,7 @@
         <staff>1</staff>
         </note>
       <note default-x="136.28" default-y="-5.00" dynamics="110.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -1644,7 +1642,7 @@
         <staff>1</staff>
         </note>
       <note default-x="198.42" default-y="-5.00" dynamics="110.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -1674,7 +1672,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="48.87" default-y="-145.00" dynamics="114.44">
@@ -1693,7 +1691,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.14" default-y="-140.00" dynamics="118.89">
@@ -1712,7 +1710,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="111.01" default-y="-145.00" dynamics="100.00">
@@ -1731,7 +1729,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="136.28" default-y="-165.00" dynamics="105.56">
@@ -1750,7 +1748,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="173.15" default-y="-145.00" dynamics="107.78">
@@ -1769,7 +1767,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="198.42" default-y="-140.00" dynamics="117.78">
@@ -1788,7 +1786,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="235.29" default-y="-145.00" dynamics="102.22">
@@ -1807,7 +1805,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -1903,7 +1901,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="55.79" default-y="-140.00" dynamics="114.44">
@@ -1922,7 +1920,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="81.07" default-y="-135.00" dynamics="115.56">
@@ -1941,7 +1939,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="118.08" default-y="-140.00" dynamics="97.78">
@@ -1960,7 +1958,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="143.36" default-y="-160.00" dynamics="101.11">
@@ -1979,7 +1977,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="180.37" default-y="-140.00" dynamics="108.89">
@@ -1998,7 +1996,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="205.65" default-y="-135.00" dynamics="118.89">
@@ -2017,7 +2015,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="242.66" default-y="-140.00" dynamics="97.78">
@@ -2036,7 +2034,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -2065,7 +2063,7 @@
         <staff>1</staff>
         </note>
       <note default-x="50.89" default-y="-10.00" dynamics="108.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -2088,7 +2086,7 @@
         <staff>1</staff>
         </note>
       <note default-x="161.38" default-y="5.00" dynamics="127.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -2118,7 +2116,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="85.25" default-y="-110.00" dynamics="116.67">
@@ -2137,7 +2135,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="106.50" default-y="-150.00" dynamics="101.11">
@@ -2156,7 +2154,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="140.49" default-y="-115.00" dynamics="114.44">
@@ -2175,7 +2173,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="161.74" default-y="-155.00" dynamics="104.44">
@@ -2194,7 +2192,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="195.74" default-y="-120.00" dynamics="116.67">
@@ -2213,7 +2211,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="216.99" default-y="-160.00" dynamics="103.33">
@@ -2232,7 +2230,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="250.98" default-y="-125.00" dynamics="116.67">
@@ -2251,7 +2249,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -2268,7 +2266,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="108.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2291,7 +2289,7 @@
         <staff>1</staff>
         </note>
       <note default-x="77.98" default-y="-5.00" dynamics="110.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2314,7 +2312,7 @@
         <staff>1</staff>
         </note>
       <note default-x="143.61" default-y="-5.00" dynamics="114.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2344,7 +2342,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="52.61" default-y="-145.00" dynamics="108.89">
@@ -2363,7 +2361,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="77.98" default-y="-140.00" dynamics="122.22">
@@ -2382,7 +2380,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="118.59" default-y="-145.00" dynamics="100.00">
@@ -2401,7 +2399,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="143.97" default-y="-165.00" dynamics="102.22">
@@ -2420,7 +2418,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="184.57" default-y="-145.00" dynamics="107.78">
@@ -2439,7 +2437,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="209.95" default-y="-140.00" dynamics="120.00">
@@ -2458,7 +2456,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="250.56" default-y="-145.00" dynamics="97.78">
@@ -2477,7 +2475,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -2494,7 +2492,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="112.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2517,7 +2515,7 @@
         <staff>1</staff>
         </note>
       <note default-x="77.98" default-y="-5.00" dynamics="112.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2540,7 +2538,7 @@
         <staff>1</staff>
         </note>
       <note default-x="143.61" default-y="-5.00" dynamics="120.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2570,7 +2568,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="52.61" default-y="-145.00" dynamics="107.78">
@@ -2589,7 +2587,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="77.98" default-y="-140.00" dynamics="121.11">
@@ -2608,7 +2606,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="118.59" default-y="-145.00" dynamics="100.00">
@@ -2627,7 +2625,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="143.97" default-y="-165.00" dynamics="106.67">
@@ -2646,7 +2644,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="184.57" default-y="-145.00" dynamics="116.67">
@@ -2665,7 +2663,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="209.95" default-y="-140.00" dynamics="117.78">
@@ -2684,7 +2682,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="250.56" default-y="-145.00" dynamics="95.56">
@@ -2703,7 +2701,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -2732,7 +2730,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="-5.00" dynamics="112.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2780,7 +2778,7 @@
         <duration>384</duration>
         </backup>
       <note>
-        <rest/>
+        <rest />
         <duration>192</duration>
         <voice>2</voice>
         <type>half</type>
@@ -2818,7 +2816,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="86.23" default-y="-145.00" dynamics="107.78">
@@ -2837,7 +2835,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="111.51" default-y="-140.00" dynamics="124.44">
@@ -2856,7 +2854,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="146.49" default-y="-145.00" dynamics="105.56">
@@ -2875,7 +2873,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="171.76" default-y="-150.00" dynamics="108.89">
@@ -2894,7 +2892,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="206.74" default-y="-130.00" dynamics="115.56">
@@ -2913,7 +2911,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="232.02" default-y="-125.00" dynamics="121.11">
@@ -2932,7 +2930,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="267.00" default-y="-130.00" dynamics="100.00">
@@ -2951,7 +2949,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -2967,7 +2965,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="121.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -2996,7 +2994,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="51.97" default-y="-145.00" dynamics="107.78">
@@ -3015,7 +3013,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="77.25" default-y="-140.00" dynamics="118.89">
@@ -3034,7 +3032,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="113.90" default-y="-145.00" dynamics="101.11">
@@ -3053,7 +3051,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="139.17" default-y="-165.00" dynamics="104.44">
@@ -3072,7 +3070,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="175.82" default-y="-145.00" dynamics="111.11">
@@ -3091,7 +3089,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="201.10" default-y="-140.00" dynamics="115.56">
@@ -3110,7 +3108,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-145.00" dynamics="103.33">
@@ -3129,7 +3127,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -3146,7 +3144,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="0.00" dynamics="125.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -3169,7 +3167,7 @@
         <staff>1</staff>
         </note>
       <note default-x="74.76" default-y="0.00" dynamics="116.67">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -3192,7 +3190,7 @@
         <staff>1</staff>
         </note>
       <note default-x="137.51" default-y="0.00" dynamics="113.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -3215,7 +3213,7 @@
         <staff>1</staff>
         </note>
       <note default-x="200.27" default-y="0.00" dynamics="112.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -3245,7 +3243,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="49.48" default-y="-130.00" dynamics="114.44">
@@ -3264,7 +3262,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.76" default-y="-125.00" dynamics="118.89">
@@ -3283,7 +3281,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="112.24" default-y="-130.00" dynamics="103.33">
@@ -3302,7 +3300,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="137.51" default-y="-150.00" dynamics="108.89">
@@ -3321,7 +3319,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="174.99" default-y="-130.00" dynamics="108.89">
@@ -3340,7 +3338,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="200.27" default-y="-125.00" dynamics="118.89">
@@ -3359,7 +3357,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-130.00" dynamics="105.56">
@@ -3378,7 +3376,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -3407,7 +3405,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="0.00" dynamics="117.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -3430,7 +3428,7 @@
         <staff>1</staff>
         </note>
       <note default-x="116.88" default-y="-5.00" dynamics="107.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -3453,7 +3451,7 @@
         <staff>1</staff>
         </note>
       <note default-x="182.51" default-y="-5.00" dynamics="114.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -3476,7 +3474,7 @@
         <staff>1</staff>
         </note>
       <note default-x="248.14" default-y="-5.00" dynamics="120.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -3506,7 +3504,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="91.61" default-y="-145.00" dynamics="111.11">
@@ -3525,7 +3523,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="116.88" default-y="-140.00" dynamics="115.56">
@@ -3544,7 +3542,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="157.23" default-y="-145.00" dynamics="104.44">
@@ -3563,7 +3561,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="182.51" default-y="-165.00" dynamics="104.44">
@@ -3582,7 +3580,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="222.86" default-y="-145.00" dynamics="112.22">
@@ -3601,7 +3599,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="248.14" default-y="-140.00" dynamics="115.56">
@@ -3620,7 +3618,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="288.49" default-y="-145.00" dynamics="103.33">
@@ -3639,7 +3637,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -3656,7 +3654,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="5.00" dynamics="118.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -3679,7 +3677,7 @@
         <staff>1</staff>
         </note>
       <note default-x="65.88" default-y="5.00" dynamics="114.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -3727,7 +3725,7 @@
         <staff>2</staff>
         </note>
       <note default-x="12.00" default-y="-145.00" dynamics="115.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>2</octave>
@@ -3750,7 +3748,7 @@
         <staff>2</staff>
         </note>
       <note default-x="65.88" default-y="-140.00" dynamics="115.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>A</step>
           <octave>2</octave>
@@ -3775,7 +3773,7 @@
         <staff>2</staff>
         </note>
       <note default-x="119.77" default-y="-135.00" dynamics="114.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -3801,7 +3799,7 @@
         <staff>2</staff>
         </note>
       <note default-x="173.65" default-y="-135.00" dynamics="123.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>B</step>
           <octave>2</octave>
@@ -3844,7 +3842,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="56.84" default-y="-145.00" dynamics="113.33">
@@ -3863,7 +3861,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="82.79" default-y="-140.00" dynamics="116.67">
@@ -3882,7 +3880,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="124.30" default-y="-145.00" dynamics="103.33">
@@ -3901,7 +3899,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="150.25" default-y="-165.00" dynamics="105.56">
@@ -3920,7 +3918,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="191.77" default-y="-145.00" dynamics="104.44">
@@ -3939,7 +3937,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="217.72" default-y="-140.00" dynamics="121.11">
@@ -3958,7 +3956,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="259.24" default-y="-145.00" dynamics="102.22">
@@ -3977,7 +3975,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -4042,28 +4040,28 @@
         <duration>384</duration>
         </backup>
       <note>
-        <rest/>
+        <rest />
         <duration>48</duration>
         <voice>5</voice>
         <type>eighth</type>
         <staff>2</staff>
         </note>
       <note>
-        <rest/>
+        <rest />
         <duration>24</duration>
         <voice>5</voice>
         <type>16th</type>
         <staff>2</staff>
         </note>
       <note>
-        <rest/>
+        <rest />
         <duration>12</duration>
         <voice>5</voice>
         <type>32nd</type>
         <staff>2</staff>
         </note>
       <note>
-        <rest/>
+        <rest />
         <duration>3</duration>
         <voice>5</voice>
         <type>128th</type>
@@ -4084,7 +4082,7 @@
         <duration>9</duration>
         <voice>5</voice>
         <type>64th</type>
-        <dot/>
+        <dot />
         <accidental>flat</accidental>
         <stem>up</stem>
         <staff>2</staff>
@@ -4096,14 +4094,14 @@
           </clef>
         </attributes>
       <note>
-        <rest/>
+        <rest />
         <duration>96</duration>
         <voice>5</voice>
         <type>quarter</type>
         <staff>2</staff>
         </note>
       <note>
-        <rest/>
+        <rest />
         <duration>192</duration>
         <voice>5</voice>
         <type>half</type>
@@ -4128,7 +4126,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="115.75" default-y="-145.00" dynamics="114.44">
@@ -4147,7 +4145,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="273.78" default-y="-140.00" dynamics="118.89">
@@ -4166,7 +4164,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="313.90" default-y="-145.00" dynamics="98.89">
@@ -4185,7 +4183,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="347.42" default-y="-165.00" dynamics="102.22">
@@ -4204,7 +4202,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="387.53" default-y="-145.00" dynamics="110.00">
@@ -4223,7 +4221,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="421.05" default-y="-140.00" dynamics="113.33">
@@ -4242,7 +4240,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="461.16" default-y="-145.00" dynamics="102.22">
@@ -4261,7 +4259,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -4274,7 +4272,7 @@
         <duration>288</duration>
         <voice>1</voice>
         <type>half</type>
-        <dot/>
+        <dot />
         <stem>up</stem>
         <staff>1</staff>
         </note>
@@ -4308,7 +4306,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="63.87" default-y="-145.00" dynamics="105.56">
@@ -4327,7 +4325,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="96.06" default-y="-140.00" dynamics="118.89">
@@ -4346,7 +4344,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="147.56" default-y="-145.00" dynamics="103.33">
@@ -4365,7 +4363,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="179.76" default-y="-165.00" dynamics="106.67">
@@ -4384,7 +4382,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="231.26" default-y="-145.00" dynamics="111.11">
@@ -4403,7 +4401,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="263.45" default-y="-140.00" dynamics="115.56">
@@ -4422,7 +4420,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="314.96" default-y="-145.00" dynamics="106.67">
@@ -4441,7 +4439,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -4521,7 +4519,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="86.23" default-y="-145.00" dynamics="104.44">
@@ -4540,7 +4538,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="111.51" default-y="-140.00" dynamics="123.33">
@@ -4559,7 +4557,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="146.49" default-y="-145.00" dynamics="96.67">
@@ -4578,7 +4576,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="171.76" default-y="-165.00" dynamics="104.44">
@@ -4597,7 +4595,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="206.74" default-y="-145.00" dynamics="112.22">
@@ -4616,7 +4614,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="232.02" default-y="-140.00" dynamics="118.89">
@@ -4635,7 +4633,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="267.00" default-y="-145.00" dynamics="98.89">
@@ -4654,7 +4652,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -4670,7 +4668,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-25.00" dynamics="102.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -4699,7 +4697,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="51.97" default-y="-130.00" dynamics="112.22">
@@ -4718,7 +4716,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="77.25" default-y="-125.00" dynamics="116.67">
@@ -4737,7 +4735,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="113.90" default-y="-130.00" dynamics="102.22">
@@ -4756,7 +4754,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="139.17" default-y="-150.00" dynamics="104.44">
@@ -4775,7 +4773,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="175.82" default-y="-130.00" dynamics="111.11">
@@ -4794,7 +4792,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="201.10" default-y="-125.00" dynamics="123.33">
@@ -4813,7 +4811,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-130.00" dynamics="96.67">
@@ -4832,7 +4830,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -4900,7 +4898,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="49.48" default-y="-130.00" dynamics="113.33">
@@ -4919,7 +4917,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.76" default-y="-125.00" dynamics="117.78">
@@ -4938,7 +4936,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="112.24" default-y="-130.00" dynamics="101.11">
@@ -4957,7 +4955,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="137.51" default-y="-150.00" dynamics="105.56">
@@ -4976,7 +4974,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="174.99" default-y="-130.00" dynamics="108.89">
@@ -4995,7 +4993,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="200.27" default-y="-125.00" dynamics="115.56">
@@ -5014,7 +5012,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-130.00" dynamics="100.00">
@@ -5033,7 +5031,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -5079,7 +5077,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="89.26" default-y="-125.00" dynamics="113.33">
@@ -5098,7 +5096,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="111.30" default-y="-120.00" dynamics="116.67">
@@ -5117,7 +5115,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="146.57" default-y="-125.00" dynamics="101.11">
@@ -5136,7 +5134,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="168.61" default-y="-145.00" dynamics="106.67">
@@ -5155,7 +5153,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="203.88" default-y="-125.00" dynamics="110.00">
@@ -5174,7 +5172,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="225.92" default-y="-120.00" dynamics="118.89">
@@ -5193,7 +5191,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="261.18" default-y="-125.00" dynamics="95.56">
@@ -5212,7 +5210,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -5229,7 +5227,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="5.00" dynamics="136.67">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -5252,7 +5250,7 @@
         <staff>1</staff>
         </note>
       <note default-x="74.15" default-y="5.00" dynamics="118.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -5277,7 +5275,7 @@
         <staff>1</staff>
         </note>
       <note default-x="141.38" default-y="0.00" dynamics="111.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -5303,7 +5301,7 @@
         <staff>1</staff>
         </note>
       <note default-x="203.53" default-y="5.00" dynamics="117.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -5333,7 +5331,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="50.24" default-y="-125.00" dynamics="110.00">
@@ -5352,7 +5350,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.15" default-y="-120.00" dynamics="118.89">
@@ -5371,7 +5369,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="112.39" default-y="-125.00" dynamics="100.00">
@@ -5390,7 +5388,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="141.38" default-y="-145.00" dynamics="103.33">
@@ -5409,7 +5407,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="179.62" default-y="-125.00" dynamics="104.44">
@@ -5428,7 +5426,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="203.53" default-y="-120.00" dynamics="116.67">
@@ -5447,7 +5445,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="241.77" default-y="-125.00" dynamics="105.56">
@@ -5466,7 +5464,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -5482,7 +5480,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="102.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -5511,7 +5509,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="56.63" default-y="-145.00" dynamics="113.33">
@@ -5530,7 +5528,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="82.45" default-y="-140.00" dynamics="117.78">
@@ -5549,7 +5547,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="123.76" default-y="-145.00" dynamics="101.11">
@@ -5568,7 +5566,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="149.58" default-y="-165.00" dynamics="102.22">
@@ -5587,7 +5585,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="190.89" default-y="-145.00" dynamics="106.67">
@@ -5606,7 +5604,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="216.71" default-y="-140.00" dynamics="117.78">
@@ -5625,7 +5623,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="258.02" default-y="-145.00" dynamics="95.56">
@@ -5644,7 +5642,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -5724,7 +5722,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="86.23" default-y="-145.00" dynamics="114.44">
@@ -5743,7 +5741,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="111.51" default-y="-140.00" dynamics="122.22">
@@ -5762,7 +5760,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="146.49" default-y="-145.00" dynamics="98.89">
@@ -5781,7 +5779,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="171.76" default-y="-165.00" dynamics="100.00">
@@ -5800,7 +5798,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="206.74" default-y="-145.00" dynamics="112.22">
@@ -5819,7 +5817,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="232.02" default-y="-140.00" dynamics="118.89">
@@ -5838,7 +5836,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="267.00" default-y="-145.00" dynamics="98.89">
@@ -5857,7 +5855,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -5891,7 +5889,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="51.97" default-y="-145.00" dynamics="115.56">
@@ -5910,7 +5908,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="77.25" default-y="-140.00" dynamics="122.22">
@@ -5929,7 +5927,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="113.90" default-y="-145.00" dynamics="103.33">
@@ -5948,7 +5946,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="139.17" default-y="-165.00" dynamics="97.78">
@@ -5967,7 +5965,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="175.82" default-y="-145.00" dynamics="110.00">
@@ -5986,7 +5984,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="201.10" default-y="-140.00" dynamics="116.67">
@@ -6005,7 +6003,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-145.00" dynamics="100.00">
@@ -6024,7 +6022,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -6092,7 +6090,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="49.48" default-y="-145.00" dynamics="107.78">
@@ -6111,7 +6109,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.76" default-y="-140.00" dynamics="117.78">
@@ -6130,7 +6128,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="112.24" default-y="-145.00" dynamics="93.33">
@@ -6149,7 +6147,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="137.51" default-y="-165.00" dynamics="103.33">
@@ -6168,7 +6166,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="174.99" default-y="-145.00" dynamics="112.22">
@@ -6187,7 +6185,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="200.27" default-y="-140.00" dynamics="120.00">
@@ -6206,7 +6204,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-145.00" dynamics="104.44">
@@ -6225,7 +6223,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -6253,7 +6251,7 @@
         <staff>1</staff>
         </note>
       <note default-x="50.68" default-y="-25.00" dynamics="100.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -6282,7 +6280,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="91.95" default-y="-130.00" dynamics="113.33">
@@ -6301,7 +6299,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="117.23" default-y="-125.00" dynamics="123.33">
@@ -6320,7 +6318,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="155.18" default-y="-130.00" dynamics="98.89">
@@ -6339,7 +6337,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="180.45" default-y="-150.00" dynamics="102.22">
@@ -6358,7 +6356,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="218.41" default-y="-130.00" dynamics="108.89">
@@ -6377,7 +6375,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="243.68" default-y="-125.00" dynamics="117.78">
@@ -6396,7 +6394,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="281.64" default-y="-130.00" dynamics="98.89">
@@ -6415,7 +6413,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -6483,7 +6481,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="52.45" default-y="-130.00" dynamics="112.22">
@@ -6502,7 +6500,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="77.73" default-y="-125.00" dynamics="117.78">
@@ -6521,7 +6519,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="118.18" default-y="-130.00" dynamics="96.67">
@@ -6540,7 +6538,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="143.46" default-y="-150.00" dynamics="103.33">
@@ -6559,7 +6557,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="183.91" default-y="-130.00" dynamics="104.44">
@@ -6578,7 +6576,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="209.19" default-y="-125.00" dynamics="127.78">
@@ -6597,7 +6595,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="249.64" default-y="-130.00" dynamics="96.67">
@@ -6616,7 +6614,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -6633,7 +6631,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="5.00" dynamics="130.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -6656,7 +6654,7 @@
         <staff>1</staff>
         </note>
       <note default-x="69.76" default-y="5.00" dynamics="114.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -6679,7 +6677,7 @@
         <staff>1</staff>
         </note>
       <note default-x="127.52" default-y="5.00" dynamics="116.67">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -6702,7 +6700,7 @@
         <staff>1</staff>
         </note>
       <note default-x="185.27" default-y="5.00" dynamics="120.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -6732,7 +6730,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="47.54" default-y="-125.00" dynamics="110.00">
@@ -6751,7 +6749,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="69.76" default-y="-120.00" dynamics="122.22">
@@ -6770,7 +6768,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="105.30" default-y="-125.00" dynamics="104.44">
@@ -6789,7 +6787,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="127.52" default-y="-145.00" dynamics="104.44">
@@ -6808,7 +6806,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="163.06" default-y="-125.00" dynamics="115.56">
@@ -6827,7 +6825,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="185.27" default-y="-120.00" dynamics="128.89">
@@ -6846,7 +6844,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="220.82" default-y="-125.00" dynamics="101.11">
@@ -6865,7 +6863,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -6896,7 +6894,7 @@
         <staff>1</staff>
         </note>
       <note default-x="77.16" default-y="0.00" dynamics="112.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -6922,7 +6920,7 @@
         <staff>1</staff>
         </note>
       <note default-x="128.59" default-y="5.00" dynamics="122.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -6945,7 +6943,7 @@
         <staff>1</staff>
         </note>
       <note default-x="180.03" default-y="10.00" dynamics="131.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>A</step>
           <octave>5</octave>
@@ -6968,7 +6966,7 @@
         <staff>1</staff>
         </note>
       <note default-x="231.46" default-y="15.00" dynamics="133.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>B</step>
           <octave>5</octave>
@@ -6998,7 +6996,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="108.81" default-y="-125.00" dynamics="118.89">
@@ -7017,7 +7015,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="128.59" default-y="-120.00" dynamics="126.67">
@@ -7036,7 +7034,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="160.25" default-y="-125.00" dynamics="110.00">
@@ -7055,7 +7053,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="180.03" default-y="-145.00" dynamics="118.89">
@@ -7074,7 +7072,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="211.68" default-y="-125.00" dynamics="120.00">
@@ -7093,7 +7091,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="231.46" default-y="-120.00" dynamics="128.89">
@@ -7112,7 +7110,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="263.12" default-y="-125.00" dynamics="113.33">
@@ -7131,7 +7129,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -7148,7 +7146,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="20.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>C</step>
           <octave>6</octave>
@@ -7171,7 +7169,7 @@
         <staff>1</staff>
         </note>
       <note default-x="136.85" default-y="20.00" dynamics="128.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>C</step>
           <octave>6</octave>
@@ -7201,7 +7199,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="49.51" default-y="-145.00" dynamics="123.33">
@@ -7220,7 +7218,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.79" default-y="-140.00" dynamics="134.44">
@@ -7239,7 +7237,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="111.93" default-y="-145.00" dynamics="115.56">
@@ -7258,7 +7256,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="137.21" default-y="-165.00" dynamics="120.00">
@@ -7277,7 +7275,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="174.36" default-y="-145.00" dynamics="128.89">
@@ -7296,7 +7294,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="199.63" default-y="-140.00" dynamics="140.00">
@@ -7315,7 +7313,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="236.78" default-y="-145.00" dynamics="113.33">
@@ -7334,7 +7332,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -7351,7 +7349,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="107.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -7374,7 +7372,7 @@
         <staff>1</staff>
         </note>
       <note default-x="74.51" default-y="-5.00" dynamics="127.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -7397,7 +7395,7 @@
         <staff>1</staff>
         </note>
       <note default-x="152.08" default-y="-5.00" dynamics="134.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -7427,7 +7425,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="49.24" default-y="-130.00" dynamics="131.11">
@@ -7446,7 +7444,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="74.51" default-y="-155.00" dynamics="123.33">
@@ -7465,7 +7463,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="111.75" default-y="-150.00" dynamics="121.11">
@@ -7484,7 +7482,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="152.45" default-y="-150.00" dynamics="136.67">
@@ -7505,7 +7503,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="189.68" default-y="-145.00" dynamics="120.00">
@@ -7524,7 +7522,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="214.96" default-y="-180.00" dynamics="117.78">
@@ -7543,7 +7541,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="252.20" default-y="-145.00" dynamics="124.44">
@@ -7562,7 +7560,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -7591,7 +7589,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="-5.00" dynamics="132.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -7614,7 +7612,7 @@
         <staff>1</staff>
         </note>
       <note default-x="107.65" default-y="-5.00" dynamics="125.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -7637,7 +7635,7 @@
         <staff>1</staff>
         </note>
       <note default-x="179.11" default-y="-5.00" dynamics="134.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -7667,7 +7665,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="82.38" default-y="-130.00" dynamics="130.00">
@@ -7686,7 +7684,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="107.65" default-y="-155.00" dynamics="122.22">
@@ -7705,7 +7703,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="138.78" default-y="-150.00" dynamics="120.00">
@@ -7724,7 +7722,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="179.47" default-y="-150.00" dynamics="131.11">
@@ -7745,7 +7743,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="210.60" default-y="-145.00" dynamics="121.11">
@@ -7764,7 +7762,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="235.87" default-y="-180.00" dynamics="115.56">
@@ -7783,7 +7781,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="267.00" default-y="-145.00" dynamics="132.22">
@@ -7802,7 +7800,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -7819,7 +7817,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="131.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -7867,7 +7865,7 @@
         <duration>384</duration>
         </backup>
       <note>
-        <rest/>
+        <rest />
         <duration>192</duration>
         <voice>2</voice>
         <type>half</type>
@@ -7905,7 +7903,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="45.63" default-y="-130.00" dynamics="132.22">
@@ -7924,7 +7922,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="70.90" default-y="-155.00" dynamics="120.00">
@@ -7943,7 +7941,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="104.53" default-y="-150.00" dynamics="117.78">
@@ -7962,7 +7960,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="145.22" default-y="-150.00" dynamics="136.67">
@@ -7983,7 +7981,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="178.84" default-y="-145.00" dynamics="118.89">
@@ -8002,7 +8000,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="204.12" default-y="-180.00" dynamics="113.33">
@@ -8021,7 +8019,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-145.00" dynamics="135.56">
@@ -8040,7 +8038,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -8056,7 +8054,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="138.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -8085,7 +8083,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="48.12" default-y="-130.00" dynamics="132.22">
@@ -8104,7 +8102,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="73.39" default-y="-155.00" dynamics="121.11">
@@ -8123,7 +8121,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="106.19" default-y="-150.00" dynamics="127.78">
@@ -8142,7 +8140,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="146.88" default-y="-150.00" dynamics="132.22">
@@ -8163,7 +8161,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="179.67" default-y="-145.00" dynamics="116.67">
@@ -8182,7 +8180,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="204.95" default-y="-180.00" dynamics="115.56">
@@ -8201,7 +8199,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="237.75" default-y="-145.00" dynamics="133.33">
@@ -8220,7 +8218,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -8249,7 +8247,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="0.00" dynamics="141.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -8272,7 +8270,7 @@
         <staff>1</staff>
         </note>
       <note default-x="107.07" default-y="0.00" dynamics="133.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -8295,7 +8293,7 @@
         <staff>1</staff>
         </note>
       <note default-x="166.70" default-y="0.00" dynamics="128.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -8318,7 +8316,7 @@
         <staff>1</staff>
         </note>
       <note default-x="226.32" default-y="0.00" dynamics="130.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -8348,7 +8346,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="85.60" default-y="-115.00" dynamics="138.89">
@@ -8367,7 +8365,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="107.07" default-y="-140.00" dynamics="123.33">
@@ -8386,7 +8384,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="141.42" default-y="-135.00" dynamics="111.11">
@@ -8405,7 +8403,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="166.70" default-y="-130.00" dynamics="136.67">
@@ -8424,7 +8422,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="201.04" default-y="-130.00" dynamics="117.78">
@@ -8443,7 +8441,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="226.32" default-y="-165.00" dynamics="111.11">
@@ -8462,7 +8460,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="260.67" default-y="-130.00" dynamics="131.11">
@@ -8481,7 +8479,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -8498,7 +8496,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="0.00" dynamics="134.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -8521,7 +8519,7 @@
         <staff>1</staff>
         </note>
       <note default-x="75.58" default-y="-5.00" dynamics="124.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -8544,7 +8542,7 @@
         <staff>1</staff>
         </note>
       <note default-x="154.57" default-y="-5.00" dynamics="131.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -8567,7 +8565,7 @@
         <staff>1</staff>
         </note>
       <note default-x="218.14" default-y="-5.00" dynamics="132.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -8597,7 +8595,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="50.30" default-y="-130.00" dynamics="134.44">
@@ -8616,7 +8614,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="75.58" default-y="-155.00" dynamics="118.89">
@@ -8635,7 +8633,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="113.88" default-y="-150.00" dynamics="123.33">
@@ -8654,7 +8652,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="154.57" default-y="-150.00" dynamics="138.89">
@@ -8675,7 +8673,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="192.87" default-y="-145.00" dynamics="126.67">
@@ -8694,7 +8692,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="218.14" default-y="-180.00" dynamics="111.11">
@@ -8713,7 +8711,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="256.44" default-y="-145.00" dynamics="136.67">
@@ -8732,7 +8730,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -8828,7 +8826,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="54.04" default-y="-125.00" dynamics="137.78">
@@ -8847,7 +8845,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="76.08" default-y="-155.00" dynamics="122.22">
@@ -8866,7 +8864,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="111.34" default-y="-125.00" dynamics="135.56">
@@ -8885,7 +8883,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="142.42" default-y="-150.00" dynamics="118.89">
@@ -8906,7 +8904,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="177.69" default-y="-125.00" dynamics="130.00">
@@ -8925,7 +8923,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="199.73" default-y="-160.00" dynamics="118.89">
@@ -8944,7 +8942,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="234.99" default-y="-125.00" dynamics="133.33">
@@ -8963,7 +8961,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -8992,7 +8990,7 @@
         <staff>1</staff>
         </note>
       <note default-x="50.89" default-y="-10.00" dynamics="131.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -9015,7 +9013,7 @@
         <staff>1</staff>
         </note>
       <note default-x="155.70" default-y="5.00" dynamics="141.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -9045,7 +9043,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="83.50" default-y="-110.00" dynamics="128.89">
@@ -9064,7 +9062,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="103.65" default-y="-150.00" dynamics="118.89">
@@ -9083,7 +9081,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="135.90" default-y="-115.00" dynamics="133.33">
@@ -9102,7 +9100,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="156.06" default-y="-155.00" dynamics="120.00">
@@ -9121,7 +9119,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="188.30" default-y="-120.00" dynamics="130.00">
@@ -9140,7 +9138,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="208.46" default-y="-160.00" dynamics="111.11">
@@ -9159,7 +9157,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="240.71" default-y="-125.00" dynamics="134.44">
@@ -9178,7 +9176,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -9195,7 +9193,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="122.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9218,7 +9216,7 @@
         <staff>1</staff>
         </note>
       <note default-x="75.39" default-y="-5.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9241,7 +9239,7 @@
         <staff>1</staff>
         </note>
       <note default-x="153.83" default-y="-5.00" dynamics="128.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9271,7 +9269,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="50.11" default-y="-130.00" dynamics="130.00">
@@ -9290,7 +9288,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="75.39" default-y="-155.00" dynamics="123.33">
@@ -9309,7 +9307,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="113.50" default-y="-150.00" dynamics="122.22">
@@ -9328,7 +9326,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="154.19" default-y="-150.00" dynamics="133.33">
@@ -9349,7 +9347,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="192.31" default-y="-145.00" dynamics="125.56">
@@ -9368,7 +9366,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="217.58" default-y="-180.00" dynamics="114.44">
@@ -9387,7 +9385,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="255.70" default-y="-145.00" dynamics="132.22">
@@ -9406,7 +9404,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -9423,7 +9421,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="131.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9446,7 +9444,7 @@
         <staff>1</staff>
         </note>
       <note default-x="75.39" default-y="-5.00" dynamics="127.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9469,7 +9467,7 @@
         <staff>1</staff>
         </note>
       <note default-x="153.83" default-y="-5.00" dynamics="136.67">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9499,7 +9497,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="50.11" default-y="-130.00" dynamics="133.33">
@@ -9518,7 +9516,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="75.39" default-y="-155.00" dynamics="120.00">
@@ -9537,7 +9535,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="113.50" default-y="-150.00" dynamics="118.89">
@@ -9556,7 +9554,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="154.19" default-y="-150.00" dynamics="133.33">
@@ -9577,7 +9575,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="192.31" default-y="-145.00" dynamics="118.89">
@@ -9596,7 +9594,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="217.58" default-y="-180.00" dynamics="115.56">
@@ -9615,7 +9613,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="255.70" default-y="-145.00" dynamics="134.44">
@@ -9634,7 +9632,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -9663,7 +9661,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="-5.00" dynamics="133.33">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9711,7 +9709,7 @@
         <duration>384</duration>
         </backup>
       <note>
-        <rest/>
+        <rest />
         <duration>192</duration>
         <voice>2</voice>
         <type>half</type>
@@ -9749,7 +9747,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="84.46" default-y="-130.00" dynamics="134.44">
@@ -9768,7 +9766,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="109.74" default-y="-155.00" dynamics="120.00">
@@ -9787,7 +9785,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="142.95" default-y="-150.00" dynamics="117.78">
@@ -9806,7 +9804,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="183.64" default-y="-150.00" dynamics="138.89">
@@ -9827,7 +9825,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="216.85" default-y="-145.00" dynamics="125.56">
@@ -9846,7 +9844,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="242.13" default-y="-180.00" dynamics="115.56">
@@ -9865,7 +9863,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="275.34" default-y="-145.00" dynamics="130.00">
@@ -9884,7 +9882,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -9900,7 +9898,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="-5.00" dynamics="138.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -9929,7 +9927,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="50.20" default-y="-130.00" dynamics="140.00">
@@ -9948,7 +9946,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="75.48" default-y="-155.00" dynamics="121.11">
@@ -9967,7 +9965,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="110.36" default-y="-150.00" dynamics="121.11">
@@ -9986,7 +9984,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="151.05" default-y="-150.00" dynamics="130.00">
@@ -10007,7 +10005,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="185.93" default-y="-145.00" dynamics="126.67">
@@ -10026,7 +10024,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="211.21" default-y="-180.00" dynamics="115.56">
@@ -10045,7 +10043,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="246.09" default-y="-145.00" dynamics="136.67">
@@ -10064,7 +10062,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -10081,7 +10079,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="0.00" dynamics="136.67">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -10104,7 +10102,7 @@
         <staff>1</staff>
         </note>
       <note default-x="67.69" default-y="0.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -10127,7 +10125,7 @@
         <staff>1</staff>
         </note>
       <note default-x="127.24" default-y="0.00" dynamics="134.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -10150,7 +10148,7 @@
         <staff>1</staff>
         </note>
       <note default-x="186.79" default-y="0.00" dynamics="128.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -10180,7 +10178,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="46.27" default-y="-115.00" dynamics="140.00">
@@ -10199,7 +10197,7 @@
         <stem>down</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="67.69" default-y="-140.00" dynamics="123.33">
@@ -10218,7 +10216,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="101.97" default-y="-135.00" dynamics="126.67">
@@ -10237,7 +10235,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="127.24" default-y="-130.00" dynamics="136.67">
@@ -10256,7 +10254,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="161.51" default-y="-130.00" dynamics="116.67">
@@ -10275,7 +10273,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="186.79" default-y="-165.00" dynamics="114.44">
@@ -10294,7 +10292,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="221.06" default-y="-130.00" dynamics="132.22">
@@ -10313,7 +10311,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -10342,7 +10340,7 @@
         <staff>1</staff>
         </note>
       <note default-x="51.25" default-y="0.00" dynamics="127.78">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>5</octave>
@@ -10365,7 +10363,7 @@
         <staff>1</staff>
         </note>
       <note default-x="125.37" default-y="-5.00" dynamics="124.44">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -10388,7 +10386,7 @@
         <staff>1</staff>
         </note>
       <note default-x="211.67" default-y="-5.00" dynamics="130.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -10411,7 +10409,7 @@
         <staff>1</staff>
         </note>
       <note default-x="285.78" default-y="-5.00" dynamics="138.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -10441,7 +10439,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="96.86" default-y="-130.00" dynamics="132.22">
@@ -10460,7 +10458,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="125.37" default-y="-155.00" dynamics="120.00">
@@ -10479,7 +10477,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="170.98" default-y="-150.00" dynamics="122.22">
@@ -10498,7 +10496,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="211.67" default-y="-150.00" dynamics="127.78">
@@ -10519,7 +10517,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="257.27" default-y="-145.00" dynamics="122.22">
@@ -10538,7 +10536,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       <note default-x="285.78" default-y="-180.00" dynamics="114.44">
@@ -10557,7 +10555,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="start" bracket="yes"/>
+          <tuplet bracket="yes" type="start" />
           </notations>
         </note>
       <note default-x="331.39" default-y="-145.00" dynamics="134.44">
@@ -10576,7 +10574,7 @@
         <stem>up</stem>
         <staff>2</staff>
         <notations>
-          <tuplet type="stop"/>
+          <tuplet type="stop" />
           </notations>
         </note>
       </measure>
@@ -10593,7 +10591,7 @@
         <staff>1</staff>
         </note>
       <note default-x="12.00" default-y="5.00" dynamics="141.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -10616,7 +10614,7 @@
         <staff>1</staff>
         </note>
       <note default-x="70.75" default-y="10.00" dynamics="140.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>A</step>
           <octave>5</octave>
@@ -10641,7 +10639,7 @@
         <staff>1</staff>
         </note>
       <note default-x="129.51" default-y="15.00" dynamics="136.67">
-        <chord/>
+        <chord />
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -10667,7 +10665,7 @@
         <staff>1</staff>
         </note>
       <note default-x="188.26" default-y="15.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>B</step>
           <octave>5</octave>
@@ -10694,7 +10692,7 @@
         <staff>2</staff>
         </note>
       <note default-x="12.00" default-y="-110.00" dynamics="141.11">
-        <chord/>
+        <chord />
         <pitch>
           <step>G</step>
           <octave>3</octave>
@@ -10717,7 +10715,7 @@
         <staff>2</staff>
         </note>
       <note default-x="70.75" default-y="-115.00" dynamics="132.22">
-        <chord/>
+        <chord />
         <pitch>
           <step>F</step>
           <octave>3</octave>
@@ -10740,7 +10738,7 @@
         <staff>2</staff>
         </note>
       <note default-x="129.51" default-y="-120.00" dynamics="128.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>E</step>
           <octave>3</octave>
@@ -10763,7 +10761,7 @@
         <staff>2</staff>
         </note>
       <note default-x="188.26" default-y="-125.00" dynamics="130.00">
-        <chord/>
+        <chord />
         <pitch>
           <step>D</step>
           <octave>3</octave>
@@ -10788,7 +10786,7 @@
         <staff>1</staff>
         </note>
       <note default-x="16.63" default-y="15.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -10802,7 +10800,7 @@
         <staff>1</staff>
         </note>
       <note default-x="29.22" default-y="20.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>C</step>
           <octave>6</octave>
@@ -10825,7 +10823,7 @@
         <staff>1</staff>
         </note>
       <note default-x="106.63" default-y="15.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -10838,7 +10836,7 @@
         <staff>1</staff>
         </note>
       <note default-x="118.49" default-y="20.00" dynamics="135.56">
-        <chord/>
+        <chord />
         <pitch>
           <step>C</step>
           <octave>6</octave>
@@ -10850,7 +10848,7 @@
         <staff>1</staff>
         </note>
       <note>
-        <rest/>
+        <rest />
         <duration>96</duration>
         <voice>1</voice>
         <type>quarter</type>
@@ -10871,7 +10869,7 @@
         <staff>2</staff>
         </note>
       <note default-x="29.22" default-y="-130.00" dynamics="128.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>C</step>
           <octave>3</octave>
@@ -10894,7 +10892,7 @@
         <staff>2</staff>
         </note>
       <note default-x="118.49" default-y="-130.00" dynamics="128.89">
-        <chord/>
+        <chord />
         <pitch>
           <step>C</step>
           <octave>3</octave>
@@ -10906,7 +10904,7 @@
         <staff>2</staff>
         </note>
       <note>
-        <rest/>
+        <rest />
         <duration>96</duration>
         <voice>5</voice>
         <type>quarter</type>

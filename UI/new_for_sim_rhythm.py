@@ -240,8 +240,13 @@ def add_node_rhythm(DOMTree, note_num_total_PI, rhythm):
 
 def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
     ### measure !
-    length = len(melody_rhythm)
-    
+
+    print('melody_cutnote', melody_cutnote)
+    print('melody_rhythm', melody_rhythm)
+    print('melody_pitch', melody_pitch)
+
+    length = len(melody_pitch)
+    # print('length: ',length)
     if(melody_rhythm[length-1] == melody_pitch[length-1]):
         # print('same', melody_rhythm[length-1])
         Melody.append(melody_rhythm[length-1])
@@ -252,12 +257,15 @@ def Melody_func(Melody, melody_cutnote, melody_rhythm, melody_pitch):
         ### melody_rhythm = melody_cutnote ---> melody_rhythm
         if(melody_rhythm[length-1] == melody_cutnote[length-1]):
             Melody.append(melody_rhythm[length-1])
+            print('a')
         ### melody_pitch = melody_cutnote ---> melody_pitch
         elif(melody_pitch[length-1] == melody_cutnote[length-1]):
             Melody.append(melody_pitch[length-1])
+            print('b')
         ### melody_cutnote == 0 ---> '1'
         elif(melody_cutnote[length-1] == '0'):
             Melody.append('1')
+            print('c')
 
 def add_Melody_node_func(DOMTree, Melody, level):
     # print(Melody)
@@ -627,7 +635,6 @@ def rhythm_parsing(DOMTree, collection, hands, rhythm, level):
                     # print('melody_rhythm: ', melody_rhythm)
                     ### next measure, need to clear melody_rhythm_R and melody_rhythm_L
                     
-
 
                     melody_pitch = melody_pitch_set_func(melody_pitch, melody_pitch_temp_R, melody_pitch_temp_L)
                     ### important !!!

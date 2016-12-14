@@ -165,8 +165,8 @@ def openSample1():
 
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
-    os.system(cmd)
+    # cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    # os.system(cmd)
 
     ### filename
     global filename
@@ -207,8 +207,8 @@ def openSample2():
     label_image.image = image # keep a reference!
 
     ### turn the xml to wav
-    cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
-    os.system(cmd)
+    # cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/Samplesonatina2.xml -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    # os.system(cmd)
 
     ### filename
     global filename
@@ -256,12 +256,12 @@ def openfile():
 
 
     ### turn the xml to wav
-    cmd = 'sudo '
-    cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
-    cmd2 = filename
-    cmd3 = ' -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
-    # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
-    os.system(cmd + cmd1  + cmd2 + cmd3)
+    # cmd = 'sudo '
+    # cmd1 = '/Applications/MuseScore\ 2.app/Contents/MacOS/mscore '
+    # cmd2 = filename
+    # cmd3 = ' -o /Users/nien/Desktop/milsss/UI/new_wav.wav'
+    # # print('aaaaa: ',cmd + cmd1  + cmd2 + cmd3)
+    # os.system(cmd + cmd1  + cmd2 + cmd3)
 
 
     # image = PhotoImage(file = 'test.gif-file.gif')
