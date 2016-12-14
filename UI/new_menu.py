@@ -87,6 +87,7 @@ def default(collection):
             sound = sound.getAttribute('tempo')
             # print('tempo: ',sound)
 
+    global Default_Tona 
 
     ### Default_Tona
     if (fifths == '0'):
@@ -327,6 +328,7 @@ def buttonOKClicked():
     print('Tona: ',Tona)
 
     ### ### ### ###    
+
     print(' ---------->  is tempo change')
     new_for_change_tempo.change_tempo(filename ,Tem)
     filename = 'change_temp.xml'
@@ -391,7 +393,12 @@ def buttonOKClicked():
     # print('default original tonational: ', fifths)
     # print('change tona: ',Tona)
     # new_for_change_tonation.change_Tonation(filename, Tona)
-    new_for_change_tonation.change_Tonation(filename, fifths, Tona)
+
+    ### Tona new get, fifths origin
+    # print('Default_Tona: ',Default_Tona)
+    # print('Tona: ',Tona)
+    if (Default_Tona != Tona):
+        new_for_change_tonation.change_Tonation(filename, fifths, Tona)
 
     # cmd = 'sudo /Applications/MuseScore\ 2.app/Contents/MacOS/mscore /Users/nien/Desktop/milsss/UI/change_temp.xml -o /Users/nien/Desktop/milsss/UI/file.png'
     # os.system(cmd)
@@ -459,6 +466,8 @@ def main():
     Radiobutton(root, text='Only Right Hand', variable=radio_hand, value='1').place(x=60, y=60)
     Radiobutton(root, text='Only Left Hand', variable=radio_hand, value='2').place(x=60, y=80)
 
+
+
     # Checkbutton - Daul (var1), Rhythm (var2), Accent (var3)
     # var1 = IntVar()
     # Checkbutton(root, text="Dual", variable=var1).place(x=25,y=150)
@@ -482,6 +491,9 @@ def main():
 
     ### radio for level_Rhythm
     radio_rhythm = IntVar()
+    ###  state=DISABLED
+
+
     # Radiobutton(root, text='Original', variable=radio_level, value='0').place(x=30, y=180)
     Radiobutton(root, text='Original (✭✭✭✭✭)', variable=radio_rhythm, value='0').place(x=60, y=200)
     Radiobutton(root, text='High     (✭✭✭)', variable=radio_rhythm, value='2').place(x=60, y=220)
