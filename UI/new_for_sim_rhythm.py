@@ -300,6 +300,18 @@ def high_melody():
     tree = parse('change_rhythm.xml')
     root = tree.getroot()
 
+    for beats in root.iter('beats'):
+        print('' )
+        print('' )
+        print('' )
+        print('' )
+        beat_t = beats.text
+        print('!!!!!!!!!! beats;', beats.text)
+        print('' )
+        print('' )
+        print('' )
+        print('' )
+
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
             for melody in note.iter('melody'):
@@ -307,11 +319,33 @@ def high_melody():
                 for TotalPI in note.iter('TotalPI'):
                     TotalPI_text = TotalPI.text
                     break
-                # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
-                if (3.0 > float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
-                    xml.etree.ElementTree.SubElement(note, 'rest')
-                if (5.0 > float(TotalPI_text) > 3.0 and melody_text == 'no_main'):
-                    xml.etree.ElementTree.SubElement(note, 'rest')
+                if(beat_t != '3'):
+                    print(' beats == 4')    
+                    # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
+                    if (3.0 > float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
+                        xml.etree.ElementTree.SubElement(note, 'rest')
+                    if (5.0 > float(TotalPI_text) > 3.0 and melody_text == 'no_main'):
+                        xml.etree.ElementTree.SubElement(note, 'rest')
+
+                # if(beat_t == 4):
+                #     print(' beats!!! == 4')    
+                #     # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
+                #     if (3.0 > float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
+                #         xml.etree.ElementTree.SubElement(note, 'rest')
+                #     if (5.0 > float(TotalPI_text) > 3.0 and melody_text == 'no_main'):
+                #         xml.etree.ElementTree.SubElement(note, 'rest')
+
+                if(beat_t == '3'):
+                    print(' beats == 3')    
+                    # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
+                    if (float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
+                        xml.etree.ElementTree.SubElement(note, 'rest')
+                # if(beat_t == 3):
+                #     print(' beats == 3')    
+                #     # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
+                #     if (float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
+                #         xml.etree.ElementTree.SubElement(note, 'rest')
+                   
     tree.write('delete_high.xml')
     tree.write('change_temp.xml')
     print(' ---------->  have change high rhythm')

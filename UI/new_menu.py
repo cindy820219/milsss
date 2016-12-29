@@ -170,7 +170,7 @@ def openSample1():
 
     ### filename
     global filename
-    filename = 'Samplesonatina.xml'
+    filename = '/Users/nien/Desktop/milsss/UI/Samplesonatina.xml'
 
     ### hand
     global hands
@@ -212,7 +212,7 @@ def openSample2():
 
     ### filename
     global filename
-    filename = 'Samplesonatina2.xml'
+    filename = '/Users/nien/Desktop/milsss/UI/Samplesonatina2.xml'
 
     ### hand
     # global hands
@@ -231,6 +231,7 @@ def openfile():
     global filename
     filename = root.fileName = filedialog.askopenfilename( filetypes = (("Musicxml","*.xml"),("midi file","*.mid")))
     print(root.fileName)
+    print(' --------------------filename:', filename)
     
     tree = parse(filename)
     aroot = tree.getroot()
@@ -280,9 +281,13 @@ def openfile():
 
 ### def function OK button
 def buttonOKClicked():
+
+    print('+++++++++++++++++++++++++++++++++++')
+    print('It is click OK !!!')
+
     global filename
-    prefile = filename
-    # print(filename)
+    refilename = filename
+    # print(refilename)
     
     ### default the Mode, Tonation and Tempo
     Mode = Tona = Tem = ''
@@ -320,6 +325,39 @@ def buttonOKClicked():
     level = int(radio_level.get())
     # print('level Dual: ', level)
 
+    ### dual special !!!!!!!!! ### 
+    # if(level != 0):
+    if(level == 2):
+        print(' ---------->  go to the dual  high simple 2')
+        DOMTree = xml.dom.minidom.parse(filename)
+        collection = DOMTree.documentElement
+        hands = 0
+                    
+        new_for_parse.parsing(DOMTree, collection, hands)
+        filename = 'change_parse.xml'
+        # change_parse.xml
+
+        DOMTree = xml.dom.minidom.parse(filename)
+        collection = DOMTree.documentElement
+
+        new_for_sim_dual.simple_dual(DOMTree, collection, level)
+
+        
+        # filename = refilename
+
+        print('  ~~~~~~~  refilename', refilename)
+        # filenameone = filename.replace('UI', 'Sample')
+        filenametwo = refilename.replace('UI', 'Sample')
+
+        # print('  ~~~~~~~  newwwwwwwwww:', filenameone)
+        print('  ~~~~~~~  newwwwwwwwww:', filenametwo)
+
+        # filenameone = '/Users/nien/Desktop/milsss/Sample/'+filename
+        # filename = filenameone
+        # print('filenameone:', filenameone)
+        filename = filenametwo
+
+
     level_radio_rhythm = int(radio_rhythm.get())
     # print('level rhythm: ', level_radio_rhythm)
 
@@ -331,6 +369,7 @@ def buttonOKClicked():
 
     print(' ---------->  is tempo change')
     new_for_change_tempo.change_tempo(filename ,Tem)
+    print('           hereherehere filename:', filename)
     filename = 'change_temp.xml'
     ### ### ### ###
 
@@ -349,34 +388,34 @@ def buttonOKClicked():
     ### ### ### ###
     
 
-    ### ### ### ###
     
     ### ### ### ###
-    if(level != 0):
-        if(level ==1):
-            print(' ---------->  go to the dual low simple 1')
-            tree = parse(filename)
-            root = tree.getroot()
-            
-            new_for_sim_dual.low_dual_func(root, tree)
-            # print('out')
 
-        if(level == 2):
-            print(' ---------->  go to the dual  high simple 2')
-            DOMTree = xml.dom.minidom.parse(filename)
-            collection = DOMTree.documentElement
-            hands = 0
+    if(level == 1):
+        print('in low level dual function')
+        print(' ---------->  go to the dual low simple 1')
+        tree = parse(filename)
+        root = tree.getroot()
+        
+        new_for_sim_dual.low_dual_func(root, tree)
+        # print('out')
+
+        # if(level == 2):
+        #     print(' ---------->  go to the dual  high simple 2')
+        #     DOMTree = xml.dom.minidom.parse(filename)
+        #     collection = DOMTree.documentElement
+        #     hands = 0
                         
-            new_for_parse.parsing(DOMTree, collection, hands)
-            filename = 'change_parse.xml'
-            # change_parse.xml
+        #     new_for_parse.parsing(DOMTree, collection, hands)
+        #     filename = 'change_parse.xml'
+        #     # change_parse.xml
 
-            DOMTree = xml.dom.minidom.parse(filename)
-            collection = DOMTree.documentElement
+        #     DOMTree = xml.dom.minidom.parse(filename)
+        #     collection = DOMTree.documentElement
 
-            new_for_sim_dual.simple_dual(DOMTree, collection, level)
+        #     new_for_sim_dual.simple_dual(DOMTree, collection, level)
 
-            filename = 'change_temp.xml'
+        #     filename = 'change_temp.xml'
     
 
     ### Rhythm !!!!!
