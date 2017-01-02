@@ -328,42 +328,59 @@ def buttonOKClicked():
     level = int(radio_level.get())
     # print('level Dual: ', level)
 
-    ### dual special !!!!!!!!! ### 
-    # if(level != 0):
-    if(level == 2):
-        print(' ---------->  go to the dual  high simple 2')
-        DOMTree = xml.dom.minidom.parse(filename)
-        collection = DOMTree.documentElement
-        hands = 0
+    # ### dual special !!!!!!!!! ### 
+    # # if(level != 0):
+    # if(level == 2):
+    #     print(' ---------->  go to the dual  high simple 2')
+    #     DOMTree = xml.dom.minidom.parse(filename)
+    #     collection = DOMTree.documentElement
+    #     hands = 0
                     
-        new_for_parse.parsing(DOMTree, collection, hands)
-        filename = 'change_parse.xml'
-        # change_parse.xml
+    #     new_for_parse.parsing(DOMTree, collection, hands)
+    #     filename = 'change_parse.xml'
+    #     # change_parse.xml
 
-        DOMTree = xml.dom.minidom.parse(filename)
-        collection = DOMTree.documentElement
+    #     DOMTree = xml.dom.minidom.parse(filename)
+    #     collection = DOMTree.documentElement
 
-        new_for_sim_dual.simple_dual(DOMTree, collection, level)
+    #     new_for_sim_dual.simple_dual(DOMTree, collection, level)
 
         
-        # filename = refilename
+    #     # filename = refilename
 
-        print('  ~~~~~~~  refilename', refilename)
-        filenametwo = refilename.replace('UI', 'Sample')
 
-        # print('  ~~~~~~~  newwwwwwwwww:', filenameone)
-        print('  ~~~~~~~  newwwwwwwwww:', filenametwo)
 
-        # filenameone = '/Users/nien/Desktop/milsss/Sample/'+filename
-        # filename = filenameone
-        # print('filenameone:', filenameone)
-        filename = filenametwo
+
+
+
+    #     print('  ~~~~~~~  refilename', refilename)
+    #     filenametwo = refilename.replace('UI', 'Sample')
+
+    #     # print('  ~~~~~~~  newwwwwwwwww:', filenameone)
+    #     print('  ~~~~~~~  newwwwwwwwww:', filenametwo)
+
+    #     # filenameone = '/Users/nien/Desktop/milsss/Sample/'+filename
+    #     # filename = filenameone
+    #     # print('filenameone:', filenameone)
+    #     filename = filenametwo
     
-    if(filename == True):
-        print('File is in the Sample')
-    else:
-        filename = filename.replace('Sample', 'UI')
-        # print('hahahahahhahahahahahahahah  5  ',filename)
+    # print('1: ',filename)
+    
+    # if( filename == True):
+    #     print('File is in the Sample')
+    #     print('2: ',filename)
+    # else:
+    #     filename = filename.replace('Sample', 'UI')
+    #     # print('hahahahahhahahahahahahahah  5  ',filename)
+    #     print('3: ',filename)
+
+    # print('4: ',filename)
+
+
+
+
+
+
 
     level_radio_rhythm = int(radio_rhythm.get())
     # print('level rhythm: ', level_radio_rhythm)
@@ -424,6 +441,30 @@ def buttonOKClicked():
 
         #     filename = 'change_temp.xml'
     
+
+
+    ### dual special !!!!!!!!! ### 
+    # if(level != 0):
+    if(level == 2):
+        print(' ---------->  go to the dual  high simple 2')
+        DOMTree = xml.dom.minidom.parse(filename)
+        collection = DOMTree.documentElement
+        hands = 0
+                    
+        new_for_parse.parsing(DOMTree, collection, hands)
+        filename = 'change_parse.xml'
+        # change_parse.xml
+
+        DOMTree = xml.dom.minidom.parse(filename)
+        collection = DOMTree.documentElement
+
+        new_for_sim_dual.simple_dual(DOMTree, collection, level)
+
+        
+        # filename = refilename
+
+
+
 
     ### Rhythm !!!!!
     if(level_radio_rhythm != 0):

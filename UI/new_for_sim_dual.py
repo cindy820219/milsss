@@ -62,6 +62,7 @@ def high_dual_fun(root, tree):
 
     is_three_chord = 0 
 
+    
     ### to get the divisions :(((
     DOMTree = xml.dom.minidom.parse('change_parse.xml')
     collection = DOMTree.documentElement
@@ -79,7 +80,7 @@ def high_dual_fun(root, tree):
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
             # print('here note: ',note)
-            
+
             is_three_chord = 0
 
             for staff in note.iter('staff'):
@@ -172,7 +173,7 @@ def high_dual_fun(root, tree):
     chord_min = chord_num *2 // 5 - chord_three
     chord_max = chord_num *3 // 5 - chord_three
 
-    # print(chord_min,chord_max)
+    print(chord_min,chord_max)
 
     case(chord_max, chord_min)
 
@@ -215,38 +216,48 @@ def case(chord_max, chord_min):
                         if(float(TotalPI_text) == 4.0):
                             lenth_4 = lenth_4 +1
 
-    # print(lenth_1)
-    # print(lenth_2)
-    # print(lenth_3)
-    # print(lenth_4)
+    print(lenth_1)
+    print(lenth_2)
+    print(lenth_3)
+    print(lenth_4)
 
     case = 0
 
-    if(chord_min < lenth_1):
+    if(chord_min <= lenth_1):
         if( lenth_1 < chord_max):
             case = 1
         elif( lenth_1 > chord_max):
             case = 2
+            # case = 1
 
-    elif(chord_min < lenth_1 + lenth_3):
+    elif(chord_min <= lenth_1 + lenth_3):
         if( lenth_1+lenth_3 < chord_max):
             case = 3
+    
         elif( lenth_1+lenth_3 > chord_max):
             case = 4
+    
 
-    elif(chord_min < lenth_1 + lenth_3 + lenth_2):
+    elif(chord_min <= lenth_1 + lenth_3 + lenth_2):
         if( lenth_1+lenth_3+lenth_2 < chord_max):
             case = 5
+        
         elif( lenth_1+lenth_3+lenth_2 > chord_max):
             case = 6
 
-    elif(chord_min < lenth_1 + lenth_3 + lenth_2+lenth_4):
+    elif(chord_min <= lenth_1 + lenth_3 + lenth_2+lenth_4):
         if( lenth_1+lenth_3+lenth_2+lenth_4 < chord_max):
             case = 7
+        
         elif( lenth_1+lenth_3+lenth_2+lenth_4 > chord_max):
             case = 8
 
-    # print('case: ',case)
+    elif(chord_min > lenth_1 + lenth_3 + lenth_2+lenth_4):
+        case = 9
+
+    # print(lenth_1 + lenth_3 + lenth_2+lenth_4)
+
+    print('case: ',case)
 
     case_delete_function(case)
 
@@ -256,8 +267,11 @@ def case_delete_function(case):
 
     must_delete = 0
 
+    quene_delete = []
+
     if(case == 1 or case == 2):
-        print('case 1')
+    # if(case == 1):
+        print('case 1 in')
         for measure in root.iter('measure'):
             for note in measure.iter('note'):
                 if(must_delete == 1):
@@ -277,11 +291,14 @@ def case_delete_function(case):
         
                     if(note.find('chord') != None):
                         if(pre_note.find('must_chord_delete') != None):
-                            print('here')
+                            print('here 1')
                         else:
                             chord = note.find('chord')
                             note.remove(chord)
-                    measure.remove(pre_note)
+
+                    # measure.remove(pre_note)
+                    quene_delete.append(pre_note)
+
 
                 must_delete = 0
 
@@ -296,33 +313,58 @@ def case_delete_function(case):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
 
                             ### ### ### 
                             if(1.0 < TotalPI_text < 2.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
+                                    
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
 
                             if(2.0 < TotalPI_text < 3.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
+                                    print('here !!!!')
+
+
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
+
 
                             if(3.0 < TotalPI_text < 4.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
+
                             if(4.0 < TotalPI_text):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
+
                             ### ### ###
                             pre_note = note
+
+
+
+            for i in quene_delete:
+                measure.remove(i)
+            quene_delete = []
+
+
 
         # for measure in root.iter('measure'):
         #     for note in measure.iter('note'):
@@ -380,6 +422,7 @@ def case_delete_function(case):
         print('case 2 in')
 
     if(case == 3 or case == 4):
+    # if(case == 2):
         print('case 3 in')
         for measure in root.iter('measure'):
             for note in measure.iter('note'):
@@ -401,10 +444,13 @@ def case_delete_function(case):
                     if(note.find('chord') != None):
                         if(pre_note.find('must_chord_delete') != None):
                             print('here')
+
                         else:
                             chord = note.find('chord')
                             note.remove(chord)
-                    measure.remove(pre_note)
+
+                    # measure.remove(pre_note)
+                    quene_delete.append(pre_note)
 
                 must_delete = 0
 
@@ -418,39 +464,54 @@ def case_delete_function(case):
                             if(TotalPI_text == 4.0 or TotalPI_text == 2.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
+            
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             ### ### ### 
                             if(1.0 < TotalPI_text < 2.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
+                                
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             if(2.0 < TotalPI_text < 3.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             if(3.0 < TotalPI_text < 4.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
                             if(4.0 < TotalPI_text):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
                             ### ### ###
                             pre_note = note
+
+            for i in quene_delete:
+                measure.remove(i)
+            quene_delete = []
+
 
     if(case == 4):
         print('case 4')
     
-    if(case == 5 or case == 5):
+    if(case == 5 or case == 6):
+    # if(case == 3):
         print('case 5')
         for measure in root.iter('measure'):
             for note in measure.iter('note'):
@@ -479,7 +540,8 @@ def case_delete_function(case):
                         else:
                             chord = note.find('chord')
                             note.remove(chord)
-                    measure.remove(pre_note)
+                    # measure.remove(pre_note)
+                    quene_delete.append(pre_note)
 
                 must_delete = 0
 
@@ -494,7 +556,8 @@ def case_delete_function(case):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
                             
                                 # if(staff_text == '1'):
                                     ### next note must delete the 'chord' !!!
@@ -518,32 +581,43 @@ def case_delete_function(case):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             if(2.0 < TotalPI_text < 3.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             if(3.0 < TotalPI_text < 4.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
                             if(4.0 < TotalPI_text):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
                             ### ### ###
                             
                             pre_note = note
-                                           
+          
+            for i in quene_delete:
+                measure.remove(i)
+            quene_delete = []
+
+
+
     if(case == 6):
         print('case 6')
 
-    if(case == 7 or case == 8):
+    if(case == 7 or case == 8 or case == 9):
         print('case 7')
         for measure in root.iter('measure'):
             for note in measure.iter('note'):
@@ -554,7 +628,8 @@ def case_delete_function(case):
                         else:
                             chord = note.find('chord')
                             note.remove(chord)
-                    measure.remove(pre_note)
+                    # measure.remove(pre_note)
+                    quene_delete.append(pre_note)
 
                 must_delete = 0
 
@@ -565,41 +640,128 @@ def case_delete_function(case):
                             TotalPI_text = TotalPI.text
                             TotalPI_text = float(TotalPI_text)
                             
-                            if(TotalPI_text == 4.0 or TotalPI_text == 2.0 or TotalPI_text == 3.0 or TotalPI_text == 1.0):
+                            if(TotalPI_text == 5.0):
+                            # if(TotalPI_text == 4.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             ### ### ### 
                             if(1.0 < TotalPI_text < 2.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             if(2.0 < TotalPI_text < 3.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
 
                             if(3.0 < TotalPI_text < 4.0):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
+
                             if(4.0 < TotalPI_text):
                                 if(staff_text == '1'):
                                     must_delete = 1
                                 elif(staff_text == '2'):
-                                    measure.remove(note)
+                                    # measure.remove(note)
+                                    quene_delete.append(note)
                             ### ### ###
 
                             pre_note = note
 
+            for i in quene_delete:
+                measure.remove(i)
+            quene_delete = []
+
+
+
     if(case == 8):
         print('case 8')
+
+    # if(case == 9):
+    #     print('case 9')
+    #     for measure in root.iter('measure'):
+    #         for note in measure.iter('note'):
+    #             if(must_delete == 1):
+    #                 if(note.find('chord') != None):
+    #                     if(pre_note.find('must_chord_delete') != None):
+    #                         print('here')
+    #                     else:
+    #                         chord = note.find('chord')
+    #                         note.remove(chord)
+    #                 # measure.remove(pre_note)
+    #                 quene_delete.append(pre_note)
+
+    #             must_delete = 0
+
+    #             if(note.find('chord_delete') != None):
+    #                 for staff in note.iter('staff'):
+    #                     staff_text = staff.text
+    #                     for TotalPI in note.iter('TotalPI'):
+    #                         TotalPI_text = TotalPI.text
+    #                         TotalPI_text = float(TotalPI_text)
+                            
+    #                         if(TotalPI_text == 4.0 or TotalPI_text == 2.0 or TotalPI_text == 3.0 or TotalPI_text == 1.0):
+    #                         # if(TotalPI_text == 4.0):
+    #                             if(staff_text == '1'):
+    #                                 must_delete = 1
+    #                             elif(staff_text == '2'):
+    #                                 # measure.remove(note)
+    #                                 quene_delete.append(note)
+
+    #                         ### ### ### 
+    #                         if(1.0 < TotalPI_text < 2.0):
+    #                             if(staff_text == '1'):
+    #                                 must_delete = 1
+    #                             elif(staff_text == '2'):
+    #                                 # measure.remove(note)
+    #                                 quene_delete.append(note)
+
+    #                         if(2.0 < TotalPI_text < 3.0):
+    #                             if(staff_text == '1'):
+    #                                 must_delete = 1
+    #                             elif(staff_text == '2'):
+    #                                 # measure.remove(note)
+    #                                 quene_delete.append(note)
+
+    #                         if(3.0 < TotalPI_text < 4.0):
+    #                             if(staff_text == '1'):
+    #                                 must_delete = 1
+    #                             elif(staff_text == '2'):
+    #                                 # measure.remove(note)
+    #                                 quene_delete.append(note)
+
+    #                         if(4.0 < TotalPI_text):
+    #                             if(staff_text == '1'):
+    #                                 must_delete = 1
+    #                             elif(staff_text == '2'):
+    #                                 # measure.remove(note)
+    #                                 quene_delete.append(note)
+    #                         ### ### ###
+
+    #                         pre_note = note
+
+    #         for i in quene_delete:
+    #             measure.remove(i)
+    #         quene_delete = []
+
+
+
+
+
+
+
 
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
