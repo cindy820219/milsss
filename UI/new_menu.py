@@ -281,8 +281,11 @@ def openfile():
 
 ### def function OK button
 def buttonOKClicked():
-
-    print('+++++++++++++++++++++++++++++++++++')
+    print('')
+    print('')
+    print('')
+    print('')
+    print('')
     print('It is click OK !!!')
 
     global filename

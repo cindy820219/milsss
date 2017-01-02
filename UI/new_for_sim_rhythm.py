@@ -23,7 +23,7 @@ def melody_rhythm_count(staff_data, rhythm, melody_rhythm_R, melody_rhythm_L):
         elif(staff_data == '2'):
             melody_rhythm_L[0] = 1
 
-    if(rhythm == '0.5'):
+    if(rhythm == '0.5' or rhythm == '0.50'):
         if(staff_data == '1'):
             melody_rhythm_R[1] = 1
         elif(staff_data == '2'):
@@ -47,7 +47,7 @@ def melody_rhythm_count(staff_data, rhythm, melody_rhythm_R, melody_rhythm_L):
         elif(staff_data == '2'):
             melody_rhythm_L[4] = 1
 
-    if(rhythm == '1.5'):
+    if(rhythm == '1.5' or rhythm == '1.50'):
         if(staff_data == '1'):
             melody_rhythm_R[5] = 1
         elif(staff_data == '2'):
@@ -71,7 +71,7 @@ def melody_rhythm_count(staff_data, rhythm, melody_rhythm_R, melody_rhythm_L):
         elif(staff_data == '2'):
             melody_rhythm_L[8] = 1
 
-    if(rhythm == '2.5'):
+    if(rhythm == '2.5' or rhythm == '2.50'):
         if(staff_data == '1'):
             melody_rhythm_R[9] = 1
         elif(staff_data == '2'):
@@ -95,7 +95,7 @@ def melody_rhythm_count(staff_data, rhythm, melody_rhythm_R, melody_rhythm_L):
         elif(staff_data == '2'):
             melody_rhythm_L[12] = 1
 
-    if(rhythm == '3.5'):
+    if(rhythm == '3.5' or rhythm == '3.50'):
         if(staff_data == '1'):
             melody_rhythm_R[13] = 1
         elif(staff_data == '2'):
@@ -121,35 +121,72 @@ def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
     # print('R: ', melody_rhythm_R)
     # print('L: ', melody_rhythm_L)
 
-    # print('find: ',melody_rhythm_R.index(1))
-    # print('find: ',melody_rhythm_L.index(1))
+    # print('find RRR: ',melody_rhythm_R.index(1))
+    # print('find LLL: ',melody_rhythm_L.index(1))
 
-    ### maxi sum is 15 !
+    # ### maxi sum is 15 !
     sum_R = sum(melody_rhythm_R)
     sum_L = sum(melody_rhythm_L)
 
+    # print('sum_R, sum_L: ',sum_R, sum_L)
+
     ### if sum_R > sum_L
     if(sum_R >= sum_L): 
+        # print('--------------' )
+        # print('sum_R > sum_L' )
         melody_rhythm.append('1')
+        # print('addd 1')
 
-    elif(sum_R < sum_L): 
+    if(sum_R < sum_L): 
+        # print('--------------' )
+        # print('sum_R < sum_L' )
         melody_rhythm.append('2')
+        # print('addd 2')
+    
+    # if(sum_R == sum_L): 
+    #     # print('sum_R == sum_L' )
+        
+    #     # print('find RRR: ',melody_rhythm_R.index(1))
+    #     # print('find LLL: ',melody_rhythm_L.index(1))
+    #     # if(melody_rhythm_R.index(1) ==True or melody_rhythm_L.index(1) == True):
+    #     R = melody_rhythm_R.index(1)
+    #     L = melody_rhythm_L.index(1)
+
+    #     if(R == 1):
+    #         print('aaaaaaa')
+        
+    #     if( R >= L):
+    #         melody_rhythm.append('2')
+    #         # print('addd 3')
+    #     elif(R < L): 
+    #         melody_rhythm.append('1')
+            # print('addd 4')
+            # print('------')
+
+
 
     # elif(sum_R == sum_L): 
     #     ### index 
         # print('ggggggggggggggggggggggggggg')
         # print(melody_rhythm_R.index(1))
         # print(melody_rhythm_L.index(1))
-        if(melody_rhythm_L.index(1) == True):
-            print('aaa')
-            # melody_rhythm.append('1')
-        else:
-            if(melody_rhythm_R.index(1) < melody_rhythm_L.index(1)):
-                melody_rhythm.append('1')
-            elif(melody_rhythm_R.index(1) > melody_rhythm_L.index(1)):
-                melody_rhythm.append('2')
-            elif(melody_rhythm_R.index(1) == melody_rhythm_L.index(1)):
-                melody_rhythm.append('1')
+        
+
+################
+
+        # if(melody_rhythm_L.index(1) == True):
+        #     print('aaa')
+        #     # melody_rhythm.append('1')
+        # else:
+        #     if(melody_rhythm_R.index(1) < melody_rhythm_L.index(1)):
+        #         melody_rhythm.append('1')
+        #     elif(melody_rhythm_R.index(1) > melody_rhythm_L.index(1)):
+        #         melody_rhythm.append('2')
+        #     elif(melody_rhythm_R.index(1) == melody_rhythm_L.index(1)):
+        #         melody_rhythm.append('1')
+
+################
+
 
     # print('melody_rhythm: ', melody_rhythm)
     return(melody_rhythm)
@@ -306,7 +343,7 @@ def high_melody():
         print('' )
         print('' )
         beat_t = beats.text
-        print('!!!!!!!!!! beats;', beats.text)
+        # print('!!!!!!!!!! beats;', beats.text)
         print('' )
         print('' )
         print('' )
@@ -336,7 +373,7 @@ def high_melody():
                 #         xml.etree.ElementTree.SubElement(note, 'rest')
 
                 if(beat_t == '3'):
-                    print(' beats == 3')    
+                    # print(' beats == 3')    
                     # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
                     if (float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
                         xml.etree.ElementTree.SubElement(note, 'rest')
