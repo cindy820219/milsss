@@ -67,7 +67,7 @@
       <attributes>
         <divisions>2</divisions>
         <key>
-          <fifths>1</fifths>
+          <fifths>-1</fifths>
           </key>
         <time>
           <beats>3</beats>
@@ -99,65 +99,65 @@
         <voice>1</voice>
         <type>quarter</type>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><TotalPI>1</TotalPI><melody>main</melody></note>
       <note default-x="142.35" default-y="-35.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>2.0</TotalPI><melody>main</melody></note>
       <note default-x="197.88" default-y="-25.00">
         <pitch>
-          <step>F</step>
-          <octave>5</octave>
-          <alter>0</alter></pitch>
+          <step>A</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><MIDI>77</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>69</MIDI><TotalPI>3.0</TotalPI><melody>main</melody></note>
       <backup>
         <duration>6</duration>
         </backup>
       <note default-x="86.82" default-y="-175.00">
         <pitch>
-          <step>C</step>
-          <octave>4</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>3</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>61</MIDI><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>53</MIDI><TotalPI>1</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="142.35" default-y="-155.00">
         <pitch>
-          <step>G</step>
+          <step>C</step>
           <octave>4</octave>
-          <alter>1</alter></pitch>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>68</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>60</MIDI><TotalPI>2.0</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="197.88" default-y="-140.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>3.0</TotalPI><melody>no_main</melody><rest /></note>
       </measure>
     <measure number="2" width="190.19">
       <note>
@@ -166,65 +166,65 @@
         <voice>1</voice>
         <type>quarter</type>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><TotalPI>1</TotalPI><melody>main</melody></note>
       <note default-x="71.49" default-y="-35.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>2.0</TotalPI><melody>main</melody></note>
       <note default-x="130.04" default-y="-25.00">
         <pitch>
-          <step>F</step>
-          <octave>5</octave>
-          <alter>0</alter></pitch>
+          <step>A</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><MIDI>77</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>69</MIDI><TotalPI>3.0</TotalPI><melody>main</melody></note>
       <backup>
         <duration>6</duration>
         </backup>
       <note default-x="12.94" default-y="-175.00">
         <pitch>
-          <step>C</step>
-          <octave>4</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>3</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>61</MIDI><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>53</MIDI><TotalPI>1</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="71.49" default-y="-155.00">
         <pitch>
-          <step>G</step>
+          <step>C</step>
           <octave>4</octave>
-          <alter>1</alter></pitch>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>68</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>60</MIDI><TotalPI>2.0</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="130.04" default-y="-140.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>3.0</TotalPI><melody>no_main</melody><rest /></note>
       </measure>
     <measure number="3" width="190.19">
       <note>
@@ -233,65 +233,65 @@
         <voice>1</voice>
         <type>quarter</type>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><TotalPI>1</TotalPI><melody>main</melody></note>
       <note default-x="71.49" default-y="-35.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>2.0</TotalPI><melody>main</melody></note>
       <note default-x="130.04" default-y="-25.00">
         <pitch>
-          <step>F</step>
-          <octave>5</octave>
-          <alter>0</alter></pitch>
+          <step>A</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><MIDI>77</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>69</MIDI><TotalPI>3.0</TotalPI><melody>main</melody></note>
       <backup>
         <duration>6</duration>
         </backup>
       <note default-x="12.94" default-y="-175.00">
         <pitch>
-          <step>C</step>
-          <octave>4</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>3</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>61</MIDI><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>53</MIDI><TotalPI>1</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="71.49" default-y="-155.00">
         <pitch>
-          <step>G</step>
+          <step>C</step>
           <octave>4</octave>
-          <alter>1</alter></pitch>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>68</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>60</MIDI><TotalPI>2.0</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="130.04" default-y="-140.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>3.0</TotalPI><melody>no_main</melody><rest /></note>
       </measure>
     <measure number="4" width="206.22">
       <note>
@@ -300,152 +300,152 @@
         <voice>1</voice>
         <type>quarter</type>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><TotalPI>1</TotalPI><melody>main</melody></note>
       <note default-x="71.92" default-y="-35.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>2.0</TotalPI><melody>main</melody></note>
       <note default-x="130.89" default-y="0.00">
         <pitch>
-          <step>C</step>
-          <octave>6</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>5</octave>
+          </pitch>
         <duration>1</duration>
         <voice>1</voice>
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <rhythm>0.5</rhythm><MIDI>85</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>0.5</rhythm><MIDI>77</MIDI><TotalPI>3.0</TotalPI><melody>main</melody></note>
       <note default-x="167.76" default-y="5.00">
         <pitch>
-          <step>D</step>
-          <octave>6</octave>
-          <alter>1</alter></pitch>
+          <step>G</step>
+          <octave>5</octave>
+          </pitch>
         <duration>1</duration>
         <voice>1</voice>
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <rhythm>0.5</rhythm><MIDI>87</MIDI><TotalPI>3.5</TotalPI></note>
+        <rhythm>0.5</rhythm><MIDI>79</MIDI><TotalPI>3.5</TotalPI><melody>main</melody></note>
       <backup>
         <duration>6</duration>
         </backup>
       <note default-x="12.94" default-y="-175.00">
         <pitch>
-          <step>C</step>
-          <octave>4</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>3</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>61</MIDI><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>53</MIDI><TotalPI>1</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="71.56" default-y="-155.00">
         <pitch>
-          <step>G</step>
+          <step>C</step>
           <octave>4</octave>
-          <alter>1</alter></pitch>
+          </pitch>
         <duration>4</duration>
         <voice>5</voice>
         <type>half</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>2.0</rhythm><MIDI>68</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>2.0</rhythm><MIDI>60</MIDI><TotalPI>2.0</TotalPI><melody>no_main</melody><rest /></note>
       </measure>
     <measure number="5" width="214.89">
       <note default-x="12.00" default-y="10.00">
         <pitch>
-          <step>F</step>
-          <octave>6</octave>
-          <alter>0</alter></pitch>
+          <step>A</step>
+          <octave>5</octave>
+          </pitch>
         <duration>1</duration>
         <voice>1</voice>
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <rhythm>0.5</rhythm><MIDI>89</MIDI><TotalPI>1</TotalPI></note>
+        <rhythm>0.5</rhythm><MIDI>81</MIDI><TotalPI>1</TotalPI><melody>main</melody></note>
       <note default-x="46.34" default-y="0.00">
         <pitch>
-          <step>C</step>
-          <octave>6</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>5</octave>
+          </pitch>
         <duration>1</duration>
         <voice>1</voice>
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <rhythm>0.5</rhythm><MIDI>85</MIDI><TotalPI>1.5</TotalPI></note>
+        <rhythm>0.5</rhythm><MIDI>77</MIDI><TotalPI>1.5</TotalPI><melody>main</melody></note>
       <note default-x="80.67" default-y="20.00">
         <pitch>
-          <step>G</step>
+          <step>C</step>
           <octave>6</octave>
-          <alter>1</alter></pitch>
+          </pitch>
         <duration>3</duration>
         <voice>1</voice>
         <type>quarter</type>
         <dot />
         <stem>down</stem>
         <staff>1</staff>
-        <rhythm>1.5</rhythm><MIDI>92</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.5</rhythm><MIDI>84</MIDI><TotalPI>2.0</TotalPI><melody>main</melody></note>
       <note default-x="169.95" default-y="10.00">
         <pitch>
-          <step>F</step>
-          <octave>6</octave>
-          <alter>0</alter></pitch>
+          <step>A</step>
+          <octave>5</octave>
+          </pitch>
         <duration>1</duration>
         <voice>1</voice>
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <rhythm>0.5</rhythm><MIDI>89</MIDI><TotalPI>3.5</TotalPI></note>
+        <rhythm>0.5</rhythm><MIDI>81</MIDI><TotalPI>3.5</TotalPI><melody>main</melody></note>
       <backup>
         <duration>6</duration>
         </backup>
       <note default-x="12.00" default-y="-140.00">
         <pitch>
-          <step>C</step>
-          <octave>5</octave>
-          <alter>1</alter></pitch>
+          <step>F</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>73</MIDI><TotalPI>1</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>65</MIDI><TotalPI>1</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="80.67" default-y="-130.00">
         <pitch>
-          <step>F</step>
-          <octave>5</octave>
-          <alter>0</alter></pitch>
+          <step>A</step>
+          <octave>4</octave>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>77</MIDI><TotalPI>2.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>69</MIDI><TotalPI>2.0</TotalPI><melody>no_main</melody><rest /></note>
       <note default-x="135.61" default-y="-120.00">
         <pitch>
-          <step>G</step>
+          <step>C</step>
           <octave>5</octave>
-          <alter>1</alter></pitch>
+          </pitch>
         <duration>2</duration>
         <voice>5</voice>
         <type>quarter</type>
         <stem>down</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>80</MIDI><TotalPI>3.0</TotalPI></note>
+        <rhythm>1.0</rhythm><MIDI>72</MIDI><TotalPI>3.0</TotalPI><melody>no_main</melody><rest /></note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
         </barline>

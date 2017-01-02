@@ -31,11 +31,15 @@ def change_Tonation(filename, fifths, Tona):
 
     # print('Tona: ', Tona)
 
+
+    # d2 = {}
     ### #1 G   #2 D    #3 A    #4 E  ### b1 F   b2 bB   b3 bE   b4 bA
-    dict = {'C': 0, 'G': 7, 'D': 2, 'A': -3, 'E': 4, 'B': -1, 'Gb': 6, 'F': 5, 'Bb': -2, 'Eb': 3, 'Ab': -4, 'Db': 1}
+    dict = {'C': 0, 'G': 7, 'D': 2, 'A': -3, 'E': 4, 'B': -1, 'Gb': 6, 'F': 5, 'Bb': -2, 'Eb': 3, 'Ab': -4, 'Db': 1, '0':0, '1':7, '2':2, '3':-3, '4':4, '-1':5, '-2':-2, '-3':3, '-4':-4}
     
     # print('dict!!!!!' ,dict[Tona])
-    add_key = dict[Tona]- int(fifths)
+    # print('o: ', dict[fifths])
+    # print('n: ', dict[Tona])
+    add_key = dict[Tona]- dict[fifths]
     print( 'add key: ' , add_key)
 
     ### defind the MIDI_text
