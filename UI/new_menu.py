@@ -349,7 +349,6 @@ def buttonOKClicked():
         # filename = refilename
 
         print('  ~~~~~~~  refilename', refilename)
-        # filenameone = filename.replace('UI', 'Sample')
         filenametwo = refilename.replace('UI', 'Sample')
 
         # print('  ~~~~~~~  newwwwwwwwww:', filenameone)
@@ -359,7 +358,12 @@ def buttonOKClicked():
         # filename = filenameone
         # print('filenameone:', filenameone)
         filename = filenametwo
-
+    
+    if(filename == True):
+        print('File is in the Sample')
+    else:
+        filename = filename.replace('Sample', 'UI')
+        # print('hahahahahhahahahahahahahah  5  ',filename)
 
     level_radio_rhythm = int(radio_rhythm.get())
     # print('level rhythm: ', level_radio_rhythm)
