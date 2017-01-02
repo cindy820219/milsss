@@ -146,11 +146,12 @@ def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
     # if(sum_R == sum_L): 
     #     # print('sum_R == sum_L' )
         
-    #     # print('find RRR: ',melody_rhythm_R.index(1))
-    #     # print('find LLL: ',melody_rhythm_L.index(1))
+    #     print('find RRR: ',melody_rhythm_R.index(1))
+    #     print('find LLL: ',melody_rhythm_L.index(1))
     #     # if(melody_rhythm_R.index(1) ==True or melody_rhythm_L.index(1) == True):
     #     R = melody_rhythm_R.index(1)
     #     L = melody_rhythm_L.index(1)
+
 
     #     if(R == 1):
     #         print('aaaaaaa')
@@ -160,8 +161,8 @@ def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
     #         # print('addd 3')
     #     elif(R < L): 
     #         melody_rhythm.append('1')
-            # print('addd 4')
-            # print('------')
+    #         print('addd 4')
+    #         print('------')
 
 
 
@@ -664,7 +665,7 @@ def rhythm_parsing(DOMTree, collection, hands, rhythm, level):
                             close_daul = math.fabs(pre_x_1_flaot-now_x_float)
 
                     #if(pre_x_1==now_x):
-                    if(close_daul < 10):
+                    if(close_daul < 15):
                         if(pre_x_1 != ''):
                             daul = 'there is a right daul: '+pre_step_data+pre_octave_data+' and '+step_data+octave_data
                             flag_of_daul = 1
@@ -677,7 +678,7 @@ def rhythm_parsing(DOMTree, collection, hands, rhythm, level):
                             now_x_float = float(now_x)
                             close_daul = math.fabs(pre_x_2_flaot-now_x_float)
 
-                    if(close_daul < 10):
+                    if(close_daul < 15):
                         if(pre_x_2 != ''):
                     # if(pre_x_2==now_x):
                     #if(b <= 30):
