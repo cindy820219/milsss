@@ -173,6 +173,13 @@ def high_dual_fun(root, tree):
     chord_min = chord_num *2 // 5 - chord_three
     chord_max = chord_num *3 // 5 - chord_three
 
+    if(chord_min < 0):
+        chord_min=0
+    
+    if(chord_max < 0):
+        chord_max=0
+
+
     print(chord_min,chord_max)
 
     case(chord_max, chord_min)
