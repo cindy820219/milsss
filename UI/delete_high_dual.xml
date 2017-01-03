@@ -5,7 +5,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
-      <encoding-date>2016-12-29</encoding-date>
+      <encoding-date>2017-01-04</encoding-date>
       <supports element="accidental" type="yes" />
       <supports element="beam" type="yes" />
       <supports attribute="new-page" element="print" type="yes" value="yes" />
@@ -93,11 +93,11 @@
         <direction-type>
           <metronome parentheses="no">
             <beat-unit>quarter</beat-unit>
-            <per-minute>75.0</per-minute>
+            <per-minute>108.0</per-minute>
             </metronome>
           </direction-type>
         <staff>1</staff>
-        <sound tempo="75.0" />
+        <sound tempo="108.0" />
         </direction>
       <note>
         <rest />
@@ -1561,19 +1561,7 @@
       <backup>
         <duration>48</duration>
         </backup>
-      <note default-x="18.42" default-y="-155.00">
-        <pitch>
-          <step>E</step>
-          <octave>2</octave>
-          </pitch>
-        <duration>12</duration>
-        <voice>5</voice>
-        <type>quarter</type>
-        <stem>up</stem>
-        <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>40</MIDI><TotalPI>1</TotalPI></note>
       <note default-x="18.42" default-y="-125.00">
-        <chord />
         <pitch>
           <step>D</step>
           <alter>1</alter>
@@ -1585,7 +1573,7 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>51</MIDI><TotalPI>1.0</TotalPI><chord_delete>yes</chord_delete></note>
+        <rhythm>1.0</rhythm><MIDI>51</MIDI><TotalPI>1</TotalPI></note>
       <note default-x="48.56" default-y="-120.00">
         <pitch>
           <step>E</step>
@@ -2566,19 +2554,7 @@
       <backup>
         <duration>48</duration>
         </backup>
-      <note default-x="66.67" default-y="-155.00">
-        <pitch>
-          <step>E</step>
-          <octave>2</octave>
-          </pitch>
-        <duration>12</duration>
-        <voice>5</voice>
-        <type>quarter</type>
-        <stem>up</stem>
-        <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>40</MIDI><TotalPI>1</TotalPI></note>
       <note default-x="66.67" default-y="-125.00">
-        <chord />
         <pitch>
           <step>D</step>
           <alter>1</alter>
@@ -2590,7 +2566,7 @@
         <accidental>sharp</accidental>
         <stem>up</stem>
         <staff>2</staff>
-        <rhythm>1.0</rhythm><MIDI>51</MIDI><TotalPI>1.0</TotalPI><chord_delete>yes</chord_delete></note>
+        <rhythm>1.0</rhythm><MIDI>51</MIDI><TotalPI>1</TotalPI></note>
       <note default-x="127.73" default-y="-120.00">
         <pitch>
           <step>E</step>

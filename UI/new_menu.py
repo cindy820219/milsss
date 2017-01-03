@@ -379,9 +379,6 @@ def buttonOKClicked():
 
 
 
-
-
-
     level_radio_rhythm = int(radio_rhythm.get())
     # print('level rhythm: ', level_radio_rhythm)
 
@@ -414,7 +411,7 @@ def buttonOKClicked():
 
     
     ### ### ### ###
-
+    ### daul low !!!!!!!
     if(level == 1):
         print('in low level dual function')
         print(' ---------->  go to the dual low simple 1')
@@ -460,9 +457,9 @@ def buttonOKClicked():
 
         new_for_sim_dual.simple_dual(DOMTree, collection, level)
         
+        filename = 'change_temp.xml'
+        
     
-
-
     ### Rhythm !!!!!
     if(level_radio_rhythm != 0):
         print(' ---------->  go to rhythm simple')

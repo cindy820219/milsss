@@ -5,7 +5,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
-      <encoding-date>2017-01-03</encoding-date>
+      <encoding-date>2017-01-04</encoding-date>
       <supports element="accidental" type="yes" />
       <supports element="beam" type="yes" />
       <supports attribute="new-page" element="print" type="yes" value="yes" />
@@ -121,9 +121,6 @@
         <staff>1</staff>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
-        <notations>
-          <slur number="1" type="start" />
-          </notations>
         </note>
       <note default-x="173.44" default-y="0.00">
         <pitch>
@@ -172,6 +169,8 @@
         <rest />
         <duration>12</duration>
         <voice>5</voice>
+        <type>half</type>
+        <dot />
         <staff>2</staff>
         </note>
       </measure>
@@ -186,9 +185,6 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="stop" />
-          </notations>
         </note>
       <note default-x="41.47" default-y="-30.00">
         <pitch>
@@ -200,9 +196,6 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="start" />
-          </notations>
         </note>
       <note default-x="100.42" default-y="-20.00">
         <pitch>
@@ -225,9 +218,6 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="stop" />
-          </notations>
         </note>
       <backup>
         <duration>12</duration>
@@ -243,11 +233,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="12.00" default-y="-100.00">
         <chord />
@@ -272,11 +257,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="70.95" default-y="-110.00">
         <pitch>
@@ -289,11 +269,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="100.42" default-y="-125.00">
         <pitch>
@@ -306,11 +281,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="129.89" default-y="-110.00">
         <pitch>
@@ -323,11 +293,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="129.89" default-y="-100.00">
         <chord />
@@ -352,11 +317,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       </measure>
     <measure number="3" width="221.77">
@@ -407,9 +367,6 @@
         <staff>1</staff>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
-        <notations>
-          <slur number="1" type="start" />
-          </notations>
         </note>
       <note default-x="157.64" default-y="-20.00">
         <pitch>
@@ -465,11 +422,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="12.00" default-y="-95.00">
         <chord />
@@ -494,11 +446,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="74.98" default-y="-115.00">
         <pitch>
@@ -512,11 +459,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="106.47" default-y="-125.00">
         <pitch>
@@ -529,11 +471,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="137.96" default-y="-115.00">
         <pitch>
@@ -547,11 +484,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="137.96" default-y="-95.00">
         <chord />
@@ -576,11 +508,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       </measure>
     <measure number="4" width="190.44">
@@ -594,9 +521,6 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="stop" />
-          </notations>
         </note>
       <note default-x="41.47" default-y="-45.00">
         <pitch>
@@ -608,9 +532,6 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="start" />
-          </notations>
         </note>
       <note default-x="100.42" default-y="-25.00">
         <pitch>
@@ -633,9 +554,6 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="stop" />
-          </notations>
         </note>
       <backup>
         <duration>12</duration>
@@ -652,11 +570,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="12.00" default-y="-95.00">
         <chord />
@@ -681,11 +594,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="70.95" default-y="-115.00">
         <pitch>
@@ -699,11 +607,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="100.42" default-y="-125.00">
         <pitch>
@@ -716,11 +619,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="129.89" default-y="-115.00">
         <pitch>
@@ -734,11 +632,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="129.89" default-y="-95.00">
         <chord />
@@ -763,11 +656,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       </measure>
     <measure number="5" width="236.61">
@@ -830,11 +718,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <strong-accent type="up" />
-            </articulations>
-          </notations>
         </note>
       <note default-x="211.85" default-y="-5.00">
         <pitch>
@@ -863,11 +746,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="67.27" default-y="-100.00">
         <chord />
@@ -892,11 +770,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="118.67" default-y="-110.00">
         <pitch>
@@ -909,11 +782,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="144.38" default-y="-125.00">
         <pitch>
@@ -926,11 +794,6 @@
         <stem>down</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="170.08" default-y="-110.00">
         <pitch>
@@ -942,11 +805,6 @@
         <type>eighth</type>
         <stem>down</stem>
         <staff>2</staff>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="170.08" default-y="-100.00">
         <chord />
@@ -986,11 +844,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="70.03" default-y="-15.00">
         <pitch>
@@ -1003,11 +856,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="96.01" default-y="-15.00">
         <pitch>
@@ -1020,11 +868,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="122.00" default-y="-15.00">
         <pitch>
@@ -1037,11 +880,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="147.99" default-y="5.00">
         <pitch>
@@ -1055,11 +893,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <strong-accent type="up" />
-            </articulations>
-          </notations>
         </note>
       <note default-x="190.22" default-y="-5.00">
         <pitch>
@@ -1088,11 +921,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="70.03" default-y="-145.00">
         <pitch>
@@ -1105,11 +933,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="96.01" default-y="-165.00">
         <pitch>
@@ -1122,11 +945,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="122.00" default-y="-145.00">
         <pitch>
@@ -1139,11 +957,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="147.99" default-y="-165.00">
         <pitch>
@@ -1156,11 +969,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="173.97" default-y="-145.00">
         <pitch>
@@ -1173,11 +981,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       </measure>
     <measure number="7" width="206.76">
@@ -1192,11 +995,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="43.08" default-y="-15.00">
         <pitch>
@@ -1211,11 +1009,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="73.12" default-y="-15.00">
         <pitch>
@@ -1229,11 +1022,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="103.15" default-y="-15.00">
         <pitch>
@@ -1247,11 +1035,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="133.19" default-y="5.00">
         <pitch>
@@ -1265,11 +1048,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <strong-accent type="up" />
-            </articulations>
-          </notations>
         </note>
       <note default-x="181.99" default-y="-5.00">
         <pitch>
@@ -1298,11 +1076,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="43.08" default-y="-145.00">
         <pitch>
@@ -1315,11 +1088,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="73.12" default-y="-165.00">
         <pitch>
@@ -1332,11 +1100,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="103.15" default-y="-145.00">
         <pitch>
@@ -1349,11 +1112,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="133.19" default-y="-165.00">
         <pitch>
@@ -1366,11 +1124,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="163.22" default-y="-145.00">
         <pitch>
@@ -1383,11 +1136,6 @@
         <stem>up</stem>
         <staff>2</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       </measure>
     <measure number="8" width="187.26">
@@ -1403,11 +1151,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="43.01" default-y="-10.00">
         <pitch>
@@ -1420,11 +1163,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="74.02" default-y="-20.00">
         <pitch>
@@ -1437,11 +1175,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">begin</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="105.03" default-y="5.00">
         <pitch>
@@ -1454,11 +1187,6 @@
         <stem>down</stem>
         <staff>1</staff>
         <beam number="1">end</beam>
-        <notations>
-          <articulations>
-            <staccato />
-            </articulations>
-          </notations>
         </note>
       <note default-x="136.05" default-y="-5.00">
         <pitch>
