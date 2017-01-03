@@ -231,14 +231,14 @@ def case(chord_max, chord_min):
     case = 0
 
     if(chord_min <= lenth_1):
-        if( lenth_1 < chord_max):
+        if( lenth_1 <= chord_max):
             case = 1
         elif( lenth_1 > chord_max):
             case = 2
             # case = 1
 
     elif(chord_min <= lenth_1 + lenth_3):
-        if( lenth_1+lenth_3 < chord_max):
+        if( lenth_1+lenth_3 <= chord_max):
             case = 3
     
         elif( lenth_1+lenth_3 > chord_max):
@@ -246,14 +246,14 @@ def case(chord_max, chord_min):
     
 
     elif(chord_min <= lenth_1 + lenth_3 + lenth_2):
-        if( lenth_1+lenth_3+lenth_2 < chord_max):
+        if( lenth_1+lenth_3+lenth_2 <= chord_max):
             case = 5
         
         elif( lenth_1+lenth_3+lenth_2 > chord_max):
             case = 6
 
     elif(chord_min <= lenth_1 + lenth_3 + lenth_2+lenth_4):
-        if( lenth_1+lenth_3+lenth_2+lenth_4 < chord_max):
+        if( lenth_1+lenth_3+lenth_2+lenth_4 <= chord_max):
             case = 7
         
         elif( lenth_1+lenth_3+lenth_2+lenth_4 > chord_max):

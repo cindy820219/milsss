@@ -459,11 +459,8 @@ def buttonOKClicked():
         collection = DOMTree.documentElement
 
         new_for_sim_dual.simple_dual(DOMTree, collection, level)
-
         
-        # filename = refilename
-
-
+    
 
 
     ### Rhythm !!!!!
