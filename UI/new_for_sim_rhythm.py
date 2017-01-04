@@ -358,7 +358,7 @@ def high_melody():
                     TotalPI_text = TotalPI.text
                     break
                 if(beat_t != '3'):
-                    print(' beats == 4')    
+                    # print(' beats == 4')    
                     # print('melody_text, rhythm_text: ', melody_text, TotalPI_text)
                     if (3.0 > float(TotalPI_text) > 1.0 and melody_text == 'no_main'):
                         xml.etree.ElementTree.SubElement(note, 'rest')
