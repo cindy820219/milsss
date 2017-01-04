@@ -767,9 +767,6 @@ def case_delete_function(case):
 
 
 
-
-
-
     for measure in root.iter('measure'):
         for note in measure.iter('note'):
             if(note.find('must_chord_delete') != None):
