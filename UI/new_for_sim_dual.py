@@ -62,6 +62,7 @@ def high_dual_fun(root, tree):
 
     is_three_chord = 0 
 
+    three_chord_quene = []
     
     ### to get the divisions :(((
     DOMTree = xml.dom.minidom.parse('change_parse.xml')
@@ -104,10 +105,11 @@ def high_dual_fun(root, tree):
             if(chord_pre == 1 and chord_now == 1):
                 chord_three = chord_three + 1
                 is_three_chord = 1
-            # print('chord_three: ', chord_three)
+            print('chord_three: ', chord_three)
 
             ### left hand delete 'chord'
             if(is_three_chord == 1):
+                print(' IN is_three_chord !!!')
                 if(chord != None):
                     if(daul_staff_data == '1'):
                         xml.etree.ElementTree.SubElement(daul_pre_note, 'must_chord_delete')
@@ -123,11 +125,14 @@ def high_dual_fun(root, tree):
                         if(daul_pre_pre_note.find('chord_delete') != None):
                             chord_delete = daul_pre_pre_note.find('chord_delete')
                             daul_pre_pre_note.remove(chord_delete)
+                            # three_chord_quene.append(chord_delete)
+
                         #     # daul_pre_pre_note.remove(chord_delete)
                     
                     if(daul_staff_data == '2'):
                         xml.etree.ElementTree.SubElement(daul_pre_note, 'must_chord_delete')
                         daul_pre_note.find('must_chord_delete').text = 'yes'    
+                        
                 is_three_chord = 0
 
 
@@ -151,6 +156,8 @@ def high_dual_fun(root, tree):
                 daul_pre_pre_note = daul_pre_note
             daul_pre_note = note
             chord_pre = chord_now
+
+
 
     # ### here is delete the notes !!!
     # for measure in root.iter('measure'):

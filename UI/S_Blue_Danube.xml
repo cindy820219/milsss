@@ -5,7 +5,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
-      <encoding-date>2016-12-13</encoding-date>
+      <encoding-date>2017-01-06</encoding-date>
       <supports element="accidental" type="yes" />
       <supports element="beam" type="yes" />
       <supports attribute="new-page" element="print" type="yes" value="yes" />
@@ -1533,9 +1533,9 @@
           <staff-distance>65.00</staff-distance>
           </staff-layout>
         </print>
-      <note default-x="51.25" default-y="-5.00">
+      <note default-x="51.25" default-y="0.00">
         <pitch>
-          <step>E</step>
+          <step>F</step>
           <octave>5</octave>
           </pitch>
         <duration>2</duration>
