@@ -131,7 +131,7 @@ def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
     # print('sum_R, sum_L: ',sum_R, sum_L)
 
     ### if sum_R > sum_L
-    if(sum_R >= sum_L): 
+    if(sum_R > sum_L): 
         # print('--------------' )
         # print('sum_R > sum_L' )
         melody_rhythm.append('1')
@@ -143,26 +143,22 @@ def melody_rhythm_func(melody_rhythm, melody_rhythm_R, melody_rhythm_L):
         melody_rhythm.append('2')
         # print('addd 2')
     
-    # if(sum_R == sum_L): 
-    #     # print('sum_R == sum_L' )
+    if(sum_R == sum_L): 
+        # print('sum_R == sum_L' )
         
-    #     print('find RRR: ',melody_rhythm_R.index(1))
-    #     print('find LLL: ',melody_rhythm_L.index(1))
-    #     # if(melody_rhythm_R.index(1) ==True or melody_rhythm_L.index(1) == True):
-    #     R = melody_rhythm_R.index(1)
-    #     L = melody_rhythm_L.index(1)
+        print('find RRR: ',melody_rhythm_R.index(1))
+        print('find LLL: ',melody_rhythm_L.index(1))
+        # if(melody_rhythm_R.index(1) ==True or melody_rhythm_L.index(1) == True):
+        R = melody_rhythm_R.index(1)
+        L = melody_rhythm_L.index(1)
 
 
-    #     if(R == 1):
-    #         print('aaaaaaa')
+        if( R >= L):
+            melody_rhythm.append('2')
         
-    #     if( R >= L):
-    #         melody_rhythm.append('2')
-    #         # print('addd 3')
-    #     elif(R < L): 
-    #         melody_rhythm.append('1')
-    #         print('addd 4')
-    #         print('------')
+        elif(R <= L): 
+            melody_rhythm.append('1')
+            
 
 
 
@@ -414,8 +410,8 @@ def rhythm_parsing(DOMTree, collection, hands, rhythm, level):
     ### melody define
     melody_cutnote = []
     melody_rhythm  = []
-    melody_rhythm_R = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    melody_rhythm_L = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    melody_rhythm_R = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    melody_rhythm_L = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
 
     sum_R = 0
     sum_L = 0
@@ -717,8 +713,8 @@ def rhythm_parsing(DOMTree, collection, hands, rhythm, level):
 
 
                     ### clear for the next measure !!
-                    melody_rhythm_R = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    melody_rhythm_L = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    melody_rhythm_R = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+                    melody_rhythm_L = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
 
                     melody_pitch_temp_R = []
                     melody_pitch_temp_L = []
