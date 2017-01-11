@@ -5,7 +5,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
-      <encoding-date>2017-01-06</encoding-date>
+      <encoding-date>2017-01-11</encoding-date>
       <supports element="accidental" type="yes" />
       <supports element="beam" type="yes" />
       <supports attribute="new-page" element="print" type="yes" value="yes" />
@@ -2640,15 +2640,11 @@
           <octave>4</octave>
           </pitch>
         <duration>6</duration>
-        <tie type="start" />
         <voice>1</voice>
         <type>half</type>
         <dot />
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <tied type="start" />
-          </notations>
         </note>
       <backup>
         <duration>6</duration>
@@ -2718,14 +2714,10 @@
           <octave>4</octave>
           </pitch>
         <duration>2</duration>
-        <tie type="stop" />
         <voice>1</voice>
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <tied type="stop" />
-          </notations>
         </note>
       <note default-x="52.07" default-y="-35.00">
         <pitch>
@@ -2819,15 +2811,11 @@
           <octave>5</octave>
           </pitch>
         <duration>6</duration>
-        <tie type="start" />
         <voice>1</voice>
         <type>half</type>
         <dot />
         <stem>down</stem>
         <staff>1</staff>
-        <notations>
-          <tied type="start" />
-          </notations>
         </note>
       <backup>
         <duration>6</duration>
@@ -2903,22 +2891,18 @@
           <staff-distance>65.00</staff-distance>
           </staff-layout>
         </print>
-      <note default-x="53.18" default-y="-5.00">
+      <note default-x="51.25" default-y="-5.00">
         <pitch>
           <step>E</step>
           <octave>5</octave>
           </pitch>
         <duration>2</duration>
-        <tie type="stop" />
         <voice>1</voice>
         <type>quarter</type>
         <stem>down</stem>
         <staff>1</staff>
-        <notations>
-          <tied type="stop" />
-          </notations>
         </note>
-      <note default-x="112.36" default-y="-15.00">
+      <note default-x="111.08" default-y="-15.00">
         <pitch>
           <step>C</step>
           <octave>5</octave>
@@ -2929,7 +2913,7 @@
         <stem>down</stem>
         <staff>1</staff>
         </note>
-      <note default-x="171.55" default-y="-40.00">
+      <note default-x="170.91" default-y="-40.00">
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -2943,7 +2927,7 @@
       <backup>
         <duration>6</duration>
         </backup>
-      <note default-x="53.18" default-y="-130.00">
+      <note default-x="51.25" default-y="-130.00">
         <pitch>
           <step>C</step>
           <octave>3</octave>
@@ -2954,7 +2938,7 @@
         <stem>up</stem>
         <staff>2</staff>
         </note>
-      <note default-x="112.36" default-y="-120.00">
+      <note default-x="111.08" default-y="-120.00">
         <pitch>
           <step>E</step>
           <octave>3</octave>
@@ -2965,7 +2949,7 @@
         <stem>down</stem>
         <staff>2</staff>
         </note>
-      <note default-x="112.36" default-y="-110.00">
+      <note default-x="111.08" default-y="-110.00">
         <chord />
         <pitch>
           <step>G</step>
@@ -2977,7 +2961,7 @@
         <stem>down</stem>
         <staff>2</staff>
         </note>
-      <note default-x="171.55" default-y="-120.00">
+      <note default-x="170.91" default-y="-120.00">
         <pitch>
           <step>E</step>
           <octave>3</octave>
@@ -2988,7 +2972,7 @@
         <stem>down</stem>
         <staff>2</staff>
         </note>
-      <note default-x="171.55" default-y="-110.00">
+      <note default-x="170.91" default-y="-110.00">
         <chord />
         <pitch>
           <step>G</step>
@@ -3012,9 +2996,6 @@
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="start" />
-          </notations>
         </note>
       <note default-x="119.33" default-y="-45.00">
         <pitch>
@@ -3026,9 +3007,6 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="stop" />
-          </notations>
         </note>
       <backup>
         <duration>6</duration>
@@ -3083,9 +3061,6 @@
         <type>half</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="start" />
-          </notations>
         </note>
       <note default-x="119.33" default-y="-30.00">
         <pitch>
@@ -3097,9 +3072,6 @@
         <type>quarter</type>
         <stem>up</stem>
         <staff>1</staff>
-        <notations>
-          <slur number="1" type="stop" />
-          </notations>
         </note>
       <backup>
         <duration>6</duration>

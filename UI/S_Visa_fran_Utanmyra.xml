@@ -7,7 +7,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
-      <encoding-date>2017-01-10</encoding-date>
+      <encoding-date>2017-01-11</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -1848,13 +1848,9 @@
           <octave>3</octave>
           </pitch>
         <duration>16</duration>
-        <tie type="start"/>
         <voice>1</voice>
         <type>whole</type>
         <staff>1</staff>
-        <notations>
-          <tied type="start"/>
-          </notations>
         </note>
       <backup>
         <duration>16</duration>
@@ -1923,26 +1919,20 @@
           <staff-distance>65.00</staff-distance>
           </staff-layout>
         </print>
-      <note default-x="53.18" default-y="-60.00">
+      <note default-x="50.68" default-y="-60.00">
         <pitch>
           <step>A</step>
           <octave>3</octave>
           </pitch>
         <duration>16</duration>
-        <tie type="stop"/>
-        <tie type="start"/>
         <voice>1</voice>
         <type>whole</type>
         <staff>1</staff>
-        <notations>
-          <tied type="stop"/>
-          <tied type="start"/>
-          </notations>
         </note>
       <backup>
         <duration>16</duration>
         </backup>
-      <note default-x="56.13" default-y="-140.00">
+      <note default-x="53.63" default-y="-140.00">
         <pitch>
           <step>A</step>
           <octave>2</octave>
@@ -1953,7 +1943,7 @@
         <stem>up</stem>
         <staff>2</staff>
         </note>
-      <note default-x="141.47" default-y="-120.00">
+      <note default-x="139.85" default-y="-120.00">
         <pitch>
           <step>E</step>
           <octave>3</octave>
@@ -1964,7 +1954,7 @@
         <stem>down</stem>
         <staff>2</staff>
         </note>
-      <note default-x="208.24" default-y="-155.00">
+      <note default-x="207.31" default-y="-155.00">
         <pitch>
           <step>E</step>
           <octave>2</octave>
@@ -1977,7 +1967,7 @@
         <staff>2</staff>
         <beam number="1">begin</beam>
         </note>
-      <note default-x="267.45" default-y="-145.00">
+      <note default-x="267.13" default-y="-145.00">
         <pitch>
           <step>G</step>
           <alter>1</alter>
@@ -2000,13 +1990,9 @@
           <octave>3</octave>
           </pitch>
         <duration>16</duration>
-        <tie type="stop"/>
         <voice>1</voice>
         <type>whole</type>
         <staff>1</staff>
-        <notations>
-          <tied type="stop"/>
-          </notations>
         </note>
       <backup>
         <duration>16</duration>

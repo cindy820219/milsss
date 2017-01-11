@@ -5,7 +5,7 @@
   <identification>
     <encoding>
       <software>MuseScore 2.0.3.1</software>
-      <encoding-date>2017-01-04</encoding-date>
+      <encoding-date>2017-01-12</encoding-date>
       <supports element="accidental" type="yes" />
       <supports element="beam" type="yes" />
       <supports attribute="new-page" element="print" type="yes" value="yes" />
@@ -1290,15 +1290,11 @@
           <octave>3</octave>
           </pitch>
         <duration>6</duration>
-        <tie type="start" />
         <voice>5</voice>
         <type>half</type>
         <dot />
         <stem>down</stem>
         <staff>2</staff>
-        <notations>
-          <tied type="start" />
-          </notations>
         </note>
       </measure>
     <measure number="14" width="95.84">
@@ -1337,14 +1333,10 @@
           <octave>3</octave>
           </pitch>
         <duration>2</duration>
-        <tie type="stop" />
         <voice>5</voice>
         <type>quarter</type>
         <stem>down</stem>
         <staff>2</staff>
-        <notations>
-          <tied type="stop" />
-          </notations>
         </note>
       <note default-x="39.65" default-y="-115.00">
         <pitch>
@@ -1445,15 +1437,11 @@
           <octave>3</octave>
           </pitch>
         <duration>6</duration>
-        <tie type="start" />
         <voice>5</voice>
         <type>half</type>
         <dot />
         <stem>down</stem>
         <staff>2</staff>
-        <notations>
-          <tied type="start" />
-          </notations>
         </note>
       </measure>
     <measure number="16" width="96.85">
@@ -1514,14 +1502,10 @@
           <octave>3</octave>
           </pitch>
         <duration>2</duration>
-        <tie type="stop" />
         <voice>5</voice>
         <type>quarter</type>
         <stem>down</stem>
         <staff>2</staff>
-        <notations>
-          <tied type="stop" />
-          </notations>
         </note>
       <note default-x="39.99" default-y="-115.00">
         <pitch>
@@ -1627,15 +1611,11 @@
           <octave>3</octave>
           </pitch>
         <duration>6</duration>
-        <tie type="start" />
         <voice>5</voice>
         <type>half</type>
         <dot />
         <stem>down</stem>
         <staff>2</staff>
-        <notations>
-          <tied type="start" />
-          </notations>
         </note>
       </measure>
     <measure number="18" width="96.85">
@@ -1673,14 +1653,10 @@
           <octave>3</octave>
           </pitch>
         <duration>2</duration>
-        <tie type="stop" />
         <voice>5</voice>
         <type>quarter</type>
         <stem>down</stem>
         <staff>2</staff>
-        <notations>
-          <tied type="stop" />
-          </notations>
         </note>
       <note default-x="39.99" default-y="-115.00">
         <pitch>

@@ -105,11 +105,11 @@ def high_dual_fun(root, tree):
             if(chord_pre == 1 and chord_now == 1):
                 chord_three = chord_three + 1
                 is_three_chord = 1
-            print('chord_three: ', chord_three)
+            # print('chord_three: ', chord_three)
 
             ### left hand delete 'chord'
             if(is_three_chord == 1):
-                print(' IN is_three_chord !!!')
+                # print(' IN is_three_chord !!!')
                 if(chord != None):
                     if(daul_staff_data == '1'):
                         xml.etree.ElementTree.SubElement(daul_pre_note, 'must_chord_delete')
@@ -134,7 +134,8 @@ def high_dual_fun(root, tree):
                         daul_pre_note.find('must_chord_delete').text = 'yes'    
                         
                 is_three_chord = 0
-
+                xml.etree.ElementTree.SubElement(note, 'is_three')
+                note.find('is_three').text = 'yes'    
 
             if(chord != None and daul_staff_data == '2' and is_three_chord == 0):
                 # xml.etree.ElementTree.SubElement(note, 'rest')
@@ -207,6 +208,7 @@ def case(chord_max, chord_min):
 
             if(note.find('chord_delete') != None):
                 if(note.find('must_chord_delete') != None):
+                # if(note.find('is_three') != None):
                     # print('here')
                     # b = 1
                     break
@@ -316,61 +318,69 @@ def case_delete_function(case):
 
                 must_delete = 0
 
-                if(note.find('chord_delete') != None):
-                    for staff in note.iter('staff'):
-                        staff_text = staff.text
-                        for TotalPI in note.iter('TotalPI'):
-                            TotalPI_text = TotalPI.text
-                            TotalPI_text = float(TotalPI_text)
-                            
-                            if(TotalPI_text == 4.0 or TotalPI_text == 2.0 or TotalPI_text == 3.0):
-                                if(staff_text == '1'):
-                                    must_delete = 1
-                                elif(staff_text == '2'):
-                                    # measure.remove(note)
-                                    quene_delete.append(note)
+                # if(note.find('chord_delete') != None):
+                
+                
+
+                if(note.find('is_three') != None):
+                    print('hehhehehehe')
+
+                else:
+                    if(note.find('chord_delete') != None):
+                        for staff in note.iter('staff'):
+                            staff_text = staff.text
+                            for TotalPI in note.iter('TotalPI'):
+                                TotalPI_text = TotalPI.text
+                                TotalPI_text = float(TotalPI_text)
+                                
+                                if(TotalPI_text == 4.0 or TotalPI_text == 2.0 or TotalPI_text == 3.0):
+                                    if(staff_text == '1'):
+                                        must_delete = 1
+                                    elif(staff_text == '2'):
+                                        # measure.remove(note)
+                                        quene_delete.append(note)
 
 
-                            ### ### ### 
-                            if(1.0 < TotalPI_text < 2.0):
-                                if(staff_text == '1'):
-                                    must_delete = 1
-                                    
-                                elif(staff_text == '2'):
-                                    # measure.remove(note)
-                                    quene_delete.append(note)
+                                ### ### ### 
+                                if(1.0 < TotalPI_text < 2.0):
+                                    if(staff_text == '1'):
+                                        must_delete = 1
+                                        
+                                    elif(staff_text == '2'):
+                                        # measure.remove(note)
+                                        quene_delete.append(note)
 
 
-                            if(2.0 < TotalPI_text < 3.0):
-                                if(staff_text == '1'):
-                                    must_delete = 1
-                                    print('here !!!!')
+                                if(2.0 < TotalPI_text < 3.0):
+                                    if(staff_text == '1'):
+                                        must_delete = 1
+                                        print('here !!!!')
 
 
-                                elif(staff_text == '2'):
-                                    # measure.remove(note)
-                                    quene_delete.append(note)
+                                    elif(staff_text == '2'):
+                                        # measure.remove(note)
+                                        quene_delete.append(note)
 
 
 
-                            if(3.0 < TotalPI_text < 4.0):
-                                if(staff_text == '1'):
-                                    must_delete = 1
-                                elif(staff_text == '2'):
-                                    # measure.remove(note)
-                                    quene_delete.append(note)
+                                if(3.0 < TotalPI_text < 4.0):
+                                    if(staff_text == '1'):
+                                        must_delete = 1
+                                    elif(staff_text == '2'):
+                                        # measure.remove(note)
+                                        quene_delete.append(note)
 
 
-                            if(4.0 < TotalPI_text):
-                                if(staff_text == '1'):
-                                    must_delete = 1
-                                elif(staff_text == '2'):
-                                    # measure.remove(note)
-                                    quene_delete.append(note)
+                                if(4.0 < TotalPI_text):
+                                    if(staff_text == '1'):
+                                        must_delete = 1
+                                    elif(staff_text == '2'):
+                                        # measure.remove(note)
+                                        quene_delete.append(note)
 
 
-                            ### ### ###
-                            pre_note = note
+                                ### ### ###
+                                pre_note = note
 
 
 
