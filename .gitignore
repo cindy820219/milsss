@@ -66,3 +66,7 @@ target/
 
 # tmp files
 change-*
+UI/change_*
+UI/delete_*
+UI/file*
+
