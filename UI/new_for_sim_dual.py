@@ -175,11 +175,13 @@ def high_dual_fun(root, tree):
     tree.write('delete_high_dual.xml')
 
     chord_num = chord_num - chord_three
-    # print(chord_num)
-    # print(chord_three)
+    print(chord_num)
+    print(chord_three)
     ### count chord_min and chord_max
     chord_min = chord_num *2 // 5 - chord_three
     chord_max = chord_num *3 // 5 - chord_three
+    # chord_min = (chord_num - chord_three) *2 // 5
+    # chord_max = (chord_num - chord_three) *3 // 5
 
     if(chord_min < 0):
         chord_min=0
